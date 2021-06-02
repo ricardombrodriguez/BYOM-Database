@@ -6,6 +6,6 @@ Projeto final da cadeira de Base de Dados (2.º ano 2.º semestre). O projeto co
 
 ## BYOM - Be Your Own Manager
 
-###Authors:
+### Authors:
 - Gonçalo Leal | 98008
 - Ricardo Rodriguez | 98388
