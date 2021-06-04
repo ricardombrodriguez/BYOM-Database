@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LEI\\2ano\\BD\\Projecto\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj": {}
+    "C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj": {}
   },
   "projects": {
-    "D:\\LEI\\2ano\\BD\\Projecto\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj": {
+    "C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LEI\\2ano\\BD\\Projecto\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj",
+        "projectUniqueName": "C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj",
         "projectName": "ProjetoFinalBD",
-        "projectPath": "D:\\LEI\\2ano\\BD\\Projecto\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj",
-        "packagesPath": "C:\\Users\\Gonçalo Silva\\.nuget\\packages\\",
-        "outputPath": "D:\\LEI\\2ano\\BD\\Projecto\\C#Template\\ProjetoFinalBD\\obj\\",
+        "projectPath": "C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj",
+        "packagesPath": "C:\\Users\\35192\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gonçalo Silva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\35192\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

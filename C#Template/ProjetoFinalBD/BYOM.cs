@@ -42,5 +42,6 @@ namespace ProjetoFinalBD
             panelLeft.Height = btnCadeiras.Height;
             panelLeft.Top = btnCadeiras.Top;
         }
+
     }
 }
