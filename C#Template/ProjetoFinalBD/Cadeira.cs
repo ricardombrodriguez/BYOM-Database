@@ -10,51 +10,37 @@ using System.Windows.Forms;
 
 namespace ProjetoFinalBD
 {
-    public partial class BYOM : Form
+    public partial class Cadeira : Form
     {
-        public BYOM()
+        public Cadeira()
         {
             InitializeComponent();
-            panelLeft.Height = btnHome.Height;
-            panelLeft.Top = btnHome.Top;
+            panelLeft.Height = btnCadeiras.Height;
+            panelLeft.Top = btnCadeiras.Top;
         }
 
         private void btnCadeiras_Click(object sender, EventArgs e)
-        { 
-            this.Hide();
-            Cadeira cadeira = new Cadeira();
-            cadeira.Show();
+        {
+            //mesmo
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            //
+            this.Hide();
+            BYOM home = new BYOM();
+            home.Show();
         }
 
         private void lblHome_Click(object sender, EventArgs e)
         {
-            //
+            this.Hide();
+            BYOM home = new BYOM();
+            home.Show();
         }
 
         private void lblCadeiras_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Cadeira cadeira = new Cadeira();
-            cadeira.Show();
-        }
-
-        private void lblPaginas_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Paginas pagina = new Paginas();
-            pagina.Show();
-        }
-
-        private void lblGrupos_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Grupos grupos = new Grupos();
-            grupos.Show();
+            //mesmo
         }
 
         private void btnPaginas_Click(object sender, EventArgs e)
@@ -64,7 +50,21 @@ namespace ProjetoFinalBD
             pagina.Show();
         }
 
+        private void lblPaginas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Paginas pagina = new Paginas();
+            pagina.Show();
+        }
+
         private void btnGrupos_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Grupos grupos = new Grupos();
+            grupos.Show();
+        }
+
+        private void lblGrupos_Click(object sender, EventArgs e)
         {
             this.Hide();
             Grupos grupos = new Grupos();
