@@ -30,6 +30,7 @@ namespace ProjetoFinalBD
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+<<<<<<< HEAD
             this.panelLeft = new System.Windows.Forms.Panel();
             this.lblTarefas = new System.Windows.Forms.Label();
             this.lblPaginas = new System.Windows.Forms.Label();
@@ -39,6 +40,15 @@ namespace ProjetoFinalBD
             this.btnInstituicoes = new System.Windows.Forms.Button();
             this.lblCadeiras = new System.Windows.Forms.Label();
             this.lblHome = new System.Windows.Forms.Label();
+=======
+            this.lblHome = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblCadeiras = new System.Windows.Forms.Label();
+            this.panelLeft = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+>>>>>>> 5258d4bc17407b11bdf1cf278d5a6160ac49acb7
             this.btnCadeiras = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -66,6 +76,7 @@ namespace ProjetoFinalBD
             // 
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+<<<<<<< HEAD
             this.panel1.Controls.Add(this.panelLeft);
             this.panel1.Controls.Add(this.lblTarefas);
             this.panel1.Controls.Add(this.lblPaginas);
@@ -75,6 +86,15 @@ namespace ProjetoFinalBD
             this.panel1.Controls.Add(this.btnInstituicoes);
             this.panel1.Controls.Add(this.lblCadeiras);
             this.panel1.Controls.Add(this.lblHome);
+=======
+            this.panel1.Controls.Add(this.lblHome);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.lblCadeiras);
+            this.panel1.Controls.Add(this.panelLeft);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.button3);
+>>>>>>> 5258d4bc17407b11bdf1cf278d5a6160ac49acb7
             this.panel1.Controls.Add(this.btnCadeiras);
             this.panel1.Controls.Add(this.btnHome);
             this.panel1.Controls.Add(this.panel3);
@@ -84,6 +104,7 @@ namespace ProjetoFinalBD
             this.panel1.Size = new System.Drawing.Size(200, 617);
             this.panel1.TabIndex = 0;
             // 
+<<<<<<< HEAD
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -175,6 +196,38 @@ namespace ProjetoFinalBD
             this.btnInstituicoes.Click += new System.EventHandler(this.btnInstituicoes_Click);
             this.btnInstituicoes.MouseEnter += new System.EventHandler(this.btnInstituicoes_MouseEnter);
             this.btnInstituicoes.MouseLeave += new System.EventHandler(this.btnInstituicoes_MouseLeave);
+=======
+            // lblHome
+            // 
+            this.lblHome.AutoSize = true;
+            this.lblHome.BackColor = System.Drawing.Color.Transparent;
+            this.lblHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblHome.Location = new System.Drawing.Point(67, 129);
+            this.lblHome.Name = "lblHome";
+            this.lblHome.Size = new System.Drawing.Size(69, 23);
+            this.lblHome.TabIndex = 12;
+            this.lblHome.Text = "Home";
+            this.lblHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblHome.Click += new System.EventHandler(this.lblHome_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(66, 340);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(83, 23);
+            this.label13.TabIndex = 14;
+            this.label13.Text = "label13";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(67, 270);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(83, 23);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "label12";
+>>>>>>> 5258d4bc17407b11bdf1cf278d5a6160ac49acb7
             // 
             // lblCadeiras
             // 
@@ -183,13 +236,14 @@ namespace ProjetoFinalBD
             this.lblCadeiras.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblCadeiras.Location = new System.Drawing.Point(60, 270);
             this.lblCadeiras.Name = "lblCadeiras";
-            this.lblCadeiras.Size = new System.Drawing.Size(80, 21);
+            this.lblCadeiras.Size = new System.Drawing.Size(98, 23);
             this.lblCadeiras.TabIndex = 13;
             this.lblCadeiras.Text = "Cadeiras";
             this.lblCadeiras.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblCadeiras.Click += new System.EventHandler(this.lblCadeiras_Click);
             this.lblCadeiras.MouseEnter += new System.EventHandler(this.lblCadeiras_MouseEnter);
             // 
+<<<<<<< HEAD
             // lblHome
             // 
             this.lblHome.AutoSize = true;
@@ -203,6 +257,35 @@ namespace ProjetoFinalBD
             this.lblHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblHome.Click += new System.EventHandler(this.lblHome_Click);
             this.lblHome.MouseEnter += new System.EventHandler(this.lblHome_MouseEnter);
+=======
+            // panelLeft
+            // 
+            this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.panelLeft.Location = new System.Drawing.Point(188, 108);
+            this.panelLeft.Name = "panelLeft";
+            this.panelLeft.Size = new System.Drawing.Size(10, 64);
+            this.panelLeft.TabIndex = 12;
+            // 
+            // button4
+            // 
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.button4.Location = new System.Drawing.Point(0, 318);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(199, 64);
+            this.button4.TabIndex = 4;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.button3.Location = new System.Drawing.Point(0, 248);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(198, 64);
+            this.button3.TabIndex = 3;
+            this.button3.UseVisualStyleBackColor = true;
+>>>>>>> 5258d4bc17407b11bdf1cf278d5a6160ac49acb7
             // 
             // btnCadeiras
             // 
@@ -251,7 +334,7 @@ namespace ProjetoFinalBD
             this.label1.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(-8, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(222, 77);
+            this.label1.Size = new System.Drawing.Size(275, 93);
             this.label1.TabIndex = 2;
             this.label1.Text = "BYOM";
             // 
@@ -276,7 +359,7 @@ namespace ProjetoFinalBD
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.label11.Location = new System.Drawing.Point(279, 450);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(0, 21);
+            this.label11.Size = new System.Drawing.Size(0, 23);
             this.label11.TabIndex = 11;
             // 
             // label10
@@ -284,7 +367,7 @@ namespace ProjetoFinalBD
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(273, 450);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(0, 21);
+            this.label10.Size = new System.Drawing.Size(0, 23);
             this.label10.TabIndex = 10;
             // 
             // tableLayoutPanel1
@@ -295,8 +378,8 @@ namespace ProjetoFinalBD
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.1649F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.37632F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 0);
@@ -309,9 +392,9 @@ namespace ProjetoFinalBD
             this.tableLayoutPanel1.Location = new System.Drawing.Point(21, 62);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.98113F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.01887F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(946, 159);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.51341F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.48659F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(946, 522);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // label3
@@ -321,7 +404,7 @@ namespace ProjetoFinalBD
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 21);
+            this.label3.Size = new System.Drawing.Size(129, 23);
             this.label3.TabIndex = 3;
             this.label3.Text = "Segunda";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -333,7 +416,7 @@ namespace ProjetoFinalBD
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(138, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 21);
+            this.label4.Size = new System.Drawing.Size(129, 23);
             this.label4.TabIndex = 4;
             this.label4.Text = "Terça";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -345,7 +428,7 @@ namespace ProjetoFinalBD
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(813, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(130, 21);
+            this.label9.Size = new System.Drawing.Size(130, 23);
             this.label9.TabIndex = 9;
             this.label9.Text = "Domingo";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -357,7 +440,7 @@ namespace ProjetoFinalBD
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(273, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(129, 21);
+            this.label5.Size = new System.Drawing.Size(129, 23);
             this.label5.TabIndex = 5;
             this.label5.Text = "Quarta";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -369,7 +452,7 @@ namespace ProjetoFinalBD
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(678, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(129, 21);
+            this.label8.Size = new System.Drawing.Size(129, 23);
             this.label8.TabIndex = 8;
             this.label8.Text = "Sábado";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -381,7 +464,7 @@ namespace ProjetoFinalBD
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(408, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(129, 21);
+            this.label6.Size = new System.Drawing.Size(128, 23);
             this.label6.TabIndex = 6;
             this.label6.Text = "Quinta";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -391,9 +474,9 @@ namespace ProjetoFinalBD
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(543, 0);
+            this.label7.Location = new System.Drawing.Point(542, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(129, 21);
+            this.label7.Size = new System.Drawing.Size(130, 23);
             this.label7.TabIndex = 7;
             this.label7.Text = "Sexta";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -416,11 +499,11 @@ namespace ProjetoFinalBD
             // 
             this.label2.AutoSize = true;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Default;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(21, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(209, 26);
+            this.label2.Size = new System.Drawing.Size(268, 35);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tarefas da Semana";
             // 

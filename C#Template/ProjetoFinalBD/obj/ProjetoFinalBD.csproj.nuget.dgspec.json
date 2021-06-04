@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "D:\\LEI\\2ano\\BD\\Projecto\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj": {}
   },
   "projects": {
@@ -12,9 +13,22 @@
         "projectPath": "D:\\LEI\\2ano\\BD\\Projecto\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj",
         "packagesPath": "C:\\Users\\Gonçalo Silva\\.nuget\\packages\\",
         "outputPath": "D:\\LEI\\2ano\\BD\\Projecto\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\obj\\",
+=======
+    "C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj",
+        "projectName": "ProjetoFinalBD",
+        "projectPath": "C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj",
+        "packagesPath": "C:\\Users\\35192\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\obj\\",
+>>>>>>> 5258d4bc17407b11bdf1cf278d5a6160ac49acb7
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gonçalo Silva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\35192\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
