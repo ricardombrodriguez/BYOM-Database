@@ -38,3 +38,9 @@ C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2�
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Cadeira.resources
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Grupos.resources
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Paginas.resources
+C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Instituicoes.resources
+C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Login.resources
+C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.AddTarefa.resources
+C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CadeiraInfo.resources
+C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CriarConta.resources
+C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Tarefas.resources

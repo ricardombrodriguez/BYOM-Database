@@ -10,18 +10,20 @@ using System.Windows.Forms;
 
 namespace ProjetoFinalBD
 {
-    public partial class Cadeira : Form
+    public partial class Instituicoes : Form
     {
-        public Cadeira()
+        public Instituicoes()
         {
             InitializeComponent();
-            panelLeft.Height = btnCadeiras.Height;
-            panelLeft.Top = btnCadeiras.Top;
+            panelLeft.Height = btnInstituicoes.Height;
+            panelLeft.Top = btnInstituicoes.Top;
         }
 
         private void btnCadeiras_Click(object sender, EventArgs e)
         {
-            //mesmo
+            this.Hide();
+            Cadeira cadeira = new Cadeira();
+            cadeira.Show();
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -40,7 +42,21 @@ namespace ProjetoFinalBD
 
         private void lblCadeiras_Click(object sender, EventArgs e)
         {
-            //mesmo
+            this.Hide();
+            Cadeira cadeira = new Cadeira();
+            cadeira.Show();
+        }
+
+        
+
+        private void lblInstituicoes_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void btnInstituicoes_Click(object sender, EventArgs e)
+        {
+            //
         }
 
         private void btnPaginas_Click(object sender, EventArgs e)
@@ -71,18 +87,18 @@ namespace ProjetoFinalBD
             grupos.Show();
         }
 
-        private void btnInstituicoes_Click(object sender, EventArgs e)
+        private void lblInstituicoes_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            Instituicoes instituicao = new Instituicoes();
-            instituicao.Show();
+            Tarefas tarefa = new Tarefas();
+            tarefa.Show();
         }
 
-        private void lblInstituicoes_Click(object sender, EventArgs e)
+        private void btnInstituicoes_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            Instituicoes instituicao = new Instituicoes();
-            instituicao.Show();
+            Tarefas tarefa = new Tarefas();
+            tarefa.Show();
         }
 
         private void lblTarefas_Click(object sender, EventArgs e)
@@ -98,12 +114,5 @@ namespace ProjetoFinalBD
             Tarefas tarefa = new Tarefas();
             tarefa.Show();
         }
-
-        private void btnCriarCadeira_Click(object sender, EventArgs e)
-        {
-            CadeiraInfo novaCadeira = new CadeiraInfo();
-            novaCadeira.Show();
-        }
-
     }
 }

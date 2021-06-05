@@ -31,6 +31,8 @@ namespace ProjetoFinalBD
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Grupos));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblInstituicoes = new System.Windows.Forms.Label();
+            this.btnInstituicoes = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.lblHome = new System.Windows.Forms.Label();
             this.lblGrupos = new System.Windows.Forms.Label();
@@ -49,6 +51,9 @@ namespace ProjetoFinalBD
             this.label10 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnTarefas = new System.Windows.Forms.Button();
+            this.lblTarefas = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -59,6 +64,10 @@ namespace ProjetoFinalBD
             // 
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lblTarefas);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.lblInstituicoes);
+            this.panel1.Controls.Add(this.btnInstituicoes);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.lblHome);
             this.panel1.Controls.Add(this.lblGrupos);
@@ -75,6 +84,29 @@ namespace ProjetoFinalBD
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 617);
             this.panel1.TabIndex = 0;
+            // 
+            // lblInstituicoes
+            // 
+            this.lblInstituicoes.AutoSize = true;
+            this.lblInstituicoes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblInstituicoes.Location = new System.Drawing.Point(44, 409);
+            this.lblInstituicoes.Name = "lblInstituicoes";
+            this.lblInstituicoes.Size = new System.Drawing.Size(114, 23);
+            this.lblInstituicoes.TabIndex = 18;
+            this.lblInstituicoes.Text = "Instituições";
+            this.lblInstituicoes.Click += new System.EventHandler(this.lblInstituicoes_Click_1);
+            // 
+            // btnInstituicoes
+            // 
+            this.btnInstituicoes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInstituicoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInstituicoes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.btnInstituicoes.Location = new System.Drawing.Point(-1, 388);
+            this.btnInstituicoes.Name = "btnInstituicoes";
+            this.btnInstituicoes.Size = new System.Drawing.Size(199, 64);
+            this.btnInstituicoes.TabIndex = 5;
+            this.btnInstituicoes.UseVisualStyleBackColor = true;
+            this.btnInstituicoes.Click += new System.EventHandler(this.btnInstituicoes_Click_1);
             // 
             // label14
             // 
@@ -105,6 +137,7 @@ namespace ProjetoFinalBD
             // lblGrupos
             // 
             this.lblGrupos.AutoSize = true;
+            this.lblGrupos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblGrupos.Location = new System.Drawing.Point(66, 340);
             this.lblGrupos.Name = "lblGrupos";
             this.lblGrupos.Size = new System.Drawing.Size(80, 23);
@@ -114,6 +147,7 @@ namespace ProjetoFinalBD
             // lblPaginas
             // 
             this.lblPaginas.AutoSize = true;
+            this.lblPaginas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblPaginas.Location = new System.Drawing.Point(67, 270);
             this.lblPaginas.Name = "lblPaginas";
             this.lblPaginas.Size = new System.Drawing.Size(86, 23);
@@ -215,6 +249,7 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.listView1);
+            this.panel2.Controls.Add(this.btnTarefas);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.button5);
@@ -277,6 +312,40 @@ namespace ProjetoFinalBD
             this.label2.TabIndex = 0;
             this.label2.Text = "Grupos";
             // 
+            // btnTarefas
+            // 
+            this.btnTarefas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTarefas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTarefas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.btnTarefas.Location = new System.Drawing.Point(169, 276);
+            this.btnTarefas.Name = "btnTarefas";
+            this.btnTarefas.Size = new System.Drawing.Size(199, 64);
+            this.btnTarefas.TabIndex = 22;
+            this.btnTarefas.UseVisualStyleBackColor = true;
+            // 
+            // lblTarefas
+            // 
+            this.lblTarefas.AutoSize = true;
+            this.lblTarefas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblTarefas.Location = new System.Drawing.Point(60, 479);
+            this.lblTarefas.Name = "lblTarefas";
+            this.lblTarefas.Size = new System.Drawing.Size(79, 23);
+            this.lblTarefas.TabIndex = 23;
+            this.lblTarefas.Text = "Tarefas";
+            this.lblTarefas.Click += new System.EventHandler(this.lblTarefas_Click);
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.button1.Location = new System.Drawing.Point(0, 458);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(199, 64);
+            this.button1.TabIndex = 22;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Grupos
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -321,6 +390,11 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Label lblInstituicoes;
+        private System.Windows.Forms.Button btnInstituicoes;
+        private System.Windows.Forms.Label lblTarefas;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTarefas;
     }
 }
 

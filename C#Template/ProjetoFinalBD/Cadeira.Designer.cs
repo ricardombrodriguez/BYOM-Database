@@ -31,6 +31,10 @@ namespace ProjetoFinalBD
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadeira));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTarefas = new System.Windows.Forms.Label();
+            this.btnTarefas = new System.Windows.Forms.Button();
+            this.lblInstituicoes = new System.Windows.Forms.Label();
+            this.btnInstituicoes = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.lblHome = new System.Windows.Forms.Label();
             this.lblGrupos = new System.Windows.Forms.Label();
@@ -44,8 +48,8 @@ namespace ProjetoFinalBD
             this.panel3 = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.btnCriarCadeira = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -56,7 +60,10 @@ namespace ProjetoFinalBD
             // panel1
             // 
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lblTarefas);
+            this.panel1.Controls.Add(this.btnTarefas);
+            this.panel1.Controls.Add(this.lblInstituicoes);
+            this.panel1.Controls.Add(this.btnInstituicoes);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.lblHome);
             this.panel1.Controls.Add(this.lblGrupos);
@@ -73,6 +80,51 @@ namespace ProjetoFinalBD
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 617);
             this.panel1.TabIndex = 0;
+            // 
+            // lblTarefas
+            // 
+            this.lblTarefas.AutoSize = true;
+            this.lblTarefas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblTarefas.Location = new System.Drawing.Point(59, 479);
+            this.lblTarefas.Name = "lblTarefas";
+            this.lblTarefas.Size = new System.Drawing.Size(79, 23);
+            this.lblTarefas.TabIndex = 23;
+            this.lblTarefas.Text = "Tarefas";
+            this.lblTarefas.Click += new System.EventHandler(this.lblTarefas_Click);
+            // 
+            // btnTarefas
+            // 
+            this.btnTarefas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTarefas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTarefas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.btnTarefas.Location = new System.Drawing.Point(-1, 458);
+            this.btnTarefas.Name = "btnTarefas";
+            this.btnTarefas.Size = new System.Drawing.Size(199, 64);
+            this.btnTarefas.TabIndex = 22;
+            this.btnTarefas.UseVisualStyleBackColor = true;
+            this.btnTarefas.Click += new System.EventHandler(this.btnTarefas_Click);
+            // 
+            // lblInstituicoes
+            // 
+            this.lblInstituicoes.AutoSize = true;
+            this.lblInstituicoes.Location = new System.Drawing.Point(46, 409);
+            this.lblInstituicoes.Name = "lblInstituicoes";
+            this.lblInstituicoes.Size = new System.Drawing.Size(114, 23);
+            this.lblInstituicoes.TabIndex = 18;
+            this.lblInstituicoes.Text = "Instituições";
+            this.lblInstituicoes.Click += new System.EventHandler(this.lblInstituicoes_Click);
+            // 
+            // btnInstituicoes
+            // 
+            this.btnInstituicoes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInstituicoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInstituicoes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.btnInstituicoes.Location = new System.Drawing.Point(-1, 388);
+            this.btnInstituicoes.Name = "btnInstituicoes";
+            this.btnInstituicoes.Size = new System.Drawing.Size(199, 64);
+            this.btnInstituicoes.TabIndex = 5;
+            this.btnInstituicoes.UseVisualStyleBackColor = true;
+            this.btnInstituicoes.Click += new System.EventHandler(this.btnInstituicoes_Click);
             // 
             // label14
             // 
@@ -197,7 +249,7 @@ namespace ProjetoFinalBD
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(198, 102);
+            this.panel3.Size = new System.Drawing.Size(200, 102);
             this.panel3.TabIndex = 0;
             // 
             // logo
@@ -214,37 +266,38 @@ namespace ProjetoFinalBD
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.listBox1);
-            this.panel2.Controls.Add(this.button5);
+            this.panel2.Controls.Add(this.listView1);
+            this.panel2.Controls.Add(this.btnCriarCadeira);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(200, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(990, 617);
+            this.panel2.Size = new System.Drawing.Size(986, 617);
             this.panel2.TabIndex = 1;
             // 
-            // listBox1
+            // listView1
             // 
-            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 23;
-            this.listBox1.Location = new System.Drawing.Point(21, 105);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(945, 487);
-            this.listBox1.TabIndex = 2;
+            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(21, 99);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(957, 486);
+            this.listView1.TabIndex = 14;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
-            // button5
+            // btnCriarCadeira
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(732, 9);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(234, 31);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "+ Criar cadeira";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnCriarCadeira.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCriarCadeira.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCriarCadeira.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCriarCadeira.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCriarCadeira.ForeColor = System.Drawing.Color.White;
+            this.btnCriarCadeira.Location = new System.Drawing.Point(728, 9);
+            this.btnCriarCadeira.Name = "btnCriarCadeira";
+            this.btnCriarCadeira.Size = new System.Drawing.Size(234, 31);
+            this.btnCriarCadeira.TabIndex = 1;
+            this.btnCriarCadeira.Text = "+ Criar cadeira";
+            this.btnCriarCadeira.UseVisualStyleBackColor = true;
+            this.btnCriarCadeira.Click += new System.EventHandler(this.btnCriarCadeira_Click);
             // 
             // label2
             // 
@@ -289,7 +342,7 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Button btnPaginas;
         private System.Windows.Forms.Button btnCadeiras;
         private System.Windows.Forms.Button btnHome;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnCriarCadeira;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelLeft;
         private System.Windows.Forms.Label lblHome;
@@ -299,7 +352,11 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox logo;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label lblInstituicoes;
+        private System.Windows.Forms.Button btnInstituicoes;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Label lblTarefas;
+        private System.Windows.Forms.Button btnTarefas;
     }
 }
 

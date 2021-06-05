@@ -70,5 +70,33 @@ namespace ProjetoFinalBD
             Grupos grupos = new Grupos();
             grupos.Show();
         }
+
+        private void lblInstituicoes_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Instituicoes instituicao = new Instituicoes();
+            instituicao.Show();
+        }
+
+        private void btnInstituicoes_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Instituicoes instituicao = new Instituicoes();
+            instituicao.Show();
+        }
+
+        private void btnTarefas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Tarefas tarefa = new Tarefas();
+            tarefa.Show();
+        }
+
+        private void lblTarefas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Tarefas tarefa = new Tarefas();
+            tarefa.Show();
+        }
     }
 }

@@ -70,5 +70,47 @@ namespace ProjetoFinalBD
             Paginas pagina = new Paginas();
             pagina.Show();
         }
+
+        private void lblInstituicoes_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Instituicoes instituicao = new Instituicoes();
+            instituicao.Show();
+        }
+
+        private void btnInstituicoes_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Instituicoes instituicao = new Instituicoes();
+            instituicao.Show();
+        }
+
+        private void btnInstituicoes_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            Instituicoes instituicao = new Instituicoes();
+            instituicao.Show();
+        }
+
+        private void lblInstituicoes_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            Instituicoes instituicao = new Instituicoes();
+            instituicao.Show();
+        }
+
+        private void lblTarefas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Tarefas tarefa = new Tarefas();
+            tarefa.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Tarefas tarefa = new Tarefas();
+            tarefa.Show();
+        }
     }
 }

@@ -31,14 +31,14 @@ namespace ProjetoFinalBD
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BYOM));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lblInstituicoes = new System.Windows.Forms.Label();
+            this.btnInstituicoes = new System.Windows.Forms.Button();
             this.lblHome = new System.Windows.Forms.Label();
             this.lblGrupos = new System.Windows.Forms.Label();
             this.lblPaginas = new System.Windows.Forms.Label();
             this.lblCadeiras = new System.Windows.Forms.Label();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.btnGrupos = new System.Windows.Forms.Button();
-            this.btnPaginas = new System.Windows.Forms.Button();
             this.btnCadeiras = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -56,6 +56,8 @@ namespace ProjetoFinalBD
             this.label7 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblTarefas = new System.Windows.Forms.Label();
+            this.btnTarefas = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -67,14 +69,16 @@ namespace ProjetoFinalBD
             // 
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.lblTarefas);
+            this.panel1.Controls.Add(this.btnTarefas);
+            this.panel1.Controls.Add(this.lblInstituicoes);
+            this.panel1.Controls.Add(this.btnInstituicoes);
             this.panel1.Controls.Add(this.lblHome);
             this.panel1.Controls.Add(this.lblGrupos);
             this.panel1.Controls.Add(this.lblPaginas);
             this.panel1.Controls.Add(this.lblCadeiras);
             this.panel1.Controls.Add(this.panelLeft);
             this.panel1.Controls.Add(this.btnGrupos);
-            this.panel1.Controls.Add(this.btnPaginas);
             this.panel1.Controls.Add(this.btnCadeiras);
             this.panel1.Controls.Add(this.btnHome);
             this.panel1.Controls.Add(this.panel3);
@@ -84,18 +88,27 @@ namespace ProjetoFinalBD
             this.panel1.Size = new System.Drawing.Size(200, 617);
             this.panel1.TabIndex = 0;
             // 
-            // label14
+            // lblInstituicoes
             // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label14.Location = new System.Drawing.Point(77, 129);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(69, 23);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "Home";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label14.Click += new System.EventHandler(this.lblHome_Click);
+            this.lblInstituicoes.AutoSize = true;
+            this.lblInstituicoes.Location = new System.Drawing.Point(44, 409);
+            this.lblInstituicoes.Name = "lblInstituicoes";
+            this.lblInstituicoes.Size = new System.Drawing.Size(114, 23);
+            this.lblInstituicoes.TabIndex = 16;
+            this.lblInstituicoes.Text = "Instituições";
+            this.lblInstituicoes.Click += new System.EventHandler(this.lblInstituicoes_Click);
+            // 
+            // btnInstituicoes
+            // 
+            this.btnInstituicoes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInstituicoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInstituicoes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.btnInstituicoes.Location = new System.Drawing.Point(-1, 388);
+            this.btnInstituicoes.Name = "btnInstituicoes";
+            this.btnInstituicoes.Size = new System.Drawing.Size(199, 64);
+            this.btnInstituicoes.TabIndex = 5;
+            this.btnInstituicoes.UseVisualStyleBackColor = true;
+            this.btnInstituicoes.Click += new System.EventHandler(this.btnInstituicoes_Click);
             // 
             // lblHome
             // 
@@ -163,24 +176,12 @@ namespace ProjetoFinalBD
             this.btnGrupos.UseVisualStyleBackColor = true;
             this.btnGrupos.Click += new System.EventHandler(this.btnGrupos_Click);
             // 
-            // btnPaginas
-            // 
-            this.btnPaginas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPaginas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPaginas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.btnPaginas.Location = new System.Drawing.Point(0, 248);
-            this.btnPaginas.Name = "btnPaginas";
-            this.btnPaginas.Size = new System.Drawing.Size(198, 64);
-            this.btnPaginas.TabIndex = 3;
-            this.btnPaginas.UseVisualStyleBackColor = true;
-            this.btnPaginas.Click += new System.EventHandler(this.btnPaginas_Click);
-            // 
             // btnCadeiras
             // 
             this.btnCadeiras.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadeiras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadeiras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.btnCadeiras.Location = new System.Drawing.Point(0, 178);
+            this.btnCadeiras.Location = new System.Drawing.Point(2, 178);
             this.btnCadeiras.Name = "btnCadeiras";
             this.btnCadeiras.Size = new System.Drawing.Size(198, 64);
             this.btnCadeiras.TabIndex = 2;
@@ -387,6 +388,29 @@ namespace ProjetoFinalBD
             this.label2.TabIndex = 0;
             this.label2.Text = "Tarefas da Semana";
             // 
+            // lblTarefas
+            // 
+            this.lblTarefas.AutoSize = true;
+            this.lblTarefas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblTarefas.Location = new System.Drawing.Point(59, 479);
+            this.lblTarefas.Name = "lblTarefas";
+            this.lblTarefas.Size = new System.Drawing.Size(79, 23);
+            this.lblTarefas.TabIndex = 23;
+            this.lblTarefas.Text = "Tarefas";
+            this.lblTarefas.Click += new System.EventHandler(this.lblTarefas_Click);
+            // 
+            // btnTarefas
+            // 
+            this.btnTarefas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTarefas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTarefas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.btnTarefas.Location = new System.Drawing.Point(-1, 458);
+            this.btnTarefas.Name = "btnTarefas";
+            this.btnTarefas.Size = new System.Drawing.Size(199, 64);
+            this.btnTarefas.TabIndex = 22;
+            this.btnTarefas.UseVisualStyleBackColor = true;
+            this.btnTarefas.Click += new System.EventHandler(this.btnTarefas_Click);
+            // 
             // BYOM
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -417,19 +441,10 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnGrupos;
-        private System.Windows.Forms.Button btnPaginas;
         private System.Windows.Forms.Button btnCadeiras;
         private System.Windows.Forms.Button btnHome;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panelLeft;
@@ -437,9 +452,20 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Label lblCadeiras;
         private System.Windows.Forms.Label lblPaginas;
         private System.Windows.Forms.Label lblGrupos;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox logo;
+        private System.Windows.Forms.Label lblInstituicoes;
+        private System.Windows.Forms.Button btnInstituicoes;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblTarefas;
+        private System.Windows.Forms.Button btnTarefas;
     }
 }
 
