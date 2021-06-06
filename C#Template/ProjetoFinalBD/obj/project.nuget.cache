@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "O3322q3+bPsCGUn/sJKu42tI0T5nekYCGeySo7aNZ/fl6TjE3jd7PUyBTdb3tZPD7nd61PT1TzW3MjctstE69A==",
-  "success": true,
-  "projectFilePath": "D:\\LEI\\2ano\\BD\\Projecto\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj",
-=======
   "dgSpecHash": "ltHnPpHkS1lWjldnTNGtQi23ptNGJc5uQAhJC2Dq95HVCE2k1lrYOqqxJpUBbfg/qoB6vpget9vwvSzZsBbPwA==",
   "success": true,
   "projectFilePath": "C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj",
->>>>>>> 5258d4bc17407b11bdf1cf278d5a6160ac49acb7
   "expectedPackageFiles": [],
   "logs": []
 }

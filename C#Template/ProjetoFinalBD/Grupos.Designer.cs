@@ -31,6 +31,8 @@ namespace ProjetoFinalBD
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Grupos));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTarefas = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblInstituicoes = new System.Windows.Forms.Label();
             this.btnInstituicoes = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
@@ -46,14 +48,11 @@ namespace ProjetoFinalBD
             this.panel3 = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listboxGrupos = new System.Windows.Forms.ListBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnCreateGrupo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnTarefas = new System.Windows.Forms.Button();
-            this.lblTarefas = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -85,16 +84,42 @@ namespace ProjetoFinalBD
             this.panel1.Size = new System.Drawing.Size(200, 617);
             this.panel1.TabIndex = 0;
             // 
+            // lblTarefas
+            // 
+            this.lblTarefas.AutoSize = true;
+            this.lblTarefas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblTarefas.Location = new System.Drawing.Point(66, 479);
+            this.lblTarefas.Name = "lblTarefas";
+            this.lblTarefas.Size = new System.Drawing.Size(79, 23);
+            this.lblTarefas.TabIndex = 23;
+            this.lblTarefas.Text = "Tarefas";
+            this.lblTarefas.Click += new System.EventHandler(this.lblTarefas_Click);
+            this.lblTarefas.MouseEnter += new System.EventHandler(this.lblTarefas_MouseEnter);
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.button1.Location = new System.Drawing.Point(0, 458);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(199, 64);
+            this.button1.TabIndex = 22;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnTarefas_Click);
+            this.button1.MouseLeave += new System.EventHandler(this.btnTarefas_MouseLeave);
+            // 
             // lblInstituicoes
             // 
             this.lblInstituicoes.AutoSize = true;
             this.lblInstituicoes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblInstituicoes.Location = new System.Drawing.Point(44, 409);
+            this.lblInstituicoes.Location = new System.Drawing.Point(50, 409);
             this.lblInstituicoes.Name = "lblInstituicoes";
             this.lblInstituicoes.Size = new System.Drawing.Size(114, 23);
             this.lblInstituicoes.TabIndex = 18;
             this.lblInstituicoes.Text = "Instituições";
-            this.lblInstituicoes.Click += new System.EventHandler(this.lblInstituicoes_Click_1);
+            this.lblInstituicoes.Click += new System.EventHandler(this.lblInstituicoes_Click);
+            this.lblInstituicoes.MouseEnter += new System.EventHandler(this.lblInstituicoes_MouseEnter);
             // 
             // btnInstituicoes
             // 
@@ -106,20 +131,23 @@ namespace ProjetoFinalBD
             this.btnInstituicoes.Size = new System.Drawing.Size(199, 64);
             this.btnInstituicoes.TabIndex = 5;
             this.btnInstituicoes.UseVisualStyleBackColor = true;
-            this.btnInstituicoes.Click += new System.EventHandler(this.btnInstituicoes_Click_1);
+            this.btnInstituicoes.Click += new System.EventHandler(this.btnInstituicoes_Click);
+            this.btnInstituicoes.MouseEnter += new System.EventHandler(this.btnInstituicoes_MouseEnter);
+            this.btnInstituicoes.MouseLeave += new System.EventHandler(this.btnInstituicoes_MouseLeave);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label14.Location = new System.Drawing.Point(77, 129);
+            this.label14.Location = new System.Drawing.Point(71, 129);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(69, 23);
             this.label14.TabIndex = 12;
             this.label14.Text = "Home";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label14.Click += new System.EventHandler(this.lblHome_Click);
+            this.label14.MouseEnter += new System.EventHandler(this.lblHome_MouseEnter);
             // 
             // lblHome
             // 
@@ -143,36 +171,39 @@ namespace ProjetoFinalBD
             this.lblGrupos.Size = new System.Drawing.Size(80, 23);
             this.lblGrupos.TabIndex = 14;
             this.lblGrupos.Text = "Grupos";
+            this.lblGrupos.MouseEnter += new System.EventHandler(this.lblGrupos_MouseEnter);
             // 
             // lblPaginas
             // 
             this.lblPaginas.AutoSize = true;
             this.lblPaginas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblPaginas.Location = new System.Drawing.Point(67, 270);
+            this.lblPaginas.Location = new System.Drawing.Point(64, 270);
             this.lblPaginas.Name = "lblPaginas";
             this.lblPaginas.Size = new System.Drawing.Size(86, 23);
             this.lblPaginas.TabIndex = 12;
             this.lblPaginas.Text = "Páginas";
             this.lblPaginas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblPaginas.Click += new System.EventHandler(this.lblPaginas_Click);
+            this.lblPaginas.MouseEnter += new System.EventHandler(this.lblPaginas_MouseEnter);
             // 
             // lblCadeiras
             // 
             this.lblCadeiras.AutoSize = true;
             this.lblCadeiras.BackColor = System.Drawing.Color.Transparent;
             this.lblCadeiras.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblCadeiras.Location = new System.Drawing.Point(60, 200);
+            this.lblCadeiras.Location = new System.Drawing.Point(59, 200);
             this.lblCadeiras.Name = "lblCadeiras";
             this.lblCadeiras.Size = new System.Drawing.Size(98, 23);
             this.lblCadeiras.TabIndex = 13;
             this.lblCadeiras.Text = "Cadeiras";
             this.lblCadeiras.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblCadeiras.Click += new System.EventHandler(this.lblCadeiras_Click);
+            this.lblCadeiras.MouseEnter += new System.EventHandler(this.lblCadeiras_MouseEnter);
             // 
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.panelLeft.Location = new System.Drawing.Point(188, 108);
+            this.panelLeft.Location = new System.Drawing.Point(188, 318);
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(10, 64);
             this.panelLeft.TabIndex = 12;
@@ -182,47 +213,55 @@ namespace ProjetoFinalBD
             this.btnGrupos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGrupos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGrupos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.btnGrupos.Location = new System.Drawing.Point(0, 318);
+            this.btnGrupos.Location = new System.Drawing.Point(-1, 318);
             this.btnGrupos.Name = "btnGrupos";
-            this.btnGrupos.Size = new System.Drawing.Size(199, 64);
+            this.btnGrupos.Size = new System.Drawing.Size(200, 64);
             this.btnGrupos.TabIndex = 4;
             this.btnGrupos.UseVisualStyleBackColor = true;
+            this.btnGrupos.MouseEnter += new System.EventHandler(this.btnGrupos_MouseEnter);
+            this.btnGrupos.MouseLeave += new System.EventHandler(this.btnGrupos_MouseLeave);
             // 
             // btnPaginas
             // 
             this.btnPaginas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPaginas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPaginas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.btnPaginas.Location = new System.Drawing.Point(0, 248);
+            this.btnPaginas.Location = new System.Drawing.Point(-1, 248);
             this.btnPaginas.Name = "btnPaginas";
-            this.btnPaginas.Size = new System.Drawing.Size(198, 64);
+            this.btnPaginas.Size = new System.Drawing.Size(201, 64);
             this.btnPaginas.TabIndex = 3;
             this.btnPaginas.UseVisualStyleBackColor = true;
             this.btnPaginas.Click += new System.EventHandler(this.btnPaginas_Click);
+            this.btnPaginas.MouseEnter += new System.EventHandler(this.btnPaginas_MouseEnter);
+            this.btnPaginas.MouseLeave += new System.EventHandler(this.btnPaginas_MouseLeave);
             // 
             // btnCadeiras
             // 
             this.btnCadeiras.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadeiras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadeiras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.btnCadeiras.Location = new System.Drawing.Point(0, 178);
+            this.btnCadeiras.Location = new System.Drawing.Point(-1, 178);
             this.btnCadeiras.Name = "btnCadeiras";
-            this.btnCadeiras.Size = new System.Drawing.Size(198, 64);
+            this.btnCadeiras.Size = new System.Drawing.Size(201, 64);
             this.btnCadeiras.TabIndex = 2;
             this.btnCadeiras.UseVisualStyleBackColor = true;
             this.btnCadeiras.Click += new System.EventHandler(this.btnCadeiras_Click);
+            this.btnCadeiras.MouseEnter += new System.EventHandler(this.btnCadeiras_MouseEnter);
+            this.btnCadeiras.MouseLeave += new System.EventHandler(this.btnCadeiras_MouseLeave);
             // 
             // btnHome
             // 
             this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.btnHome.Location = new System.Drawing.Point(0, 108);
+            this.btnHome.Location = new System.Drawing.Point(-1, 108);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(198, 64);
+            this.btnHome.Size = new System.Drawing.Size(201, 64);
             this.btnHome.TabIndex = 1;
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            this.btnHome.MouseEnter += new System.EventHandler(this.btnHome_MouseEnter);
+            this.btnHome.MouseLeave += new System.EventHandler(this.btnHome_MouseLeave);
             // 
             // panel3
             // 
@@ -248,26 +287,27 @@ namespace ProjetoFinalBD
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.listView1);
-            this.panel2.Controls.Add(this.btnTarefas);
+            this.panel2.Controls.Add(this.listboxGrupos);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.button5);
+            this.panel2.Controls.Add(this.btnCreateGrupo);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(200, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(990, 617);
             this.panel2.TabIndex = 1;
             // 
-            // listView1
+            // listboxGrupos
             // 
-            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(21, 109);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(957, 486);
-            this.listView1.TabIndex = 13;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listboxGrupos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listboxGrupos.FormattingEnabled = true;
+            this.listboxGrupos.ItemHeight = 23;
+            this.listboxGrupos.Location = new System.Drawing.Point(21, 109);
+            this.listboxGrupos.Name = "listboxGrupos";
+            this.listboxGrupos.Size = new System.Drawing.Size(935, 487);
+            this.listboxGrupos.TabIndex = 23;
             // 
             // label11
             // 
@@ -286,19 +326,20 @@ namespace ProjetoFinalBD
             this.label10.Size = new System.Drawing.Size(0, 23);
             this.label10.TabIndex = 10;
             // 
-            // button5
+            // btnCreateGrupo
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(686, 13);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(279, 31);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "+ Criar grupo";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnCreateGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCreateGrupo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCreateGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateGrupo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCreateGrupo.ForeColor = System.Drawing.Color.White;
+            this.btnCreateGrupo.Location = new System.Drawing.Point(699, 12);
+            this.btnCreateGrupo.Name = "btnCreateGrupo";
+            this.btnCreateGrupo.Size = new System.Drawing.Size(279, 31);
+            this.btnCreateGrupo.TabIndex = 1;
+            this.btnCreateGrupo.Text = "+ Criar grupo";
+            this.btnCreateGrupo.UseVisualStyleBackColor = true;
+            this.btnCreateGrupo.Click += new System.EventHandler(this.btnCreateGrupo_Click);
             // 
             // label2
             // 
@@ -312,40 +353,6 @@ namespace ProjetoFinalBD
             this.label2.TabIndex = 0;
             this.label2.Text = "Grupos";
             // 
-            // btnTarefas
-            // 
-            this.btnTarefas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTarefas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTarefas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.btnTarefas.Location = new System.Drawing.Point(169, 276);
-            this.btnTarefas.Name = "btnTarefas";
-            this.btnTarefas.Size = new System.Drawing.Size(199, 64);
-            this.btnTarefas.TabIndex = 22;
-            this.btnTarefas.UseVisualStyleBackColor = true;
-            // 
-            // lblTarefas
-            // 
-            this.lblTarefas.AutoSize = true;
-            this.lblTarefas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblTarefas.Location = new System.Drawing.Point(60, 479);
-            this.lblTarefas.Name = "lblTarefas";
-            this.lblTarefas.Size = new System.Drawing.Size(79, 23);
-            this.lblTarefas.TabIndex = 23;
-            this.lblTarefas.Text = "Tarefas";
-            this.lblTarefas.Click += new System.EventHandler(this.lblTarefas_Click);
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.button1.Location = new System.Drawing.Point(0, 458);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(199, 64);
-            this.button1.TabIndex = 22;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Grupos
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -358,7 +365,7 @@ namespace ProjetoFinalBD
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Grupos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Grupos";
+            this.Text = "BYOM";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -377,7 +384,7 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Button btnPaginas;
         private System.Windows.Forms.Button btnCadeiras;
         private System.Windows.Forms.Button btnHome;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnCreateGrupo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -389,12 +396,11 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox logo;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label lblInstituicoes;
         private System.Windows.Forms.Button btnInstituicoes;
         private System.Windows.Forms.Label lblTarefas;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnTarefas;
+        private System.Windows.Forms.ListBox listboxGrupos;
     }
 }
 

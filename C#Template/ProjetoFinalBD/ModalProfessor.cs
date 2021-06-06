@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace ProjetoFinalBD
 {
-    public partial class CadeiraInfo: Form
+    public partial class ModalProfessor : Form
     {
-        public CadeiraInfo()
+        public ModalProfessor()
         {
             InitializeComponent();
         }
-
     }
 }

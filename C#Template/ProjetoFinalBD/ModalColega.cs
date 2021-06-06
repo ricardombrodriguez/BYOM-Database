@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace ProjetoFinalBD
 {
-    public partial class AddTarefa : Form
+    public partial class ModalColega : Form
     {
-        public AddTarefa()
+        public ModalColega()
         {
             InitializeComponent();
         }
-
     }
-
 }

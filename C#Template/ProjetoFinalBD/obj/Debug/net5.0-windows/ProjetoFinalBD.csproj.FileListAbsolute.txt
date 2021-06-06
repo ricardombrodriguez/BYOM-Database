@@ -40,7 +40,40 @@ C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2�
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Paginas.resources
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Instituicoes.resources
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Login.resources
-C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.AddTarefa.resources
-C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CadeiraInfo.resources
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CriarConta.resources
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Tarefas.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\ProjetoFinalBD.exe
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\ProjetoFinalBD.deps.json
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\ProjetoFinalBD.runtimeconfig.json
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\ProjetoFinalBD.runtimeconfig.dev.json
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\ProjetoFinalBD.dll
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\ref\ProjetoFinalBD.dll
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\ProjetoFinalBD.pdb
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.csprojAssemblyReference.cache
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.AddTarefa.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.BYOM.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Cadeira.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CadeiraInfo.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CriarConta.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Grupos.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Instituicoes.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Login.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Paginas.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Properties.Resources.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Tarefas.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.csproj.GenerateResource.cache
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.GeneratedMSBuildEditorConfig.editorconfig
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.AssemblyInfoInputs.cache
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.AssemblyInfo.cs
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.csproj.CoreCompileInputs.cache
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.dll
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ref\ProjetoFinalBD.dll
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.pdb
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.genruntimeconfig.cache
+C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CriarGrupo.resources
+C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CriarInstituicao.resources
+C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CriarPagina.resources
+C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CriarTarefa.resources
+C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.InfoCadeira.resources
+C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.ModalColega.resources
+C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.ModalProfessor.resources
