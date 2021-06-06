@@ -70,6 +70,7 @@ D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5
 D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ref\ProjetoFinalBD.dll
 D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.pdb
 D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.genruntimeconfig.cache
+<<<<<<< HEAD
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CriarGrupo.resources
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CriarInstituicao.resources
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CriarPagina.resources
@@ -77,3 +78,5 @@ C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2�
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.InfoCadeira.resources
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.ModalColega.resources
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.ModalProfessor.resources
+=======
+>>>>>>> 0f40a77398593174ec45b965b18427389e95e45c

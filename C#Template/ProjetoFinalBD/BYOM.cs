@@ -181,6 +181,7 @@ namespace ProjetoFinalBD
         {
             btnTarefas.ForeColor = Color.White;
         }
+<<<<<<< HEAD
 
         private void btnAddTarefa_Click(object sender, EventArgs e)
         {
@@ -189,5 +190,7 @@ namespace ProjetoFinalBD
             tarefa.Show();
             FormState.PreviousPage = this;
         }
+=======
+>>>>>>> 0f40a77398593174ec45b965b18427389e95e45c
     }
 }
