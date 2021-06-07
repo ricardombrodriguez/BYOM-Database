@@ -6,7 +6,7 @@ Projeto final da cadeira de Base de Dados (2.º ano 2.º semestre). O projeto co
 
 ## BYOM - Be Your Own Manager
 
-## Base de Dados:
+### Base de Dados:
 - As tabelas podem ser criadas através do script no ficheiro ProjetoBD.sql
 - Todos os Triggers, Funções e Stored Procedures estão no ficheiro programmability.sql e são essenciais para que o projeto funcione
 
