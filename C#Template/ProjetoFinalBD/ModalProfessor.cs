@@ -10,13 +10,18 @@ using System.Windows.Forms;
 
 namespace ProjetoFinalBD
 {
-    public partial class AddTarefa : Form
+    public partial class ModalProfessor : Form
     {
-        public AddTarefa()
+        public ModalProfessor()
         {
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormState.PreviousPage.Show();
+            this.Hide();
+            FormState.PreviousPage = this;
+        }
     }
-
 }

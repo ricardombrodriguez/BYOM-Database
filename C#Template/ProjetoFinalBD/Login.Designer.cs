@@ -42,6 +42,9 @@ namespace ProjetoFinalBD
             // 
             // btnEntrar
             // 
+            this.btnEntrar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEntrar.ForeColor = System.Drawing.Color.Black;
             this.btnEntrar.Location = new System.Drawing.Point(310, 291);
             this.btnEntrar.Name = "btnEntrar";
@@ -49,9 +52,13 @@ namespace ProjetoFinalBD
             this.btnEntrar.TabIndex = 0;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = true;
+            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
             // 
             // lblEmail
             // 
+            this.lblEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEmail.AutoSize = true;
             this.lblEmail.BackColor = System.Drawing.Color.Transparent;
             this.lblEmail.ForeColor = System.Drawing.Color.White;
@@ -64,6 +71,9 @@ namespace ProjetoFinalBD
             // 
             // lblPassword
             // 
+            this.lblPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPassword.AutoSize = true;
             this.lblPassword.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword.ForeColor = System.Drawing.Color.White;
@@ -75,6 +85,9 @@ namespace ProjetoFinalBD
             // 
             // password
             // 
+            this.password.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.password.Location = new System.Drawing.Point(141, 207);
             this.password.MaxLength = 100;
             this.password.Name = "password";
@@ -85,6 +98,9 @@ namespace ProjetoFinalBD
             // 
             // email
             // 
+            this.email.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.email.Location = new System.Drawing.Point(141, 153);
             this.email.MaxLength = 100;
             this.email.Name = "email";
@@ -105,6 +121,9 @@ namespace ProjetoFinalBD
             // 
             // btnCriarConta
             // 
+            this.btnCriarConta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCriarConta.ForeColor = System.Drawing.Color.Black;
             this.btnCriarConta.Location = new System.Drawing.Point(141, 291);
             this.btnCriarConta.Name = "btnCriarConta";
@@ -112,9 +131,13 @@ namespace ProjetoFinalBD
             this.btnCriarConta.TabIndex = 6;
             this.btnCriarConta.Text = "Criar conta";
             this.btnCriarConta.UseVisualStyleBackColor = true;
+            this.btnCriarConta.Click += new System.EventHandler(this.btnCriarConta_Click);
             // 
             // labelErro
             // 
+            this.labelErro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelErro.AutoSize = true;
             this.labelErro.ForeColor = System.Drawing.Color.Red;
             this.labelErro.Location = new System.Drawing.Point(279, 254);
@@ -137,7 +160,10 @@ namespace ProjetoFinalBD
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.btnEntrar);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BYOM";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

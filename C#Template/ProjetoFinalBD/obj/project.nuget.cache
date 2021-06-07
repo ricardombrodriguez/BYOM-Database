@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "O3322q3+bPsCGUn/sJKu42tI0T5nekYCGeySo7aNZ/fl6TjE3jd7PUyBTdb3tZPD7nd61PT1TzW3MjctstE69A==",
+  "dgSpecHash": "ltHnPpHkS1lWjldnTNGtQi23ptNGJc5uQAhJC2Dq95HVCE2k1lrYOqqxJpUBbfg/qoB6vpget9vwvSzZsBbPwA==",
   "success": true,
-  "projectFilePath": "D:\\LEI\\2ano\\BD\\Projecto\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj",
+  "projectFilePath": "C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problema ao ler o arquivo de cache D:\\LEI\\2ano\\BD\\Projecto\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "Problema ao ler o arquivo de cache C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
 }

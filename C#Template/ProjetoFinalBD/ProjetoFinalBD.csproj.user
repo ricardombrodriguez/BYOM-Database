@@ -1,19 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="AddTarefa.cs">
+    <Compile Update="BYOM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="BYOM.cs">
+    <Compile Update="CriarGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CriarTarefa.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Cadeira.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="CadeiraInfo.cs">
+    <Compile Update="InfoCadeira.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="CriarConta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CriarInstituicao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CriarPagina.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Instituicoes.cs">
@@ -23,6 +32,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Grupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalColega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalProfessor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Paginas.cs">

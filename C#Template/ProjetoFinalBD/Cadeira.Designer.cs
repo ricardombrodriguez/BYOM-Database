@@ -48,9 +48,9 @@ namespace ProjetoFinalBD
             this.panel3 = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.btnCriarCadeira = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.listboxCadeiras = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -284,23 +284,13 @@ namespace ProjetoFinalBD
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.listView1);
+            this.panel2.Controls.Add(this.listboxCadeiras);
             this.panel2.Controls.Add(this.btnCriarCadeira);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(200, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(986, 617);
             this.panel2.TabIndex = 1;
-            // 
-            // listView1
-            // 
-            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(21, 99);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(957, 486);
-            this.listView1.TabIndex = 14;
-            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // btnCriarCadeira
             // 
@@ -328,6 +318,18 @@ namespace ProjetoFinalBD
             this.label2.Size = new System.Drawing.Size(102, 26);
             this.label2.TabIndex = 0;
             this.label2.Text = "Cadeiras";
+            // 
+            // listboxCadeiras
+            // 
+            this.listboxCadeiras.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listboxCadeiras.FormattingEnabled = true;
+            this.listboxCadeiras.ItemHeight = 23;
+            this.listboxCadeiras.Location = new System.Drawing.Point(21, 99);
+            this.listboxCadeiras.Name = "listboxCadeiras";
+            this.listboxCadeiras.Size = new System.Drawing.Size(931, 487);
+            this.listboxCadeiras.TabIndex = 2;
             // 
             // Cadeira
             // 
@@ -372,9 +374,9 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Label lblInstituicoes;
         private System.Windows.Forms.Button btnInstituicoes;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label lblTarefas;
         private System.Windows.Forms.Button btnTarefas;
+        private System.Windows.Forms.ListBox listboxCadeiras;
     }
 }
 

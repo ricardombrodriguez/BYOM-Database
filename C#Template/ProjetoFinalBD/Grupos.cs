@@ -173,10 +173,8 @@ namespace ProjetoFinalBD
             Tarefas tarefa = new Tarefas();
             tarefa.Show();
         }
-        private void btnTarefas_MouseEnter(object sender, EventArgs e)
-        {
-            btnTarefas.ForeColor = Color.White;
-        }
+
+       
 
         private void btnTarefas_MouseLeave(object sender, EventArgs e)
         {
@@ -186,6 +184,14 @@ namespace ProjetoFinalBD
         private void lblTarefas_MouseEnter(object sender, EventArgs e)
         {
             button1.ForeColor = Color.White;
+        }
+
+        private void btnCreateGrupo_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CriarGrupo grupo = new CriarGrupo();
+            grupo.Show();
+            FormState.PreviousPage = this;
         }
     }
 }

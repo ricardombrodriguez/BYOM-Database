@@ -26,5 +26,22 @@ namespace ProjetoFinalBD
         {
 
         }
+
+        private void btnCriarConta_Click(object sender, EventArgs e)
+        {
+            FormState.PreviousPage = this;
+            this.Hide();
+            CriarConta novaconta = new CriarConta();
+            novaconta.Show();
+
+        }
+
+        private void btnEntrar_Click(object sender, EventArgs e)
+        {
+            FormState.PreviousPage = this;
+            this.Hide();
+            BYOM entrar = new BYOM();
+            entrar.Show();
+        }
     }
 }

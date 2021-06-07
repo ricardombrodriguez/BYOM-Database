@@ -41,11 +41,15 @@ namespace ProjetoFinalBD
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dataNascimento = new System.Windows.Forms.DateTimePicker();
+            this.goback = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCriarConta
             // 
+            this.btnCriarConta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCriarConta.ForeColor = System.Drawing.Color.Black;
             this.btnCriarConta.Location = new System.Drawing.Point(137, 396);
             this.btnCriarConta.Name = "btnCriarConta";
@@ -68,6 +72,9 @@ namespace ProjetoFinalBD
             // 
             // email
             // 
+            this.email.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.email.Location = new System.Drawing.Point(137, 209);
             this.email.MaxLength = 100;
             this.email.Name = "email";
@@ -76,6 +83,9 @@ namespace ProjetoFinalBD
             // 
             // password
             // 
+            this.password.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.password.Location = new System.Drawing.Point(137, 263);
             this.password.MaxLength = 100;
             this.password.Name = "password";
@@ -85,6 +95,9 @@ namespace ProjetoFinalBD
             // 
             // lblPassword
             // 
+            this.lblPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPassword.AutoSize = true;
             this.lblPassword.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword.ForeColor = System.Drawing.Color.White;
@@ -96,6 +109,9 @@ namespace ProjetoFinalBD
             // 
             // lblEmail
             // 
+            this.lblEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEmail.AutoSize = true;
             this.lblEmail.BackColor = System.Drawing.Color.Transparent;
             this.lblEmail.ForeColor = System.Drawing.Color.White;
@@ -107,6 +123,9 @@ namespace ProjetoFinalBD
             // 
             // nome
             // 
+            this.nome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.nome.Location = new System.Drawing.Point(137, 159);
             this.nome.MaxLength = 100;
             this.nome.Name = "nome";
@@ -116,6 +135,9 @@ namespace ProjetoFinalBD
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.White;
@@ -127,6 +149,9 @@ namespace ProjetoFinalBD
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.White;
@@ -138,6 +163,9 @@ namespace ProjetoFinalBD
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(279, 365);
@@ -147,6 +175,9 @@ namespace ProjetoFinalBD
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Red;
             this.label4.Location = new System.Drawing.Point(264, 365);
@@ -158,10 +189,26 @@ namespace ProjetoFinalBD
             // 
             // dataNascimento
             // 
+            this.dataNascimento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataNascimento.Location = new System.Drawing.Point(137, 311);
             this.dataNascimento.Name = "dataNascimento";
             this.dataNascimento.Size = new System.Drawing.Size(325, 27);
             this.dataNascimento.TabIndex = 20;
+            // 
+            // goback
+            // 
+            this.goback.BackColor = System.Drawing.Color.Transparent;
+            this.goback.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.goback.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.goback.Image = global::ProjetoFinalBD.Properties.Resources._1410611_200;
+            this.goback.Location = new System.Drawing.Point(12, 12);
+            this.goback.Name = "goback";
+            this.goback.Size = new System.Drawing.Size(55, 47);
+            this.goback.TabIndex = 21;
+            this.goback.UseVisualStyleBackColor = false;
+            this.goback.Click += new System.EventHandler(this.goback_Click);
             // 
             // CriarConta
             // 
@@ -169,6 +216,7 @@ namespace ProjetoFinalBD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(544, 471);
+            this.Controls.Add(this.goback);
             this.Controls.Add(this.dataNascimento);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -203,5 +251,6 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dataNascimento;
+        private System.Windows.Forms.Button goback;
     }
 }

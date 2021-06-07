@@ -190,8 +190,10 @@ namespace ProjetoFinalBD
 
         private void btnCriarCadeira_Click(object sender, EventArgs e)
         {
-            CadeiraInfo novaCadeira = new CadeiraInfo();
+            this.Hide();
+            InfoCadeira novaCadeira = new InfoCadeira();
             novaCadeira.Show();
+            FormState.PreviousPage = this;
         }
 
     }

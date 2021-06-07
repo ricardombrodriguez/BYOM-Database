@@ -10,12 +10,18 @@ using System.Windows.Forms;
 
 namespace ProjetoFinalBD
 {
-    public partial class CadeiraInfo: Form
+    public partial class ModalColega : Form
     {
-        public CadeiraInfo()
+        public ModalColega()
         {
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormState.PreviousPage.Show();
+            this.Hide();
+            FormState.PreviousPage = this;
+        }
     }
 }

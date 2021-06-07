@@ -187,5 +187,13 @@ namespace ProjetoFinalBD
         {
             btnTarefas.ForeColor = Color.White;
         }
+
+        private void btnAddInstituicao_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CriarInstituicao inst = new CriarInstituicao();
+            inst.Show();
+            FormState.PreviousPage = this;
+        }
     }
 }

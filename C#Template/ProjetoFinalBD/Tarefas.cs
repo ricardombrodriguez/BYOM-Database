@@ -125,24 +125,38 @@ namespace ProjetoFinalBD
             btnGrupos.ForeColor = Color.White;
         }
 
-        private void btnGrupos_MouseLeave(object sender, EventArgs e)
-        {
-            btnGrupos.ForeColor = Color.FromArgb(41, 44, 51);
-        }
-
         private void lblGrupos_MouseEnter(object sender, EventArgs e)
         {
             btnGrupos.ForeColor = Color.White;
         }
 
-        private void btnInstituicoes_Click(object sender, EventArgs e)
+
+        private void lblInstituicoes_Click(object sender, EventArgs e)
         {
             this.Hide();
             Instituicoes instituicao = new Instituicoes();
             instituicao.Show();
         }
 
-        private void lblInstituicoes_Click(object sender, EventArgs e)
+        private void btnGrupos_MouseLeave(object sender, EventArgs e)
+        {
+            btnGrupos.ForeColor = Color.FromArgb(41, 44, 51);
+        }
+
+        private void lblTarefas_MouseEnter(object sender, EventArgs e)
+        {
+            btnTarefas.ForeColor = Color.White;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CriarTarefa tarefa = new CriarTarefa();
+            tarefa.Show();
+            FormState.PreviousPage = this;
+        }
+
+        private void btnInstituicoes_Click(object sender, EventArgs e)
         {
             this.Hide();
             Instituicoes instituicao = new Instituicoes();
@@ -183,9 +197,5 @@ namespace ProjetoFinalBD
             btnTarefas.ForeColor = Color.FromArgb(41, 44, 51);
         }
 
-        private void lblTarefas_MouseEnter(object sender, EventArgs e)
-        {
-            btnTarefas.ForeColor = Color.White;
-        }
     }
 }
