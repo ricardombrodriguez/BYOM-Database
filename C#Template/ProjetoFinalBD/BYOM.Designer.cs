@@ -63,10 +63,7 @@ namespace ProjetoFinalBD
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
             this.listboxSegunda = new System.Windows.Forms.ListBox();
-=======
->>>>>>> 0f40a77398593174ec45b965b18427389e95e45c
             this.btnAddTarefa = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -106,11 +103,7 @@ namespace ProjetoFinalBD
             this.lblTarefas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblTarefas.Location = new System.Drawing.Point(65, 479);
             this.lblTarefas.Name = "lblTarefas";
-<<<<<<< HEAD
             this.lblTarefas.Size = new System.Drawing.Size(79, 23);
-=======
-            this.lblTarefas.Size = new System.Drawing.Size(66, 21);
->>>>>>> 0f40a77398593174ec45b965b18427389e95e45c
             this.lblTarefas.TabIndex = 23;
             this.lblTarefas.Text = "Tarefas";
             this.lblTarefas.Click += new System.EventHandler(this.lblTarefas_Click);
@@ -515,7 +508,6 @@ namespace ProjetoFinalBD
             this.label7.Text = "Sexta";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-<<<<<<< HEAD
             // listboxSegunda
             // 
             this.listboxSegunda.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -530,10 +522,6 @@ namespace ProjetoFinalBD
             // 
             // btnAddTarefa
             // 
-=======
-            // btnAddTarefa
-            // 
->>>>>>> 0f40a77398593174ec45b965b18427389e95e45c
             this.btnAddTarefa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddTarefa.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnAddTarefa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -545,10 +533,7 @@ namespace ProjetoFinalBD
             this.btnAddTarefa.TabIndex = 1;
             this.btnAddTarefa.Text = "+ Adicionar tarefa";
             this.btnAddTarefa.UseVisualStyleBackColor = true;
-<<<<<<< HEAD
             this.btnAddTarefa.Click += new System.EventHandler(this.btnAddTarefa_Click);
-=======
->>>>>>> 0f40a77398593174ec45b965b18427389e95e45c
             // 
             // label2
             // 
@@ -618,7 +603,6 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Label lblTarefas;
         private System.Windows.Forms.Button btnTarefas;
         private System.Windows.Forms.Button btnPaginas;
-<<<<<<< HEAD
         private System.Windows.Forms.ListBox listboxDomingo;
         private System.Windows.Forms.ListBox listboxSabado;
         private System.Windows.Forms.ListBox listboxSexta;
@@ -626,8 +610,7 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.ListBox listboxQuarta;
         private System.Windows.Forms.ListBox listboxTerca;
         private System.Windows.Forms.ListBox listboxSegunda;
-=======
->>>>>>> 0f40a77398593174ec45b965b18427389e95e45c
+
     }
 }
 

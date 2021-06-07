@@ -173,14 +173,9 @@ namespace ProjetoFinalBD
             Tarefas tarefa = new Tarefas();
             tarefa.Show();
         }
-<<<<<<< HEAD
-=======
-        private void btnTarefas_MouseEnter(object sender, EventArgs e)
-        {
-            btnTarefas.ForeColor = Color.White;
-        }
 
->>>>>>> 0f40a77398593174ec45b965b18427389e95e45c
+       
+
         private void btnTarefas_MouseLeave(object sender, EventArgs e)
         {
             button1.ForeColor = Color.FromArgb(41, 44, 51);
@@ -190,7 +185,6 @@ namespace ProjetoFinalBD
         {
             button1.ForeColor = Color.White;
         }
-<<<<<<< HEAD
 
         private void btnCreateGrupo_Click(object sender, EventArgs e)
         {
@@ -199,7 +193,5 @@ namespace ProjetoFinalBD
             grupo.Show();
             FormState.PreviousPage = this;
         }
-=======
->>>>>>> 0f40a77398593174ec45b965b18427389e95e45c
     }
 }

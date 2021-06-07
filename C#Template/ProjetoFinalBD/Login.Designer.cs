@@ -52,6 +52,7 @@ namespace ProjetoFinalBD
             this.btnEntrar.TabIndex = 0;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = true;
+            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
             // 
             // lblEmail
             // 
@@ -130,6 +131,7 @@ namespace ProjetoFinalBD
             this.btnCriarConta.TabIndex = 6;
             this.btnCriarConta.Text = "Criar conta";
             this.btnCriarConta.UseVisualStyleBackColor = true;
+            this.btnCriarConta.Click += new System.EventHandler(this.btnCriarConta_Click);
             // 
             // labelErro
             // 
@@ -158,7 +160,10 @@ namespace ProjetoFinalBD
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.btnEntrar);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BYOM";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

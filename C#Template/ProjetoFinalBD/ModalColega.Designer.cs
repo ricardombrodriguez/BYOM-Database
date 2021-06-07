@@ -96,7 +96,11 @@ namespace ProjetoFinalBD
             this.Controls.Add(this.email);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label111);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ModalColega";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BYOM";
             this.ResumeLayout(false);
             this.PerformLayout();

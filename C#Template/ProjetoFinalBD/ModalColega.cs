@@ -16,5 +16,12 @@ namespace ProjetoFinalBD
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormState.PreviousPage.Show();
+            this.Hide();
+            FormState.PreviousPage = this;
+        }
     }
 }

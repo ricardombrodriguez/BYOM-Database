@@ -123,7 +123,6 @@ namespace ProjetoFinalBD
         private void btnGrupos_MouseEnter(object sender, EventArgs e)
         {
             btnGrupos.ForeColor = Color.White;
-<<<<<<< HEAD
         }
 
         private void btnGrupos_MouseLeave(object sender, EventArgs e)
@@ -156,40 +155,6 @@ namespace ProjetoFinalBD
             btnInstituicoes.ForeColor = Color.FromArgb(41, 44, 51);
         }
 
-=======
-        }
-
-        private void btnGrupos_MouseLeave(object sender, EventArgs e)
-        {
-            btnGrupos.ForeColor = Color.FromArgb(41, 44, 51);
-        }
-
-        private void lblGrupos_MouseEnter(object sender, EventArgs e)
-        {
-            btnGrupos.ForeColor = Color.White;
-        }
-
-        private void btnInstituicoes_Click(object sender, EventArgs e)
-        {
-            //
-        }
-
-        private void lblInstituicoes_Click(object sender, EventArgs e)
-        {
-            //
-        }
-
-        private void btnInstituicoes_MouseEnter(object sender, EventArgs e)
-        {
-            btnInstituicoes.ForeColor = Color.White;
-        }
-
-        private void btnInstituicoes_MouseLeave(object sender, EventArgs e)
-        {
-            btnInstituicoes.ForeColor = Color.FromArgb(41, 44, 51);
-        }
-
->>>>>>> 0f40a77398593174ec45b965b18427389e95e45c
         private void lblInstituicoes_MouseEnter(object sender, EventArgs e)
         {
             btnInstituicoes.ForeColor = Color.White;
@@ -214,7 +179,6 @@ namespace ProjetoFinalBD
         }
 
         private void btnTarefas_MouseLeave(object sender, EventArgs e)
-<<<<<<< HEAD
         {
             btnTarefas.ForeColor = Color.FromArgb(41, 44, 51);
         }
@@ -230,15 +194,6 @@ namespace ProjetoFinalBD
             CriarInstituicao inst = new CriarInstituicao();
             inst.Show();
             FormState.PreviousPage = this;
-=======
-        {
-            btnTarefas.ForeColor = Color.FromArgb(41, 44, 51);
-        }
-
-        private void lblTarefas_MouseEnter(object sender, EventArgs e)
-        {
-            btnTarefas.ForeColor = Color.White;
->>>>>>> 0f40a77398593174ec45b965b18427389e95e45c
         }
     }
 }

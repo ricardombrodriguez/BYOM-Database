@@ -41,6 +41,7 @@ namespace ProjetoFinalBD
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dataNascimento = new System.Windows.Forms.DateTimePicker();
+            this.goback = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -196,12 +197,26 @@ namespace ProjetoFinalBD
             this.dataNascimento.Size = new System.Drawing.Size(325, 27);
             this.dataNascimento.TabIndex = 20;
             // 
+            // goback
+            // 
+            this.goback.BackColor = System.Drawing.Color.Transparent;
+            this.goback.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.goback.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.goback.Image = global::ProjetoFinalBD.Properties.Resources._1410611_200;
+            this.goback.Location = new System.Drawing.Point(12, 12);
+            this.goback.Name = "goback";
+            this.goback.Size = new System.Drawing.Size(55, 47);
+            this.goback.TabIndex = 21;
+            this.goback.UseVisualStyleBackColor = false;
+            this.goback.Click += new System.EventHandler(this.goback_Click);
+            // 
             // CriarConta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(544, 471);
+            this.Controls.Add(this.goback);
             this.Controls.Add(this.dataNascimento);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -236,5 +251,6 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dataNascimento;
+        private System.Windows.Forms.Button goback;
     }
 }

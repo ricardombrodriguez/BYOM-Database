@@ -38,14 +38,12 @@ namespace ProjetoFinalBD
             this.label111 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cadeira = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGuardarPagina
             // 
-            this.btnGuardarPagina.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardarPagina.Location = new System.Drawing.Point(895, 640);
+            this.btnGuardarPagina.Location = new System.Drawing.Point(1716, 947);
             this.btnGuardarPagina.Name = "btnGuardarPagina";
             this.btnGuardarPagina.Size = new System.Drawing.Size(158, 60);
             this.btnGuardarPagina.TabIndex = 20;
@@ -55,10 +53,7 @@ namespace ProjetoFinalBD
             // 
             // btnApagarPagina
             // 
-            this.btnApagarPagina.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApagarPagina.Location = new System.Drawing.Point(703, 640);
+            this.btnApagarPagina.Location = new System.Drawing.Point(1524, 947);
             this.btnApagarPagina.Name = "btnApagarPagina";
             this.btnApagarPagina.Size = new System.Drawing.Size(158, 59);
             this.btnApagarPagina.TabIndex = 19;
@@ -68,30 +63,21 @@ namespace ProjetoFinalBD
             // 
             // texto
             // 
-            this.texto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.texto.Location = new System.Drawing.Point(103, 160);
             this.texto.Multiline = true;
             this.texto.Name = "texto";
-            this.texto.Size = new System.Drawing.Size(950, 458);
+            this.texto.Size = new System.Drawing.Size(1771, 765);
             this.texto.TabIndex = 18;
             // 
             // titulo
             // 
-            this.titulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.titulo.Location = new System.Drawing.Point(103, 102);
             this.titulo.Name = "titulo";
-            this.titulo.Size = new System.Drawing.Size(400, 27);
+            this.titulo.Size = new System.Drawing.Size(754, 27);
             this.titulo.TabIndex = 17;
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
@@ -103,9 +89,6 @@ namespace ProjetoFinalBD
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
@@ -117,14 +100,11 @@ namespace ProjetoFinalBD
             // 
             // label111
             // 
-            this.label111.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label111.AutoSize = true;
             this.label111.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label111.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label111.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.label111.Location = new System.Drawing.Point(483, 25);
+            this.label111.Location = new System.Drawing.Point(890, 25);
             this.label111.Name = "label111";
             this.label111.Size = new System.Drawing.Size(119, 33);
             this.label111.TabIndex = 14;
@@ -132,13 +112,10 @@ namespace ProjetoFinalBD
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.label1.Location = new System.Drawing.Point(616, 102);
+            this.label1.Location = new System.Drawing.Point(991, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 20);
             this.label1.TabIndex = 21;
@@ -146,21 +123,32 @@ namespace ProjetoFinalBD
             // 
             // cadeira
             // 
-            this.cadeira.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.cadeira.FormattingEnabled = true;
-            this.cadeira.Location = new System.Drawing.Point(716, 101);
+            this.cadeira.Location = new System.Drawing.Point(1109, 104);
             this.cadeira.Name = "cadeira";
-            this.cadeira.Size = new System.Drawing.Size(337, 28);
+            this.cadeira.Size = new System.Drawing.Size(765, 28);
             this.cadeira.TabIndex = 22;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.Image = global::ProjetoFinalBD.Properties.Resources._1410611_200;
+            this.button1.Location = new System.Drawing.Point(12, 11);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(55, 47);
+            this.button1.TabIndex = 41;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // CriarPagina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(1088, 723);
+            this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.cadeira);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGuardarPagina);
@@ -170,8 +158,13 @@ namespace ProjetoFinalBD
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label111);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CriarPagina";
-            this.Text = "CriarPagina";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "BYOM";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,5 +181,6 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Label label111;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cadeira;
+        private System.Windows.Forms.Button button1;
     }
 }

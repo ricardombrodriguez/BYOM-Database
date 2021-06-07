@@ -31,5 +31,23 @@ namespace ProjetoFinalBD
             FormState.PreviousPage = this;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormState.PreviousPage.Show();
+            this.Hide();
+            FormState.PreviousPage = this;
+        }
+
+        private void addColega_Click(object sender, EventArgs e)
+        {
+            ModalColega colega = new ModalColega();
+            colega.Show();
+        }
+
+        private void addOrientador_Click(object sender, EventArgs e)
+        {
+            ModalProfessor professor = new ModalProfessor();
+            professor.Show();
+        }
     }
 }
