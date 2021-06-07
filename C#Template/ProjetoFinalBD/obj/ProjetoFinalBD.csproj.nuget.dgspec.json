@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj": {}
+    "D:\\LEI\\2ano\\BD\\Projecto\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj": {}
   },
   "projects": {
-    "C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj": {
+    "D:\\LEI\\2ano\\BD\\Projecto\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj",
+        "projectUniqueName": "D:\\LEI\\2ano\\BD\\Projecto\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj",
         "projectName": "ProjetoFinalBD",
-        "projectPath": "C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj",
-        "packagesPath": "C:\\Users\\35192\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\35192\\OneDrive - Universidade de Aveiro\\Desktop\\Universidade\\2º ANO\\2º SEMESTRE\\BD\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\obj\\",
+        "projectPath": "D:\\LEI\\2ano\\BD\\Projecto\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\ProjetoFinalBD.csproj",
+        "packagesPath": "C:\\Users\\Gonçalo Silva\\.nuget\\packages\\",
+        "outputPath": "D:\\LEI\\2ano\\BD\\Projecto\\BD_ProjetoFinal\\C#Template\\ProjetoFinalBD\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\35192\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gonçalo Silva\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,12 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
