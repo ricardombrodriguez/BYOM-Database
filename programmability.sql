@@ -107,3 +107,83 @@ BEGIN
 	COMMIT
 
 END
+
+-- Não queremos permitir que as contas sejam eliminadas, em vez disso ficam disabled
+CREATE TRIGGER deleteAluno
+ON PROJETO.Aluno
+INSTEAD OF DELETE
+AS
+BEGIN
+	DECLARE @email VARCHAR(250);
+
+	BEGIN TRANSACTION
+		SELECT @email = email FROM DELETED;
+
+		UPDATE PROJETO.Aluno SET disabled = 1 WHERE email = @email;
+	COMMIT
+
+END
+select * from PROJETO.Aluno
+delete from PROJETO.Aluno where email = 'admin@sapo.pt'
+
+-- Ver se podemos eliminar ou se há dependências
+CREATE TRIGGER deletePagina
+ON PROJETO.Pagina
+INSTEAD OF DELETE
+AS
+BEGIN
+	-- Basicamente se não existir no PaginaGrupo pode eliminar, porque não há nenhuma dependência
+
+	DECLARE @n INT, @id INT;
+
+	SELECT @id = id FROM DELETED;
+
+	SELECT @n = COUNT(*) FROM PROJETO.PaginaGrupo WHERE pagina = @id;
+
+	IF @n > 0
+		BEGIN
+			UPDATE PROJETO.Pagina SET disabled = 1 WHERE id = @id;
+		END
+	ELSE
+		-- Não há dependências
+		BEGIN
+			BEGIN TRANSACTION
+				DECLARE @code VARCHAR(20);
+				SELECT @code = codigo_criador FROM DELETED;
+
+				DELETE FROM PROJETO.Ficheiro WHERE codigo_criador = @code;
+				DELETE FROM PROJETO.Criador WHERE codigo = @code;
+				DELETE FROM PROJETO.Pagina WHERE id = @id;
+			COMMIT
+		END
+END
+
+-- SP de Login
+CREATE PROCEDURE PROJETO.login 
+	@email VARCHAR(250), @password VARCHAR(100), @validation BIT OUT 
+AS
+	BEGIN
+    
+		DECLARE @count INT;
+
+		SELECT @count = COUNT(*) 
+		FROM PROJETO.Aluno
+		WHERE email = @email AND password = @password AND disabled = 0
+
+		IF @count = 1
+			BEGIN
+				SET @validation = 1
+			END
+		ELSE
+			BEGIN
+				SET @validation = 0
+			END
+
+	END;
+GO
+
+DECLARE @x BIT;
+--execute the procedure
+EXEC PROJETO.login 'admin@sapo.pt',
+  'admin', @x OUT;
+SELECT @x
