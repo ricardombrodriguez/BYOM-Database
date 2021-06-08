@@ -52,9 +52,10 @@ namespace ProjetoFinalBD
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.label4.Location = new System.Drawing.Point(49, 89);
+            this.label4.Location = new System.Drawing.Point(80, 142);
+            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 20);
+            this.label4.Size = new System.Drawing.Size(87, 30);
             this.label4.TabIndex = 18;
             this.label4.Text = "Nome";
             // 
@@ -65,9 +66,10 @@ namespace ProjetoFinalBD
             this.label111.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label111.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label111.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.label111.Location = new System.Drawing.Point(484, 22);
+            this.label111.Location = new System.Drawing.Point(786, 35);
+            this.label111.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label111.Name = "label111";
-            this.label111.Size = new System.Drawing.Size(111, 33);
+            this.label111.Size = new System.Drawing.Size(174, 51);
             this.label111.TabIndex = 20;
             this.label111.Text = "GRUPO";
             // 
@@ -76,25 +78,28 @@ namespace ProjetoFinalBD
             this.cadeira.AutoSize = true;
             this.cadeira.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cadeira.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.cadeira.Location = new System.Drawing.Point(49, 139);
+            this.cadeira.Location = new System.Drawing.Point(80, 222);
+            this.cadeira.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.cadeira.Name = "cadeira";
-            this.cadeira.Size = new System.Drawing.Size(69, 20);
+            this.cadeira.Size = new System.Drawing.Size(110, 30);
             this.cadeira.TabIndex = 21;
             this.cadeira.Text = "Cadeira";
             // 
             // grupo_cadeira
             // 
             this.grupo_cadeira.FormattingEnabled = true;
-            this.grupo_cadeira.Location = new System.Drawing.Point(163, 136);
+            this.grupo_cadeira.Location = new System.Drawing.Point(265, 218);
+            this.grupo_cadeira.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.grupo_cadeira.Name = "grupo_cadeira";
-            this.grupo_cadeira.Size = new System.Drawing.Size(619, 28);
+            this.grupo_cadeira.Size = new System.Drawing.Size(1003, 40);
             this.grupo_cadeira.TabIndex = 22;
             // 
             // grupo_nome
             // 
-            this.grupo_nome.Location = new System.Drawing.Point(163, 89);
+            this.grupo_nome.Location = new System.Drawing.Point(265, 142);
+            this.grupo_nome.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.grupo_nome.Name = "grupo_nome";
-            this.grupo_nome.Size = new System.Drawing.Size(619, 27);
+            this.grupo_nome.Size = new System.Drawing.Size(1003, 39);
             this.grupo_nome.TabIndex = 19;
             // 
             // label3
@@ -104,9 +109,10 @@ namespace ProjetoFinalBD
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.label3.Location = new System.Drawing.Point(49, 209);
+            this.label3.Location = new System.Drawing.Point(80, 334);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 20);
+            this.label3.Size = new System.Drawing.Size(235, 30);
             this.label3.TabIndex = 28;
             this.label3.Text = "Colegas no grupo:";
             // 
@@ -115,10 +121,11 @@ namespace ProjetoFinalBD
             this.listboxColegas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listboxColegas.FormattingEnabled = true;
-            this.listboxColegas.ItemHeight = 20;
-            this.listboxColegas.Location = new System.Drawing.Point(49, 236);
+            this.listboxColegas.ItemHeight = 32;
+            this.listboxColegas.Location = new System.Drawing.Point(80, 378);
+            this.listboxColegas.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.listboxColegas.Name = "listboxColegas";
-            this.listboxColegas.Size = new System.Drawing.Size(504, 244);
+            this.listboxColegas.Size = new System.Drawing.Size(816, 388);
             this.listboxColegas.TabIndex = 29;
             // 
             // label5
@@ -128,9 +135,10 @@ namespace ProjetoFinalBD
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.label5.Location = new System.Drawing.Point(586, 209);
+            this.label5.Location = new System.Drawing.Point(952, 334);
+            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(192, 20);
+            this.label5.Size = new System.Drawing.Size(306, 30);
             this.label5.TabIndex = 30;
             this.label5.Text = "Professores orientadores:";
             // 
@@ -139,18 +147,20 @@ namespace ProjetoFinalBD
             this.listboxOrientadores.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxOrientadores.FormattingEnabled = true;
-            this.listboxOrientadores.ItemHeight = 20;
-            this.listboxOrientadores.Location = new System.Drawing.Point(586, 236);
+            this.listboxOrientadores.ItemHeight = 32;
+            this.listboxOrientadores.Location = new System.Drawing.Point(952, 378);
+            this.listboxOrientadores.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.listboxOrientadores.Name = "listboxOrientadores";
-            this.listboxOrientadores.Size = new System.Drawing.Size(504, 244);
+            this.listboxOrientadores.Size = new System.Drawing.Size(816, 388);
             this.listboxOrientadores.TabIndex = 31;
             // 
             // remColega
             // 
             this.remColega.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.remColega.Location = new System.Drawing.Point(306, 521);
+            this.remColega.Location = new System.Drawing.Point(497, 834);
+            this.remColega.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.remColega.Name = "remColega";
-            this.remColega.Size = new System.Drawing.Size(247, 29);
+            this.remColega.Size = new System.Drawing.Size(401, 46);
             this.remColega.TabIndex = 33;
             this.remColega.Text = "Remover colega";
             this.remColega.UseVisualStyleBackColor = true;
@@ -158,9 +168,10 @@ namespace ProjetoFinalBD
             // remOrientador
             // 
             this.remOrientador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.remOrientador.Location = new System.Drawing.Point(843, 520);
+            this.remOrientador.Location = new System.Drawing.Point(1370, 832);
+            this.remOrientador.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.remOrientador.Name = "remOrientador";
-            this.remOrientador.Size = new System.Drawing.Size(247, 30);
+            this.remOrientador.Size = new System.Drawing.Size(401, 48);
             this.remOrientador.TabIndex = 34;
             this.remOrientador.Text = "Remover orientador";
             this.remOrientador.UseVisualStyleBackColor = true;
@@ -168,9 +179,10 @@ namespace ProjetoFinalBD
             // btnApagarGrupo
             // 
             this.btnApagarGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApagarGrupo.Location = new System.Drawing.Point(736, 585);
+            this.btnApagarGrupo.Location = new System.Drawing.Point(1196, 936);
+            this.btnApagarGrupo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnApagarGrupo.Name = "btnApagarGrupo";
-            this.btnApagarGrupo.Size = new System.Drawing.Size(169, 49);
+            this.btnApagarGrupo.Size = new System.Drawing.Size(275, 78);
             this.btnApagarGrupo.TabIndex = 36;
             this.btnApagarGrupo.Text = "Apagar Grupo";
             this.btnApagarGrupo.UseVisualStyleBackColor = true;
@@ -179,9 +191,10 @@ namespace ProjetoFinalBD
             // btnGuardarGrupo
             // 
             this.btnGuardarGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardarGrupo.Location = new System.Drawing.Point(918, 585);
+            this.btnGuardarGrupo.Location = new System.Drawing.Point(1492, 936);
+            this.btnGuardarGrupo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnGuardarGrupo.Name = "btnGuardarGrupo";
-            this.btnGuardarGrupo.Size = new System.Drawing.Size(172, 49);
+            this.btnGuardarGrupo.Size = new System.Drawing.Size(280, 78);
             this.btnGuardarGrupo.TabIndex = 37;
             this.btnGuardarGrupo.Text = "Guardar Grupo";
             this.btnGuardarGrupo.UseVisualStyleBackColor = true;
@@ -193,9 +206,10 @@ namespace ProjetoFinalBD
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.Image = global::ProjetoFinalBD.Properties.Resources._1410611_200;
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Location = new System.Drawing.Point(20, 19);
+            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(55, 47);
+            this.button1.Size = new System.Drawing.Size(89, 75);
             this.button1.TabIndex = 39;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -203,9 +217,10 @@ namespace ProjetoFinalBD
             // addColega
             // 
             this.addColega.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addColega.Location = new System.Drawing.Point(49, 520);
+            this.addColega.Location = new System.Drawing.Point(80, 832);
+            this.addColega.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.addColega.Name = "addColega";
-            this.addColega.Size = new System.Drawing.Size(247, 29);
+            this.addColega.Size = new System.Drawing.Size(401, 46);
             this.addColega.TabIndex = 40;
             this.addColega.Text = "Adicionar colega";
             this.addColega.UseVisualStyleBackColor = true;
@@ -214,9 +229,10 @@ namespace ProjetoFinalBD
             // addOrientador
             // 
             this.addOrientador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addOrientador.Location = new System.Drawing.Point(590, 521);
+            this.addOrientador.Location = new System.Drawing.Point(959, 834);
+            this.addOrientador.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.addOrientador.Name = "addOrientador";
-            this.addOrientador.Size = new System.Drawing.Size(247, 29);
+            this.addOrientador.Size = new System.Drawing.Size(401, 46);
             this.addOrientador.TabIndex = 41;
             this.addOrientador.Text = "Adicionar orientador";
             this.addOrientador.UseVisualStyleBackColor = true;
@@ -224,10 +240,10 @@ namespace ProjetoFinalBD
             // 
             // CriarGrupo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(1126, 660);
+            this.ClientSize = new System.Drawing.Size(1830, 1056);
             this.Controls.Add(this.addOrientador);
             this.Controls.Add(this.addColega);
             this.Controls.Add(this.button1);
@@ -245,10 +261,12 @@ namespace ProjetoFinalBD
             this.Controls.Add(this.grupo_nome);
             this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.MaximizeBox = false;
             this.Name = "CriarGrupo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BYOM";
+            this.Load += new System.EventHandler(this.CriarGrupo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

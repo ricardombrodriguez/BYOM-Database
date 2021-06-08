@@ -80,15 +80,10 @@ C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2�
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.ModalProfessor.resources
 =======
 >>>>>>> 0f40a77398593174ec45b965b18427389e95e45c
-C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
-C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\runtimes\win-arm64\native\sni.dll
-C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\runtimes\win-x64\native\sni.dll
-C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
-C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.csproj.CopyComplete
-C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\System.Data.Odbc.dll
-C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\runtimes\freebsd\lib\netcoreapp2.0\System.Data.Odbc.dll
-C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\runtimes\linux\lib\netcoreapp2.0\System.Data.Odbc.dll
-C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\runtimes\osx\lib\netcoreapp2.0\System.Data.Odbc.dll
-C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.0\System.Data.Odbc.dll
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CriarGrupo.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CriarInstituicao.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CriarPagina.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CriarTarefa.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.InfoCadeira.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.ModalColega.resources
+D:\LEI\2ano\BD\Projecto\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.ModalProfessor.resources
