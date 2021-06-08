@@ -36,7 +36,6 @@ namespace ProjetoFinalBD
             this.email = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCriarConta = new System.Windows.Forms.Button();
-            this.labelErro = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,10 +45,10 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEntrar.ForeColor = System.Drawing.Color.Black;
-            this.btnEntrar.Location = new System.Drawing.Point(310, 291);
+            this.btnEntrar.Location = new System.Drawing.Point(310, 276);
             this.btnEntrar.Name = "btnEntrar";
-            this.btnEntrar.Size = new System.Drawing.Size(156, 51);
-            this.btnEntrar.TabIndex = 0;
+            this.btnEntrar.Size = new System.Drawing.Size(156, 69);
+            this.btnEntrar.TabIndex = 4;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = true;
             this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
@@ -67,7 +66,6 @@ namespace ProjetoFinalBD
             this.lblEmail.Size = new System.Drawing.Size(46, 20);
             this.lblEmail.TabIndex = 1;
             this.lblEmail.Text = "Email";
-            this.lblEmail.Click += new System.EventHandler(this.lblUsername_Click);
             // 
             // lblPassword
             // 
@@ -93,8 +91,7 @@ namespace ProjetoFinalBD
             this.password.Name = "password";
             this.password.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(325, 27);
-            this.password.TabIndex = 3;
-            this.password.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.password.TabIndex = 2;
             // 
             // email
             // 
@@ -105,7 +102,7 @@ namespace ProjetoFinalBD
             this.email.MaxLength = 100;
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(325, 27);
-            this.email.TabIndex = 4;
+            this.email.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -115,7 +112,7 @@ namespace ProjetoFinalBD
             this.pictureBox1.Image = global::ProjetoFinalBD.Properties.Resources.Screenshot_1;
             this.pictureBox1.Location = new System.Drawing.Point(141, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(203, 130);
+            this.pictureBox1.Size = new System.Drawing.Size(203, 106);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -125,34 +122,20 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCriarConta.ForeColor = System.Drawing.Color.Black;
-            this.btnCriarConta.Location = new System.Drawing.Point(141, 291);
+            this.btnCriarConta.Location = new System.Drawing.Point(141, 276);
             this.btnCriarConta.Name = "btnCriarConta";
-            this.btnCriarConta.Size = new System.Drawing.Size(156, 51);
-            this.btnCriarConta.TabIndex = 6;
+            this.btnCriarConta.Size = new System.Drawing.Size(156, 69);
+            this.btnCriarConta.TabIndex = 3;
             this.btnCriarConta.Text = "Criar conta";
             this.btnCriarConta.UseVisualStyleBackColor = true;
             this.btnCriarConta.Click += new System.EventHandler(this.btnCriarConta_Click);
-            // 
-            // labelErro
-            // 
-            this.labelErro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelErro.AutoSize = true;
-            this.labelErro.ForeColor = System.Drawing.Color.Red;
-            this.labelErro.Location = new System.Drawing.Point(279, 254);
-            this.labelErro.Name = "labelErro";
-            this.labelErro.Size = new System.Drawing.Size(50, 20);
-            this.labelErro.TabIndex = 7;
-            this.labelErro.Text = "Nome";
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(498, 370);
-            this.Controls.Add(this.labelErro);
+            this.ClientSize = new System.Drawing.Size(498, 373);
             this.Controls.Add(this.btnCriarConta);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.email);
@@ -180,6 +163,5 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnCriarConta;
-        private System.Windows.Forms.Label labelErro;
     }
 }

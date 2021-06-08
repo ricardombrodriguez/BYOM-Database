@@ -16,7 +16,6 @@ namespace ProjetoFinalBD
     public partial class CriarConta : Form
     {
         private SqlConnection cn;
-        private ArrayList emails;
         private Boolean birthdayChange = false;
 
         public CriarConta()

@@ -158,32 +158,16 @@ BEGIN
 		END
 END
 
+
 -- SP de Login
-CREATE PROCEDURE PROJETO.login 
-	@email VARCHAR(250), @password VARCHAR(100), @validation BIT OUT 
+CREATE PROCEDURE PROJETO.login
+		@email VARCHAR(250), @password VARCHAR(100)
 AS
 	BEGIN
-    
-		DECLARE @count INT;
-
-		SELECT @count = COUNT(*) 
-		FROM PROJETO.Aluno
-		WHERE email = @email AND password = @password AND disabled = 0
-
-		IF @count = 1
-			BEGIN
-				SET @validation = 1
-			END
+		IF EXISTS (SELECT * FROM PROJETO.Aluno WHERE email = @email AND password = @password AND disabled = 0)
+			SELECT 1
 		ELSE
-			BEGIN
-				SET @validation = 0
-			END
+			SELECT 0
 
 	END;
 GO
-
-DECLARE @x BIT;
---execute the procedure
-EXEC PROJETO.login 'admin@sapo.pt',
-  'admin', @x OUT;
-SELECT @x
