@@ -16,6 +16,7 @@ namespace ProjetoFinalBD
     {
 
         private SqlConnection cn;
+        public static String utilizador;
 
         public Login()
         {
@@ -58,11 +59,15 @@ namespace ProjetoFinalBD
 
             using (cn)
             {
+                byte[] data = System.Text.Encoding.ASCII.GetBytes(password.Text);
+                data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+                String hashedPassword = System.Text.Encoding.ASCII.GetString(data);
+
                 SqlCommand command = new SqlCommand("PROJETO.login", cn);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Clear();
                 command.Parameters.AddWithValue("@email", email.Text);
-                command.Parameters.AddWithValue("@password",password.Text);
+                command.Parameters.AddWithValue("@password", hashedPassword);
                 int result = (int)command.ExecuteScalar();
                 Boolean validation = Convert.ToBoolean(result);
                 try
@@ -73,6 +78,7 @@ namespace ProjetoFinalBD
                         this.Hide();
                         BYOM entrar = new BYOM();
                         entrar.Show();
+                        Login.utilizador = email.Text;
                     }
                     else
                     {

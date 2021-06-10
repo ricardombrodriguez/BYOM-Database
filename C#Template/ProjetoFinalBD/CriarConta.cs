@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +10,7 @@ using System.Data.Odbc;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -41,7 +45,6 @@ namespace ProjetoFinalBD
 
             return cn.State == ConnectionState.Open;
         }
-
 
         private void goback_Click(object sender, EventArgs e)
         {
@@ -90,13 +93,17 @@ namespace ProjetoFinalBD
                 {
                     if (!birthdayChange)
                     {
-        
+
+                        byte[] data = System.Text.Encoding.ASCII.GetBytes(password.Text);
+                        data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+                        String hashedPassword = System.Text.Encoding.ASCII.GetString(data);
+
                         SqlCommand command = new SqlCommand();
                         command.CommandText = "INSERT INTO PROJETO.Aluno(email,nome,password) VALUES (@email,@nome,@password);";
                         command.Parameters.Clear();
                         command.Parameters.AddWithValue("@email", email.Text);
                         command.Parameters.AddWithValue("@nome", nome.Text);
-                        command.Parameters.AddWithValue("@password", password.Text);
+                        command.Parameters.AddWithValue("@password", hashedPassword);
                         command.Connection = cn;
 
                         try
@@ -107,22 +114,27 @@ namespace ProjetoFinalBD
                             this.Hide();
                             BYOM byom = new BYOM();
                             byom.Show();
+                            Login.utilizador = email.Text;
 
                         }
                         catch (Exception ex)
                         {
                             throw new Exception("Failed to update contact in database. \n ERROR MESSAGE: \n" + ex.Message);
                         }
-                   
                     }
                     else
                     {
+
+                        byte[] data = System.Text.Encoding.ASCII.GetBytes(password.Text);
+                        data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+                        String hashedPassword = System.Text.Encoding.ASCII.GetString(data);
+
                         SqlCommand command = new SqlCommand();
                         command.CommandText = "INSERT INTO PROJETO.Aluno(email,nome,password,data_nascimento) VALUES (@email,@nome,@password,@data_nascimento);";
                         command.Parameters.Clear();
                         command.Parameters.AddWithValue("@email", email.Text);
                         command.Parameters.AddWithValue("@nome", nome.Text);
-                        command.Parameters.AddWithValue("@password", password.Text);
+                        command.Parameters.AddWithValue("@password", hashedPassword);
                         command.Parameters.AddWithValue("@data_nascimento", dataNascimento.Value);
                         command.Connection = cn;
 
@@ -135,12 +147,13 @@ namespace ProjetoFinalBD
                             this.Hide();
                             BYOM byom = new BYOM();
                             byom.Show();
+                            Login.utilizador = email.Text;
                         }
                         catch (Exception ex)
                         {
                             throw new Exception("Failed to update contact in database. \n ERROR MESSAGE: \n" + ex.Message);
                         }
-
+                        
                     }
                 }
             }

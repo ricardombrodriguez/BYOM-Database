@@ -108,6 +108,11 @@ BEGIN
 
 END
 
+
+---------------------------------------------------------------------------------------------------------------------------------
+-- ALTERAR ESTE TRIGGER 
+----------------------------
+
 -- Não queremos permitir que as contas sejam eliminadas, em vez disso ficam disabled
 CREATE TRIGGER deleteAluno
 ON PROJETO.Aluno
