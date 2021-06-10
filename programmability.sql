@@ -108,6 +108,8 @@ BEGIN
 
 END
 
+-- #### DELETE ####
+
 -- Não queremos permitir que as contas sejam eliminadas, em vez disso ficam disabled
 CREATE TRIGGER deleteAluno
 ON PROJETO.Aluno
@@ -158,6 +160,122 @@ BEGIN
 		END
 END
 
+-- Ver se podemos eliminar ou se há dependências
+CREATE TRIGGER deleteTarefa
+ON PROJETO.Tarefa
+INSTEAD OF DELETE
+AS
+BEGIN
+	-- Basicamente se não existir no TarefaGrupo pode eliminar, porque não há nenhuma dependência
+
+	DECLARE @n INT, @id INT;
+	SELECT @id = id FROM DELETED;
+
+	SELECT @n = COUNT(*) FROM PROJETO.TarefaGrupo WHERE tarefa = @id;
+
+	IF @n > 0
+		BEGIN
+			UPDATE PROJETO.Tarefa SET disabled = 1 WHERE id = @id;
+		END
+	ELSE
+		-- Não há dependências
+		BEGIN
+			BEGIN TRANSACTION
+				DECLARE @code VARCHAR(20);
+				SELECT @code = codigo_criador FROM DELETED;
+
+				DELETE FROM PROJETO.Ficheiro WHERE codigo_criador = @code;
+				DELETE FROM PROJETO.Criador WHERE codigo = @code;
+				DELETE FROM PROJETO.Tarefa WHERE id = @id;
+			COMMIT
+		END
+END
+
+-- Ver se podemos eliminar ou se há dependências
+CREATE TRIGGER deleteCadeira
+ON PROJETO.Cadeira
+INSTEAD OF DELETE
+AS
+BEGIN
+	-- Basicamente se não existir no ProfessorCadeira pode eliminar, porque não há nenhuma dependência
+
+	DECLARE @n INT, @id INT;
+	SELECT @id = id FROM DELETED;
+
+	SELECT @n = COUNT(*) FROM PROJETO.ProfessorCadeira WHERE cadeira = @id;
+
+	IF @n > 0
+		BEGIN
+			UPDATE PROJETO.Cadeira SET disabled = 1 WHERE id = @id;
+		END
+	ELSE
+		-- Não há dependências
+		BEGIN
+			BEGIN TRANSACTION
+				DECLARE @code VARCHAR(20);
+				SELECT @code = codigo_criador FROM DELETED;
+
+				DELETE FROM PROJETO.Ficheiro WHERE codigo_criador = @code;
+				DELETE FROM PROJETO.Criador WHERE codigo = @code;
+				DELETE FROM PROJETO.Cadeira WHERE id = @id;
+			COMMIT
+		END
+END
+
+-- Ver se podemos eliminar ou se há dependências
+CREATE TRIGGER deleteProfessor
+ON PROJETO.Professor
+INSTEAD OF DELETE
+AS
+BEGIN
+	-- Basicamente se não existir no ProfessorCadeira ou GrupoProfessor pode eliminar, porque não há nenhuma dependência
+
+	DECLARE @n INT, @x INT, @email VARCHAR(250);
+	SELECT @email = email FROM DELETED;
+
+	SELECT @n = COUNT(*) FROM PROJETO.ProfessorCadeira WHERE professor = @email;
+	SELECT @n = COUNT(*) FROM PROJETO.GrupoProfessor WHERE professor = @email;
+
+	IF @n > 0 OR @x > 0
+		BEGIN
+			UPDATE PROJETO.Professor SET disabled = 1 WHERE email = @email;
+		END
+	ELSE
+		-- Não há dependências
+		BEGIN
+			BEGIN TRANSACTION
+				DELETE FROM PROJETO.Professor WHERE email = @email;
+			COMMIT
+		END
+END
+
+-- Ver se podemos eliminar ou se há dependências
+CREATE TRIGGER deleteGrupo
+ON PROJETO.Grupo
+INSTEAD OF DELETE
+AS
+BEGIN
+	-- Basicamente se não existir no ProfessorCadeira ou GrupoProfessor pode eliminar, porque não há nenhuma dependência
+
+	DECLARE @id INT;
+	SELECT @id = id FROM DELETED;
+
+	BEGIN TRANSACTION			
+		DECLARE @code VARCHAR(20);
+		SELECT @code = codigo_criador FROM DELETED;
+
+		DELETE FROM PROJETO.TarefaGrupo WHERE grupo = @id;
+		DELETE FROM PROJETO.PaginaGrupo WHERE grupo = @id;
+		DELETE FROM PROJETO.GrupoProfessor WHERE grupo = @id;
+		DELETE FROM PROJETO.Ficheiro WHERE codigo_criador = @code;
+		DELETE FROM PROJETO.Criador WHERE codigo = @code;
+		DELETE FROM PROJETO.Grupo WHERE id = @id;
+	COMMIT
+
+END
+
+-- apagar uma instituição pressupõe eliminar todas as tarefas associadas e tudo associado à cadeira
+-- ou seja, a sp da instituição chama a sp de delete de cadeiras
 
 -- SP de Login
 CREATE PROCEDURE PROJETO.login
