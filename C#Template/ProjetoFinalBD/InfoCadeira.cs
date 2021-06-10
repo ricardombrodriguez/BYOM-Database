@@ -59,5 +59,11 @@ namespace ProjetoFinalBD
             FormState.PreviousPage = this;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormState.PreviousPage.Show();
+            this.Hide();
+            FormState.PreviousPage = this;
+        }
     }
 }

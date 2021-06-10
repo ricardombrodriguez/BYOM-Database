@@ -60,9 +60,9 @@ namespace ProjetoFinalBD
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.label4.Location = new System.Drawing.Point(29, 131);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 20);
+            this.label4.Size = new System.Drawing.Size(63, 20);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Nome";
+            this.label4.Text = "Nome *";
             // 
             // label2
             // 
@@ -71,9 +71,9 @@ namespace ProjetoFinalBD
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.label2.Location = new System.Drawing.Point(29, 189);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 20);
+            this.label2.Size = new System.Drawing.Size(94, 20);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Descrição";
+            this.label2.Text = "Descrição *";
             // 
             // nome
             // 

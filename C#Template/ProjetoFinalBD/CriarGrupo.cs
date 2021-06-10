@@ -14,7 +14,6 @@ namespace ProjetoFinalBD
     public partial class CriarGrupo : Form
     {
         private SqlConnection cn;
-        private string id;
 
         public CriarGrupo(string id = "")
         {

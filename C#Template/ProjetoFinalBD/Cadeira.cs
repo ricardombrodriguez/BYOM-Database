@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,11 +13,37 @@ namespace ProjetoFinalBD
 {
     public partial class Cadeira : Form
     {
+        private SqlConnection cn;
+
         public Cadeira()
         {
             InitializeComponent();
             panelLeft.Height = btnCadeiras.Height;
             panelLeft.Top = btnCadeiras.Top;
+
+            showCadeiras();
+        }
+
+        private SqlConnection getSGBDConnection()
+        {
+            return new SqlConnection("Data Source=tcp:mednat.ieeta.pt\\SQLSERVER,8101;Persist Security Info=True;User ID=p9g5;Password=-737279605@BD;");
+        }
+
+        private bool verifySGBDConnection()
+        {
+            if (cn == null)
+                cn = getSGBDConnection();
+
+            if (cn.State != ConnectionState.Open)
+                cn.Open();
+
+            return cn.State == ConnectionState.Open;
+        }
+
+
+        private void showCadeiras()
+        {
+            
         }
 
         private void btnHome_Click(object sender, EventArgs e)

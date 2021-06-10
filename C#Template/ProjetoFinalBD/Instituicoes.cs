@@ -12,6 +12,12 @@ namespace ProjetoFinalBD
 {
     public partial class Instituicoes : Form
     {
+        //guarda o id da instituição selecionada (é 0 se n houver nenhuma selecionada)
+        //vai haver um método de isSelected que vê se há alguma linha que está selecionada
+        //se tiver guarda o seu id, se não este passa a ter valor 0
+        //isto vai ser usado para saber se queremos inserir uma instituicao ou fazer update
+        public static int selected_id = 0;              
+
         public Instituicoes()
         {
             InitializeComponent();

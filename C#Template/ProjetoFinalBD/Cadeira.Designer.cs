@@ -48,9 +48,9 @@ namespace ProjetoFinalBD
             this.panel3 = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.listboxCadeiras = new System.Windows.Forms.ListBox();
             this.btnCriarCadeira = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.listboxCadeiras = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -78,7 +78,7 @@ namespace ProjetoFinalBD
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 617);
+            this.panel1.Size = new System.Drawing.Size(200, 1033);
             this.panel1.TabIndex = 0;
             // 
             // lblTarefas
@@ -87,7 +87,7 @@ namespace ProjetoFinalBD
             this.lblTarefas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblTarefas.Location = new System.Drawing.Point(65, 479);
             this.lblTarefas.Name = "lblTarefas";
-            this.lblTarefas.Size = new System.Drawing.Size(66, 21);
+            this.lblTarefas.Size = new System.Drawing.Size(79, 23);
             this.lblTarefas.TabIndex = 23;
             this.lblTarefas.Text = "Tarefas";
             this.lblTarefas.Click += new System.EventHandler(this.lblTarefas_Click);
@@ -112,7 +112,7 @@ namespace ProjetoFinalBD
             this.lblInstituicoes.AutoSize = true;
             this.lblInstituicoes.Location = new System.Drawing.Point(51, 409);
             this.lblInstituicoes.Name = "lblInstituicoes";
-            this.lblInstituicoes.Size = new System.Drawing.Size(97, 21);
+            this.lblInstituicoes.Size = new System.Drawing.Size(114, 23);
             this.lblInstituicoes.TabIndex = 18;
             this.lblInstituicoes.Text = "Instituições";
             this.lblInstituicoes.Click += new System.EventHandler(this.lblInstituicoes_Click);
@@ -139,7 +139,7 @@ namespace ProjetoFinalBD
             this.label14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label14.Location = new System.Drawing.Point(77, 129);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(56, 21);
+            this.label14.Size = new System.Drawing.Size(69, 23);
             this.label14.TabIndex = 12;
             this.label14.Text = "Home";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -153,7 +153,7 @@ namespace ProjetoFinalBD
             this.lblHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblHome.Location = new System.Drawing.Point(77, 129);
             this.lblHome.Name = "lblHome";
-            this.lblHome.Size = new System.Drawing.Size(56, 21);
+            this.lblHome.Size = new System.Drawing.Size(69, 23);
             this.lblHome.TabIndex = 12;
             this.lblHome.Text = "Home";
             this.lblHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -164,7 +164,7 @@ namespace ProjetoFinalBD
             this.lblGrupos.AutoSize = true;
             this.lblGrupos.Location = new System.Drawing.Point(66, 340);
             this.lblGrupos.Name = "lblGrupos";
-            this.lblGrupos.Size = new System.Drawing.Size(66, 21);
+            this.lblGrupos.Size = new System.Drawing.Size(80, 23);
             this.lblGrupos.TabIndex = 14;
             this.lblGrupos.Text = "Grupos";
             this.lblGrupos.Click += new System.EventHandler(this.lblGrupos_Click);
@@ -175,7 +175,7 @@ namespace ProjetoFinalBD
             this.lblPaginas.AutoSize = true;
             this.lblPaginas.Location = new System.Drawing.Point(67, 270);
             this.lblPaginas.Name = "lblPaginas";
-            this.lblPaginas.Size = new System.Drawing.Size(71, 21);
+            this.lblPaginas.Size = new System.Drawing.Size(86, 23);
             this.lblPaginas.TabIndex = 12;
             this.lblPaginas.Text = "Páginas";
             this.lblPaginas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -189,7 +189,7 @@ namespace ProjetoFinalBD
             this.lblCadeiras.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblCadeiras.Location = new System.Drawing.Point(60, 200);
             this.lblCadeiras.Name = "lblCadeiras";
-            this.lblCadeiras.Size = new System.Drawing.Size(80, 21);
+            this.lblCadeiras.Size = new System.Drawing.Size(98, 23);
             this.lblCadeiras.TabIndex = 13;
             this.lblCadeiras.Text = "Cadeiras";
             this.lblCadeiras.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -289,8 +289,20 @@ namespace ProjetoFinalBD
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(200, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(986, 617);
+            this.panel2.Size = new System.Drawing.Size(1698, 1033);
             this.panel2.TabIndex = 1;
+            // 
+            // listboxCadeiras
+            // 
+            this.listboxCadeiras.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listboxCadeiras.FormattingEnabled = true;
+            this.listboxCadeiras.ItemHeight = 23;
+            this.listboxCadeiras.Location = new System.Drawing.Point(21, 99);
+            this.listboxCadeiras.Name = "listboxCadeiras";
+            this.listboxCadeiras.Size = new System.Drawing.Size(1643, 901);
+            this.listboxCadeiras.TabIndex = 2;
             // 
             // btnCriarCadeira
             // 
@@ -299,7 +311,7 @@ namespace ProjetoFinalBD
             this.btnCriarCadeira.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCriarCadeira.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCriarCadeira.ForeColor = System.Drawing.Color.White;
-            this.btnCriarCadeira.Location = new System.Drawing.Point(728, 9);
+            this.btnCriarCadeira.Location = new System.Drawing.Point(1440, 9);
             this.btnCriarCadeira.Name = "btnCriarCadeira";
             this.btnCriarCadeira.Size = new System.Drawing.Size(234, 31);
             this.btnCriarCadeira.TabIndex = 1;
@@ -315,35 +327,26 @@ namespace ProjetoFinalBD
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(21, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 26);
+            this.label2.Size = new System.Drawing.Size(136, 35);
             this.label2.TabIndex = 0;
             this.label2.Text = "Cadeiras";
-            // 
-            // listboxCadeiras
-            // 
-            this.listboxCadeiras.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listboxCadeiras.FormattingEnabled = true;
-            this.listboxCadeiras.ItemHeight = 23;
-            this.listboxCadeiras.Location = new System.Drawing.Point(21, 99);
-            this.listboxCadeiras.Name = "listboxCadeiras";
-            this.listboxCadeiras.Size = new System.Drawing.Size(931, 487);
-            this.listboxCadeiras.TabIndex = 2;
             // 
             // Cadeira
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(1190, 617);
+            this.ClientSize = new System.Drawing.Size(1902, 1033);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Cadeira";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BYOM";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);

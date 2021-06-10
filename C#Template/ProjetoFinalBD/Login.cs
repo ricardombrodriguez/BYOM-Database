@@ -75,10 +75,11 @@ namespace ProjetoFinalBD
      
                     if (validation)
                     {
+                        Login.utilizador = email.Text;
                         this.Hide();
                         BYOM entrar = new BYOM();
                         entrar.Show();
-                        Login.utilizador = email.Text;
+                     
                     }
                     else
                     {
