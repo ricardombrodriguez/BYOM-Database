@@ -67,28 +67,33 @@ namespace ProjetoFinalBD
                 cmd.Connection = cn;
                 int numInstituicoesHomonimas = Convert.ToInt32(cmd.ExecuteScalar());
 
+                cn.Close();
+
                 if (numInstituicoesHomonimas == 0)
                 {
                     if (Instituicoes.selected_id == 0)
                     {
                         //é para fazer insert
 
+                        cn = getSGBDConnection();
+
+                        if (!verifySGBDConnection())
+                            return;
+
                         SqlCommand command = new SqlCommand();
 
-                        command.CommandText = "INSERT PROJETO.Instituicao VALUES (@nome, @descricao, @aluno_criador) ";
+                        command.CommandText = "INSERT INTO PROJETO.Instituicao(nome,descricao,aluno_criador) VALUES (@nome,@descricao,@aluno_criador);";
                         command.Parameters.Clear();
                         command.Parameters.AddWithValue("@nome", nome.Text);
                         command.Parameters.AddWithValue("@descricao", descricao.Text);
                         command.Parameters.AddWithValue("@aluno_criador", Login.utilizador);
                         command.Connection = cn;
-                        
-                        MessageBox.Show(nome.Text);
-                        MessageBox.Show(descricao.Text);
-                        MessageBox.Show(Login.utilizador);
+
+                        MessageBox.Show(command.CommandText);
 
                         try
                         {
-                            cmd.ExecuteNonQuery();
+                            command.ExecuteNonQuery();
                             MessageBox.Show("Instituição " + nome.Text + " criada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             FormState.PreviousPage.Show();
@@ -98,10 +103,18 @@ namespace ProjetoFinalBD
                         catch (Exception ex)
                         {
                             throw new Exception("Não foi possível inserir a instituição na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                        } finally
+                        {
+                            cn.Close();
                         }
                     } else
                     {
                         // é para fazer update
+
+                        cn = getSGBDConnection();
+
+                        if (!verifySGBDConnection())
+                            return;
 
                         SqlCommand command = new SqlCommand();
 
@@ -114,7 +127,7 @@ namespace ProjetoFinalBD
 
                         try
                         {
-                            cmd.ExecuteNonQuery();
+                            command.ExecuteNonQuery();
                             MessageBox.Show("Instituição " + nome.Text + " foi atualizada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             FormState.PreviousPage.Show();
@@ -124,6 +137,9 @@ namespace ProjetoFinalBD
                         catch (Exception ex)
                         {
                             throw new Exception("Não foi possível inserir a instituição na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                        } finally
+                        {
+                            cn.Close();
                         }
                     }
                     
@@ -133,8 +149,6 @@ namespace ProjetoFinalBD
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-            cn.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
