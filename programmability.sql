@@ -29,7 +29,7 @@ BEGIN
 
 		SELECT @nome = nome, @cadeira = cadeira FROM INSERTED;
 
-		INSERT INTO PROJETO.Grupo VALUES(@nome, @cadeira, @code);
+		INSERT INTO PROJETO.Grupo(nome, cadeira, codigo_criador) VALUES(@nome, @cadeira, @code);
 	COMMIT
 
 END
@@ -54,7 +54,7 @@ BEGIN
 			@nota_final = nota_final, @aluno = aluno, @instituicao = instituicao
 		FROM INSERTED;
 
-		INSERT INTO PROJETO.Cadeira VALUES(@nome, @link, @ano, @semestre, @nota_final, @aluno, @code, @instituicao);
+		INSERT INTO PROJETO.Cadeira(nome, link, ano, semestre, nota_final, aluno, codigo_criador, instituicao, disabled) VALUES(@nome, @link, @ano, @semestre, @nota_final, @aluno, @code, @instituicao, 0);
 	COMMIT
 
 END
@@ -108,12 +108,7 @@ BEGIN
 
 END
 
-
----------------------------------------------------------------------------------------------------------------------------------
--- ALTERAR ESTE TRIGGER 
-----------------------------
-
--- Não queremos permitir que as contas sejam eliminadas, em vez disso ficam disabled
+-- SP's de DELETE
 CREATE TRIGGER deleteAluno
 ON PROJETO.Aluno
 INSTEAD OF DELETE
@@ -128,41 +123,164 @@ BEGIN
 	COMMIT
 
 END
-select * from PROJETO.Aluno
-delete from PROJETO.Aluno where email = 'admin@sapo.pt'
 
--- Ver se podemos eliminar ou se há dependências
-CREATE TRIGGER deletePagina
-ON PROJETO.Pagina
-INSTEAD OF DELETE
+CREATE PROCEDURE PROJETO.deletePagina
+	@pagId INT
 AS
 BEGIN
-	-- Basicamente se não existir no PaginaGrupo pode eliminar, porque não há nenhuma dependência
 
-	DECLARE @n INT, @id INT;
+	BEGIN TRANSACTION
+		DECLARE @code VARCHAR(20);
+		SELECT @code = codigo_criador FROM PROJETO.Pagina WHERE id = @pagId;
 
-	SELECT @id = id FROM DELETED;
+		IF EXISTS (SELECT * FROM PROJETO.PaginaGrupo WHERE pagina = @pagId)
+			BEGIN
+				DELETE FROM PROJETO.PaginaGrupo WHERE pagina = @pagId;
+			END
 
-	SELECT @n = COUNT(*) FROM PROJETO.PaginaGrupo WHERE pagina = @id;
+		DELETE FROM PROJETO.Ficheiro WHERE codigo_criador = @code;
+		DELETE FROM PROJETO.Criador WHERE codigo = @code;
+		DELETE FROM PROJETO.Pagina WHERE id = @pagId;
+	COMMIT
 
-	IF @n > 0
-		BEGIN
-			UPDATE PROJETO.Pagina SET disabled = 1 WHERE id = @id;
-		END
-	ELSE
-		-- Não há dependências
-		BEGIN
-			BEGIN TRANSACTION
-				DECLARE @code VARCHAR(20);
-				SELECT @code = codigo_criador FROM DELETED;
+END
+
+CREATE PROCEDURE PROJETO.deleteInstituicao
+	@id INT
+AS
+BEGIN
+
+	BEGIN TRANSACTION
+
+		IF EXISTS (SELECT * FROM PROJETO.Cadeira WHERE instituicao = @id)
+			BEGIN
+				UPDATE PROJETO.Instituicao SET disabled = 1 WHERE id = @id;
+			END
+		ELSE
+			BEGIN			
+				DELETE FROM PROJETO.Instituicao WHERE id = @id;
+			END
+
+	COMMIT
+
+END
+
+CREATE PROCEDURE PROJETO.deleteTipoTarefa
+	@id INT
+AS
+BEGIN
+
+	BEGIN TRANSACTION
+
+		IF EXISTS (SELECT * FROM PROJETO.Tarefa WHERE tipoTarefa = @id)
+			BEGIN
+				UPDATE PROJETO.TipoTarefa SET disabled = 1 WHERE id = @id;
+			END
+		ELSE
+			BEGIN			
+				DELETE FROM PROJETO.TipoTarefa WHERE id = @id;
+			END
+
+	COMMIT
+
+END
+
+CREATE PROCEDURE PROJETO.deleteTarefa
+	@id INT
+AS
+BEGIN
+
+	BEGIN TRANSACTION
+
+		IF EXISTS (SELECT * FROM PROJETO.TarefaGrupo WHERE tarefa = @id)
+			BEGIN
+				DELETE FROM PROJETO.TarefaGrupo WHERE tarefa = @id;
+			END
+				
+		DELETE FROM PROJETO.Tarefa WHERE id = @id;
+
+	COMMIT
+
+END
+
+CREATE PROCEDURE PROJETO.deleteCadeira
+	@id INT
+AS
+BEGIN
+
+	BEGIN TRANSACTION
+		DECLARE @code VARCHAR(20);
+		SELECT @code = codigo_criador FROM PROJETO.Cadeira WHERE id = @id;
+
+		IF EXISTS (SELECT * FROM PROJETO.Grupo WHERE cadeira = @id)
+			BEGIN
+				UPDATE PROJETO.Cadeira SET disabled = 1 WHERE id = @id;
+			END
+		ELSE
+			BEGIN
+				IF EXISTS (SELECT * FROM PROJETO.ProfessorCadeira WHERE cadeira = @id)
+					BEGIN
+						DELETE FROM PROJETO.ProfessorCadeira WHERE cadeira = @id;
+					END
+
+				IF EXISTS (SELECT * FROM PROJETO.Tarefa WHERE cadeira = @id)
+					BEGIN
+						DELETE FROM PROJETO.Tarefa WHERE cadeira = @id;
+					END
 
 				DELETE FROM PROJETO.Ficheiro WHERE codigo_criador = @code;
 				DELETE FROM PROJETO.Criador WHERE codigo = @code;
-				DELETE FROM PROJETO.Pagina WHERE id = @id;
-			COMMIT
-		END
+				DELETE FROM PROJETO.Cadeira WHERE id = @id;
+			END
+
+		COMMIT
+
 END
 
+CREATE PROCEDURE PROJETO.deleteGrupo	
+	@id INT
+AS
+BEGIN
+
+	BEGIN TRANSACTION
+		DECLARE @code VARCHAR(20);
+		SELECT @code = codigo_criador FROM PROJETO.Grupo WHERE id = @id;
+		
+		DELETE FROM PROJETO.PaginaGrupo WHERE grupo = @id;
+		DELETE FROM PROJETO.TarefaGrupo WHERE grupo = @id;
+		DELETE FROM PROJETO.GrupoAluno WHERE grupo = @id;
+		DELETE FROM PROJETO.GrupoProfessor WHERE grupo = @id;
+		DELETE FROM PROJETO.Ficheiro WHERE codigo_criador = @code;
+		DELETE FROM PROJETO.Criador WHERE codigo = @code;
+		DELETE FROM PROJETO.Grupo WHERE id = @id;
+
+	COMMIT
+
+END
+
+CREATE PROCEDURE PROJETO.deleteProfessor	
+	@email VARCHAR(250)
+AS
+BEGIN
+
+	BEGIN TRANSACTION
+
+		IF EXISTS (SELECT * FROM PROJETO.GrupoProfessor WHERE professor = @email)
+			BEGIN
+				UPDATE PROJETO.Professor SET disabled = 1 WHERE email = @email;
+			END
+		ELSE IF EXISTS (SELECT * FROM PROJETO.ProfessorCadeira WHERE professor = @email)
+			BEGIN
+				UPDATE PROJETO.Professor SET disabled = 1 WHERE email = @email;
+			END
+		ELSE
+			BEGIN
+				DELETE FROM PROJETO.Professor WHERE email = @email;
+			END
+
+	COMMIT
+
+END
 
 -- SP de Login
 CREATE PROCEDURE PROJETO.login
@@ -176,3 +294,4 @@ AS
 
 	END;
 GO
+
