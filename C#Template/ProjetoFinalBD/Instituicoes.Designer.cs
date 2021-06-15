@@ -321,7 +321,7 @@ namespace ProjetoFinalBD
             this.listboxInstituicoes.Name = "listboxInstituicoes";
             this.listboxInstituicoes.Size = new System.Drawing.Size(1656, 901);
             this.listboxInstituicoes.TabIndex = 11;
-            this.listboxInstituicoes.SelectedIndexChanged += new System.EventHandler(this.listboxInstituicoes_SelectedIndexChanged);
+            this.listboxInstituicoes.DoubleClick += new System.EventHandler(this.listboxInstituicoes_DoubleClick);
             // 
             // label10
             // 

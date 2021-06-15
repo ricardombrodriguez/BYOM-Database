@@ -32,7 +32,7 @@ namespace ProjetoFinalBD
             showInstituicoes();
         }
 
-        private void showInstituicoes()
+        public void showInstituicoes()
         {
             cn = getSGBDConnection();
 
@@ -48,6 +48,7 @@ namespace ProjetoFinalBD
             try
             {
                 SqlDataReader reader = cmd.ExecuteReader();
+                listboxInstituicoes.Items.Clear();
 
                 while (reader.Read())
                 {
@@ -57,6 +58,7 @@ namespace ProjetoFinalBD
                                                        reader["aluno_criador"].ToString(), 
                                                        Convert.ToBoolean(reader["disabled"]));
 
+                    instituicoes.Add(inst);
                     listboxInstituicoes.Items.Add(inst.Show());
                 }
                
@@ -259,15 +261,23 @@ namespace ProjetoFinalBD
 
         private void btnAddInstituicao_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            CriarInstituicao inst = new CriarInstituicao();
+            CriarInstituicao inst = new CriarInstituicao(this);
             inst.Show();
             FormState.PreviousPage = this;
+            CriarInstituicao.cadeirasVisiveis = false;
         }
 
-        private void listboxInstituicoes_SelectedIndexChanged(object sender, EventArgs e)
+        private void listboxInstituicoes_DoubleClick(object sender, EventArgs e)
         {
-
+            MessageBox.Show("entrou");
+            if (listboxInstituicoes.SelectedItem != null)
+            {
+                MessageBox.Show(listboxInstituicoes.SelectedItem.ToString());
+                CriarInstituicao inst = new CriarInstituicao(this);
+                CriarInstituicao.cadeirasVisiveis = true;
+                CriarInstituicao.instituicaoAtual = instituicoes[listboxInstituicoes.SelectedIndex];
+                inst.Show();
+            }
         }
     }
 }
