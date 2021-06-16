@@ -11,5 +11,8 @@ Projeto final da cadeira de Base de Dados (2.º ano 2.º semestre). O projeto co
 - Todos os Triggers, Funções e Stored Procedures estão no ficheiro programmability.sql e são essenciais para que o projeto funcione
 
 ### Authors:
-- Gonçalo Leal | 98008
-- Ricardo Rodriguez | 98388
+
+| Nome              | Github  | Nmec |
+| :------------:     |:---------------:| :-----:|
+| Gonçalo Leal      | <a href="https://github.com/goncalo-leal">@goncalo-leal</a>             | 98008 |
+| Ricardo Rodriguez | <a href="https://github.com/ricardombrodriguez">@ricardombrodriguez</a> | 98388 |

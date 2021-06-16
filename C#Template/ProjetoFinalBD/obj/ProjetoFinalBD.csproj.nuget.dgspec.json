@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[5.0.7, )"
             },
+            "System.Collections.NonGeneric": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.2, )"
