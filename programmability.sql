@@ -295,3 +295,55 @@ AS
 	END;
 GO
 
+CREATE PROCEDURE PROJETO.tarefasSemanais
+AS
+BEGIN
+	DECLARE @addDays INT, @sutractDays INT, @weekday VARCHAR(10), @initDate DATE, @finDate DATE;
+	SELECT @weekday = DATENAME(WEEKDAY, GETDATE());
+
+	IF @weekday = 'Monday'
+		BEGIN
+			SET @sutractDays = 0;
+			SET @addDays = 6;
+		END
+	ELSE IF @weekday = 'Tuesday'
+		BEGIN
+			SET @sutractDays = -1;
+			SET @addDays = 5;
+		END
+	ELSE IF @weekday = 'Wednesday'
+		BEGIN
+			SET @sutractDays = -2;
+			SET @addDays = 4;
+		END
+	ELSE IF @weekday = 'Thursday'
+		BEGIN
+			SET @sutractDays = -3;
+			SET @addDays = 3;
+		END
+	ELSE IF @weekday = 'Friday'
+		BEGIN
+			SET @sutractDays = -4;
+			SET @addDays = 2;
+		END
+	ELSE IF @weekday = 'Saturday'
+		BEGIN
+			SET @sutractDays = -5;
+			SET @addDays = 1;
+		END
+	ELSE IF @weekday = 'Sunday'
+		BEGIN
+			SET @sutractDays = -6;
+			SET @addDays = 0
+		END
+
+	SELECT @initDate = CAST(DATEADD(DAY, @sutractDays, CAST(GETDATE() AS DATE)) AS DATE);
+	SELECT @finDate = CAST(DATEADD(DAY, @addDays, CAST(GETDATE() AS DATE)) AS DATE);
+	
+	SELECT id, CONCAT(titulo, ' ', '[INÍCIO]') as titulo FROM PROJETO.Tarefa WHERE data_inicio = @initDate
+	UNION
+	SELECT id, titulo FROM PROJETO.Tarefa WHERE data_inicio < @initDate AND data_final > @finDate
+	UNION
+	SELECT id, CONCAT(titulo, ' ', '[FINAL]')  FROM PROJETO.Tarefa WHERE data_final = @finDate;
+
+END
