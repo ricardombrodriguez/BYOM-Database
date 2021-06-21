@@ -15,7 +15,7 @@ namespace ProjetoFinalBD
     {
 
         public static Boolean cadeirasVisiveis;
-        public static Instituicao instituicaoAtual;
+        public static ClasseInstituicao instituicaoAtual;
         private List<ClasseCadeira> listaCadeiras;
         private Instituicoes inst;
         private SqlConnection cn;

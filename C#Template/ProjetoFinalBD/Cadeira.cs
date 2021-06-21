@@ -14,13 +14,15 @@ namespace ProjetoFinalBD
     public partial class Cadeira : Form
     {
         private SqlConnection cn;
+        public static Boolean criarCadeira;
+        public static ClasseCadeira cadeiraAtual;
+        private List<ClasseCadeira> lstCadeiras = new List<ClasseCadeira>();
 
         public Cadeira()
         {
             InitializeComponent();
             panelLeft.Height = btnCadeiras.Height;
             panelLeft.Top = btnCadeiras.Top;
-
             showCadeiras();
         }
 
@@ -43,7 +45,49 @@ namespace ProjetoFinalBD
 
         private void showCadeiras()
         {
-            
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM PROJETO.Cadeira " +
+                "WHERE aluno = @aluno AND disabled = 0";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
+            cmd.Connection = cn;
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                listboxCadeiras.Items.Clear();
+
+                while (reader.Read())
+                {
+                    ClasseCadeira novaCadeira = new ClasseCadeira(Convert.ToInt32(reader["id"]),
+                                                       reader["nome"].ToString(),
+                                                       reader["link"].ToString(),
+                                                       Convert.ToInt32(reader["ano"]),
+                                                       Convert.ToInt32(reader["semestre"]),
+                                                       Convert.ToDouble(reader["nota_final"].ToString()),
+                                                       reader["aluno"].ToString(),
+                                                       reader["codigo_criador"].ToString(),
+                                                       Convert.ToInt32(reader["instituicao"]),
+                                                       false);
+
+                    lstCadeiras.Add(novaCadeira);
+                    listboxCadeiras.Items.Add(novaCadeira.Nome);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível visualizar as instituições na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -218,6 +262,7 @@ namespace ProjetoFinalBD
         private void btnCriarCadeira_Click(object sender, EventArgs e)
         {
             this.Hide();
+            Cadeira.criarCadeira = true;
             InfoCadeira novaCadeira = new InfoCadeira();
             novaCadeira.Show();
             FormState.PreviousPage = this;

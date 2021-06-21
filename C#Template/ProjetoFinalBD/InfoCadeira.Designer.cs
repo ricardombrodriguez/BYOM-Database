@@ -48,7 +48,7 @@ namespace ProjetoFinalBD
             this.label1 = new System.Windows.Forms.Label();
             this.removerProfessor = new System.Windows.Forms.Button();
             this.adicionarProfessor = new System.Windows.Forms.ComboBox();
-            this.re = new System.Windows.Forms.ComboBox();
+            this.adicionarPagina = new System.Windows.Forms.ComboBox();
             this.adicionarTarefa = new System.Windows.Forms.ComboBox();
             this.listaPaginas = new System.Windows.Forms.ListBox();
             this.listaTarefas = new System.Windows.Forms.ListBox();
@@ -76,15 +76,15 @@ namespace ProjetoFinalBD
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.label2.Location = new System.Drawing.Point(60, 114);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 20);
+            this.label2.Size = new System.Drawing.Size(63, 20);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Nome";
+            this.label2.Text = "Nome *";
             // 
             // link
             // 
             this.link.Location = new System.Drawing.Point(153, 162);
             this.link.Name = "link";
-            this.link.Size = new System.Drawing.Size(643, 27);
+            this.link.Size = new System.Drawing.Size(588, 27);
             this.link.TabIndex = 6;
             // 
             // label3
@@ -262,14 +262,14 @@ namespace ProjetoFinalBD
             this.adicionarProfessor.TabIndex = 27;
             this.adicionarProfessor.Text = "+ Adicionar professor";
             // 
-            // re
+            // adicionarPagina
             // 
-            this.re.FormattingEnabled = true;
-            this.re.Location = new System.Drawing.Point(471, 276);
-            this.re.Name = "re";
-            this.re.Size = new System.Drawing.Size(171, 28);
-            this.re.TabIndex = 28;
-            this.re.Text = "+ Adicionar página";
+            this.adicionarPagina.FormattingEnabled = true;
+            this.adicionarPagina.Location = new System.Drawing.Point(471, 276);
+            this.adicionarPagina.Name = "adicionarPagina";
+            this.adicionarPagina.Size = new System.Drawing.Size(171, 28);
+            this.adicionarPagina.TabIndex = 28;
+            this.adicionarPagina.Text = "+ Adicionar página";
             // 
             // adicionarTarefa
             // 
@@ -314,9 +314,9 @@ namespace ProjetoFinalBD
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.label11.Location = new System.Drawing.Point(1131, 161);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(84, 20);
+            this.label11.Size = new System.Drawing.Size(94, 20);
             this.label11.TabIndex = 34;
-            this.label11.Text = "Instituição";
+            this.label11.Text = "Instituição *";
             // 
             // instituicoes
             // 
@@ -363,7 +363,7 @@ namespace ProjetoFinalBD
             this.Controls.Add(this.listaTarefas);
             this.Controls.Add(this.listaPaginas);
             this.Controls.Add(this.adicionarTarefa);
-            this.Controls.Add(this.re);
+            this.Controls.Add(this.adicionarPagina);
             this.Controls.Add(this.adicionarProfessor);
             this.Controls.Add(this.removerProfessor);
             this.Controls.Add(this.removerTarefa);
@@ -415,7 +415,7 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button removerProfessor;
         private System.Windows.Forms.ComboBox adicionarProfessor;
-        private System.Windows.Forms.ComboBox re;
+        private System.Windows.Forms.ComboBox adicionarPagina;
         private System.Windows.Forms.ComboBox adicionarTarefa;
         private System.Windows.Forms.ListBox listaPaginas;
         private System.Windows.Forms.ListBox listaTarefas;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoFinalBD
 {
-    public class Instituicao
+    public class ClasseInstituicao
     {
         private int id;
         private String nome;
@@ -14,7 +14,7 @@ namespace ProjetoFinalBD
         private String aluno_criador;
         private Boolean disabled;
 
-        public Instituicao(int id, string nome, string descricao, string aluno_criador, bool disabled)
+        public ClasseInstituicao(int id, string nome, string descricao, string aluno_criador, bool disabled)
         {
             this.id = id;
             this.nome = nome;
