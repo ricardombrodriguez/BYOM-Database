@@ -17,6 +17,7 @@ namespace ProjetoFinalBD
         private SqlConnection cn;
         private List<ClasseInstituicao> lstInstituicoes;
 
+ 
         public InfoCadeira()
         {
             InitializeComponent();
@@ -50,8 +51,67 @@ namespace ProjetoFinalBD
                 adicionarProfessor.Visible = true;
                 adicionarTarefa.Visible = true;
                 adicionarPagina.Visible = true;
+
+                showTarefas();
+                showPaginas();
+                showProfessores();
+
             }
         }
+
+        private void showTarefas()
+        {
+
+        }
+
+        private void showPaginas()
+        {
+
+        }
+        private void showProfessores()
+        {
+
+        }
+
+        private void changeView()
+        {
+            if (Cadeira.criarCadeira)
+            {
+                listaPaginas.Visible = false;
+                listaTarefas.Visible = false;
+                listaProfessores.Visible = false;
+                label7.Visible = false;
+                label8.Visible = false;
+                label9.Visible = false;
+                removerPagina.Visible = false;
+                removerTarefa.Visible = false;
+                removerProfessor.Visible = false;
+                adicionarProfessor.Visible = false;
+                adicionarTarefa.Visible = false;
+                adicionarPagina.Visible = false;
+            }
+            else
+            {
+                listaPaginas.Visible = true;
+                listaTarefas.Visible = true;
+                listaProfessores.Visible = true;
+                label7.Visible = true;
+                label8.Visible = true;
+                label9.Visible = true;
+                removerPagina.Visible = true;
+                removerTarefa.Visible = true;
+                removerProfessor.Visible = true;
+                adicionarProfessor.Visible = true;
+                adicionarTarefa.Visible = true;
+                adicionarPagina.Visible = true;
+
+                showTarefas();
+                showPaginas();
+                showProfessores();
+
+            }
+        }
+
 
         private SqlConnection getSGBDConnection()
         {
@@ -153,8 +213,6 @@ namespace ProjetoFinalBD
                     if (numCadeirasHomonimas == 0)
                     {
 
-                        SqlCommand command = new SqlCommand();
-
                         String Cnome = nome.Text;
                         String Clink = link.Text;
                         Int32 Cano = (ano.Text != String.Empty) ? Convert.ToInt32(ano.Text) : 0;
@@ -164,8 +222,8 @@ namespace ProjetoFinalBD
                         Int32 Cinstituicao = lstInstituicoes[instituicoes.SelectedIndex].Id;
 
 
-                        command.CommandText = "INSERT INTO PROJETO.Cadeira(nome,link,ano,semestre,nota_final,aluno,instituicao) " +
-                            "VALUES (@nome,@link,@ano,@semestre,@nota_final,@aluno,@instituicao)";
+                        SqlCommand command = new SqlCommand("PROJETO.createCadeira", cn);
+                        command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Clear();
                         command.Parameters.AddWithValue("@nome", Cnome);
                         command.Parameters.AddWithValue("@link", Clink);
@@ -174,13 +232,22 @@ namespace ProjetoFinalBD
                         command.Parameters.AddWithValue("@nota_final", Cnota_final);
                         command.Parameters.AddWithValue("@aluno", Caluno);
                         command.Parameters.AddWithValue("@instituicao", Cinstituicao);
-                        command.Connection = cn;
+                        
 
-  
                         try
                         {
-                            command.ExecuteNonQuery();
+                            SqlDataReader reader = command.ExecuteReader();
                             MessageBox.Show("Cadeira " + nome.Text + " criada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            while (reader.Read())
+                            {
+                                for (int i = 0; i < reader.FieldCount; i++)
+                                {
+                                    MessageBox.Show(reader.GetName(i));
+                                }
+                            }                        
+                            
+                            this.changeView();
 
                         }
                         catch (Exception ex)
@@ -188,56 +255,8 @@ namespace ProjetoFinalBD
                             throw new Exception("Não foi possível inserir a cadeira na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
                         }
 
-                        MessageBox.Show("criou a cadeira");
-
-                        SqlCommand comando = new SqlCommand();
-                        comando.CommandText = "SELECT * FROM PROJETO.Cadeira WHERE nome = @nome AND aluno = @aluno AND disabled = 0";
-                        comando.Parameters.Clear();
-                        comando.Parameters.AddWithValue("@nome", nome.Text);
-                        comando.Parameters.AddWithValue("@aluno", Login.utilizador);
-                        comando.Connection = cn;
-                        MessageBox.Show("criou a cadeiraaaaaaaaaaaaa");
-
-
-                        try
-                        {
-                            SqlDataReader reader = cmd.ExecuteReader();
-                            MessageBox.Show("blablabla");
-
-                            while (reader.Read())
-                            {
-                                ClasseCadeira novaCadeira = new ClasseCadeira(Convert.ToInt32(reader["id"]),
-                                                                   reader["nome"].ToString(),
-                                                                   reader["link"].ToString(),
-                                                                   Convert.ToInt32(reader["ano"]),
-                                                                   Convert.ToInt32(reader["semestre"]),
-                                                                   Convert.ToDouble(reader["nota_final"].ToString()),
-                                                                   reader["aluno"].ToString(),
-                                                                   reader["codigo_criador"].ToString(),
-                                                                   Convert.ToInt32(reader["instituicao"]),
-                                                                   false);
-
-                                Cadeira.cadeiraAtual = novaCadeira;
-                                MessageBox.Show(novaCadeira.Id.ToString());
-                            }
-
-                            MessageBox.Show("criou a cadeira (classe tb)");
-
-                            this.Hide();
-                            InfoCadeira cadeira = new InfoCadeira();
-                            cadeira.Show();
-
-                        }
-                        catch (Exception ex)
-                        {
-                            throw new Exception("Não foi possível ler a cadeira na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
-                        }
-
-                        FormState.PreviousPage.Show();
-                        this.Hide();
-                        FormState.PreviousPage = this;
-
-                    } else
+                    } 
+                    else
                     {
                         MessageBox.Show("Já existe uma cadeira com esse nome.", "Erro",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);

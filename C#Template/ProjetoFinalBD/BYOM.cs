@@ -187,6 +187,7 @@ namespace ProjetoFinalBD
             this.Hide();
             CriarTarefa tarefa = new CriarTarefa();
             tarefa.Show();
+            CriarTarefa.createTarefa = true;
             FormState.PreviousPage = this;
         }
 

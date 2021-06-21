@@ -268,5 +268,16 @@ namespace ProjetoFinalBD
             FormState.PreviousPage = this;
         }
 
-    }
+        private void listboxCadeiras_DoubleClick(object sender, EventArgs e)
+        {
+            if (listboxCadeiras.SelectedItem != null)
+            {
+                InfoCadeira inst = new InfoCadeira();
+                Cadeira.criarCadeira = false;
+                Cadeira.cadeiraAtual = lstCadeiras[listboxCadeiras.SelectedIndex];
+                inst.Show();
+            }
+        }
+
+}
 }

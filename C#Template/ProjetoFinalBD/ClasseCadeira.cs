@@ -33,6 +33,12 @@ namespace ProjetoFinalBD
             this.disabled = disabled;
         }
 
+        public ClasseCadeira(int id, String nome)
+        {
+            this.id = id;
+            this.nome = nome;
+        }
+
         public int Id { get => id; set => id = value; }
         public string Nome { get => nome; set => nome = value; }
         public string Link { get => link; set => link = value; }

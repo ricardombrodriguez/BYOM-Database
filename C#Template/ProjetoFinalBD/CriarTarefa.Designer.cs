@@ -46,6 +46,7 @@ namespace ProjetoFinalBD
             this.cadeira = new System.Windows.Forms.ComboBox();
             this.tipoTarefa = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.addTipoTarefa = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -242,7 +243,7 @@ namespace ProjetoFinalBD
             this.tipoTarefa.FormattingEnabled = true;
             this.tipoTarefa.Location = new System.Drawing.Point(154, 539);
             this.tipoTarefa.Name = "tipoTarefa";
-            this.tipoTarefa.Size = new System.Drawing.Size(446, 28);
+            this.tipoTarefa.Size = new System.Drawing.Size(373, 28);
             this.tipoTarefa.TabIndex = 19;
             // 
             // button1
@@ -256,7 +257,19 @@ namespace ProjetoFinalBD
             this.button1.Size = new System.Drawing.Size(55, 47);
             this.button1.TabIndex = 42;
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // addTipoTarefa
+            // 
+            this.addTipoTarefa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addTipoTarefa.Location = new System.Drawing.Point(547, 539);
+            this.addTipoTarefa.Name = "addTipoTarefa";
+            this.addTipoTarefa.Size = new System.Drawing.Size(55, 29);
+            this.addTipoTarefa.TabIndex = 43;
+            this.addTipoTarefa.Text = "+";
+            this.addTipoTarefa.UseVisualStyleBackColor = true;
+            this.addTipoTarefa.Click += new System.EventHandler(this.addTipoTarefa_Click);
             // 
             // CriarTarefa
             // 
@@ -264,6 +277,7 @@ namespace ProjetoFinalBD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(642, 738);
+            this.Controls.Add(this.addTipoTarefa);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tipoTarefa);
             this.Controls.Add(this.cadeira);
@@ -311,5 +325,6 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.ComboBox cadeira;
         private System.Windows.Forms.ComboBox tipoTarefa;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addTipoTarefa;
     }
 }

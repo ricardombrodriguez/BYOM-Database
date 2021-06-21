@@ -269,7 +269,6 @@ namespace ProjetoFinalBD
 
         private void listboxInstituicoes_DoubleClick(object sender, EventArgs e)
         {
-            MessageBox.Show("entrou");
             if (listboxInstituicoes.SelectedItem != null)
             {
                 MessageBox.Show(listboxInstituicoes.SelectedItem.ToString());

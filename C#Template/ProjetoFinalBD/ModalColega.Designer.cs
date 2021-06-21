@@ -29,26 +29,15 @@ namespace ProjetoFinalBD
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.btnAdicionarColega = new System.Windows.Forms.Button();
             this.email = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label111 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(116, 140);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(217, 20);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "ERRO: Email de colega inválido";
-            // 
             // btnAdicionarColega
             // 
-            this.btnAdicionarColega.Location = new System.Drawing.Point(237, 180);
+            this.btnAdicionarColega.Location = new System.Drawing.Point(142, 159);
             this.btnAdicionarColega.Name = "btnAdicionarColega";
             this.btnAdicionarColega.Size = new System.Drawing.Size(199, 46);
             this.btnAdicionarColega.TabIndex = 18;
@@ -90,8 +79,7 @@ namespace ProjetoFinalBD
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(478, 262);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(478, 242);
             this.Controls.Add(this.btnAdicionarColega);
             this.Controls.Add(this.email);
             this.Controls.Add(this.label4);
@@ -108,8 +96,6 @@ namespace ProjetoFinalBD
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAdicionarColega;
         private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Label label4;

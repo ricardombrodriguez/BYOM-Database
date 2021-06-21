@@ -48,12 +48,12 @@ namespace ProjetoFinalBD
             this.panel3 = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnRemGrupo = new System.Windows.Forms.Button();
             this.listboxGrupos = new System.Windows.Forms.ListBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnCreateGrupo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnRemGrupo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -299,6 +299,20 @@ namespace ProjetoFinalBD
             this.panel2.Size = new System.Drawing.Size(1702, 1033);
             this.panel2.TabIndex = 1;
             // 
+            // btnRemGrupo
+            // 
+            this.btnRemGrupo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRemGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemGrupo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRemGrupo.ForeColor = System.Drawing.Color.White;
+            this.btnRemGrupo.Location = new System.Drawing.Point(1089, 63);
+            this.btnRemGrupo.Name = "btnRemGrupo";
+            this.btnRemGrupo.Size = new System.Drawing.Size(279, 31);
+            this.btnRemGrupo.TabIndex = 24;
+            this.btnRemGrupo.Text = "- Remover grupo";
+            this.btnRemGrupo.UseVisualStyleBackColor = true;
+            this.btnRemGrupo.Click += new System.EventHandler(this.btnRemGrupo_Click);
+            // 
             // listboxGrupos
             // 
             this.listboxGrupos.FormattingEnabled = true;
@@ -350,19 +364,6 @@ namespace ProjetoFinalBD
             this.label2.Size = new System.Drawing.Size(111, 35);
             this.label2.TabIndex = 0;
             this.label2.Text = "Grupos";
-            // 
-            // btnRemGrupo
-            // 
-            this.btnRemGrupo.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnRemGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemGrupo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRemGrupo.ForeColor = System.Drawing.Color.White;
-            this.btnRemGrupo.Location = new System.Drawing.Point(1089, 63);
-            this.btnRemGrupo.Name = "btnRemGrupo";
-            this.btnRemGrupo.Size = new System.Drawing.Size(279, 31);
-            this.btnRemGrupo.TabIndex = 24;
-            this.btnRemGrupo.Text = "- Remover grupo";
-            this.btnRemGrupo.UseVisualStyleBackColor = true;
             // 
             // Grupos
             // 

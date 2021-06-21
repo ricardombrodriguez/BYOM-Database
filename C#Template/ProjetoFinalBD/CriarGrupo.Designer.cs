@@ -266,7 +266,6 @@ namespace ProjetoFinalBD
             this.Name = "CriarGrupo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BYOM";
-            this.Load += new System.EventHandler(this.CriarGrupo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
