@@ -37,8 +37,6 @@ namespace ProjetoFinalBD
             this.inst = inst;
         }
 
-   
-
         private SqlConnection getSGBDConnection()
         {
             return new SqlConnection("Data Source=tcp:mednat.ieeta.pt\\SQLSERVER,8101;Persist Security Info=True;User ID=p9g5;Password=-737279605@BD;");

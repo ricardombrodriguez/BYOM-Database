@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoFinalBD
 {
-    class Instituicao
+    public class Instituicao
     {
         private int id;
         private String nome;
