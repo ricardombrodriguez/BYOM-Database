@@ -312,6 +312,7 @@ namespace ProjetoFinalBD
             this.btnRemInstituicao.TabIndex = 12;
             this.btnRemInstituicao.Text = "- Remover instituição";
             this.btnRemInstituicao.UseVisualStyleBackColor = true;
+            this.btnRemInstituicao.Click += new System.EventHandler(this.btnRemInstituicao_Click);
             // 
             // listboxInstituicoes
             // 

@@ -21,14 +21,14 @@ namespace ProjetoFinalBD
 
         public static int selected_id = 0;
         private SqlConnection cn;
-        private List<Instituicao> instituicoes;
+        private List<ClasseInstituicao> instituicoes;
 
         public Instituicoes()
         {
             InitializeComponent();
             panelLeft.Height = btnInstituicoes.Height;
             panelLeft.Top = btnInstituicoes.Top;
-            instituicoes = new List<Instituicao>();
+            instituicoes = new List<ClasseInstituicao>();
             showInstituicoes();
         }
 
@@ -52,7 +52,7 @@ namespace ProjetoFinalBD
 
                 while (reader.Read())
                 {
-                    Instituicao inst = new Instituicao(Convert.ToInt32(reader["id"]), 
+                    ClasseInstituicao inst = new ClasseInstituicao(Convert.ToInt32(reader["id"]), 
                                                        reader["nome"].ToString(),
                                                        reader["descricao"].ToString(), 
                                                        reader["aluno_criador"].ToString(), 
@@ -277,6 +277,38 @@ namespace ProjetoFinalBD
                 CriarInstituicao.cadeirasVisiveis = true;
                 CriarInstituicao.instituicaoAtual = instituicoes[listboxInstituicoes.SelectedIndex];
                 inst.Show();
+            }
+        }
+
+        private void btnRemInstituicao_Click(object sender, EventArgs e)
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            int id = instituicoes[listboxInstituicoes.SelectedIndex].Id;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "DELETE FROM PROJETO.Instituicao WHERE PROJETO.Instituicao.id = @id";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Connection = cn;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível remover a instituição na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+                showInstituicoes();
             }
         }
     }
