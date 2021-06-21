@@ -14,24 +14,42 @@ END
 
 -- Antes de inserirmos uma entidade capaz de criar um ficheiro, temos de lhe associar uma entidade criador
 -- Este trigger utiliza a função getUniqueCode para criar um Criador e só depois insere os valores na tabela Grupo
-CREATE TRIGGER createCriadorGrupo
-ON PROJETO.Grupo
-INSTEAD OF INSERT
+--CREATE TRIGGER createCriadorGrupo
+--ON PROJETO.Grupo
+--INSTEAD OF INSERT
+--AS
+--BEGIN
+--    DECLARE @code VARCHAR(15);
+--    DECLARE @nome VARCHAR(250), @cadeira INT;
+    
+--	BEGIN TRANSACTION
+--		SELECT @code = PROJETO.getUniqueCode('G');
+
+--		INSERT INTO PROJETO.Criador VALUES(@code);
+
+--		SELECT @nome = nome, @cadeira = cadeira FROM INSERTED;
+
+--		INSERT INTO PROJETO.Grupo(nome, cadeira, codigo_criador) VALUES(@nome, @cadeira, @code);
+--	COMMIT
+
+--END
+
+CREATE PROCEDURE PROJETO.createGroup
+	@nome VARCHAR(250), @cadeira INT, @aluno VARCHAR(250)
 AS
 BEGIN
-    DECLARE @code VARCHAR(15);
-    DECLARE @nome VARCHAR(250), @cadeira INT;
-    
+	DECLARE @code VARCHAR(15), @id INT;
 	BEGIN TRANSACTION
 		SELECT @code = PROJETO.getUniqueCode('G');
 
 		INSERT INTO PROJETO.Criador VALUES(@code);
 
-		SELECT @nome = nome, @cadeira = cadeira FROM INSERTED;
+		SELECT @id = id, @nome = nome, @cadeira = cadeira FROM INSERTED;
 
 		INSERT INTO PROJETO.Grupo(nome, cadeira, codigo_criador) VALUES(@nome, @cadeira, @code);
-	COMMIT
 
+		INSERT INTO PROJETO.GrupoAluno VALUES(@id, @aluno);
+	COMMIT
 END
 
 -- Antes de inserirmos uma entidade capaz de criar um ficheiro, temos de lhe associar uma entidade criador
@@ -57,6 +75,28 @@ BEGIN
 		INSERT INTO PROJETO.Cadeira(nome, link, ano, semestre, nota_final, aluno, codigo_criador, instituicao, disabled) VALUES(@nome, @link, @ano, @semestre, @nota_final, @aluno, @code, @instituicao, 0);
 	COMMIT
 
+END
+
+CREATE PROCEDURE PROJETO.createCadeira
+	@nome VARCHAR(250), @link VARCHAR(250), @ano INT, @semestre INT, @nota_final FLOAT, @aluno VARCHAR(250), @instituicao INT
+AS
+BEGIN
+	DECLARE @code VARCHAR(15), @id INT;
+	BEGIN TRANSACTION
+		SELECT @code = PROJETO.getUniqueCode('C');
+
+		INSERT INTO PROJETO.Criador VALUES(@code);
+
+		INSERT INTO PROJETO.Criador VALUES(@code);
+
+		SELECT @id = id, @nome = nome, @link = link, @ano = ano, @semestre = semestre,
+			@nota_final = nota_final, @aluno = aluno, @instituicao = instituicao
+		FROM INSERTED;
+
+		INSERT INTO PROJETO.Cadeira(nome, link, ano, semestre, nota_final, aluno, codigo_criador, instituicao, disabled) VALUES(@nome, @link, @ano, @semestre, @nota_final, @aluno, @code, @instituicao, 0);
+	COMMIT
+
+	SELECT @id, @code
 END
 
 -- Antes de inserirmos uma entidade capaz de criar um ficheiro, temos de lhe associar uma entidade criador
