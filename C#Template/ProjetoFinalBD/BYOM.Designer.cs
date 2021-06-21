@@ -58,12 +58,12 @@ namespace ProjetoFinalBD
             this.listboxTerca = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.listboxSegunda = new System.Windows.Forms.ListBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnAddTarefa = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -94,7 +94,7 @@ namespace ProjetoFinalBD
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 617);
+            this.panel1.Size = new System.Drawing.Size(200, 1033);
             this.panel1.TabIndex = 0;
             // 
             // lblTarefas
@@ -297,7 +297,7 @@ namespace ProjetoFinalBD
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(200, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(990, 617);
+            this.panel2.Size = new System.Drawing.Size(1702, 1033);
             this.panel2.TabIndex = 1;
             // 
             // label11
@@ -338,18 +338,18 @@ namespace ProjetoFinalBD
             this.tableLayoutPanel1.Controls.Add(this.listboxTerca, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.label6, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label7, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.listboxSegunda, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 6, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label8, 5, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(21, 65);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.51341F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.48659F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(946, 522);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1658, 938);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // listboxDomingo
@@ -359,9 +359,9 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxDomingo.FormattingEnabled = true;
             this.listboxDomingo.ItemHeight = 23;
-            this.listboxDomingo.Location = new System.Drawing.Point(813, 37);
+            this.listboxDomingo.Location = new System.Drawing.Point(1419, 64);
             this.listboxDomingo.Name = "listboxDomingo";
-            this.listboxDomingo.Size = new System.Drawing.Size(130, 464);
+            this.listboxDomingo.Size = new System.Drawing.Size(236, 855);
             this.listboxDomingo.TabIndex = 16;
             // 
             // listboxSabado
@@ -371,9 +371,9 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxSabado.FormattingEnabled = true;
             this.listboxSabado.ItemHeight = 23;
-            this.listboxSabado.Location = new System.Drawing.Point(678, 37);
+            this.listboxSabado.Location = new System.Drawing.Point(1183, 64);
             this.listboxSabado.Name = "listboxSabado";
-            this.listboxSabado.Size = new System.Drawing.Size(129, 464);
+            this.listboxSabado.Size = new System.Drawing.Size(230, 855);
             this.listboxSabado.TabIndex = 15;
             // 
             // listboxSexta
@@ -383,9 +383,9 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxSexta.FormattingEnabled = true;
             this.listboxSexta.ItemHeight = 23;
-            this.listboxSexta.Location = new System.Drawing.Point(542, 37);
+            this.listboxSexta.Location = new System.Drawing.Point(945, 64);
             this.listboxSexta.Name = "listboxSexta";
-            this.listboxSexta.Size = new System.Drawing.Size(130, 464);
+            this.listboxSexta.Size = new System.Drawing.Size(232, 855);
             this.listboxSexta.TabIndex = 14;
             // 
             // listboxQuinta
@@ -395,9 +395,9 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxQuinta.FormattingEnabled = true;
             this.listboxQuinta.ItemHeight = 23;
-            this.listboxQuinta.Location = new System.Drawing.Point(408, 37);
+            this.listboxQuinta.Location = new System.Drawing.Point(711, 64);
             this.listboxQuinta.Name = "listboxQuinta";
-            this.listboxQuinta.Size = new System.Drawing.Size(128, 464);
+            this.listboxQuinta.Size = new System.Drawing.Size(228, 855);
             this.listboxQuinta.TabIndex = 13;
             // 
             // listboxQuarta
@@ -407,9 +407,9 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxQuarta.FormattingEnabled = true;
             this.listboxQuarta.ItemHeight = 23;
-            this.listboxQuarta.Location = new System.Drawing.Point(273, 37);
+            this.listboxQuarta.Location = new System.Drawing.Point(475, 64);
             this.listboxQuarta.Name = "listboxQuarta";
-            this.listboxQuarta.Size = new System.Drawing.Size(129, 464);
+            this.listboxQuarta.Size = new System.Drawing.Size(230, 855);
             this.listboxQuarta.TabIndex = 12;
             // 
             // listboxTerca
@@ -419,9 +419,9 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxTerca.FormattingEnabled = true;
             this.listboxTerca.ItemHeight = 23;
-            this.listboxTerca.Location = new System.Drawing.Point(138, 37);
+            this.listboxTerca.Location = new System.Drawing.Point(239, 64);
             this.listboxTerca.Name = "listboxTerca";
-            this.listboxTerca.Size = new System.Drawing.Size(129, 464);
+            this.listboxTerca.Size = new System.Drawing.Size(230, 855);
             this.listboxTerca.TabIndex = 11;
             // 
             // label3
@@ -431,7 +431,7 @@ namespace ProjetoFinalBD
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 23);
+            this.label3.Size = new System.Drawing.Size(230, 23);
             this.label3.TabIndex = 3;
             this.label3.Text = "Segunda";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -441,57 +441,33 @@ namespace ProjetoFinalBD
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(138, 0);
+            this.label4.Location = new System.Drawing.Point(239, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 23);
+            this.label4.Size = new System.Drawing.Size(230, 23);
             this.label4.TabIndex = 4;
             this.label4.Text = "Terça";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(813, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(130, 23);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Domingo";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(273, 0);
+            this.label5.Location = new System.Drawing.Point(475, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(129, 23);
+            this.label5.Size = new System.Drawing.Size(230, 23);
             this.label5.TabIndex = 5;
             this.label5.Text = "Quarta";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(678, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(129, 23);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Sábado";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(408, 0);
+            this.label6.Location = new System.Drawing.Point(711, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(128, 23);
+            this.label6.Size = new System.Drawing.Size(228, 23);
             this.label6.TabIndex = 6;
             this.label6.Text = "Quinta";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -501,9 +477,9 @@ namespace ProjetoFinalBD
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(542, 0);
+            this.label7.Location = new System.Drawing.Point(945, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(130, 23);
+            this.label7.Size = new System.Drawing.Size(232, 23);
             this.label7.TabIndex = 7;
             this.label7.Text = "Sexta";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -515,10 +491,34 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxSegunda.FormattingEnabled = true;
             this.listboxSegunda.ItemHeight = 23;
-            this.listboxSegunda.Location = new System.Drawing.Point(3, 37);
+            this.listboxSegunda.Location = new System.Drawing.Point(3, 64);
             this.listboxSegunda.Name = "listboxSegunda";
-            this.listboxSegunda.Size = new System.Drawing.Size(129, 464);
+            this.listboxSegunda.Size = new System.Drawing.Size(230, 855);
             this.listboxSegunda.TabIndex = 10;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(1419, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(236, 23);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Domingo";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(1183, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(230, 23);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Sábado";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnAddTarefa
             // 
@@ -527,7 +527,7 @@ namespace ProjetoFinalBD
             this.btnAddTarefa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddTarefa.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAddTarefa.ForeColor = System.Drawing.Color.White;
-            this.btnAddTarefa.Location = new System.Drawing.Point(736, 13);
+            this.btnAddTarefa.Location = new System.Drawing.Point(1448, 13);
             this.btnAddTarefa.Name = "btnAddTarefa";
             this.btnAddTarefa.Size = new System.Drawing.Size(231, 31);
             this.btnAddTarefa.TabIndex = 1;
@@ -551,7 +551,7 @@ namespace ProjetoFinalBD
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(1190, 617);
+            this.ClientSize = new System.Drawing.Size(1902, 1033);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

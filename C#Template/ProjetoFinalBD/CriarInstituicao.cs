@@ -129,12 +129,13 @@ namespace ProjetoFinalBD
                 }
                 else
                 {
-                    //verificar se já existe uma instituião com esse nome (não importa se estamos a fazer update/insert)
+                    //verificar se já existe uma instituião com esse nome para esse utilizador (não importa se estamos a fazer update/insert)
 
                     SqlCommand cmd = new SqlCommand();
-                    cmd.CommandText = "SELECT COUNT(*) FROM PROJETO.Instituicao WHERE nome = @nome";
+                    cmd.CommandText = "SELECT COUNT(*) FROM PROJETO.Instituicao WHERE nome = @nome AND aluno_criador = @aluno_criador";
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@nome", nome.Text);
+                    cmd.Parameters.AddWithValue("@aluno_criador", Login.utilizador);
                     cmd.Connection = cn;
                     int numInstituicoesHomonimas = Convert.ToInt32(cmd.ExecuteScalar());
 

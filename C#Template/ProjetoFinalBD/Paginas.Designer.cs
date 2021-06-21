@@ -48,12 +48,12 @@ namespace ProjetoFinalBD
             this.panel3 = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnRemPagina = new System.Windows.Forms.Button();
             this.listboxPaginas = new System.Windows.Forms.ListBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnAddPagina = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnRemPagina = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -302,6 +302,19 @@ namespace ProjetoFinalBD
             this.panel2.Size = new System.Drawing.Size(1702, 1033);
             this.panel2.TabIndex = 1;
             // 
+            // btnRemPagina
+            // 
+            this.btnRemPagina.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRemPagina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemPagina.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRemPagina.ForeColor = System.Drawing.Color.White;
+            this.btnRemPagina.Location = new System.Drawing.Point(1088, 50);
+            this.btnRemPagina.Name = "btnRemPagina";
+            this.btnRemPagina.Size = new System.Drawing.Size(279, 31);
+            this.btnRemPagina.TabIndex = 13;
+            this.btnRemPagina.Text = "- Remover página";
+            this.btnRemPagina.UseVisualStyleBackColor = true;
+            // 
             // listboxPaginas
             // 
             this.listboxPaginas.FormattingEnabled = true;
@@ -354,19 +367,6 @@ namespace ProjetoFinalBD
             this.label2.TabIndex = 0;
             this.label2.Text = "Páginas";
             // 
-            // btnRemPagina
-            // 
-            this.btnRemPagina.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnRemPagina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemPagina.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRemPagina.ForeColor = System.Drawing.Color.White;
-            this.btnRemPagina.Location = new System.Drawing.Point(1088, 50);
-            this.btnRemPagina.Name = "btnRemPagina";
-            this.btnRemPagina.Size = new System.Drawing.Size(279, 31);
-            this.btnRemPagina.TabIndex = 13;
-            this.btnRemPagina.Text = "- Remover página";
-            this.btnRemPagina.UseVisualStyleBackColor = true;
-            // 
             // Paginas
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -377,9 +377,12 @@ namespace ProjetoFinalBD
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Paginas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BYOM";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);

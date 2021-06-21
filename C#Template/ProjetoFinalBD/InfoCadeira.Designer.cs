@@ -130,7 +130,7 @@ namespace ProjetoFinalBD
             // 
             this.nota.Location = new System.Drawing.Point(1234, 107);
             this.nota.Name = "nota";
-            this.nota.Size = new System.Drawing.Size(159, 27);
+            this.nota.Size = new System.Drawing.Size(371, 27);
             this.nota.TabIndex = 12;
             // 
             // label6
@@ -323,7 +323,7 @@ namespace ProjetoFinalBD
             this.instituicoes.FormattingEnabled = true;
             this.instituicoes.Location = new System.Drawing.Point(1234, 160);
             this.instituicoes.Name = "instituicoes";
-            this.instituicoes.Size = new System.Drawing.Size(159, 28);
+            this.instituicoes.Size = new System.Drawing.Size(371, 28);
             this.instituicoes.TabIndex = 35;
             // 
             // button1
