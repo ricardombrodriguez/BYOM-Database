@@ -44,38 +44,40 @@ BEGIN
 
 		INSERT INTO PROJETO.Criador VALUES(@code);
 
-		SELECT @id = id, @nome = nome, @cadeira = cadeira FROM INSERTED;
-
 		INSERT INTO PROJETO.Grupo(nome, cadeira, codigo_criador) VALUES(@nome, @cadeira, @code);
+		
+		SELECT @id = SCOPE_IDENTITY();
 
 		INSERT INTO PROJETO.GrupoAluno VALUES(@id, @aluno);
 	COMMIT
+
+	SELECT @id AS id, @code AS code
 END
 
 -- Antes de inserirmos uma entidade capaz de criar um ficheiro, temos de lhe associar uma entidade criador
 -- Este trigger utiliza a função getUniqueCode para criar um Criador e só depois insere os valores na tabela Cadeira
-CREATE TRIGGER createCriadorCadeira
-ON PROJETO.Cadeira
-INSTEAD OF INSERT
-AS
-BEGIN
-    DECLARE @code VARCHAR(15);
-    DECLARE @nome VARCHAR(250), @link VARCHAR(250), @ano INT,
-		@semestre INT, @nota_final FLOAT, @aluno VARCHAR(250), @instituicao INT;
+--CREATE TRIGGER createCriadorCadeira
+--ON PROJETO.Cadeira
+--INSTEAD OF INSERT
+--AS
+--BEGIN
+--    DECLARE @code VARCHAR(15);
+--    DECLARE @nome VARCHAR(250), @link VARCHAR(250), @ano INT,
+--		@semestre INT, @nota_final FLOAT, @aluno VARCHAR(250), @instituicao INT;
 	
-	BEGIN TRANSACTION
-		SELECT @code = PROJETO.getUniqueCode('C');
+--	BEGIN TRANSACTION
+--		SELECT @code = PROJETO.getUniqueCode('C');
 
-		INSERT INTO PROJETO.Criador VALUES(@code);
+--		INSERT INTO PROJETO.Criador VALUES(@code);
 
-		SELECT @nome = nome, @link = link, @ano = ano, @semestre = semestre,
-			@nota_final = nota_final, @aluno = aluno, @instituicao = instituicao
-		FROM INSERTED;
+--		SELECT @nome = nome, @link = link, @ano = ano, @semestre = semestre,
+--			@nota_final = nota_final, @aluno = aluno, @instituicao = instituicao
+--		FROM INSERTED;
 
-		INSERT INTO PROJETO.Cadeira(nome, link, ano, semestre, nota_final, aluno, codigo_criador, instituicao, disabled) VALUES(@nome, @link, @ano, @semestre, @nota_final, @aluno, @code, @instituicao, 0);
-	COMMIT
+--		INSERT INTO PROJETO.Cadeira(nome, link, ano, semestre, nota_final, aluno, codigo_criador, instituicao, disabled) VALUES(@nome, @link, @ano, @semestre, @nota_final, @aluno, @code, @instituicao, 0);
+--	COMMIT
 
-END
+--END
 
 CREATE PROCEDURE PROJETO.createCadeira
 	@nome VARCHAR(250), @link VARCHAR(250), @ano INT, @semestre INT, @nota_final FLOAT, @aluno VARCHAR(250), @instituicao INT
@@ -87,16 +89,12 @@ BEGIN
 
 		INSERT INTO PROJETO.Criador VALUES(@code);
 
-		INSERT INTO PROJETO.Criador VALUES(@code);
-
-		SELECT @id = id, @nome = nome, @link = link, @ano = ano, @semestre = semestre,
-			@nota_final = nota_final, @aluno = aluno, @instituicao = instituicao
-		FROM INSERTED;
-
 		INSERT INTO PROJETO.Cadeira(nome, link, ano, semestre, nota_final, aluno, codigo_criador, instituicao, disabled) VALUES(@nome, @link, @ano, @semestre, @nota_final, @aluno, @code, @instituicao, 0);
+
+		SELECT @id = SCOPE_IDENTITY();
 	COMMIT
 
-	SELECT @id, @code
+	SELECT @id AS id, @code AS code
 END
 
 -- Antes de inserirmos uma entidade capaz de criar um ficheiro, temos de lhe associar uma entidade criador
