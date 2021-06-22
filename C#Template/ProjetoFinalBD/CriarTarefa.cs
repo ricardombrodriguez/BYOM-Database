@@ -16,6 +16,7 @@ namespace ProjetoFinalBD
 
         private SqlConnection cn;
         public static Boolean createTarefa;
+        public static CriarTarefa tarefaAtual;
         private List<ClasseCadeira> lstCadeiras;
         private List<ClasseTipoTarefa> lstTipoTarefa;
 
@@ -79,7 +80,7 @@ namespace ProjetoFinalBD
 
         }
 
-        private void PopulateTipoTarefa()
+        public void PopulateTipoTarefa()
         {
             cn = getSGBDConnection();
 
@@ -161,7 +162,84 @@ namespace ProjetoFinalBD
             }
             else
             {
+                //verificar se já existe uma tarefa com esse nome para esse utilizador (não importa se estamos a fazer update/insert)
 
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "SELECT COUNT(*) FROM PROJETO.Tarefa WHERE titulo = @titulo AND aluno = @aluno";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@titulo", titulo.Text);
+                cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
+                cmd.Connection = cn;
+                int num = Convert.ToInt32(cmd.ExecuteScalar());
+
+                cn.Close();
+
+                if (num == 0)
+                {
+                    if (createTarefa)
+                    {
+                        //é para fazer insert
+
+                        cn = getSGBDConnection();
+
+                        if (!verifySGBDConnection())
+                            return;
+
+                        String var_titulo = titulo.Text;
+                        String var_descricao = descricao.Text;
+                        DateTime var_dataInicio = dataInicio.Value.Date;
+                        DateTime var_dataFinal = dataFinal.Value.Date;
+                        int var_tipoTarefa = lstTipoTarefa[tipoTarefa.SelectedIndex].Id;
+                        String var_aluno = Login.utilizador;
+                        int var_cadeira = lstCadeiras[cadeira.SelectedIndex].Id;
+
+                         
+                        SqlCommand command = new SqlCommand();
+
+                        command.CommandText = "INSERT INTO PROJETO.Tarefa(titulo,descricao,data_inicio,date_final,tipoTarefa,aluno,cadeira) VALUES (@titulo,@descricao,@data_inicio,@date_final,@tipoTarefa,@aluno,@cadeira);";
+                        command.Parameters.Clear();
+                        command.Parameters.AddWithValue("@titulo", var_titulo);
+                        command.Parameters.AddWithValue("@data_inicio", var_dataInicio);
+                        command.Parameters.AddWithValue("@date_final", var_dataFinal);
+                        command.Parameters.AddWithValue("@tipoTarefa", var_tipoTarefa);
+                        command.Parameters.AddWithValue("@cadeira", var_cadeira);
+                        command.Parameters.AddWithValue("@descricao", var_descricao);
+                        command.Parameters.AddWithValue("@aluno", Login.utilizador);
+                        command.Connection = cn;
+
+
+                        try
+                        {
+                            command.ExecuteNonQuery();
+                            MessageBox.Show("Tarefa " + var_titulo + " criada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+      
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception("Não foi possível inserir a instituição na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                        }
+                        finally
+                        {
+                            cn.Close();
+                            Tarefas tf = new Tarefas();
+                            tf.Show();
+                            this.Hide();
+                        }
+                    }
+                    else
+                    {
+                        // é para fazer update
+
+                       
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Já existe uma tarefa com esse nome.", "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
                 this.Hide();
             }
@@ -178,6 +256,14 @@ namespace ProjetoFinalBD
         {
             CriarTipoTarefa novo = new CriarTipoTarefa();
             novo.Show();
+            tarefaAtual = this;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FormState.PreviousPage.Show();
+            this.Hide();
+            FormState.PreviousPage = this;
         }
     }
 

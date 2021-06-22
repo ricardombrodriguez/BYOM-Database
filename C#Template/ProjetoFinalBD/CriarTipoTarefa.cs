@@ -20,7 +20,7 @@ namespace ProjetoFinalBD
         {
             InitializeComponent();
         }
-
+        
         private SqlConnection getSGBDConnection()
         {
             return new SqlConnection("Data Source=tcp:mednat.ieeta.pt\\SQLSERVER,8101;User ID=p9g5;Password=-737279605@BD");
@@ -75,11 +75,11 @@ namespace ProjetoFinalBD
                     command.Connection = cn;
 
 
-
                     try
                     {
                         command.ExecuteNonQuery();
                         MessageBox.Show("Tipo de tarefa " + designacao.Text + " criada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CriarTarefa.tarefaAtual.PopulateTipoTarefa();
 
                         cn.Close();
                         this.Hide();

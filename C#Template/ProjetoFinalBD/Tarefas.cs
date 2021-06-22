@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,11 +13,93 @@ namespace ProjetoFinalBD
 {
     public partial class Tarefas : Form
     {
+        private SqlConnection cn;
+        private List<ClasseTarefa> lstTarefas;
+
         public Tarefas()
         {
             InitializeComponent();
             panelLeft.Height = btnTarefas.Height;
             panelLeft.Top = btnTarefas.Top;
+            ShowTarefas();
+        }
+
+        private SqlConnection getSGBDConnection()
+        {
+            return new SqlConnection("Data Source=tcp:mednat.ieeta.pt\\SQLSERVER,8101;Persist Security Info=True;User ID=p9g5;Password=-737279605@BD;");
+        }
+
+        private bool verifySGBDConnection()
+        {
+            if (cn == null)
+                cn = getSGBDConnection();
+
+            if (cn.State != ConnectionState.Open)
+                cn.Open();
+
+            return cn.State == ConnectionState.Open;
+        }
+
+
+        public void ShowTarefas()
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            lstTarefas = new List<ClasseTarefa>();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM PROJETO.Tarefa " +
+                "WHERE aluno = @aluno";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
+            cmd.Connection = cn;
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                listboxTarefas.Items.Clear();
+
+                while (reader.Read())
+                {
+                    int var_id = Convert.ToInt32(reader["id"]);
+                    String var_titulo = reader["titulo"].ToString();
+                    String var_descricao = reader["descricao"].ToString();
+                    String var_completada_ts = reader["completada_ts"].ToString();
+                    String var_data_inicio = reader["data_inicio"].ToString();
+                    String var_date_final = reader["date_final"].ToString();
+                    int var_tipoTarefa = Convert.ToInt32(reader["tipoTarefa"]);
+                    String var_aluno = reader["aluno"].ToString();
+                    int var_cadeira = Convert.ToInt32(reader["cadeira"]);
+                    String var_codigo_criador = reader["codigo_criador"].ToString();
+
+
+                    ClasseTarefa inst = new ClasseTarefa(var_id,
+                                                       var_titulo,
+                                                       var_descricao,
+                                                       var_completada_ts,
+                                                       var_data_inicio,
+                                                       var_date_final,
+                                                       var_tipoTarefa,
+                                                       var_aluno,
+                                                       var_cadeira,
+                                                       var_codigo_criador);
+
+                    lstTarefas.Add(inst);
+                    listboxTarefas.Items.Add(inst.Titulo);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível visualizar as instituições na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
 
         private void btnHome_Click(object sender, EventArgs e)

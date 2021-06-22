@@ -261,14 +261,15 @@ namespace ProjetoFinalBD
 
         private void btnAddInstituicao_Click(object sender, EventArgs e)
         {
+            FormState.PreviousPage = this;
             CriarInstituicao inst = new CriarInstituicao(this);
             inst.Show();
-            FormState.PreviousPage = this;
             CriarInstituicao.cadeirasVisiveis = false;
         }
 
         private void listboxInstituicoes_DoubleClick(object sender, EventArgs e)
         {
+            FormState.PreviousPage = this;
             if (listboxInstituicoes.SelectedItem != null)
             {
                 MessageBox.Show(listboxInstituicoes.SelectedItem.ToString());

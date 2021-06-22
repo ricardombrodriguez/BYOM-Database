@@ -52,6 +52,8 @@ namespace ProjetoFinalBD
                 adicionarTarefa.Visible = true;
                 adicionarPagina.Visible = true;
 
+
+
                 showTarefas();
                 showPaginas();
                 showProfessores();
@@ -241,13 +243,23 @@ namespace ProjetoFinalBD
 
                             while (reader.Read())
                             {
-                                for (int i = 0; i < reader.FieldCount; i++)
-                                {
-                                    MessageBox.Show(reader.GetName(i));
-                                }
-                            }                        
-                            
-                            this.changeView();
+                                ClasseCadeira novaCadeira = new ClasseCadeira(Convert.ToInt32(reader["id"]),
+                                                                   Cnome,
+                                                                   Clink,
+                                                                   Cano,
+                                                                   Csemestre,
+                                                                   Cnota_final,
+                                                                   Caluno,
+                                                                   reader["code"].ToString(),
+                                                                   Convert.ToInt32(Cinstituicao),
+                                                                   false);
+                            }
+
+                            Cadeira c = new Cadeira();
+                            c.Show();
+                            this.Hide();
+
+
 
                         }
                         catch (Exception ex)
@@ -268,10 +280,6 @@ namespace ProjetoFinalBD
             } else
             {
                 //alterar/ver cadeira (update)
-
-
-
-
             }
 
             cn.Close();

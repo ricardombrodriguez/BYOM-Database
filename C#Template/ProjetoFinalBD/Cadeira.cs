@@ -43,7 +43,7 @@ namespace ProjetoFinalBD
         }
 
 
-        private void showCadeiras()
+        public void showCadeiras()
         {
             cn = getSGBDConnection();
 
@@ -270,8 +270,10 @@ namespace ProjetoFinalBD
 
         private void listboxCadeiras_DoubleClick(object sender, EventArgs e)
         {
+            MessageBox.Show("eddeded");
             if (listboxCadeiras.SelectedItem != null)
             {
+                MessageBox.Show("entrei");
                 InfoCadeira inst = new InfoCadeira();
                 Cadeira.criarCadeira = false;
                 Cadeira.cadeiraAtual = lstCadeiras[listboxCadeiras.SelectedIndex];
@@ -279,5 +281,16 @@ namespace ProjetoFinalBD
             }
         }
 
-}
+        private void btnEditarCadeira_Click(object sender, EventArgs e)
+        {
+            if (listboxCadeiras.SelectedIndex >= 0)
+            {
+                InfoCadeira inst = new InfoCadeira();
+                Cadeira.criarCadeira = false;
+                Cadeira.cadeiraAtual = lstCadeiras[listboxCadeiras.SelectedIndex];
+                inst.Show();
+                FormState.PreviousPage = this;
+            }
+        }
+    }
 }
