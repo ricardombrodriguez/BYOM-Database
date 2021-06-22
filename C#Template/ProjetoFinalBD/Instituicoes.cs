@@ -311,5 +311,64 @@ namespace ProjetoFinalBD
                 showInstituicoes();
             }
         }
+
+        private void btnProcurar_Click(object sender, EventArgs e)
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            string strSql = "";
+ 
+            SqlCommand cmd = new SqlCommand();
+            cmd.Parameters.Clear();
+            cmd.CommandText = "SELECT * FROM PROJETO.Instituicao WHERE aluno_criador = @aluno_criador ";
+
+            if (filtroNome.TextLength != 0) {
+                strSql += String.Format("AND nome LIKE '%{0}%' ", filtroNome.Text);
+            }
+            if (filtroDescricao.TextLength != 0) {
+                strSql += String.Format("AND descricao LIKE '%{0}%' ", filtroDescricao.Text);
+            }
+
+            cmd.CommandText += strSql;
+            cmd.Parameters.AddWithValue("@aluno_criador", Login.utilizador);
+            cmd.Connection = cn;
+
+            MessageBox.Show(cmd.CommandText);
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                listboxInstituicoes.Items.Clear();
+
+                while (reader.Read())
+                {
+                    ClasseInstituicao inst = new ClasseInstituicao(Convert.ToInt32(reader[0]),
+                                                       reader[1].ToString(),
+                                                       reader[2].ToString(),
+                                                       reader[3].ToString(),
+                                                       Convert.ToBoolean(reader[4]));
+
+
+                    listboxInstituicoes.Items.Add(inst.Nome + " | " + inst.Descricao);
+                }
+
+                if (instituicoes.Count() == 0)
+                {
+                    listboxInstituicoes.Items.Add("Não existem cadeiras que contenham o nome introduzido.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível visualizar as cadeiras da instituição. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
     }
 }

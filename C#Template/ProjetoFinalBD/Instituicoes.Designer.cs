@@ -358,6 +358,7 @@ namespace ProjetoFinalBD
             this.btnProcurar.TabIndex = 46;
             this.btnProcurar.Text = "Procurar";
             this.btnProcurar.UseVisualStyleBackColor = true;
+            this.btnProcurar.Click += new System.EventHandler(this.btnProcurar_Click);
             // 
             // filtroNome
             // 
