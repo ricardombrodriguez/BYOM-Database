@@ -19,7 +19,6 @@ namespace ProjetoFinalBD
         //se tiver guarda o seu id, se não este passa a ter valor 0
         //isto vai ser usado para saber se queremos inserir uma instituicao ou fazer update
 
-        public static int selected_id = 0;
         private SqlConnection cn;
         private Dictionary<String, ClasseInstituicao> instituicoes = new Dictionary<String, ClasseInstituicao>();
 
@@ -272,45 +271,13 @@ namespace ProjetoFinalBD
             if (listboxInstituicoes.SelectedItem != null)
             {
                 CriarInstituicao.cadeirasVisiveis = true;
-
                 CriarInstituicao.instituicaoAtual = instituicoes[listboxInstituicoes.GetItemText(listboxInstituicoes.SelectedItem)];
-                // MessageBox.Show(listboxInstituicoes.SelectedItem.ToString());
                 CriarInstituicao inst = new CriarInstituicao(this);
                 inst.Show();
             }
         }
 
-        private void btnRemInstituicao_Click(object sender, EventArgs e)
-        {
-            cn = getSGBDConnection();
-
-            if (!verifySGBDConnection())
-                return;
-
-            int id = instituicoes[listboxInstituicoes.GetItemText(listboxInstituicoes.SelectedItem)].Id;
-
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "DELETE FROM PROJETO.Instituicao WHERE PROJETO.Instituicao.id = @id";
-            cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@id", id);
-            cmd.Connection = cn;
-
-            try
-            {
-                cmd.ExecuteNonQuery();
-
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Não foi possível remover a instituição na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
-            }
-            finally
-            {
-                cn.Close();
-                showInstituicoes();
-            }
-        }
+       
 
         private void btnProcurar_Click(object sender, EventArgs e)
         {

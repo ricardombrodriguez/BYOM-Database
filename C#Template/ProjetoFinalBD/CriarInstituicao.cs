@@ -18,13 +18,14 @@ namespace ProjetoFinalBD
         public static ClasseInstituicao instituicaoAtual;
         private Dictionary<string, ClasseCadeira> listaCadeiras = new Dictionary<string, ClasseCadeira>();
         private Instituicoes inst;
+        private String nomeAtual;
         private SqlConnection cn;
 
         public CriarInstituicao(Instituicoes inst)
         {
             InitializeComponent();
             this.inst = inst;
-                if (!cadeirasVisiveis)
+            if (!cadeirasVisiveis)
             {
                 label1.Visible = false;
                 cadeiras_instituicao.Visible = false;
@@ -34,6 +35,7 @@ namespace ProjetoFinalBD
             }
             else
             {
+                nomeAtual = instituicaoAtual.Nome;
                 loadInstInfo();
                 showCadeiras();
                
@@ -175,11 +177,57 @@ namespace ProjetoFinalBD
                 cmd.Connection = cn;
                 int numInstituicoesHomonimas = Convert.ToInt32(cmd.ExecuteScalar());
 
-                cn.Close();
+               
 
-                if (numInstituicoesHomonimas == 0)
+                if (cadeirasVisiveis)
                 {
-                    if (Instituicoes.selected_id == 0)
+                  
+                    // é para fazer update
+
+                    if (numInstituicoesHomonimas != 0 && nomeAtual != nome.Text)
+                    {
+                        MessageBox.Show("Já existe uma cadeira com esse nome.", "Erro",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    } else
+                    {
+
+                        SqlCommand command = new SqlCommand();
+
+                        command.CommandText = "UPDATE PROJETO.Instituicao SET nome = @nome, descricao = @descricao WHERE id = @id ";
+                        command.Parameters.Clear();
+                        command.Parameters.AddWithValue("@nome", nome.Text);
+                        command.Parameters.AddWithValue("@descricao", descricao.Text);
+                        command.Parameters.AddWithValue("@id", instituicaoAtual.Id);
+                        command.Connection = cn;
+
+                        try
+                        {
+                            command.ExecuteNonQuery();
+                            MessageBox.Show("Instituição " + nome.Text + " foi atualizada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            FormState.PreviousPage.Show();
+                            this.Hide();
+                            FormState.PreviousPage = this;
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception("Não foi possível inserir a instituição na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                        }
+                        finally
+                        {
+                            this.inst.showInstituicoes();
+                            this.Hide();
+                            cn.Close();
+                        }
+
+                    }
+
+
+                } else
+                {
+
+                    if (numInstituicoesHomonimas == 0)
                     {
                         //é para fazer insert
 
@@ -214,50 +262,17 @@ namespace ProjetoFinalBD
                         {
                             cn.Close();
                         }
+
+
                     }
                     else
                     {
-                        // é para fazer update
+                        MessageBox.Show("Já existe uma cadeira com esse nome.", "Erro",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        cn = getSGBDConnection();
-
-                        if (!verifySGBDConnection())
-                            return;
-
-                        SqlCommand command = new SqlCommand();
-
-                        command.CommandText = "UPDATE PROJETO.Instituicao SET nome = @nome, descricao = @descricao WHERE id = @selected_id ";
-                        command.Parameters.Clear();
-                        command.Parameters.AddWithValue("@nome", nome.Text);
-                        command.Parameters.AddWithValue("@descricao", descricao.Text);
-                        command.Parameters.AddWithValue("@selected_id", Instituicoes.selected_id);
-                        command.Connection = cn;
-
-                        try
-                        {
-                            command.ExecuteNonQuery();
-                            MessageBox.Show("Instituição " + nome.Text + " foi atualizada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            FormState.PreviousPage.Show();
-                            this.Hide();
-                            FormState.PreviousPage = this;
-                        }
-                        catch (Exception ex)
-                        {
-                            throw new Exception("Não foi possível inserir a instituição na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
-                        }
-                        finally
-                        {
-                            cn.Close();
-                        }
                     }
-
                 }
-                else
-                {
-                    MessageBox.Show("Já existe uma cadeira com esse nome.", "Erro",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                cn.Close();
             }
         }
 
@@ -306,8 +321,6 @@ namespace ProjetoFinalBD
                                                        Convert.ToInt32(reader[13]),
                                                        Convert.ToBoolean(reader[14]));
 
-
-                    listaCadeiras.Add(cadeira.Nome, cadeira);
                     cadeiras_instituicao.Items.Add(cadeira.Nome);
                 }
 

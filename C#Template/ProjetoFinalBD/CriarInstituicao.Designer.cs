@@ -81,7 +81,7 @@ namespace ProjetoFinalBD
             // 
             this.nome.Location = new System.Drawing.Point(124, 149);
             this.nome.Name = "nome";
-            this.nome.Size = new System.Drawing.Size(476, 27);
+            this.nome.Size = new System.Drawing.Size(412, 27);
             this.nome.TabIndex = 10;
             // 
             // descricao
@@ -89,12 +89,12 @@ namespace ProjetoFinalBD
             this.descricao.Location = new System.Drawing.Point(124, 199);
             this.descricao.Multiline = true;
             this.descricao.Name = "descricao";
-            this.descricao.Size = new System.Drawing.Size(476, 394);
+            this.descricao.Size = new System.Drawing.Size(412, 394);
             this.descricao.TabIndex = 11;
             // 
             // btnApagarInstituicao
             // 
-            this.btnApagarInstituicao.Location = new System.Drawing.Point(747, 635);
+            this.btnApagarInstituicao.Location = new System.Drawing.Point(742, 637);
             this.btnApagarInstituicao.Name = "btnApagarInstituicao";
             this.btnApagarInstituicao.Size = new System.Drawing.Size(162, 56);
             this.btnApagarInstituicao.TabIndex = 12;
@@ -104,7 +104,7 @@ namespace ProjetoFinalBD
             // 
             // btnGuardarInstituicao
             // 
-            this.btnGuardarInstituicao.Location = new System.Drawing.Point(935, 635);
+            this.btnGuardarInstituicao.Location = new System.Drawing.Point(930, 637);
             this.btnGuardarInstituicao.Name = "btnGuardarInstituicao";
             this.btnGuardarInstituicao.Size = new System.Drawing.Size(162, 57);
             this.btnGuardarInstituicao.TabIndex = 13;
@@ -130,7 +130,7 @@ namespace ProjetoFinalBD
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.label1.Location = new System.Drawing.Point(628, 114);
+            this.label1.Location = new System.Drawing.Point(583, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(180, 20);
             this.label1.TabIndex = 41;
@@ -140,18 +140,18 @@ namespace ProjetoFinalBD
             // 
             this.cadeiras_instituicao.FormattingEnabled = true;
             this.cadeiras_instituicao.ItemHeight = 20;
-            this.cadeiras_instituicao.Location = new System.Drawing.Point(628, 149);
+            this.cadeiras_instituicao.Location = new System.Drawing.Point(583, 149);
             this.cadeiras_instituicao.Name = "cadeiras_instituicao";
-            this.cadeiras_instituicao.Size = new System.Drawing.Size(469, 444);
+            this.cadeiras_instituicao.Size = new System.Drawing.Size(514, 444);
             this.cadeiras_instituicao.TabIndex = 42;
             this.cadeiras_instituicao.DoubleClick += new System.EventHandler(this.cadeiras_instituicao_DoubleClick);
             // 
             // filtroNome
             // 
-            this.filtroNome.Location = new System.Drawing.Point(845, 111);
+            this.filtroNome.Location = new System.Drawing.Point(816, 111);
             this.filtroNome.Name = "filtroNome";
             this.filtroNome.PlaceholderText = "Procurar por nome";
-            this.filtroNome.Size = new System.Drawing.Size(173, 27);
+            this.filtroNome.Size = new System.Drawing.Size(202, 27);
             this.filtroNome.TabIndex = 43;
             // 
             // btnProcurar
@@ -169,7 +169,7 @@ namespace ProjetoFinalBD
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(1131, 718);
+            this.ClientSize = new System.Drawing.Size(1131, 722);
             this.Controls.Add(this.btnProcurar);
             this.Controls.Add(this.filtroNome);
             this.Controls.Add(this.cadeiras_instituicao);
