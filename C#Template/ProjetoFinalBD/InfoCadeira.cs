@@ -22,6 +22,7 @@ namespace ProjetoFinalBD
         {
             InitializeComponent();
             PopulateCadeiras();
+            LoadCadeiraInfo();
 
             if (Cadeira.criarCadeira)
             {
@@ -59,6 +60,16 @@ namespace ProjetoFinalBD
                 showProfessores();
 
             }
+        }
+
+        private void LoadCadeiraInfo()
+        {
+            nome.Text = Cadeira.cadeiraAtual.Nome;
+            link.Text = Cadeira.cadeiraAtual.Link;
+            ano.Text = Cadeira.cadeiraAtual.Ano.ToString();
+            semestre.Text = Cadeira.cadeiraAtual.Semestre.ToString();
+            nota.Text = Cadeira.cadeiraAtual.Nota_final.ToString();
+            instituicoes.SelectedIndex = Cadeira.cadeiraAtual.Instituicao;
         }
 
         private void showTarefas()
