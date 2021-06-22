@@ -29,12 +29,19 @@ namespace ProjetoFinalBD
                 cadeiras_instituicao.Visible = false;
             } else
             {
+                loadInstInfo();
                 label1.Visible = true;
                 cadeiras_instituicao.Visible = true;
                 listaCadeiras = new List<ClasseCadeira>();
                 showCadeiras();
+                this.inst = inst;
             }
-            this.inst = inst;
+        }
+
+        public void loadInstInfo()
+        {
+            nome.Text = instituicaoAtual.Nome;
+            descricao.Text = instituicaoAtual.Descricao;
         }
 
         private SqlConnection getSGBDConnection()
@@ -69,14 +76,21 @@ namespace ProjetoFinalBD
 
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT * FROM PROJETO.Instituicao " +
-                              "JOIN PROJETO.Cadeira ON Instituicao.id = Cadeira.instituicao" +
-                              "WHERE Instituicao.id = @id AND Cadeira.disabled = 0";
+            cmd.CommandText = "SELECT PROJETO.Cadeira.* FROM PROJETO.Instituicao " +
+                              "JOIN PROJETO.Cadeira ON PROJETO.Instituicao.id = PROJETO.Cadeira.instituicao " +
+                              "WHERE PROJETO.Instituicao.id = @id AND PROJETO.Cadeira.disabled = 0";
 
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@id", instituicaoAtual.Id);
             cmd.Connection = cn;
 
+            string query = cmd.CommandText;
+
+            foreach (SqlParameter p in cmd.Parameters)
+            {
+                query = query.Replace(p.ParameterName, p.Value.ToString());
+            }
+            MessageBox.Show(query);
             try
             {
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -95,6 +109,7 @@ namespace ProjetoFinalBD
                                                        Convert.ToInt32(reader["instituicao"]),
                                                        Convert.ToBoolean(reader["disabled"]));
 
+                    MessageBox.Show(cadeira.Show());
                     listaCadeiras.Add(cadeira);
                     cadeiras_instituicao.Items.Add(cadeira.Show());
                 }

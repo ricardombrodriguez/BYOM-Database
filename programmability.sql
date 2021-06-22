@@ -128,26 +128,46 @@ END
 
 DROP TRIGGER PROJETO.createCriadorPagina
 
-CREATE TRIGGER createCriadorPagina
-ON PROJETO.Pagina
-INSTEAD OF INSERT
+--CREATE TRIGGER createCriadorPagina
+--ON PROJETO.Pagina
+--INSTEAD OF INSERT
+--AS
+--BEGIN
+--    DECLARE @code VARCHAR(15);
+--    DECLARE @titulo VARCHAR(250), @aluno VARCHAR(250), @cadeira INT;
+
+--	BEGIN TRANSACTION
+--		SELECT @code = PROJETO.getUniqueCode('P');
+
+--		INSERT INTO PROJETO.Criador VALUES(@code);
+
+--		SELECT @titulo = titulo, @aluno = aluno, @cadeira = cadeira
+--		FROM INSERTED;
+
+--		INSERT INTO PROJETO.Pagina VALUES(@titulo, @texto, @aluno, @cadeira, @code);
+--	COMMIT
+
+--END
+
+CREATE PROCEDURE PROJETO.createPagina
+	@titulo VARCHAR(250), @aluno VARCHAR(250), @cadeira INT
 AS
 BEGIN
-    DECLARE @code VARCHAR(15);
-    DECLARE @titulo VARCHAR(250), @texto TEXT, @aluno VARCHAR(250), @cadeira INT;
-
+	DECLARE @code VARCHAR(15), @id INT;
 	BEGIN TRANSACTION
 		SELECT @code = PROJETO.getUniqueCode('P');
 
 		INSERT INTO PROJETO.Criador VALUES(@code);
 
-		SELECT @titulo = titulo, @texto = texto, @aluno = aluno, @cadeira = cadeira
-		FROM INSERTED;
+		INSERT INTO PROJETO.Pagina VALUES(@titulo, @aluno, @cadeira, @code, '');
 
-		INSERT INTO PROJETO.Pagina VALUES(@titulo, @texto, @aluno, @cadeira, @code);
+		SELECT @id = SCOPE_IDENTITY();
 	COMMIT
 
+	SELECT @id AS id, @code AS code
 END
+
+select * from PROJETO.Pagina
 
 -- SP's de DELETE
 CREATE TRIGGER deleteAluno

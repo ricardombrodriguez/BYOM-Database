@@ -272,10 +272,10 @@ namespace ProjetoFinalBD
             FormState.PreviousPage = this;
             if (listboxInstituicoes.SelectedItem != null)
             {
-                MessageBox.Show(listboxInstituicoes.SelectedItem.ToString());
-                CriarInstituicao inst = new CriarInstituicao(this);
                 CriarInstituicao.cadeirasVisiveis = true;
                 CriarInstituicao.instituicaoAtual = instituicoes[listboxInstituicoes.SelectedIndex];
+                // MessageBox.Show(listboxInstituicoes.SelectedItem.ToString());
+                CriarInstituicao inst = new CriarInstituicao(this);
                 inst.Show();
             }
         }
