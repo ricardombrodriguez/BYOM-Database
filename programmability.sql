@@ -216,6 +216,7 @@ BEGIN
 		IF EXISTS (SELECT * FROM PROJETO.Cadeira WHERE instituicao = @id)
 			BEGIN
 				UPDATE PROJETO.Instituicao SET disabled = 1 WHERE id = @id;
+				UPDATE PROJETO.Cadeira SET disabled = 1 WHERE instituicao = @id;
 			END
 		ELSE
 			BEGIN			

@@ -22,7 +22,7 @@ namespace ProjetoFinalBD
         {
             InitializeComponent();
             PopulateCadeiras();
-            LoadCadeiraInfo();
+            
 
             if (Cadeira.criarCadeira)
             {
@@ -55,6 +55,8 @@ namespace ProjetoFinalBD
 
 
 
+
+                LoadCadeiraInfo();
                 showTarefas();
                 showPaginas();
                 showProfessores();

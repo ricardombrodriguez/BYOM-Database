@@ -39,6 +39,8 @@ namespace ProjetoFinalBD
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cadeiras_instituicao = new System.Windows.Forms.ListBox();
+            this.filtroNome = new System.Windows.Forms.TextBox();
+            this.btnProcurar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label111
@@ -47,7 +49,7 @@ namespace ProjetoFinalBD
             this.label111.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label111.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label111.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.label111.Location = new System.Drawing.Point(412, 26);
+            this.label111.Location = new System.Drawing.Point(483, 26);
             this.label111.Name = "label111";
             this.label111.Size = new System.Drawing.Size(169, 33);
             this.label111.TabIndex = 2;
@@ -58,7 +60,7 @@ namespace ProjetoFinalBD
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.label4.Location = new System.Drawing.Point(29, 131);
+            this.label4.Location = new System.Drawing.Point(22, 152);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 20);
             this.label4.TabIndex = 8;
@@ -69,7 +71,7 @@ namespace ProjetoFinalBD
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.label2.Location = new System.Drawing.Point(29, 189);
+            this.label2.Location = new System.Drawing.Point(22, 202);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 20);
             this.label2.TabIndex = 9;
@@ -77,22 +79,22 @@ namespace ProjetoFinalBD
             // 
             // nome
             // 
-            this.nome.Location = new System.Drawing.Point(131, 128);
+            this.nome.Location = new System.Drawing.Point(124, 149);
             this.nome.Name = "nome";
-            this.nome.Size = new System.Drawing.Size(341, 27);
+            this.nome.Size = new System.Drawing.Size(476, 27);
             this.nome.TabIndex = 10;
             // 
             // descricao
             // 
-            this.descricao.Location = new System.Drawing.Point(131, 186);
+            this.descricao.Location = new System.Drawing.Point(124, 199);
             this.descricao.Multiline = true;
             this.descricao.Name = "descricao";
-            this.descricao.Size = new System.Drawing.Size(341, 246);
+            this.descricao.Size = new System.Drawing.Size(476, 394);
             this.descricao.TabIndex = 11;
             // 
             // btnApagarInstituicao
             // 
-            this.btnApagarInstituicao.Location = new System.Drawing.Point(585, 456);
+            this.btnApagarInstituicao.Location = new System.Drawing.Point(747, 635);
             this.btnApagarInstituicao.Name = "btnApagarInstituicao";
             this.btnApagarInstituicao.Size = new System.Drawing.Size(162, 56);
             this.btnApagarInstituicao.TabIndex = 12;
@@ -102,7 +104,7 @@ namespace ProjetoFinalBD
             // 
             // btnGuardarInstituicao
             // 
-            this.btnGuardarInstituicao.Location = new System.Drawing.Point(764, 456);
+            this.btnGuardarInstituicao.Location = new System.Drawing.Point(935, 635);
             this.btnGuardarInstituicao.Name = "btnGuardarInstituicao";
             this.btnGuardarInstituicao.Size = new System.Drawing.Size(162, 57);
             this.btnGuardarInstituicao.TabIndex = 13;
@@ -128,7 +130,7 @@ namespace ProjetoFinalBD
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.label1.Location = new System.Drawing.Point(537, 105);
+            this.label1.Location = new System.Drawing.Point(628, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(180, 20);
             this.label1.TabIndex = 41;
@@ -138,17 +140,38 @@ namespace ProjetoFinalBD
             // 
             this.cadeiras_instituicao.FormattingEnabled = true;
             this.cadeiras_instituicao.ItemHeight = 20;
-            this.cadeiras_instituicao.Location = new System.Drawing.Point(537, 128);
+            this.cadeiras_instituicao.Location = new System.Drawing.Point(628, 149);
             this.cadeiras_instituicao.Name = "cadeiras_instituicao";
-            this.cadeiras_instituicao.Size = new System.Drawing.Size(389, 304);
+            this.cadeiras_instituicao.Size = new System.Drawing.Size(469, 444);
             this.cadeiras_instituicao.TabIndex = 42;
+            this.cadeiras_instituicao.DoubleClick += new System.EventHandler(this.cadeiras_instituicao_DoubleClick);
+            // 
+            // filtroNome
+            // 
+            this.filtroNome.Location = new System.Drawing.Point(845, 111);
+            this.filtroNome.Name = "filtroNome";
+            this.filtroNome.PlaceholderText = "Procurar por nome";
+            this.filtroNome.Size = new System.Drawing.Size(173, 27);
+            this.filtroNome.TabIndex = 43;
+            // 
+            // btnProcurar
+            // 
+            this.btnProcurar.Location = new System.Drawing.Point(1024, 109);
+            this.btnProcurar.Name = "btnProcurar";
+            this.btnProcurar.Size = new System.Drawing.Size(73, 30);
+            this.btnProcurar.TabIndex = 44;
+            this.btnProcurar.Text = "Procurar";
+            this.btnProcurar.UseVisualStyleBackColor = true;
+            this.btnProcurar.Click += new System.EventHandler(this.btnProcurar_Click);
             // 
             // CriarInstituicao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(943, 528);
+            this.ClientSize = new System.Drawing.Size(1131, 718);
+            this.Controls.Add(this.btnProcurar);
+            this.Controls.Add(this.filtroNome);
             this.Controls.Add(this.cadeiras_instituicao);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -182,5 +205,7 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox cadeiras_instituicao;
+        private System.Windows.Forms.TextBox filtroNome;
+        private System.Windows.Forms.Button btnProcurar;
     }
 }

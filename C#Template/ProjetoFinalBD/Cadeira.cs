@@ -263,6 +263,7 @@ namespace ProjetoFinalBD
         {
             this.Hide();
             Cadeira.criarCadeira = true;
+            Cadeira.cadeiraAtual = null;
             InfoCadeira novaCadeira = new InfoCadeira();
             novaCadeira.Show();
             FormState.PreviousPage = this;
@@ -270,10 +271,10 @@ namespace ProjetoFinalBD
 
         private void listboxCadeiras_DoubleClick(object sender, EventArgs e)
         {
-            MessageBox.Show("eddeded");
+            
             if (listboxCadeiras.SelectedItem != null)
             {
-                MessageBox.Show("entrei");
+                
                 InfoCadeira inst = new InfoCadeira();
                 Cadeira.criarCadeira = false;
                 Cadeira.cadeiraAtual = lstCadeiras[listboxCadeiras.SelectedIndex];
@@ -287,7 +288,6 @@ namespace ProjetoFinalBD
             {
                 Cadeira.criarCadeira = false;
                 Cadeira.cadeiraAtual = lstCadeiras[listboxCadeiras.SelectedIndex];
-                MessageBox.Show(Cadeira.cadeiraAtual.ToString());
                 InfoCadeira inst = new InfoCadeira();                
                 inst.Show();
                 FormState.PreviousPage = this;

@@ -48,11 +48,14 @@ namespace ProjetoFinalBD
             this.panel3 = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnRemInstituicao = new System.Windows.Forms.Button();
             this.listboxInstituicoes = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btnAddInstituicao = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnProcurar = new System.Windows.Forms.Button();
+            this.filtroNome = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.filtroDescricao = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -290,7 +293,10 @@ namespace ProjetoFinalBD
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.btnRemInstituicao);
+            this.panel2.Controls.Add(this.filtroDescricao);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.btnProcurar);
+            this.panel2.Controls.Add(this.filtroNome);
             this.panel2.Controls.Add(this.listboxInstituicoes);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.btnAddInstituicao);
@@ -300,27 +306,13 @@ namespace ProjetoFinalBD
             this.panel2.Size = new System.Drawing.Size(1702, 1033);
             this.panel2.TabIndex = 1;
             // 
-            // btnRemInstituicao
-            // 
-            this.btnRemInstituicao.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnRemInstituicao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemInstituicao.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRemInstituicao.ForeColor = System.Drawing.Color.White;
-            this.btnRemInstituicao.Location = new System.Drawing.Point(1164, 62);
-            this.btnRemInstituicao.Name = "btnRemInstituicao";
-            this.btnRemInstituicao.Size = new System.Drawing.Size(249, 31);
-            this.btnRemInstituicao.TabIndex = 12;
-            this.btnRemInstituicao.Text = "- Remover instituição";
-            this.btnRemInstituicao.UseVisualStyleBackColor = true;
-            this.btnRemInstituicao.Click += new System.EventHandler(this.btnRemInstituicao_Click);
-            // 
             // listboxInstituicoes
             // 
             this.listboxInstituicoes.FormattingEnabled = true;
             this.listboxInstituicoes.ItemHeight = 23;
-            this.listboxInstituicoes.Location = new System.Drawing.Point(21, 109);
+            this.listboxInstituicoes.Location = new System.Drawing.Point(60, 109);
             this.listboxInstituicoes.Name = "listboxInstituicoes";
-            this.listboxInstituicoes.Size = new System.Drawing.Size(1656, 901);
+            this.listboxInstituicoes.Size = new System.Drawing.Size(1256, 878);
             this.listboxInstituicoes.TabIndex = 11;
             this.listboxInstituicoes.DoubleClick += new System.EventHandler(this.listboxInstituicoes_DoubleClick);
             // 
@@ -338,9 +330,9 @@ namespace ProjetoFinalBD
             this.btnAddInstituicao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddInstituicao.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAddInstituicao.ForeColor = System.Drawing.Color.White;
-            this.btnAddInstituicao.Location = new System.Drawing.Point(1428, 62);
+            this.btnAddInstituicao.Location = new System.Drawing.Point(1026, 40);
             this.btnAddInstituicao.Name = "btnAddInstituicao";
-            this.btnAddInstituicao.Size = new System.Drawing.Size(249, 31);
+            this.btnAddInstituicao.Size = new System.Drawing.Size(290, 54);
             this.btnAddInstituicao.TabIndex = 1;
             this.btnAddInstituicao.Text = "+ Adicionar instituição";
             this.btnAddInstituicao.UseVisualStyleBackColor = true;
@@ -351,12 +343,50 @@ namespace ProjetoFinalBD
             this.label2.AutoSize = true;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(21, 9);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(60, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 35);
+            this.label2.Size = new System.Drawing.Size(215, 46);
             this.label2.TabIndex = 0;
             this.label2.Text = "Instituições";
+            // 
+            // btnProcurar
+            // 
+            this.btnProcurar.Location = new System.Drawing.Point(1377, 616);
+            this.btnProcurar.Name = "btnProcurar";
+            this.btnProcurar.Size = new System.Drawing.Size(279, 112);
+            this.btnProcurar.TabIndex = 46;
+            this.btnProcurar.Text = "Procurar";
+            this.btnProcurar.UseVisualStyleBackColor = true;
+            // 
+            // filtroNome
+            // 
+            this.filtroNome.Location = new System.Drawing.Point(1357, 307);
+            this.filtroNome.Name = "filtroNome";
+            this.filtroNome.PlaceholderText = "Procurar por nome";
+            this.filtroNome.Size = new System.Drawing.Size(319, 32);
+            this.filtroNome.TabIndex = 45;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(1460, 228);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 35);
+            this.label1.TabIndex = 47;
+            this.label1.Text = "Filtrar";
+            // 
+            // filtroDescricao
+            // 
+            this.filtroDescricao.Location = new System.Drawing.Point(1357, 370);
+            this.filtroDescricao.Multiline = true;
+            this.filtroDescricao.Name = "filtroDescricao";
+            this.filtroDescricao.PlaceholderText = "Procurar por descrição";
+            this.filtroDescricao.Size = new System.Drawing.Size(319, 221);
+            this.filtroDescricao.TabIndex = 48;
             // 
             // Instituicoes
             // 
@@ -408,7 +438,10 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Label lblTarefas;
         private System.Windows.Forms.Button btnTarefas;
         private System.Windows.Forms.ListBox listboxInstituicoes;
-        private System.Windows.Forms.Button btnRemInstituicao;
+        private System.Windows.Forms.Button btnProcurar;
+        private System.Windows.Forms.TextBox filtroNome;
+        private System.Windows.Forms.TextBox filtroDescricao;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -21,14 +21,13 @@ namespace ProjetoFinalBD
 
         public static int selected_id = 0;
         private SqlConnection cn;
-        private List<ClasseInstituicao> instituicoes;
+        private Dictionary<String, ClasseInstituicao> instituicoes = new Dictionary<String, ClasseInstituicao>();
 
         public Instituicoes()
         {
             InitializeComponent();
             panelLeft.Height = btnInstituicoes.Height;
             panelLeft.Top = btnInstituicoes.Top;
-            instituicoes = new List<ClasseInstituicao>();
             showInstituicoes();
         }
 
@@ -48,20 +47,20 @@ namespace ProjetoFinalBD
             try
             {
                 SqlDataReader reader = cmd.ExecuteReader();
+                instituicoes.Clear();
                 listboxInstituicoes.Items.Clear();
 
                 while (reader.Read())
                 {
-                    ClasseInstituicao inst = new ClasseInstituicao(Convert.ToInt32(reader["id"]), 
+                    ClasseInstituicao inst = new ClasseInstituicao(Convert.ToInt32(reader["id"]),
                                                        reader["nome"].ToString(),
-                                                       reader["descricao"].ToString(), 
-                                                       reader["aluno_criador"].ToString(), 
+                                                       reader["descricao"].ToString(),
+                                                       reader["aluno_criador"].ToString(),
                                                        Convert.ToBoolean(reader["disabled"]));
 
-                    instituicoes.Add(inst);
-                    listboxInstituicoes.Items.Add(inst.Show());
+                    instituicoes.Add(inst.Nome + " | " + inst.Descricao, inst);
+                    listboxInstituicoes.Items.Add(inst.Nome + " | " + inst.Descricao);
                 }
-               
             }
             catch (Exception ex)
             {
@@ -273,7 +272,8 @@ namespace ProjetoFinalBD
             if (listboxInstituicoes.SelectedItem != null)
             {
                 CriarInstituicao.cadeirasVisiveis = true;
-                CriarInstituicao.instituicaoAtual = instituicoes[listboxInstituicoes.SelectedIndex];
+
+                CriarInstituicao.instituicaoAtual = instituicoes[listboxInstituicoes.GetItemText(listboxInstituicoes.SelectedItem)];
                 // MessageBox.Show(listboxInstituicoes.SelectedItem.ToString());
                 CriarInstituicao inst = new CriarInstituicao(this);
                 inst.Show();
@@ -287,7 +287,7 @@ namespace ProjetoFinalBD
             if (!verifySGBDConnection())
                 return;
 
-            int id = instituicoes[listboxInstituicoes.SelectedIndex].Id;
+            int id = instituicoes[listboxInstituicoes.GetItemText(listboxInstituicoes.SelectedItem)].Id;
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "DELETE FROM PROJETO.Instituicao WHERE PROJETO.Instituicao.id = @id";

@@ -270,8 +270,6 @@ namespace ProjetoFinalBD
                 CriarPagina.createPagina = false;
                 CriarPagina.paginaAtual = lstPaginas[listboxPaginas.SelectedIndex];
                 CriarPagina inst = new CriarPagina();
-                MessageBox.Show(listboxPaginas.SelectedIndex.ToString());
-                MessageBox.Show(CriarPagina.paginaAtual.Titulo);
                 inst.Show();
             }
         }
