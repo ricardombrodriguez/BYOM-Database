@@ -127,23 +127,26 @@ END
 
 -- Antes de inserirmos uma entidade capaz de criar um ficheiro, temos de lhe associar uma entidade criador
 -- Este trigger utiliza a função getUniqueCode para criar um Criador e só depois insere os valores na tabela Pagina
+
+DROP TRIGGER PROJETO.createCriadorPagina
+
 CREATE TRIGGER createCriadorPagina
 ON PROJETO.Pagina
 INSTEAD OF INSERT
 AS
 BEGIN
     DECLARE @code VARCHAR(15);
-    DECLARE @titulo VARCHAR(250), @aluno VARCHAR(250), @cadeira INT;
+    DECLARE @titulo VARCHAR(250), @texto TEXT, @aluno VARCHAR(250), @cadeira INT;
 
 	BEGIN TRANSACTION
 		SELECT @code = PROJETO.getUniqueCode('P');
 
 		INSERT INTO PROJETO.Criador VALUES(@code);
 
-		SELECT @titulo = titulo, @aluno = aluno, @cadeira = cadeira
+		SELECT @titulo = titulo, @texto = texto, @aluno = aluno, @cadeira = cadeira
 		FROM INSERTED;
 
-		INSERT INTO PROJETO.Pagina VALUES(@titulo, @aluno, @cadeira, @code);
+		INSERT INTO PROJETO.Pagina VALUES(@titulo, @texto, @aluno, @cadeira, @code);
 	COMMIT
 
 END
