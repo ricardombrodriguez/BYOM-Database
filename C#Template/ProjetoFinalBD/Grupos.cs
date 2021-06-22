@@ -254,14 +254,21 @@ namespace ProjetoFinalBD
 
         private void btnCreateGrupo_Click(object sender, EventArgs e)
         {
+            CriarGrupo.createGrupo = true;
             this.Hide();
             CriarGrupo grupo = new CriarGrupo();
             grupo.Show();
             FormState.PreviousPage = this;
         }
 
+
         private void btnRemGrupo_Click(object sender, EventArgs e)
         {
+          
+
+            listboxGrupos.Items.RemoveAt(listboxGrupos.SelectedIndex);
+
+            /*
             cn = getSGBDConnection();
 
             if (!verifySGBDConnection())
@@ -287,6 +294,19 @@ namespace ProjetoFinalBD
             {
                 cn.Close();
                 showGrupos();
+            }
+            */
+        }
+
+        private void listboxGrupos_DoubleClick(object sender, EventArgs e)
+        {
+            if (listboxGrupos.SelectedItem != null)
+            {
+                FormState.PreviousPage = this;
+                CriarGrupo.createGrupo = false;
+                CriarGrupo.grupoAtual = lstGrupos[listboxGrupos.SelectedIndex];
+                CriarGrupo inst = new CriarGrupo();
+                inst.Show();
             }
         }
     }

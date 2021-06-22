@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,11 +13,75 @@ namespace ProjetoFinalBD
 {
     public partial class Paginas : Form
     {
+        private SqlConnection cn;
+        private List<ClassePagina> lstPaginas;
+
         public Paginas()
         {
             InitializeComponent();
+            FormState.PreviousPage = this;
             panelLeft.Height = btnPaginas.Height;
             panelLeft.Top = btnPaginas.Top;
+            ShowPaginas();
+        }
+
+        private SqlConnection getSGBDConnection()
+        {
+            return new SqlConnection("Data Source=tcp:mednat.ieeta.pt\\SQLSERVER,8101;Persist Security Info=True;User ID=p9g5;Password=-737279605@BD;");
+        }
+
+        private bool verifySGBDConnection()
+        {
+            if (cn == null)
+                cn = getSGBDConnection();
+
+            if (cn.State != ConnectionState.Open)
+                cn.Open();
+
+            return cn.State == ConnectionState.Open;
+        }
+
+        public void ShowPaginas()
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM PROJETO.Pagina WHERE aluno = @aluno;";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
+            cmd.Connection = cn;
+
+            lstPaginas = new List<ClassePagina>();
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                listboxPaginas.Items.Clear();
+
+                while (reader.Read())
+                {
+                    ClassePagina inst = new ClassePagina(Convert.ToInt32(reader["id"]),
+                                                       reader["titulo"].ToString(),
+                                                       reader["texto"].ToString(),
+                                                       reader["aluno"].ToString(),
+                                                       Convert.ToInt32(reader["cadeira"]),
+                                                       reader["codigo_criador"].ToString());
+
+                    lstPaginas.Add(inst);
+                    listboxPaginas.Items.Add(inst.Titulo);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível visualizar as instituições na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -191,9 +256,24 @@ namespace ProjetoFinalBD
         private void btnAddPagina_Click(object sender, EventArgs e)
         {
             this.Hide();
+            CriarPagina.createPagina = true;
             CriarPagina pagina = new CriarPagina();
             pagina.Show();
             FormState.PreviousPage = this;
-        }   
+        }
+
+        private void listboxPaginas_DoubleClick(object sender, EventArgs e)
+        {
+
+            if (listboxPaginas.SelectedItem != null)
+            {
+                CriarPagina.createPagina = false;
+                CriarPagina.paginaAtual = lstPaginas[listboxPaginas.SelectedIndex];
+                CriarPagina inst = new CriarPagina();
+                MessageBox.Show(listboxPaginas.SelectedIndex.ToString());
+                MessageBox.Show(CriarPagina.paginaAtual.Titulo);
+                inst.Show();
+            }
+        }
     }
 }

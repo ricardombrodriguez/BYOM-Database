@@ -70,7 +70,7 @@ namespace ProjetoFinalBD
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "SELECT * FROM PROJETO.Instituicao " +
-                              "JOIN PROJETO.Cadeira ON Instituicao.id = Cadeira.instituicao" +
+                              "JOIN PROJETO.Cadeira ON PROJETO.Instituicao.id = PROJETO.Cadeira.instituicao" +
                               "WHERE Instituicao.id = @id AND Cadeira.disabled = 0";
 
             cmd.Parameters.Clear();

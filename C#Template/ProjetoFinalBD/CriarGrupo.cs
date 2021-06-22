@@ -15,6 +15,7 @@ namespace ProjetoFinalBD
     {
         private SqlConnection cn;
         private List<ClasseCadeira> lstCadeiras;
+        public static ClasseGrupo grupoAtual;
         public static Boolean createGrupo;
 
         public CriarGrupo()
@@ -46,6 +47,9 @@ namespace ProjetoFinalBD
                 remColega.Visible = true;
                 addOrientador.Visible = true;
                 remOrientador.Visible = true;
+                grupo_nome.Text = grupoAtual.Nome;
+                grupo_cadeira.Text = lstCadeiras[grupoAtual.Cadeira].Nome;
+
             }
         }
 
@@ -145,68 +149,67 @@ namespace ProjetoFinalBD
                 if (numGruposHomonimos == 0)
                 {
 
-                    SqlCommand cmd = new SqlCommand();
-
-                    cmd.CommandText = "INSERT INTO PROJETO.Grupo(nome,cadeira) VALUES (@nome, @cadeira) ";
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@nome", grupo_nome.Text);
-                    cmd.Parameters.AddWithValue("@cadeira", lstCadeiras[grupo_cadeira.SelectedIndex].Id);
-                    cmd.Connection = cn;
-
-                    try
+                    if (createGrupo)
                     {
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("Failed to insert Group in database. \n ERROR MESSAGE: \n" + ex.Message);
-                    }
 
+                        SqlCommand cmd = new SqlCommand("PROJETO.createGroup", cn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@nome", grupo_nome.Text);
+                        cmd.Parameters.AddWithValue("@cadeira", lstCadeiras[grupo_cadeira.SelectedIndex].Id);
+                        cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
 
-                    //get do id do grupo
-                    SqlCommand cm = new SqlCommand();
-                    cm.CommandText = "SELECT id FROM PROJETO.Grupo JOIN PROJETO.GrupoAluno ON id = grupo " +
-                        "WHERE nome = @nome AND aluno = @aluno AND PROJETO.Grupo.disabled = 0";
-                    cm.Parameters.Clear();
-                    cm.Parameters.AddWithValue("@nome", grupo_nome.Text);
-                    cm.Parameters.AddWithValue("@aluno", Login.utilizador);
-                    cm.Connection = cn;
-
-                    int grupo_id = 0;
-                    try
-                    {
-                        SqlDataReader reader = cmd.ExecuteReader();
-
-                        while (reader.Read())
+                        try
                         {
-                            grupo_id = Convert.ToInt32(reader["id"]);
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Grupo " + grupo_nome.Text + " criado.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                         }
-                    }
-                    catch (Exception ex)
+                        catch (Exception ex)
+                        {
+                            throw new Exception("Não foi possível inserir o grupo na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                        }
+                        finally
+                        {
+                            cn.Close();
+                            Grupos pg = new Grupos();
+                            pg.Show();
+                            this.Hide();
+                        }
+                    } else
                     {
-                        throw new Exception("Failed to insert Group in database. \n ERROR MESSAGE: \n" + ex.Message);
+                        //update
+
+                    
+                        SqlCommand command = new SqlCommand();
+
+                        command.CommandText = "UPDATE PROJETO.Grupo SET nome = @nome, cadeira = @cadeira, WHERE id = @id ";
+                        command.Parameters.Clear();
+                        command.Parameters.AddWithValue("@nome", grupo_nome.Text);
+                        command.Parameters.AddWithValue("@cadeira", lstCadeiras[grupo_cadeira.SelectedIndex].Id);
+                        command.Parameters.AddWithValue("@id", grupoAtual.Id);
+                        command.Connection = cn;
+
+                        try
+                        {
+                            command.ExecuteNonQuery();
+                            MessageBox.Show("Grupo " + grupo_nome.Text + " foi atualizado.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            this.Hide();
+                            Grupos gp = new Grupos();
+                            gp.Show();
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception("Não foi possível inserir a instituição na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                        }
+                        finally
+                        {
+                            cn.Close();
+                        }
+
                     }
-                    MessageBox.Show(grupo_id.ToString());
 
-
-                    //inserir o aluno no grupoaluno
-
-                    SqlCommand command = new SqlCommand();
-                    command.CommandText = "INSERT INTO PROJETO.GrupoAluno(grupo,aluno) VALUES (@grupo,@aluno)";
-                    command.Parameters.Clear();
-                    command.Parameters.AddWithValue("@grupo", grupo_id);
-                    command.Parameters.AddWithValue("@aluno", Login.utilizador);
-                    command.Connection = cn;
-                    command.ExecuteReader();
-
-                    cn.Close();
-
-                    MessageBox.Show("", "Grupo Adicionado",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    FormState.PreviousPage.Show();
-                    this.Hide();
-                    FormState.PreviousPage = this;
                 }
                 else
                 {

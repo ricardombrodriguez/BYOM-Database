@@ -323,6 +323,7 @@ namespace ProjetoFinalBD
             this.listboxPaginas.Name = "listboxPaginas";
             this.listboxPaginas.Size = new System.Drawing.Size(1644, 901);
             this.listboxPaginas.TabIndex = 12;
+            this.listboxPaginas.DoubleClick += new System.EventHandler(this.listboxPaginas_DoubleClick);
             // 
             // label11
             // 

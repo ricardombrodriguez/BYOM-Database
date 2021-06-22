@@ -321,6 +321,7 @@ namespace ProjetoFinalBD
             this.listboxGrupos.Name = "listboxGrupos";
             this.listboxGrupos.Size = new System.Drawing.Size(1643, 878);
             this.listboxGrupos.TabIndex = 23;
+            this.listboxGrupos.DoubleClick += new System.EventHandler(this.listboxGrupos_DoubleClick);
             // 
             // label11
             // 
