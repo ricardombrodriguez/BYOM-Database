@@ -33,8 +33,7 @@ namespace ProjetoFinalBD
             this.email = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnAdicionarProfessor = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.nome = new System.Windows.Forms.TextBox();
+            this.btnCriarProfessor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label111
@@ -43,17 +42,17 @@ namespace ProjetoFinalBD
             this.label111.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label111.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label111.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.label111.Location = new System.Drawing.Point(107, 22);
+            this.label111.Location = new System.Drawing.Point(21, 25);
             this.label111.Name = "label111";
-            this.label111.Size = new System.Drawing.Size(320, 33);
+            this.label111.Size = new System.Drawing.Size(472, 33);
             this.label111.TabIndex = 3;
-            this.label111.Text = "ADICIONAR PROFESSOR";
+            this.label111.Text = "ADICIONAR PROFESSOR AO GRUPO";
             // 
             // email
             // 
             this.email.Location = new System.Drawing.Point(129, 93);
             this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(341, 27);
+            this.email.Size = new System.Drawing.Size(335, 27);
             this.email.TabIndex = 12;
             // 
             // label4
@@ -63,13 +62,13 @@ namespace ProjetoFinalBD
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.label4.Location = new System.Drawing.Point(51, 96);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 20);
+            this.label4.Size = new System.Drawing.Size(56, 20);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Email";
+            this.label4.Text = "Email *";
             // 
             // btnAdicionarProfessor
             // 
-            this.btnAdicionarProfessor.Location = new System.Drawing.Point(165, 227);
+            this.btnAdicionarProfessor.Location = new System.Drawing.Point(294, 187);
             this.btnAdicionarProfessor.Name = "btnAdicionarProfessor";
             this.btnAdicionarProfessor.Size = new System.Drawing.Size(199, 46);
             this.btnAdicionarProfessor.TabIndex = 13;
@@ -77,32 +76,23 @@ namespace ProjetoFinalBD
             this.btnAdicionarProfessor.UseVisualStyleBackColor = true;
             this.btnAdicionarProfessor.Click += new System.EventHandler(this.btnAdicionarProfessor_Click);
             // 
-            // label1
+            // btnCriarProfessor
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.label1.Location = new System.Drawing.Point(51, 152);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 20);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Nome";
-            // 
-            // nome
-            // 
-            this.nome.Location = new System.Drawing.Point(129, 152);
-            this.nome.Name = "nome";
-            this.nome.Size = new System.Drawing.Size(341, 27);
-            this.nome.TabIndex = 15;
+            this.btnCriarProfessor.Location = new System.Drawing.Point(21, 187);
+            this.btnCriarProfessor.Name = "btnCriarProfessor";
+            this.btnCriarProfessor.Size = new System.Drawing.Size(199, 46);
+            this.btnCriarProfessor.TabIndex = 14;
+            this.btnCriarProfessor.Text = "Criar novo professor";
+            this.btnCriarProfessor.UseVisualStyleBackColor = true;
+            this.btnCriarProfessor.Click += new System.EventHandler(this.btnCriarProfessor_Click);
             // 
             // ModalProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(505, 316);
-            this.Controls.Add(this.nome);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(527, 255);
+            this.Controls.Add(this.btnCriarProfessor);
             this.Controls.Add(this.btnAdicionarProfessor);
             this.Controls.Add(this.email);
             this.Controls.Add(this.label4);
@@ -124,7 +114,6 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAdicionarProfessor;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox nome;
+        private System.Windows.Forms.Button btnCriarProfessor;
     }
 }

@@ -88,6 +88,8 @@ namespace ProjetoFinalBD
             return cn.State == ConnectionState.Open;
         }
 
+       
+
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Hide();

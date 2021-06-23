@@ -29,8 +29,6 @@ namespace ProjetoFinalBD
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnGuardarPagina = new System.Windows.Forms.Button();
-            this.btnApagarPagina = new System.Windows.Forms.Button();
             this.texto = new System.Windows.Forms.TextBox();
             this.titulo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,27 +37,9 @@ namespace ProjetoFinalBD
             this.label1 = new System.Windows.Forms.Label();
             this.cadeira = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnApagarPagina = new System.Windows.Forms.Button();
+            this.btnGuardarPagina = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnGuardarPagina
-            // 
-            this.btnGuardarPagina.Location = new System.Drawing.Point(1716, 947);
-            this.btnGuardarPagina.Name = "btnGuardarPagina";
-            this.btnGuardarPagina.Size = new System.Drawing.Size(158, 60);
-            this.btnGuardarPagina.TabIndex = 20;
-            this.btnGuardarPagina.Text = "Guardar Página";
-            this.btnGuardarPagina.UseVisualStyleBackColor = true;
-            this.btnGuardarPagina.Click += new System.EventHandler(this.btnGuardarPagina_Click);
-            // 
-            // btnApagarPagina
-            // 
-            this.btnApagarPagina.Location = new System.Drawing.Point(1524, 947);
-            this.btnApagarPagina.Name = "btnApagarPagina";
-            this.btnApagarPagina.Size = new System.Drawing.Size(158, 59);
-            this.btnApagarPagina.TabIndex = 19;
-            this.btnApagarPagina.Text = "Apagar Página";
-            this.btnApagarPagina.UseVisualStyleBackColor = true;
-            this.btnApagarPagina.Click += new System.EventHandler(this.btnApagarPagina_Click);
             // 
             // texto
             // 
@@ -142,6 +122,26 @@ namespace ProjetoFinalBD
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnApagarPagina
+            // 
+            this.btnApagarPagina.Location = new System.Drawing.Point(1524, 947);
+            this.btnApagarPagina.Name = "btnApagarPagina";
+            this.btnApagarPagina.Size = new System.Drawing.Size(158, 59);
+            this.btnApagarPagina.TabIndex = 19;
+            this.btnApagarPagina.Text = "Apagar Página";
+            this.btnApagarPagina.UseVisualStyleBackColor = true;
+            this.btnApagarPagina.Click += new System.EventHandler(this.btnApagarPagina_Click);
+            // 
+            // btnGuardarPagina
+            // 
+            this.btnGuardarPagina.Location = new System.Drawing.Point(1716, 947);
+            this.btnGuardarPagina.Name = "btnGuardarPagina";
+            this.btnGuardarPagina.Size = new System.Drawing.Size(158, 60);
+            this.btnGuardarPagina.TabIndex = 20;
+            this.btnGuardarPagina.Text = "Guardar Página";
+            this.btnGuardarPagina.UseVisualStyleBackColor = true;
+            this.btnGuardarPagina.Click += new System.EventHandler(this.btnGuardarPagina_Click);
+            // 
             // CriarPagina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -171,9 +171,6 @@ namespace ProjetoFinalBD
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnGuardarPagina;
-        private System.Windows.Forms.Button btnApagarPagina;
         private System.Windows.Forms.TextBox texto;
         private System.Windows.Forms.TextBox titulo;
         private System.Windows.Forms.Label label2;
@@ -182,5 +179,7 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cadeira;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnApagarPagina;
+        private System.Windows.Forms.Button btnGuardarPagina;
     }
 }

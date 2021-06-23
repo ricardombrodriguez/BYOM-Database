@@ -143,6 +143,7 @@ namespace ProjetoFinalBD
             this.listboxOrientadores.Name = "listboxOrientadores";
             this.listboxOrientadores.Size = new System.Drawing.Size(504, 244);
             this.listboxOrientadores.TabIndex = 31;
+            this.listboxOrientadores.DoubleClick += new System.EventHandler(this.listboxOrientadores_DoubleClick);
             // 
             // remColega
             // 
@@ -164,6 +165,7 @@ namespace ProjetoFinalBD
             this.remOrientador.TabIndex = 34;
             this.remOrientador.Text = "Remover orientador";
             this.remOrientador.UseVisualStyleBackColor = true;
+            this.remOrientador.Click += new System.EventHandler(this.remOrientador_Click);
             // 
             // btnGuardarGrupo
             // 

@@ -47,6 +47,21 @@ namespace ProjetoFinalBD
             }
         }
 
+        private int getCadeiraIndex(int cadeira)
+        {
+            int x = 0;
+            foreach (ClasseCadeira c in this.lstCadeiras)
+            {
+                if (c.Id == cadeira)
+                {
+                    return x;
+                }
+                x++;
+            }
+
+            return -1;
+        }
+
         public void ShowColegas()
         {
             cn = getSGBDConnection();
@@ -113,17 +128,21 @@ namespace ProjetoFinalBD
 
                 while (reader.Read())
                 {
-                    ClasseProfessor inst = new ClasseProfessor(reader[7].ToString(),
+                    ClasseProfessor prof = new ClasseProfessor(reader[7].ToString(),
                                                        reader[8].ToString(),
                                                        false);
 
-                    lstProfessores.Add(inst.Nome + " | " + inst.Email, inst);
-                    listboxOrientadores.Items.Add(inst.Nome + " | " + inst.Email);
+                    if (lstProfessores.ContainsKey(prof.Nome + " | " + prof.Email) == false)
+                    {
+                        lstProfessores.Add(prof.Nome + " | " + prof.Email, prof);
+                        listboxOrientadores.Items.Add(prof.Nome + " | " + prof.Email);
+                    }
+                    
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Não foi possível visualizar as instituições na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                throw new Exception("Erro. \n ERROR MESSAGE: \n" + ex.Message);
             }
             finally
             {
@@ -347,6 +366,57 @@ namespace ProjetoFinalBD
             {
                 MessageBox.Show("Selecione um colega para remover", "Erro",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void listboxOrientadores_DoubleClick(object sender, EventArgs e)
+        {
+            if (listboxOrientadores.SelectedItem != null)
+            {
+                //mostrar a cadeira
+                CriarProfessor.createProfessor = false;
+                CriarProfessor.professorAtual = lstProfessores[listboxOrientadores.GetItemText(listboxOrientadores.SelectedItem)];
+                CriarProfessor inst = new CriarProfessor();
+                inst.Show();
+            }
+        }
+
+        private void remOrientador_Click(object sender, EventArgs e)
+        {
+            if (listboxOrientadores.SelectedItem != null)
+            {
+                ClasseProfessor professorAtual = lstProfessores[listboxOrientadores.GetItemText(listboxOrientadores.SelectedItem)];
+
+                cn = getSGBDConnection();
+
+                if (!verifySGBDConnection())
+                    return;
+
+                String email = professorAtual.Email;
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "DELETE FROM PROJETO.GrupoProfessor WHERE professor = @professor";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@professor", email);
+                cmd.Connection = cn;
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Orientador " + email + " foi removido.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Não foi possível inserir a instituição na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    ShowProfessores();
+                    cn.Close();
+                }
+
+               
             }
         }
     }

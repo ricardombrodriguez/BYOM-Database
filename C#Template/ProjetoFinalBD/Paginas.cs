@@ -253,6 +253,8 @@ namespace ProjetoFinalBD
             btnTarefas.ForeColor = Color.White;
         }
 
+      
+
         private void btnAddPagina_Click(object sender, EventArgs e)
         {
             this.Hide();

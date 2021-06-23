@@ -7,6 +7,9 @@
     <Compile Update="CriarGrupo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="CriarProfessor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="CriarTarefa.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -105,3 +105,5 @@ C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2�
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\Microsoft.Extensions.Options.dll
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\bin\Debug\net5.0-windows\Microsoft.Extensions.Primitives.dll
 C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CriarTipoTarefa.resources
+C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.Professores.resources
+C:\Users\35192\OneDrive - Universidade de Aveiro\Desktop\Universidade\2º ANO\2º SEMESTRE\BD\BD_ProjetoFinal\C#Template\ProjetoFinalBD\obj\Debug\net5.0-windows\ProjetoFinalBD.CriarProfessor.resources

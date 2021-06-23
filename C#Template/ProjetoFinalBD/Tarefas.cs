@@ -153,6 +153,7 @@ namespace ProjetoFinalBD
             }
         }
 
+<<<<<<< HEAD
         private void PopulateCadeira()
         {
             cn = getSGBDConnection();
@@ -203,6 +204,8 @@ namespace ProjetoFinalBD
                 cn.Close();
             }
         }
+=======
+>>>>>>> 3ab14690c28b1f69fc7808bc88826d0dbec3fe85
 
         private void btnHome_Click(object sender, EventArgs e)
         {
