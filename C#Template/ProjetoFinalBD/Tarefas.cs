@@ -15,6 +15,9 @@ namespace ProjetoFinalBD
     {
         private SqlConnection cn;
         private List<ClasseTarefa> lstTarefas;
+        private List<ClasseTipoTarefa> lstTiposTarefa;
+        private string order = "";
+        private string where = "";
 
         public Tarefas()
         {
@@ -52,7 +55,7 @@ namespace ProjetoFinalBD
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "SELECT * FROM PROJETO.Tarefa " +
-                "WHERE aluno = @aluno";
+                "WHERE aluno = @aluno " + this.where + " " + this.order;
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
             cmd.Connection = cn;
@@ -91,6 +94,52 @@ namespace ProjetoFinalBD
                     listboxTarefas.Items.Add(inst.Titulo);
                 }
 
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível visualizar as instituições na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+                this.PopulateTipoTarefa();
+            }
+        }
+
+        private void PopulateTipoTarefa()
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            this.lstTiposTarefa = new List<ClasseTipoTarefa>();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM PROJETO.TipoTarefa " +
+                "WHERE disabled = 0 AND id IN (" + "SELECT tipoTarefa FROM PROJETO.Tarefa " +
+                "WHERE aluno = @aluno " + this.where + " " + this.order + ")";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
+            cmd.Connection = cn;
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                listboxTarefas.Items.Clear();
+
+                while (reader.Read())
+                {
+                    ClasseTipoTarefa inst = new ClasseTipoTarefa(
+                            Convert.ToInt32(reader["id"]),
+                            reader["designacao"].ToString(),
+                            reader["aluno_criador"].ToString(),
+                            false
+                        );
+
+                    this.lstTiposTarefa.Add(inst);
+                    checkTipo.Items.Add(inst.Designacao);
+                }
             }
             catch (Exception ex)
             {
@@ -286,7 +335,6 @@ namespace ProjetoFinalBD
         {
             if (listboxTarefas.SelectedIndex >= 0)
             {
-                MessageBox.Show(this.lstTarefas[listboxTarefas.SelectedIndex].Titulo);
                 CriarTarefa.createTarefa = false;
                 CriarTarefa.tarefa = this.lstTarefas[listboxTarefas.SelectedIndex];
                 CriarTarefa ct = new CriarTarefa();
@@ -294,6 +342,32 @@ namespace ProjetoFinalBD
                 this.Hide();
                 FormState.PreviousPage = this;
             }
+        }
+
+        private void orderBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (orderBy.SelectedIndex)
+            {
+                case 0:
+                    this.order = "ORDER BY data_inicio ASC";
+                    break;
+                case 1:
+                    this.order = "ORDER BY data_inicio DESC";
+                    break;
+                case 2:
+                    this.order = "ORDER BY date_final ASC";
+                    break;
+                case 3:
+                    this.order = "ORDER BY date_final DESC";
+                    break;
+            }
+
+            this.ShowTarefas();
+        }
+
+        private void search_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

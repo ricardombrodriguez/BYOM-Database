@@ -45,9 +45,10 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEntrar.ForeColor = System.Drawing.Color.Black;
-            this.btnEntrar.Location = new System.Drawing.Point(310, 276);
+            this.btnEntrar.Location = new System.Drawing.Point(504, 442);
+            this.btnEntrar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnEntrar.Name = "btnEntrar";
-            this.btnEntrar.Size = new System.Drawing.Size(156, 69);
+            this.btnEntrar.Size = new System.Drawing.Size(254, 110);
             this.btnEntrar.TabIndex = 4;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = true;
@@ -61,9 +62,10 @@ namespace ProjetoFinalBD
             this.lblEmail.AutoSize = true;
             this.lblEmail.BackColor = System.Drawing.Color.Transparent;
             this.lblEmail.ForeColor = System.Drawing.Color.White;
-            this.lblEmail.Location = new System.Drawing.Point(38, 156);
+            this.lblEmail.Location = new System.Drawing.Point(62, 250);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(46, 20);
+            this.lblEmail.Size = new System.Drawing.Size(71, 32);
             this.lblEmail.TabIndex = 1;
             this.lblEmail.Text = "Email";
             // 
@@ -75,9 +77,10 @@ namespace ProjetoFinalBD
             this.lblPassword.AutoSize = true;
             this.lblPassword.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword.ForeColor = System.Drawing.Color.White;
-            this.lblPassword.Location = new System.Drawing.Point(38, 207);
+            this.lblPassword.Location = new System.Drawing.Point(62, 331);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(70, 20);
+            this.lblPassword.Size = new System.Drawing.Size(111, 32);
             this.lblPassword.TabIndex = 2;
             this.lblPassword.Text = "Password";
             // 
@@ -86,11 +89,12 @@ namespace ProjetoFinalBD
             this.password.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.password.Location = new System.Drawing.Point(141, 207);
+            this.password.Location = new System.Drawing.Point(229, 331);
+            this.password.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.password.MaxLength = 100;
             this.password.Name = "password";
             this.password.PasswordChar = '*';
-            this.password.Size = new System.Drawing.Size(325, 27);
+            this.password.Size = new System.Drawing.Size(526, 39);
             this.password.TabIndex = 2;
             // 
             // email
@@ -98,10 +102,11 @@ namespace ProjetoFinalBD
             this.email.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.email.Location = new System.Drawing.Point(141, 153);
+            this.email.Location = new System.Drawing.Point(229, 245);
+            this.email.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.email.MaxLength = 100;
             this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(325, 27);
+            this.email.Size = new System.Drawing.Size(526, 39);
             this.email.TabIndex = 1;
             // 
             // pictureBox1
@@ -110,9 +115,11 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::ProjetoFinalBD.Properties.Resources.Screenshot_1;
-            this.pictureBox1.Location = new System.Drawing.Point(141, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(229, 19);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(203, 106);
+            this.pictureBox1.Size = new System.Drawing.Size(330, 170);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -122,9 +129,10 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCriarConta.ForeColor = System.Drawing.Color.Black;
-            this.btnCriarConta.Location = new System.Drawing.Point(141, 276);
+            this.btnCriarConta.Location = new System.Drawing.Point(229, 442);
+            this.btnCriarConta.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnCriarConta.Name = "btnCriarConta";
-            this.btnCriarConta.Size = new System.Drawing.Size(156, 69);
+            this.btnCriarConta.Size = new System.Drawing.Size(254, 110);
             this.btnCriarConta.TabIndex = 3;
             this.btnCriarConta.Text = "Criar conta";
             this.btnCriarConta.UseVisualStyleBackColor = true;
@@ -132,10 +140,10 @@ namespace ProjetoFinalBD
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(498, 373);
+            this.ClientSize = new System.Drawing.Size(809, 597);
             this.Controls.Add(this.btnCriarConta);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.email);
@@ -143,6 +151,7 @@ namespace ProjetoFinalBD
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.btnEntrar);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
