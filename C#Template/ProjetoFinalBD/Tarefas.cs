@@ -48,7 +48,7 @@ namespace ProjetoFinalBD
             if (!verifySGBDConnection())
                 return;
 
-            lstTarefas = new List<ClasseTarefa>();
+            this.lstTarefas = new List<ClasseTarefa>();
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "SELECT * FROM PROJETO.Tarefa " +
@@ -87,7 +87,7 @@ namespace ProjetoFinalBD
                                                        var_cadeira,
                                                        var_codigo_criador);
 
-                    lstTarefas.Add(inst);
+                    this.lstTarefas.Add(inst);
                     listboxTarefas.Items.Add(inst.Titulo);
                 }
 
@@ -281,5 +281,18 @@ namespace ProjetoFinalBD
             btnTarefas.ForeColor = Color.FromArgb(41, 44, 51);
         }
 
+        private void listboxTarefas_DoubleClick(object sender, EventArgs e)
+        {
+            if (listboxTarefas.SelectedIndex >= 0)
+            {
+                MessageBox.Show(this.lstTarefas[listboxTarefas.SelectedIndex].Titulo);
+                CriarTarefa.createTarefa = false;
+                CriarTarefa.tarefa = this.lstTarefas[listboxTarefas.SelectedIndex];
+                CriarTarefa ct = new CriarTarefa();
+                ct.Show();
+                this.Hide();
+                FormState.PreviousPage = this;
+            }
+        }
     }
 }

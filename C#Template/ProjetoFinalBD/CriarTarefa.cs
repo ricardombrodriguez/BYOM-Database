@@ -17,6 +17,7 @@ namespace ProjetoFinalBD
         private SqlConnection cn;
         public static Boolean createTarefa;
         public static CriarTarefa tarefaAtual;
+        public static ClasseTarefa tarefa;
         private List<ClasseCadeira> lstCadeiras;
         private List<ClasseTipoTarefa> lstTipoTarefa;
 
@@ -31,9 +32,48 @@ namespace ProjetoFinalBD
                 btnApagar.Visible = false;
             } else
             {
-
+                titulo.Text = tarefa.Titulo;
+                descricao.Text = tarefa.Descricao;
+                dataInicio.Value = DateTime.Parse(tarefa.Data_inicio);
+                dataFinal.Value = DateTime.Parse(tarefa.Date_final);
+                cadeira.SelectedIndex = this.getCadeiraIndex(tarefa.Cadeira);
+                tipoTarefa.SelectedIndex = this.getTipoTarefaIndex(tarefa.TipoTarefa);
+                if (tarefa.Completada_ts != "")
+                {
+                    checkbox.Checked = true;
+                }
             }
 
+        }
+
+        private int getCadeiraIndex(int cadeira)
+        {
+            int x = 0;
+            foreach (ClasseCadeira c in this.lstCadeiras)
+            {
+                if (c.Id == cadeira)
+                {
+                    return x;
+                }
+                x++;
+            }
+
+            return -1;
+        }
+
+        private int getTipoTarefaIndex(int tipo)
+        {
+            int x = 0;
+            foreach (ClasseTipoTarefa t in this.lstTipoTarefa)
+            {
+                if (t.Id == tipo)
+                {
+                    return x;
+                }
+                x++;
+            }
+
+            return -1;
         }
 
         private void PopulateCadeiras()
@@ -143,9 +183,33 @@ namespace ProjetoFinalBD
 
         private void btnApagar_Click(object sender, EventArgs e)
         {
-            FormState.PreviousPage.Show();
-            this.Hide();
-            FormState.PreviousPage = this;
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand("PROJETO.deleteTarefa", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", tarefa.Id);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Tarefa " + tarefa.Titulo + " apagada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível apagar a instituição da base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+                Tarefas tf = new Tarefas();
+                tf.Show();
+                this.Hide();
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -174,27 +238,27 @@ namespace ProjetoFinalBD
 
                 cn.Close();
 
-                if (num == 0)
+                if (num == 0 || !createTarefa)
                 {
+                    cn = getSGBDConnection();
+
+                    if (!verifySGBDConnection())
+                        return;
+
+                    String var_titulo = titulo.Text;
+                    String var_descricao = descricao.Text;
+                    DateTime var_dataInicio = dataInicio.Value.Date;
+                    DateTime var_dataFinal = dataFinal.Value.Date;
+                    int var_tipoTarefa = lstTipoTarefa[tipoTarefa.SelectedIndex].Id;
+                    String var_aluno = Login.utilizador;
+                    int var_cadeira = lstCadeiras[cadeira.SelectedIndex].Id;
+
+
+                    SqlCommand command = new SqlCommand();
+
                     if (createTarefa)
                     {
-                        //é para fazer insert
-
-                        cn = getSGBDConnection();
-
-                        if (!verifySGBDConnection())
-                            return;
-
-                        String var_titulo = titulo.Text;
-                        String var_descricao = descricao.Text;
-                        DateTime var_dataInicio = dataInicio.Value.Date;
-                        DateTime var_dataFinal = dataFinal.Value.Date;
-                        int var_tipoTarefa = lstTipoTarefa[tipoTarefa.SelectedIndex].Id;
-                        String var_aluno = Login.utilizador;
-                        int var_cadeira = lstCadeiras[cadeira.SelectedIndex].Id;
-
-                         
-                        SqlCommand command = new SqlCommand();
+                        //é para fazer insert                       
 
                         command.CommandText = "INSERT INTO PROJETO.Tarefa(titulo,descricao,data_inicio,date_final,tipoTarefa,aluno,cadeira) VALUES (@titulo,@descricao,@data_inicio,@date_final,@tipoTarefa,@aluno,@cadeira);";
                         command.Parameters.Clear();
@@ -231,8 +295,37 @@ namespace ProjetoFinalBD
                     {
                         // é para fazer update
 
-                       
+                        command.CommandText = "UPDATE PROJETO.Tarefa SET titulo = @titulo, descricao = @descricao, data_inicio = @data_inicio, date_final = @date_final, tipoTarefa = @tipoTarefa, cadeira = @cadeira WHERE id = @id;";
+                        command.Parameters.Clear();
+                        command.Parameters.AddWithValue("@titulo", var_titulo);
+                        command.Parameters.AddWithValue("@data_inicio", var_dataInicio);
+                        command.Parameters.AddWithValue("@date_final", var_dataFinal);
+                        command.Parameters.AddWithValue("@tipoTarefa", var_tipoTarefa);
+                        command.Parameters.AddWithValue("@cadeira", var_cadeira);
+                        command.Parameters.AddWithValue("@descricao", var_descricao);
+                        command.Parameters.AddWithValue("@aluno", Login.utilizador);
+                        command.Parameters.AddWithValue("@id", tarefa.Id);
+                        command.Connection = cn;
+
+
+                        try
+                        {
+                            command.ExecuteNonQuery();
+                            MessageBox.Show("Tarefa " + var_titulo + " atualizada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception("Não foi possível inserir a instituição na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                        }
+                        finally
+                        {
+                            Tarefas tf = new Tarefas();
+                            tf.Show();
+                            this.Hide();
+                        }
                     }
+                    cn.Close();
 
                 }
                 else
@@ -264,6 +357,52 @@ namespace ProjetoFinalBD
             FormState.PreviousPage.Show();
             this.Hide();
             FormState.PreviousPage = this;
+        }
+
+        private void checkbox_CheckedChanged(object sender, EventArgs e)
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "UPDATE PROJETO.Tarefa SET completada_ts = @ts WHERE id = @id;";
+            command.Parameters.Clear();
+            String msg = "";
+
+            if (checkbox.Checked)
+            {
+                // marcar como realizada
+                tarefa.Completada_ts = DateTime.Now.ToString();               
+                command.Parameters.AddWithValue("@ts", DateTime.Now);
+                msg = "Tarefa " + tarefa.Titulo + " marcada como realizada.";
+            }
+            else
+            {
+                // tirar de realizada
+                command.Parameters.AddWithValue("@ts", DBNull.Value);
+                msg = "Tarefa " + tarefa.Titulo + " marcada como não realizada.";
+            }
+
+            command.Parameters.AddWithValue("@id", tarefa.Id);
+            command.Connection = cn;
+
+
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show(msg, "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível atualizar a tarefa na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
     }
 

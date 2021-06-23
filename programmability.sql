@@ -360,6 +360,7 @@ GO
 CREATE PROCEDURE PROJETO.tarefasSemanais
 AS
 BEGIN
+	SET NOCOUNT ON; 
 	DECLARE @addDays INT, @sutractDays INT, @weekday VARCHAR(10), @initDate DATE, @finDate DATE;
 	SELECT @weekday = DATENAME(WEEKDAY, GETDATE());
 
@@ -402,10 +403,67 @@ BEGIN
 	SELECT @initDate = CAST(DATEADD(DAY, @sutractDays, CAST(GETDATE() AS DATE)) AS DATE);
 	SELECT @finDate = CAST(DATEADD(DAY, @addDays, CAST(GETDATE() AS DATE)) AS DATE);
 	
-	SELECT id, CONCAT(titulo, ' ', '[INÍCIO]') as titulo FROM PROJETO.Tarefa WHERE data_inicio = @initDate
+	SELECT id, CONCAT(titulo, ' ', '[INÍCIO]') as titulo, data_inicio as data_tarefa FROM PROJETO.Tarefa WHERE data_inicio = @initDate
 	UNION
-	SELECT id, titulo FROM PROJETO.Tarefa WHERE data_inicio < @initDate AND data_final > @finDate
+	SELECT id, titulo, data_inicio as data_tarefa FROM PROJETO.Tarefa WHERE data_inicio > @initDate AND data_inicio < @finDate
 	UNION
-	SELECT id, CONCAT(titulo, ' ', '[FINAL]')  FROM PROJETO.Tarefa WHERE data_final = @finDate;
+	SELECT id, titulo, date_final as data_tarefa FROM PROJETO.Tarefa WHERE date_final > @initDate AND date_final < @finDate
+	UNION
+	SELECT id, CONCAT(titulo, ' ', '[FINAL]'), date_final as data_tarefa FROM PROJETO.Tarefa WHERE date_final = @finDate;
 
 END
+
+CREATE FUNCTION PROJETO.getTarefasSemanaByDia (@dia VARCHAR(10))
+RETURNs @table TABLE (
+	id INT,
+	titulo VARCHAR(250),
+	descricao VARCHAR(250),
+	completada_ts DATETIME,
+	data_inicio DATE,
+	date_final DATE,
+	tipoTarefa INT,
+	aluno VARCHAR(250),
+	cadeira INT,
+	codigo_criador VARCHAR(20)
+)
+AS
+BEGIN
+	DECLARE @t TABLE (id INT, titulo VARCHAR(250), data DATE)
+	INSERT INTO @t EXEC PROJETO.tarefasSemanais
+
+	DECLARE tarefas_cursor CURSOR FOR
+		SELECT * FROM @t
+
+	DECLARE @id INT, @titulo VARCHAR(250), @data DATE -- para o cursor
+	DECLARE @descricao VARCHAR(250), @completada_ts DATETIME, @data_inicio DATE, @date_final DATE, @tipoTarefa INT, @aluno VARCHAR(250), @cadeira INT, @codigo_criador VARCHAR(20)
+
+	OPEN tarefas_cursor
+	FETCH NEXT FROM tarefas_cursor INTO @id, @titulo, @data
+
+	WHILE @@FETCH_STATUS = 0  
+	BEGIN  
+		DECLARE @weekday VARCHAR(10);
+		SELECT @weekday = DATENAME(WEEKDAY, @data);
+		IF @weekday = @dia
+		BEGIN			
+			SELECT @descricao = descricao, @completada_ts = completada_ts, @data_inicio = data_inicio, @date_final = date_final, @tipoTarefa = tipoTarefa, @aluno = aluno, @cadeira = cadeira, @codigo_criador = codigo_criador
+			FROM PROJETO.Tarefa
+			WHERE id = @id
+
+			INSERT INTO @table VALUES(@id, @titulo, @descricao, @completada_ts, @data_inicio, @date_final, @tipoTarefa, @aluno, @cadeira, @codigo_criador)
+		END
+			   
+		FETCH NEXT FROM tarefas_cursor INTO @id, @titulo, @data
+	END
+	
+	RETURN
+END
+
+create view PROJETO.viewTarefasSemana
+AS 
+	EXEC PROJETO.tarefasSemanais
+
+DROP PROCEDURE PROJETO.tarefasSemanais
+
+select * from PROJETO.Tarefa
+

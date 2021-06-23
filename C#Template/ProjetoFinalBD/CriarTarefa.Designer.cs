@@ -58,9 +58,9 @@ namespace ProjetoFinalBD
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(275, 20);
+            this.label1.Location = new System.Drawing.Point(241, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 46);
+            this.label1.Size = new System.Drawing.Size(104, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "TAREFA";
             // 
@@ -71,9 +71,9 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(35, 97);
+            this.label2.Location = new System.Drawing.Point(31, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 20);
+            this.label2.Size = new System.Drawing.Size(37, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "Título";
             // 
@@ -82,9 +82,10 @@ namespace ProjetoFinalBD
             this.titulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.titulo.Location = new System.Drawing.Point(155, 94);
+            this.titulo.Location = new System.Drawing.Point(136, 70);
+            this.titulo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.titulo.Name = "titulo";
-            this.titulo.Size = new System.Drawing.Size(447, 27);
+            this.titulo.Size = new System.Drawing.Size(392, 23);
             this.titulo.TabIndex = 2;
             // 
             // label3
@@ -94,9 +95,9 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(35, 144);
+            this.label3.Location = new System.Drawing.Point(31, 108);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 20);
+            this.label3.Size = new System.Drawing.Size(58, 15);
             this.label3.TabIndex = 3;
             this.label3.Text = "Descrição";
             // 
@@ -105,10 +106,11 @@ namespace ProjetoFinalBD
             this.descricao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.descricao.Location = new System.Drawing.Point(155, 141);
+            this.descricao.Location = new System.Drawing.Point(136, 106);
+            this.descricao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.descricao.Multiline = true;
             this.descricao.Name = "descricao";
-            this.descricao.Size = new System.Drawing.Size(447, 217);
+            this.descricao.Size = new System.Drawing.Size(392, 164);
             this.descricao.TabIndex = 4;
             // 
             // label4
@@ -118,9 +120,9 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(35, 385);
+            this.label4.Location = new System.Drawing.Point(31, 289);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 20);
+            this.label4.Size = new System.Drawing.Size(63, 15);
             this.label4.TabIndex = 5;
             this.label4.Text = "Data início";
             // 
@@ -131,9 +133,9 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(35, 432);
+            this.label5.Location = new System.Drawing.Point(31, 324);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 20);
+            this.label5.Size = new System.Drawing.Size(57, 15);
             this.label5.TabIndex = 6;
             this.label5.Text = "Data final";
             // 
@@ -145,12 +147,14 @@ namespace ProjetoFinalBD
             this.checkbox.AutoSize = true;
             this.checkbox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.checkbox.ForeColor = System.Drawing.Color.White;
-            this.checkbox.Location = new System.Drawing.Point(480, 582);
+            this.checkbox.Location = new System.Drawing.Point(420, 436);
+            this.checkbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkbox.Name = "checkbox";
-            this.checkbox.Size = new System.Drawing.Size(122, 32);
+            this.checkbox.Size = new System.Drawing.Size(100, 25);
             this.checkbox.TabIndex = 9;
             this.checkbox.Text = "Realizada!";
             this.checkbox.UseVisualStyleBackColor = true;
+            this.checkbox.CheckedChanged += new System.EventHandler(this.checkbox_CheckedChanged);
             // 
             // label6
             // 
@@ -159,9 +163,9 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(35, 484);
+            this.label6.Location = new System.Drawing.Point(31, 363);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 20);
+            this.label6.Size = new System.Drawing.Size(47, 15);
             this.label6.TabIndex = 11;
             this.label6.Text = "Cadeira";
             // 
@@ -172,9 +176,9 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(35, 539);
+            this.label7.Location = new System.Drawing.Point(31, 404);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(103, 20);
+            this.label7.Size = new System.Drawing.Size(79, 15);
             this.label7.TabIndex = 12;
             this.label7.Text = "Tipo de tarefa";
             // 
@@ -183,9 +187,10 @@ namespace ProjetoFinalBD
             this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.Location = new System.Drawing.Point(431, 647);
+            this.btnGuardar.Location = new System.Drawing.Point(377, 485);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(171, 57);
+            this.btnGuardar.Size = new System.Drawing.Size(150, 43);
             this.btnGuardar.TabIndex = 14;
             this.btnGuardar.Text = "Guardar tarefa";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -196,9 +201,10 @@ namespace ProjetoFinalBD
             this.btnApagar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApagar.Location = new System.Drawing.Point(236, 647);
+            this.btnApagar.Location = new System.Drawing.Point(206, 485);
+            this.btnApagar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnApagar.Name = "btnApagar";
-            this.btnApagar.Size = new System.Drawing.Size(171, 57);
+            this.btnApagar.Size = new System.Drawing.Size(150, 43);
             this.btnApagar.TabIndex = 15;
             this.btnApagar.Text = "Apagar tarefa";
             this.btnApagar.UseVisualStyleBackColor = true;
@@ -209,9 +215,10 @@ namespace ProjetoFinalBD
             this.dataInicio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataInicio.Location = new System.Drawing.Point(157, 385);
+            this.dataInicio.Location = new System.Drawing.Point(137, 289);
+            this.dataInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataInicio.Name = "dataInicio";
-            this.dataInicio.Size = new System.Drawing.Size(445, 27);
+            this.dataInicio.Size = new System.Drawing.Size(390, 23);
             this.dataInicio.TabIndex = 16;
             // 
             // dataFinal
@@ -219,9 +226,10 @@ namespace ProjetoFinalBD
             this.dataFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataFinal.Location = new System.Drawing.Point(156, 432);
+            this.dataFinal.Location = new System.Drawing.Point(136, 324);
+            this.dataFinal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataFinal.Name = "dataFinal";
-            this.dataFinal.Size = new System.Drawing.Size(445, 27);
+            this.dataFinal.Size = new System.Drawing.Size(390, 23);
             this.dataFinal.TabIndex = 17;
             // 
             // cadeira
@@ -230,9 +238,10 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cadeira.FormattingEnabled = true;
-            this.cadeira.Location = new System.Drawing.Point(154, 484);
+            this.cadeira.Location = new System.Drawing.Point(135, 363);
+            this.cadeira.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cadeira.Name = "cadeira";
-            this.cadeira.Size = new System.Drawing.Size(447, 28);
+            this.cadeira.Size = new System.Drawing.Size(392, 23);
             this.cadeira.TabIndex = 18;
             // 
             // tipoTarefa
@@ -241,9 +250,10 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tipoTarefa.FormattingEnabled = true;
-            this.tipoTarefa.Location = new System.Drawing.Point(154, 539);
+            this.tipoTarefa.Location = new System.Drawing.Point(135, 404);
+            this.tipoTarefa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tipoTarefa.Name = "tipoTarefa";
-            this.tipoTarefa.Size = new System.Drawing.Size(373, 28);
+            this.tipoTarefa.Size = new System.Drawing.Size(327, 23);
             this.tipoTarefa.TabIndex = 19;
             // 
             // button1
@@ -252,9 +262,10 @@ namespace ProjetoFinalBD
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.Image = global::ProjetoFinalBD.Properties.Resources._1410611_200;
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Location = new System.Drawing.Point(10, 9);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(55, 47);
+            this.button1.Size = new System.Drawing.Size(48, 35);
             this.button1.TabIndex = 42;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
@@ -264,9 +275,10 @@ namespace ProjetoFinalBD
             this.addTipoTarefa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.addTipoTarefa.Location = new System.Drawing.Point(547, 539);
+            this.addTipoTarefa.Location = new System.Drawing.Point(479, 404);
+            this.addTipoTarefa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addTipoTarefa.Name = "addTipoTarefa";
-            this.addTipoTarefa.Size = new System.Drawing.Size(55, 29);
+            this.addTipoTarefa.Size = new System.Drawing.Size(48, 22);
             this.addTipoTarefa.TabIndex = 43;
             this.addTipoTarefa.Text = "+";
             this.addTipoTarefa.UseVisualStyleBackColor = true;
@@ -274,10 +286,10 @@ namespace ProjetoFinalBD
             // 
             // CriarTarefa
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(642, 738);
+            this.ClientSize = new System.Drawing.Size(562, 554);
             this.Controls.Add(this.addTipoTarefa);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tipoTarefa);
@@ -297,6 +309,7 @@ namespace ProjetoFinalBD
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CriarTarefa";
