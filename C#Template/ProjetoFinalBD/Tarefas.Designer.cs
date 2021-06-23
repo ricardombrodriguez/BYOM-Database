@@ -54,7 +54,7 @@ namespace ProjetoFinalBD
             this.label5 = new System.Windows.Forms.Label();
             this.checkCadeira = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textTituloSearch = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.checkRealizada = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -341,7 +341,7 @@ namespace ProjetoFinalBD
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.checkCadeira);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.textTituloSearch);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.checkRealizada);
             this.panel4.Location = new System.Drawing.Point(371, 67);
@@ -352,6 +352,8 @@ namespace ProjetoFinalBD
             // checkTipo
             // 
             this.checkTipo.FormattingEnabled = true;
+            this.checkTipo.Items.AddRange(new object[] {
+            ""});
             this.checkTipo.Location = new System.Drawing.Point(658, 77);
             this.checkTipo.Name = "checkTipo";
             this.checkTipo.Size = new System.Drawing.Size(359, 47);
@@ -371,6 +373,8 @@ namespace ProjetoFinalBD
             // checkCadeira
             // 
             this.checkCadeira.FormattingEnabled = true;
+            this.checkCadeira.Items.AddRange(new object[] {
+            ""});
             this.checkCadeira.Location = new System.Drawing.Point(178, 77);
             this.checkCadeira.Name = "checkCadeira";
             this.checkCadeira.Size = new System.Drawing.Size(359, 47);
@@ -387,14 +391,14 @@ namespace ProjetoFinalBD
             this.label4.TabIndex = 3;
             this.label4.Text = "Cadeira: ";
             // 
-            // textBox1
+            // textTituloSearch
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textTituloSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(178, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(839, 47);
-            this.textBox1.TabIndex = 2;
+            this.textTituloSearch.Location = new System.Drawing.Point(178, 12);
+            this.textTituloSearch.Name = "textTituloSearch";
+            this.textTituloSearch.Size = new System.Drawing.Size(839, 47);
+            this.textTituloSearch.TabIndex = 2;
             // 
             // label3
             // 
@@ -562,7 +566,7 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox checkCadeira;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textTituloSearch;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkRealizada;
     }

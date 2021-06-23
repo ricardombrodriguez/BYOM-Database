@@ -470,8 +470,3 @@ SELECT * FROM PROJETO.Tarefa
 SELECT * FROM PROJETO.tarefasSemanais() as tarefas
 
 SELECT * FROM PROJETO.getTarefasSemanaByDia('Tuesday') WHERE completada_ts IS NULL ORDER BY data_inicio DESC
-
-SELECT id, designacao FROM PROJETO.TipoTarefa
-WHERE id IN (SELECT tipoTarefa FROM PROJETO.Tarefa WHERE aluno = 'admin')
-
-SELECT * FROM PROJETO.TipoTarefa

@@ -16,6 +16,7 @@ namespace ProjetoFinalBD
         private SqlConnection cn;
         private List<ClasseTarefa> lstTarefas;
         private List<ClasseTipoTarefa> lstTiposTarefa;
+        private List<ClasseCadeira> lstCadeiras;
         private string order = "";
         private string where = "";
 
@@ -25,6 +26,8 @@ namespace ProjetoFinalBD
             panelLeft.Height = btnTarefas.Height;
             panelLeft.Top = btnTarefas.Top;
             ShowTarefas();
+            this.PopulateTipoTarefa();
+            this.PopulateCadeira();
         }
 
         private SqlConnection getSGBDConnection()
@@ -102,7 +105,6 @@ namespace ProjetoFinalBD
             finally
             {
                 cn.Close();
-                this.PopulateTipoTarefa();
             }
         }
 
@@ -114,11 +116,12 @@ namespace ProjetoFinalBD
                 return;
 
             this.lstTiposTarefa = new List<ClasseTipoTarefa>();
+            checkTipo.Items.Clear();
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "SELECT * FROM PROJETO.TipoTarefa " +
                 "WHERE disabled = 0 AND id IN (" + "SELECT tipoTarefa FROM PROJETO.Tarefa " +
-                "WHERE aluno = @aluno " + this.where + " " + this.order + ")";
+                "WHERE aluno = @aluno " + this.where + ")";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
             cmd.Connection = cn;
@@ -126,7 +129,6 @@ namespace ProjetoFinalBD
             try
             {
                 SqlDataReader reader = cmd.ExecuteReader();
-                listboxTarefas.Items.Clear();
 
                 while (reader.Read())
                 {
@@ -139,6 +141,57 @@ namespace ProjetoFinalBD
 
                     this.lstTiposTarefa.Add(inst);
                     checkTipo.Items.Add(inst.Designacao);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível visualizar as instituições na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        private void PopulateCadeira()
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            this.lstCadeiras = new List<ClasseCadeira>();
+            checkCadeira.Items.Clear();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM PROJETO.Cadeira " +
+                "WHERE disabled = 0 AND id IN (" + "SELECT cadeira FROM PROJETO.Tarefa " +
+                "WHERE aluno = @aluno " + this.where + ")";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
+            cmd.Connection = cn;
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ClasseCadeira inst = new ClasseCadeira(
+                            Convert.ToInt32(reader["id"]),
+                            reader["nome"].ToString(),
+                            reader["link"].ToString(),
+                            Convert.ToInt32(reader["ano"].ToString()),
+                            Convert.ToInt32(reader["semestre"].ToString()),
+                            Convert.ToDouble(reader["nota_final"].ToString()),
+                            reader["aluno"].ToString(),
+                            reader["codigo_criador"].ToString(),
+                            Convert.ToInt32(reader["instituicao"].ToString()),
+                            false
+                        );
+
+                    this.lstCadeiras.Add(inst);
+                    checkCadeira.Items.Add(inst.Nome);
                 }
             }
             catch (Exception ex)
@@ -366,7 +419,30 @@ namespace ProjetoFinalBD
 
         private void search_Click(object sender, EventArgs e)
         {
+            this.where = "";
+            if (checkCadeira.SelectedIndex > 0)
+            {
+                this.where += " AND cadeira = " + this.lstCadeiras[checkCadeira.SelectedIndex-1].Id.ToString();
+            }
 
+            if (checkTipo.SelectedIndex > 0)
+            {
+                this.where += " AND tipoTarefa = " + this.lstTiposTarefa[checkTipo.SelectedIndex-1].Id.ToString();
+            }
+
+            if (checkRealizada.Checked)
+            {
+                this.where += " AND completada_ts IS NOT NULL";
+            }
+            
+            if (textTituloSearch.Text != "")
+            {
+                this.where += " AND titulo LIKE '%" + textTituloSearch.Text + "%'";
+            }
+
+            MessageBox.Show(this.where);
+
+            this.ShowTarefas();
         }
     }
 }
