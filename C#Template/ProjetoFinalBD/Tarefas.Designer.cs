@@ -98,7 +98,7 @@ namespace ProjetoFinalBD
             this.lblTarefas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblTarefas.Location = new System.Drawing.Point(65, 480);
             this.lblTarefas.Name = "lblTarefas";
-            this.lblTarefas.Size = new System.Drawing.Size(66, 21);
+            this.lblTarefas.Size = new System.Drawing.Size(79, 23);
             this.lblTarefas.TabIndex = 23;
             this.lblTarefas.Text = "Tarefas";
             this.lblTarefas.Click += new System.EventHandler(this.lblTarefas_Click);
@@ -124,7 +124,7 @@ namespace ProjetoFinalBD
             this.lblInstituicoes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblInstituicoes.Location = new System.Drawing.Point(52, 410);
             this.lblInstituicoes.Name = "lblInstituicoes";
-            this.lblInstituicoes.Size = new System.Drawing.Size(97, 21);
+            this.lblInstituicoes.Size = new System.Drawing.Size(114, 23);
             this.lblInstituicoes.TabIndex = 18;
             this.lblInstituicoes.Text = "Instituições";
             this.lblInstituicoes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -152,7 +152,7 @@ namespace ProjetoFinalBD
             this.label14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label14.Location = new System.Drawing.Point(71, 129);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(56, 21);
+            this.label14.Size = new System.Drawing.Size(69, 23);
             this.label14.TabIndex = 12;
             this.label14.Text = "Home";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -166,7 +166,7 @@ namespace ProjetoFinalBD
             this.lblHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblHome.Location = new System.Drawing.Point(77, 129);
             this.lblHome.Name = "lblHome";
-            this.lblHome.Size = new System.Drawing.Size(56, 21);
+            this.lblHome.Size = new System.Drawing.Size(69, 23);
             this.lblHome.TabIndex = 12;
             this.lblHome.Text = "Home";
             this.lblHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -178,7 +178,7 @@ namespace ProjetoFinalBD
             this.lblGrupos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblGrupos.Location = new System.Drawing.Point(66, 340);
             this.lblGrupos.Name = "lblGrupos";
-            this.lblGrupos.Size = new System.Drawing.Size(66, 21);
+            this.lblGrupos.Size = new System.Drawing.Size(80, 23);
             this.lblGrupos.TabIndex = 14;
             this.lblGrupos.Text = "Grupos";
             this.lblGrupos.Click += new System.EventHandler(this.lblGrupos_Click);
@@ -190,7 +190,7 @@ namespace ProjetoFinalBD
             this.lblPaginas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblPaginas.Location = new System.Drawing.Point(64, 270);
             this.lblPaginas.Name = "lblPaginas";
-            this.lblPaginas.Size = new System.Drawing.Size(71, 21);
+            this.lblPaginas.Size = new System.Drawing.Size(86, 23);
             this.lblPaginas.TabIndex = 12;
             this.lblPaginas.Text = "Páginas";
             this.lblPaginas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -204,7 +204,7 @@ namespace ProjetoFinalBD
             this.lblCadeiras.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblCadeiras.Location = new System.Drawing.Point(59, 200);
             this.lblCadeiras.Name = "lblCadeiras";
-            this.lblCadeiras.Size = new System.Drawing.Size(80, 21);
+            this.lblCadeiras.Size = new System.Drawing.Size(98, 23);
             this.lblCadeiras.TabIndex = 13;
             this.lblCadeiras.Text = "Cadeiras";
             this.lblCadeiras.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -317,10 +317,10 @@ namespace ProjetoFinalBD
             // listboxTarefas
             // 
             this.listboxTarefas.FormattingEnabled = true;
-            this.listboxTarefas.ItemHeight = 21;
+            this.listboxTarefas.ItemHeight = 23;
             this.listboxTarefas.Location = new System.Drawing.Point(21, 109);
             this.listboxTarefas.Name = "listboxTarefas";
-            this.listboxTarefas.Size = new System.Drawing.Size(1646, 886);
+            this.listboxTarefas.Size = new System.Drawing.Size(1646, 878);
             this.listboxTarefas.TabIndex = 12;
             this.listboxTarefas.DoubleClick += new System.EventHandler(this.listboxTarefas_DoubleClick);
             // 
@@ -329,7 +329,7 @@ namespace ProjetoFinalBD
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(273, 450);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(0, 21);
+            this.label10.Size = new System.Drawing.Size(0, 23);
             this.label10.TabIndex = 10;
             // 
             // btnAddTarefa
@@ -354,7 +354,7 @@ namespace ProjetoFinalBD
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(21, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 26);
+            this.label2.Size = new System.Drawing.Size(108, 35);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tarefas";
             // 

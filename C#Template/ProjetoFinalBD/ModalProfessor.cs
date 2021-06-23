@@ -46,9 +46,9 @@ namespace ProjetoFinalBD
                 return;
 
             //verificar se faltam parâmetros obrigatórios
-            if (email.TextLength == 0 | nome.TextLength == 0)
+            if (email.TextLength == 0)
             {
-                MessageBox.Show("Insira o email e nome do professor", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Insira o email do professor", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -63,13 +63,104 @@ namespace ProjetoFinalBD
                 if (professorExistente == 1)
                 {
 
+                    SqlCommand cm = new SqlCommand();
+                    cm.CommandText = "SELECT COUNT(*) FROM PROJETO.GrupoProfessor WHERE grupo = @grupo AND professor = @professor";
+                    cm.Parameters.Clear();
+                    cm.Parameters.AddWithValue("@grupo", CriarGrupo.grupoAtual.Id);
+                    cm.Parameters.AddWithValue("@professor", email.Text);
+                    cm.Connection = cn;
+                    int professorNoGrupo = Convert.ToInt32(cm.ExecuteScalar());
+
+                    //se o prof já está no grupo ou n
+                    if (professorNoGrupo != 0)
+                    {
+
+                        MessageBox.Show("O professor já é orientador do grupo.", "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    } else
+                    {
+                        SqlCommand command = new SqlCommand();
+
+                        command.CommandText = "INSERT INTO PROJETO.GrupoProfessor(grupo,professor) VALUES (@grupo,@professor);";
+                        command.Parameters.Clear();
+                        command.Parameters.AddWithValue("@grupo", CriarGrupo.grupoAtual.Id);
+                        command.Parameters.AddWithValue("@professor", email.Text);
+                        command.Connection = cn;
+
+
+                        try
+                        {
+                            command.ExecuteNonQuery();
+                            MessageBox.Show("Professor(a) " + email.Text + " foi adicionado(a) ao grupo.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Hide();
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception("Não foi possível inserir o professor no grupo \n ERROR MESSAGE: \n" + ex.Message);
+                        }
+
+
+                        //inserir professor no professorcadeira se ainda n estiver
+
+                        SqlCommand temp = new SqlCommand();
+                        temp.CommandText = "SELECT COUNT(*) FROM PROJETO.ProfessorCadeira WHERE professor = @professor AND cadeira = @cadeira";
+                        temp.Parameters.Clear();
+                        temp.Parameters.AddWithValue("@cadeira", CriarGrupo.grupoAtual.Cadeira);
+                        temp.Parameters.AddWithValue("@professor", email.Text);
+                        temp.Connection = cn;
+                        int professorNaCadeira = Convert.ToInt32(temp.ExecuteScalar());
+
+                        if (professorNaCadeira == 0)
+                        {
+                            SqlCommand comando = new SqlCommand();
+
+                            comando.CommandText = "INSERT INTO PROJETO.ProfessorCadeira(professor,cadeira) VALUES (@professor,@cadeira);";
+                            comando.Parameters.Clear();
+                            comando.Parameters.AddWithValue("@professor", email.Text);
+                            comando.Parameters.AddWithValue("@cadeira", CriarGrupo.grupoAtual.Cadeira);
+                            comando.Connection = cn;
+
+
+                            try
+                            {
+                                comando.ExecuteNonQuery();
+                                MessageBox.Show("Professor(a) " + email.Text + " foi adicionado(a) à cadeira do grupo.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Hide();
+                            }
+                            catch (Exception ex)
+                            {
+                                throw new Exception("Não foi possível inserir o professor no grupo \n ERROR MESSAGE: \n" + ex.Message);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("O professor já pertence à cadeira", "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Não existe esse professor", "Erro",
+                    MessageBox.Show("Não existe esse professor. Crie um novo professor.", "Erro",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+ 
+            cn.Close();
+            inst.ShowProfessores();
+            this.Hide();
+
+        }
+
+        private void btnCriarProfessor_Click(object sender, EventArgs e)
+        {
+            CriarProfessor prof = new CriarProfessor();
+            prof.Show();
+            CriarProfessor.createProfessor = true;
         }
     }
 }
+

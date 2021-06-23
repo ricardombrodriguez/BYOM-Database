@@ -48,19 +48,18 @@ namespace ProjetoFinalBD
             this.panel3 = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.filtroOrientador = new System.Windows.Forms.TextBox();
+            this.filtroColega = new System.Windows.Forms.TextBox();
+            this.filtroCadeira = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnProcurar = new System.Windows.Forms.Button();
             this.filtroNome = new System.Windows.Forms.TextBox();
-            this.btnRemGrupo = new System.Windows.Forms.Button();
             this.listboxGrupos = new System.Windows.Forms.ListBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnCreateGrupo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.filtroCadeira = new System.Windows.Forms.ComboBox();
-            this.filtroColega = new System.Windows.Forms.TextBox();
-            this.filtroOrientador = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -302,7 +301,6 @@ namespace ProjetoFinalBD
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btnProcurar);
             this.panel2.Controls.Add(this.filtroNome);
-            this.panel2.Controls.Add(this.btnRemGrupo);
             this.panel2.Controls.Add(this.listboxGrupos);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label10);
@@ -312,6 +310,38 @@ namespace ProjetoFinalBD
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1702, 1033);
             this.panel2.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(1261, 560);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PlaceholderText = "Procurar por orientador (nome)";
+            this.textBox1.Size = new System.Drawing.Size(319, 32);
+            this.textBox1.TabIndex = 55;
+            // 
+            // filtroOrientador
+            // 
+            this.filtroOrientador.Location = new System.Drawing.Point(1261, 491);
+            this.filtroOrientador.Name = "filtroOrientador";
+            this.filtroOrientador.PlaceholderText = "Procurar por orientador (email)";
+            this.filtroOrientador.Size = new System.Drawing.Size(319, 32);
+            this.filtroOrientador.TabIndex = 54;
+            // 
+            // filtroColega
+            // 
+            this.filtroColega.Location = new System.Drawing.Point(1261, 421);
+            this.filtroColega.Name = "filtroColega";
+            this.filtroColega.PlaceholderText = "Procurar por colega";
+            this.filtroColega.Size = new System.Drawing.Size(319, 32);
+            this.filtroColega.TabIndex = 53;
+            // 
+            // filtroCadeira
+            // 
+            this.filtroCadeira.FormattingEnabled = true;
+            this.filtroCadeira.Location = new System.Drawing.Point(1261, 282);
+            this.filtroCadeira.Name = "filtroCadeira";
+            this.filtroCadeira.Size = new System.Drawing.Size(319, 31);
+            this.filtroCadeira.TabIndex = 52;
             // 
             // label1
             // 
@@ -341,20 +371,6 @@ namespace ProjetoFinalBD
             this.filtroNome.PlaceholderText = "Procurar por nome";
             this.filtroNome.Size = new System.Drawing.Size(319, 32);
             this.filtroNome.TabIndex = 49;
-            // 
-            // btnRemGrupo
-            // 
-            this.btnRemGrupo.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnRemGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemGrupo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRemGrupo.ForeColor = System.Drawing.Color.White;
-            this.btnRemGrupo.Location = new System.Drawing.Point(441, 46);
-            this.btnRemGrupo.Name = "btnRemGrupo";
-            this.btnRemGrupo.Size = new System.Drawing.Size(279, 31);
-            this.btnRemGrupo.TabIndex = 24;
-            this.btnRemGrupo.Text = "- Remover grupo";
-            this.btnRemGrupo.UseVisualStyleBackColor = true;
-            this.btnRemGrupo.Click += new System.EventHandler(this.btnRemGrupo_Click);
             // 
             // listboxGrupos
             // 
@@ -405,41 +421,9 @@ namespace ProjetoFinalBD
             this.label2.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(47, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 42);
+            this.label2.Size = new System.Drawing.Size(136, 42);
             this.label2.TabIndex = 0;
             this.label2.Text = "Grupos";
-            // 
-            // filtroCadeira
-            // 
-            this.filtroCadeira.FormattingEnabled = true;
-            this.filtroCadeira.Location = new System.Drawing.Point(1261, 282);
-            this.filtroCadeira.Name = "filtroCadeira";
-            this.filtroCadeira.Size = new System.Drawing.Size(319, 31);
-            this.filtroCadeira.TabIndex = 52;
-            // 
-            // filtroColega
-            // 
-            this.filtroColega.Location = new System.Drawing.Point(1261, 421);
-            this.filtroColega.Name = "filtroColega";
-            this.filtroColega.PlaceholderText = "Procurar por colega";
-            this.filtroColega.Size = new System.Drawing.Size(319, 32);
-            this.filtroColega.TabIndex = 53;
-            // 
-            // filtroOrientador
-            // 
-            this.filtroOrientador.Location = new System.Drawing.Point(1261, 491);
-            this.filtroOrientador.Name = "filtroOrientador";
-            this.filtroOrientador.PlaceholderText = "Procurar por orientador (email)";
-            this.filtroOrientador.Size = new System.Drawing.Size(319, 32);
-            this.filtroOrientador.TabIndex = 54;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(1261, 560);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Procurar por orientador (nome)";
-            this.textBox1.Size = new System.Drawing.Size(319, 32);
-            this.textBox1.TabIndex = 55;
             // 
             // Grupos
             // 
@@ -492,7 +476,6 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Label lblTarefas;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox listboxGrupos;
-        private System.Windows.Forms.Button btnRemGrupo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnProcurar;
         private System.Windows.Forms.TextBox filtroNome;
