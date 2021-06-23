@@ -280,10 +280,6 @@ namespace ProjetoFinalBD
             btnTarefas.ForeColor = Color.White;
         }
 
-       
-
-      
-
         private void btnAddTarefa_Click(object sender, EventArgs e)
         {
             this.Hide();

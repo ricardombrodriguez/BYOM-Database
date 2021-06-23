@@ -16,6 +16,7 @@ namespace ProjetoFinalBD
     {
         private SqlConnection cn;
         private List<ClasseInstituicao> lstInstituicoes;
+        public static bool returnToCriarTarefa = false;
 
  
         public InfoCadeira()
@@ -38,6 +39,7 @@ namespace ProjetoFinalBD
                 adicionarProfessor.Visible = false;
                 adicionarTarefa.Visible = false;
                 adicionarPagina.Visible = false;
+                btnApagarCadeira.Visible = false;
             } else
             {
                 listaPaginas.Visible = true;
@@ -52,9 +54,6 @@ namespace ProjetoFinalBD
                 adicionarProfessor.Visible = true;
                 adicionarTarefa.Visible = true;
                 adicionarPagina.Visible = true;
-
-
-
 
                 LoadCadeiraInfo();
                 showTarefas();
@@ -268,12 +267,18 @@ namespace ProjetoFinalBD
                                                                    false);
                             }
 
-                            Cadeira c = new Cadeira();
-                            c.Show();
-                            this.Hide();
-
-
-
+                            if (returnToCriarTarefa)
+                            {
+                                CriarTarefa.tarefaAtual.Show();
+                                this.Hide();
+                                InfoCadeira.returnToCriarTarefa = false;
+                            }
+                            else
+                            {
+                                Cadeira c = new Cadeira();
+                                c.Show();
+                                this.Hide();
+                            }                        
                         }
                         catch (Exception ex)
                         {
@@ -308,9 +313,17 @@ namespace ProjetoFinalBD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormState.PreviousPage.Show();
-            this.Hide();
-            FormState.PreviousPage = this;
+            if (returnToCriarTarefa)
+            {
+                CriarTarefa.tarefaAtual.Show();
+                this.Hide();
+            }
+            else
+            {
+                FormState.PreviousPage.Show();
+                this.Hide();
+                FormState.PreviousPage = this;
+            }
         }
     }
 }

@@ -153,7 +153,6 @@ namespace ProjetoFinalBD
             }
         }
 
-<<<<<<< HEAD
         private void PopulateCadeira()
         {
             cn = getSGBDConnection();
@@ -204,8 +203,6 @@ namespace ProjetoFinalBD
                 cn.Close();
             }
         }
-=======
->>>>>>> 3ab14690c28b1f69fc7808bc88826d0dbec3fe85
 
         private void btnHome_Click(object sender, EventArgs e)
         {
@@ -339,8 +336,8 @@ namespace ProjetoFinalBD
         private void button5_Click(object sender, EventArgs e)
         {
             this.Hide();
-            CriarTarefa tarefa = new CriarTarefa();
             CriarTarefa.createTarefa = true;
+            CriarTarefa tarefa = new CriarTarefa();
             tarefa.Show();
             FormState.PreviousPage = this;
         }
@@ -443,9 +440,40 @@ namespace ProjetoFinalBD
                 this.where += " AND titulo LIKE '%" + textTituloSearch.Text + "%'";
             }
 
-            MessageBox.Show(this.where);
-
             this.ShowTarefas();
+        }
+
+        private void btnRemTarefa_Click(object sender, EventArgs e)
+        {
+            if (listboxTarefas.SelectedIndex > -1)
+            {
+                ClasseTarefa tarefa = lstTarefas[listboxTarefas.SelectedIndex];
+                cn = getSGBDConnection();
+
+                if (!verifySGBDConnection())
+                    return;
+
+                SqlCommand cmd = new SqlCommand("PROJETO.deleteTarefa", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", tarefa.Id);
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Tarefa " + tarefa.Titulo + " apagada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Não foi possível apagar a tarefa da base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                    this.ShowTarefas();
+                }
+            }
         }
     }
 }

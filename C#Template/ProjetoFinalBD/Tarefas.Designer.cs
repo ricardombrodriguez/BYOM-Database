@@ -456,6 +456,7 @@ namespace ProjetoFinalBD
             this.btnRemTarefa.TabIndex = 13;
             this.btnRemTarefa.Text = "- Remover tarefa";
             this.btnRemTarefa.UseVisualStyleBackColor = true;
+            this.btnRemTarefa.Click += new System.EventHandler(this.btnRemTarefa_Click);
             // 
             // listboxTarefas
             // 

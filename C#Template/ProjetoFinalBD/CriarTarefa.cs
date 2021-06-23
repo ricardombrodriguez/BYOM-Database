@@ -112,7 +112,7 @@ namespace ProjetoFinalBD
             }
             catch (Exception ex)
             {
-                throw new Exception("Failed to update contact in database. \n ERROR MESSAGE: \n" + ex.Message);
+                throw new Exception("Falha ao carregar as acdeiras da base de dados. \n ERROR MESSAGE: \n" + ex.Message);
 
             }
 
@@ -156,7 +156,7 @@ namespace ProjetoFinalBD
             }
             catch (Exception ex)
             {
-                throw new Exception("Failed to update contact in database. \n ERROR MESSAGE: \n" + ex.Message);
+                throw new Exception("Falha ao carregar os tipos de tarefa da base de dados. \n ERROR MESSAGE: \n" + ex.Message);
 
             }
             finally
@@ -253,6 +253,11 @@ namespace ProjetoFinalBD
                     String var_aluno = Login.utilizador;
                     int var_cadeira = lstCadeiras[cadeira.SelectedIndex].Id;
 
+                    if (DateTime.Compare(var_dataFinal, var_dataInicio) < 0)
+                    {
+                        MessageBox.Show("A data final da tarefa não pode ser anterior à data inicial.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
 
                     SqlCommand command = new SqlCommand();
 
@@ -276,8 +281,6 @@ namespace ProjetoFinalBD
                         {
                             command.ExecuteNonQuery();
                             MessageBox.Show("Tarefa " + var_titulo + " criada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-      
                         }
                         catch (Exception ex)
                         {
@@ -403,6 +406,15 @@ namespace ProjetoFinalBD
             {
                 cn.Close();
             }
+        }
+
+        private void addCadeira_Click(object sender, EventArgs e)
+        {
+            Cadeira.criarCadeira = true;
+            InfoCadeira.returnToCriarTarefa = true;
+            InfoCadeira novo = new InfoCadeira();
+            novo.Show();
+            tarefaAtual = this;
         }
     }
 

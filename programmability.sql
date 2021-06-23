@@ -465,7 +465,8 @@ BEGIN
 	RETURN
 END
 
-SELECT * FROM PROJETO.Tarefa
+SELECT * FROM PROJETO.Tarefa where titulo Like '% C%'
+SELECT * FROM PROJETO.Cadeira
 
 SELECT * FROM PROJETO.tarefasSemanais() as tarefas
 
