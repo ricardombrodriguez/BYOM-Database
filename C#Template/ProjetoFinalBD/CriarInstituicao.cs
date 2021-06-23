@@ -38,7 +38,6 @@ namespace ProjetoFinalBD
                 nomeAtual = instituicaoAtual.Nome;
                 loadInstInfo();
                 showCadeiras();
-               
             }
         }
 

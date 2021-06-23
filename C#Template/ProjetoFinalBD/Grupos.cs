@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjetoFinalBD
@@ -14,7 +12,8 @@ namespace ProjetoFinalBD
     public partial class Grupos : Form
     {
         private SqlConnection cn;
-        private List<ClasseGrupo> lstGrupos;
+        private Dictionary<String, ClasseCadeira> lstCadeiras;
+        private Dictionary<String, ClasseGrupo> lstGrupos;
 
         public Grupos()
         {
@@ -22,7 +21,50 @@ namespace ProjetoFinalBD
             panelLeft.Height = btnGrupos.Height;
             panelLeft.Top = btnGrupos.Top;
             showGrupos();
+            PopulateCadeiras();
     
+        }
+
+        public void PopulateCadeiras()
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT * FROM PROJETO.Cadeira WHERE aluno = @aluno AND disabled = 0;";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@aluno", Login.utilizador);
+            command.Connection = cn;
+
+            lstCadeiras = new Dictionary<String,ClasseCadeira>();
+
+            try
+            {
+                SqlDataReader reader = command.ExecuteReader();
+                filtroCadeira.Items.Clear();
+
+                while (reader.Read())
+                {
+                    ClasseCadeira inst = new ClasseCadeira(Convert.ToInt32(reader["id"]),
+                                                            reader["nome"].ToString());
+
+                    lstCadeiras.Add(inst.Nome,inst);
+
+                    filtroCadeira.Items.Add(inst.Nome);
+                }
+
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Failed to update contact in database. \n ERROR MESSAGE: \n" + ex.Message);
+
+            }
+
+            cn.Close();
         }
 
         private SqlConnection getSGBDConnection()
@@ -48,7 +90,7 @@ namespace ProjetoFinalBD
             if (!verifySGBDConnection())
                 return;
 
-            lstGrupos = new List<ClasseGrupo>();
+            
 
             //mostrar o nome dos grupos ao qual o aluno pertence
             SqlCommand cmd = new SqlCommand();
@@ -61,6 +103,7 @@ namespace ProjetoFinalBD
             try
             {
                 SqlDataReader reader = cmd.ExecuteReader();
+                lstGrupos = new Dictionary<String, ClasseGrupo>();
                 listboxGrupos.Items.Clear();
 
                 while (reader.Read())
@@ -71,7 +114,7 @@ namespace ProjetoFinalBD
                                                        reader["codigo_criador"].ToString(),
                                                        Convert.ToBoolean(reader["disabled"]));
 
-                    lstGrupos.Add(inst);
+                    lstGrupos.Add(inst.Nome,inst);
                     listboxGrupos.Items.Add(inst.Nome);
                 }
 
@@ -264,51 +307,120 @@ namespace ProjetoFinalBD
         }
 
 
-        private void btnRemGrupo_Click(object sender, EventArgs e)
-        {
-          
-
-            listboxGrupos.Items.RemoveAt(listboxGrupos.SelectedIndex);
-
-            /*
-            cn = getSGBDConnection();
-
-            if (!verifySGBDConnection())
-                return;
-
-            int id = lstGrupos[listboxGrupos.SelectedIndex].Id;
-
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "DELETE FROM PROJETO.Grupo WHERE PROJETO.Grupo.id = @id";
-            cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@id", id);
-            cmd.Connection = cn;
-
-            try
-            {
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Não foi possível remover a instituição na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
-            }
-            finally
-            {
-                cn.Close();
-                showGrupos();
-            }
-            */
-        }
-
         private void listboxGrupos_DoubleClick(object sender, EventArgs e)
         {
             if (listboxGrupos.SelectedItem != null)
             {
                 FormState.PreviousPage = this;
                 CriarGrupo.createGrupo = false;
-                CriarGrupo.grupoAtual = lstGrupos[listboxGrupos.SelectedIndex];
+                CriarGrupo.grupoAtual = lstGrupos[listboxGrupos.GetItemText(listboxGrupos.SelectedItem)];
+
+                cn = getSGBDConnection();
+
+                if (!verifySGBDConnection())
+                    return;
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "SELECT * FROM PROJETO.Grupo JOIN PROJETO.Cadeira " +
+                    "ON PROJETO.Grupo.cadeira =  PROJETO.Cadeira.id WHERE PROJETO.Grupo.id = @group_id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@group_id", CriarGrupo.grupoAtual.Id);
+                cmd.Connection = cn;
+
+                String nome = "";
+                try
+                {
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        nome = reader[6].ToString();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Não foi possível visualizar as instituições na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                
+
+                cn.Close();
+                CriarGrupo.nome_cadeira = nome;
                 CriarGrupo inst = new CriarGrupo();
                 inst.Show();
+            }
+        }
+
+        private void btnProcurar_Click(object sender, EventArgs e)
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            string strSql = "";
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Parameters.Clear();
+            cmd.CommandText = String.Format("SELECT * FROM PROJETO.GrupoAluno JOIN PROJETO.Grupo ON PROJETO.GrupoAluno.grupo = PROJETO.Grupo.id " +
+                "LEFT JOIN PROJETO.GrupoProfessor ON PROJETO.Grupo.id = PROJETO.GrupoProfessor.grupo " +
+                "WHERE aluno = '{0}' ", Login.utilizador);
+
+            if (filtroCadeira.SelectedIndex != -1)
+            {
+                int cadeira_id = lstCadeiras[filtroCadeira.Text].Id;
+                strSql += String.Format("AND cadeira = {0} ", cadeira_id);
+            }
+
+            if (filtroNome.TextLength != 0)
+            {
+                strSql += String.Format("AND PROJETO.Grupo.nome LIKE '%{0}%' ", filtroNome.Text);
+            }
+
+            if (filtroOrientador.TextLength != 0)
+            {
+                strSql += String.Format("AND PROJETO.GrupoProfessor.professor = '{0}' ", filtroOrientador.Text);
+            }
+
+            cmd.CommandText += strSql;
+            cmd.Connection = cn;
+
+            MessageBox.Show(cmd.CommandText);
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                listboxGrupos.Items.Clear();
+                lstGrupos.Clear();
+
+                while (reader.Read())
+                {
+                    ClasseGrupo inst = new ClasseGrupo(Convert.ToInt32(reader[2]),
+                                                       reader[3].ToString(),
+                                                       Convert.ToInt32(reader[4]),
+                                                       reader[5].ToString(),
+                                                       false);
+
+                    if (lstGrupos.ContainsKey(inst.Nome) == false)
+                    {
+                        lstGrupos.Add(inst.Nome, inst);
+                        listboxGrupos.Items.Add(inst.Nome);
+                    }
+                }
+
+                if (lstGrupos.Count() == 0)
+                {
+                    listboxGrupos.Items.Add("Não existem grupos compatíveis.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível visualizar as cadeiras da instituição. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
             }
         }
     }

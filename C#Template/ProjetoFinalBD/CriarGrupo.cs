@@ -18,6 +18,7 @@ namespace ProjetoFinalBD
         private List<String> lstColegas = new List<String>();
         private List<ClasseCadeira> lstCadeiras = new List<ClasseCadeira>();
         public static ClasseGrupo grupoAtual;
+        public static String nome_cadeira;
         public static Boolean createGrupo;
 
         public CriarGrupo()
@@ -39,27 +40,15 @@ namespace ProjetoFinalBD
             }
             else
             {
+               
                 grupo_nome.Text = grupoAtual.Nome;
-                grupo_cadeira.Text = lstCadeiras[grupoAtual.Cadeira].Nome;
+                grupo_cadeira.Text = nome_cadeira;
+                grupo_nome.Enabled = false;
+                grupo_cadeira.Enabled = false;
                 ShowProfessores();
                 ShowColegas();
 
             }
-        }
-
-        private int getCadeiraIndex(int cadeira)
-        {
-            int x = 0;
-            foreach (ClasseCadeira c in this.lstCadeiras)
-            {
-                if (c.Id == cadeira)
-                {
-                    return x;
-                }
-                x++;
-            }
-
-            return -1;
         }
 
         public void ShowColegas()
