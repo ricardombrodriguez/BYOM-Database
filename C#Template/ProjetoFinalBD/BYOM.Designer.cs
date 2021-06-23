@@ -103,7 +103,7 @@ namespace ProjetoFinalBD
             this.lblTarefas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblTarefas.Location = new System.Drawing.Point(65, 479);
             this.lblTarefas.Name = "lblTarefas";
-            this.lblTarefas.Size = new System.Drawing.Size(79, 23);
+            this.lblTarefas.Size = new System.Drawing.Size(66, 21);
             this.lblTarefas.TabIndex = 23;
             this.lblTarefas.Text = "Tarefas";
             this.lblTarefas.Click += new System.EventHandler(this.lblTarefas_Click);
@@ -129,7 +129,7 @@ namespace ProjetoFinalBD
             this.lblInstituicoes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblInstituicoes.Location = new System.Drawing.Point(50, 409);
             this.lblInstituicoes.Name = "lblInstituicoes";
-            this.lblInstituicoes.Size = new System.Drawing.Size(114, 23);
+            this.lblInstituicoes.Size = new System.Drawing.Size(97, 21);
             this.lblInstituicoes.TabIndex = 16;
             this.lblInstituicoes.Text = "Instituições";
             this.lblInstituicoes.Click += new System.EventHandler(this.lblInstituicoes_Click);
@@ -156,7 +156,7 @@ namespace ProjetoFinalBD
             this.lblHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblHome.Location = new System.Drawing.Point(70, 129);
             this.lblHome.Name = "lblHome";
-            this.lblHome.Size = new System.Drawing.Size(69, 23);
+            this.lblHome.Size = new System.Drawing.Size(56, 21);
             this.lblHome.TabIndex = 12;
             this.lblHome.Text = "Home";
             this.lblHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -169,7 +169,7 @@ namespace ProjetoFinalBD
             this.lblGrupos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblGrupos.Location = new System.Drawing.Point(66, 340);
             this.lblGrupos.Name = "lblGrupos";
-            this.lblGrupos.Size = new System.Drawing.Size(80, 23);
+            this.lblGrupos.Size = new System.Drawing.Size(66, 21);
             this.lblGrupos.TabIndex = 14;
             this.lblGrupos.Text = "Grupos";
             this.lblGrupos.Click += new System.EventHandler(this.lblGrupos_Click);
@@ -181,7 +181,7 @@ namespace ProjetoFinalBD
             this.lblPaginas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblPaginas.Location = new System.Drawing.Point(67, 270);
             this.lblPaginas.Name = "lblPaginas";
-            this.lblPaginas.Size = new System.Drawing.Size(86, 23);
+            this.lblPaginas.Size = new System.Drawing.Size(71, 21);
             this.lblPaginas.TabIndex = 12;
             this.lblPaginas.Text = "Páginas";
             this.lblPaginas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -195,7 +195,7 @@ namespace ProjetoFinalBD
             this.lblCadeiras.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblCadeiras.Location = new System.Drawing.Point(60, 200);
             this.lblCadeiras.Name = "lblCadeiras";
-            this.lblCadeiras.Size = new System.Drawing.Size(98, 23);
+            this.lblCadeiras.Size = new System.Drawing.Size(80, 21);
             this.lblCadeiras.TabIndex = 13;
             this.lblCadeiras.Text = "Cadeiras";
             this.lblCadeiras.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -306,7 +306,7 @@ namespace ProjetoFinalBD
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.label11.Location = new System.Drawing.Point(279, 450);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(0, 23);
+            this.label11.Size = new System.Drawing.Size(0, 21);
             this.label11.TabIndex = 11;
             // 
             // label10
@@ -314,7 +314,7 @@ namespace ProjetoFinalBD
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(273, 450);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(0, 23);
+            this.label10.Size = new System.Drawing.Size(0, 21);
             this.label10.TabIndex = 10;
             // 
             // tableLayoutPanel1
@@ -358,10 +358,10 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxDomingo.FormattingEnabled = true;
-            this.listboxDomingo.ItemHeight = 23;
+            this.listboxDomingo.ItemHeight = 21;
             this.listboxDomingo.Location = new System.Drawing.Point(1419, 64);
             this.listboxDomingo.Name = "listboxDomingo";
-            this.listboxDomingo.Size = new System.Drawing.Size(236, 855);
+            this.listboxDomingo.Size = new System.Drawing.Size(236, 865);
             this.listboxDomingo.TabIndex = 16;
             // 
             // listboxSabado
@@ -370,10 +370,10 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxSabado.FormattingEnabled = true;
-            this.listboxSabado.ItemHeight = 23;
+            this.listboxSabado.ItemHeight = 21;
             this.listboxSabado.Location = new System.Drawing.Point(1183, 64);
             this.listboxSabado.Name = "listboxSabado";
-            this.listboxSabado.Size = new System.Drawing.Size(230, 855);
+            this.listboxSabado.Size = new System.Drawing.Size(230, 865);
             this.listboxSabado.TabIndex = 15;
             // 
             // listboxSexta
@@ -382,10 +382,10 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxSexta.FormattingEnabled = true;
-            this.listboxSexta.ItemHeight = 23;
+            this.listboxSexta.ItemHeight = 21;
             this.listboxSexta.Location = new System.Drawing.Point(945, 64);
             this.listboxSexta.Name = "listboxSexta";
-            this.listboxSexta.Size = new System.Drawing.Size(232, 855);
+            this.listboxSexta.Size = new System.Drawing.Size(232, 865);
             this.listboxSexta.TabIndex = 14;
             // 
             // listboxQuinta
@@ -394,10 +394,10 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxQuinta.FormattingEnabled = true;
-            this.listboxQuinta.ItemHeight = 23;
+            this.listboxQuinta.ItemHeight = 21;
             this.listboxQuinta.Location = new System.Drawing.Point(711, 64);
             this.listboxQuinta.Name = "listboxQuinta";
-            this.listboxQuinta.Size = new System.Drawing.Size(228, 855);
+            this.listboxQuinta.Size = new System.Drawing.Size(228, 865);
             this.listboxQuinta.TabIndex = 13;
             // 
             // listboxQuarta
@@ -406,10 +406,10 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxQuarta.FormattingEnabled = true;
-            this.listboxQuarta.ItemHeight = 23;
+            this.listboxQuarta.ItemHeight = 21;
             this.listboxQuarta.Location = new System.Drawing.Point(475, 64);
             this.listboxQuarta.Name = "listboxQuarta";
-            this.listboxQuarta.Size = new System.Drawing.Size(230, 855);
+            this.listboxQuarta.Size = new System.Drawing.Size(230, 865);
             this.listboxQuarta.TabIndex = 12;
             // 
             // listboxTerca
@@ -418,10 +418,10 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxTerca.FormattingEnabled = true;
-            this.listboxTerca.ItemHeight = 23;
+            this.listboxTerca.ItemHeight = 21;
             this.listboxTerca.Location = new System.Drawing.Point(239, 64);
             this.listboxTerca.Name = "listboxTerca";
-            this.listboxTerca.Size = new System.Drawing.Size(230, 855);
+            this.listboxTerca.Size = new System.Drawing.Size(230, 865);
             this.listboxTerca.TabIndex = 11;
             // 
             // label3
@@ -431,7 +431,7 @@ namespace ProjetoFinalBD
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(230, 23);
+            this.label3.Size = new System.Drawing.Size(230, 21);
             this.label3.TabIndex = 3;
             this.label3.Text = "Segunda";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -443,7 +443,7 @@ namespace ProjetoFinalBD
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(239, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(230, 23);
+            this.label4.Size = new System.Drawing.Size(230, 21);
             this.label4.TabIndex = 4;
             this.label4.Text = "Terça";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -455,7 +455,7 @@ namespace ProjetoFinalBD
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(475, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(230, 23);
+            this.label5.Size = new System.Drawing.Size(230, 21);
             this.label5.TabIndex = 5;
             this.label5.Text = "Quarta";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -467,7 +467,7 @@ namespace ProjetoFinalBD
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(711, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(228, 23);
+            this.label6.Size = new System.Drawing.Size(228, 21);
             this.label6.TabIndex = 6;
             this.label6.Text = "Quinta";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -479,7 +479,7 @@ namespace ProjetoFinalBD
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(945, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(232, 23);
+            this.label7.Size = new System.Drawing.Size(232, 21);
             this.label7.TabIndex = 7;
             this.label7.Text = "Sexta";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -490,10 +490,10 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxSegunda.FormattingEnabled = true;
-            this.listboxSegunda.ItemHeight = 23;
+            this.listboxSegunda.ItemHeight = 21;
             this.listboxSegunda.Location = new System.Drawing.Point(3, 64);
             this.listboxSegunda.Name = "listboxSegunda";
-            this.listboxSegunda.Size = new System.Drawing.Size(230, 855);
+            this.listboxSegunda.Size = new System.Drawing.Size(230, 865);
             this.listboxSegunda.TabIndex = 10;
             // 
             // label9
@@ -503,7 +503,7 @@ namespace ProjetoFinalBD
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(1419, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(236, 23);
+            this.label9.Size = new System.Drawing.Size(236, 21);
             this.label9.TabIndex = 9;
             this.label9.Text = "Domingo";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -515,7 +515,7 @@ namespace ProjetoFinalBD
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(1183, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(230, 23);
+            this.label8.Size = new System.Drawing.Size(230, 21);
             this.label8.TabIndex = 8;
             this.label8.Text = "Sábado";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -543,7 +543,7 @@ namespace ProjetoFinalBD
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(21, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(268, 35);
+            this.label2.Size = new System.Drawing.Size(209, 26);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tarefas da Semana";
             // 

@@ -357,10 +357,14 @@ AS
 	END;
 GO
 
-CREATE PROCEDURE PROJETO.tarefasSemanais
+CREATE FUNCTION PROJETO.tarefasSemanais ()
+RETURNS @t TABLE (
+	id INT,
+	titulo VARCHAR(250),
+	data_tarefa DATE
+)
 AS
-BEGIN
-	SET NOCOUNT ON; 
+BEGIN 
 	DECLARE @addDays INT, @sutractDays INT, @weekday VARCHAR(10), @initDate DATE, @finDate DATE;
 	SELECT @weekday = DATENAME(WEEKDAY, GETDATE());
 
@@ -402,15 +406,17 @@ BEGIN
 
 	SELECT @initDate = CAST(DATEADD(DAY, @sutractDays, CAST(GETDATE() AS DATE)) AS DATE);
 	SELECT @finDate = CAST(DATEADD(DAY, @addDays, CAST(GETDATE() AS DATE)) AS DATE);
-	
-	SELECT id, CONCAT(titulo, ' ', '[INÍCIO]') as titulo, data_inicio as data_tarefa FROM PROJETO.Tarefa WHERE data_inicio = @initDate
-	UNION
-	SELECT id, titulo, data_inicio as data_tarefa FROM PROJETO.Tarefa WHERE data_inicio > @initDate AND data_inicio < @finDate
-	UNION
-	SELECT id, titulo, date_final as data_tarefa FROM PROJETO.Tarefa WHERE date_final > @initDate AND date_final < @finDate
-	UNION
-	SELECT id, CONCAT(titulo, ' ', '[FINAL]'), date_final as data_tarefa FROM PROJETO.Tarefa WHERE date_final = @finDate;
 
+	INSERT INTO @t
+	--	SELECT id, CONCAT(titulo, ' ', '[INÍCIO]') as titulo, data_inicio as data_tarefa FROM PROJETO.Tarefa WHERE data_inicio = @initDate
+	--	UNION
+	--	SELECT id, CONCAT(titulo, ' ', '[FINAL]'), date_final as data_tarefa FROM PROJETO.Tarefa WHERE date_final = @finDate
+	--	UNION
+		SELECT id, titulo, data_inicio as data_tarefa FROM PROJETO.Tarefa WHERE data_inicio >= @initDate AND data_inicio <= @finDate
+		UNION
+		SELECT id, titulo, date_final as data_tarefa FROM PROJETO.Tarefa WHERE date_final >= @initDate AND date_final <= @finDate;
+
+	RETURN
 END
 
 CREATE FUNCTION PROJETO.getTarefasSemanaByDia (@dia VARCHAR(10))
@@ -429,7 +435,7 @@ RETURNs @table TABLE (
 AS
 BEGIN
 	DECLARE @t TABLE (id INT, titulo VARCHAR(250), data DATE)
-	INSERT INTO @t EXEC PROJETO.tarefasSemanais
+	INSERT INTO @t SELECT * FROM PROJETO.tarefasSemanais() as tarefas
 
 	DECLARE tarefas_cursor CURSOR FOR
 		SELECT * FROM @t
@@ -459,11 +465,8 @@ BEGIN
 	RETURN
 END
 
-create view PROJETO.viewTarefasSemana
-AS 
-	EXEC PROJETO.tarefasSemanais
+SELECT * FROM PROJETO.Tarefa
 
-DROP PROCEDURE PROJETO.tarefasSemanais
+SELECT * FROM PROJETO.tarefasSemanais() as tarefas
 
-select * from PROJETO.Tarefa
-
+SELECT * FROM PROJETO.getTarefasSemanaByDia('Monday')

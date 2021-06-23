@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,11 +9,103 @@ namespace ProjetoFinalBD
 {
     public partial class BYOM : Form
     {
+        private SqlConnection cn;
+        private List<ClasseTarefa> lstTarefas;
+
         public BYOM()
         {
             InitializeComponent();
             panelLeft.Height = btnHome.Height;
             panelLeft.Top = btnHome.Top;
+
+            PopulateLists();
+        }
+
+        private SqlConnection getSGBDConnection()
+        {
+            return new SqlConnection("Data Source=tcp:mednat.ieeta.pt\\SQLSERVER,8101;Persist Security Info=True;User ID=p9g5;Password=-737279605@BD;");
+        }
+
+        private bool verifySGBDConnection()
+        {
+            if (cn == null)
+                cn = getSGBDConnection();
+
+            if (cn.State != ConnectionState.Open)
+                cn.Open();
+
+            return cn.State == ConnectionState.Open;
+        }
+
+        private void PopulateLists()
+        {
+            // fazer para os dias todos da semana
+            String[] diasSemana = new string[] {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+            ListBox[] ls = new ListBox[] { listboxSegunda, listboxTerca, listboxQuarta, listboxQuinta, listboxSexta, listboxSabado, listboxDomingo };
+
+            int x = 0;
+            foreach (String day in diasSemana)
+            {
+                cn = getSGBDConnection();
+
+                if (!verifySGBDConnection())
+                    return;
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "SELECT * FROM PROJETO.getTarefasSemanaByDia(@dia)";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@dia", day);
+                cmd.Connection = cn;
+
+                lstTarefas= new List<ClasseTarefa>();
+
+                try
+                {
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    ls[x].Items.Clear();
+
+                    while (reader.Read())
+                    {
+                        int var_id = Convert.ToInt32(reader["id"]);
+                        String var_titulo = reader["titulo"].ToString();
+                        String var_descricao = reader["descricao"].ToString();
+                        String var_completada_ts = reader["completada_ts"].ToString();
+                        String var_data_inicio = reader["data_inicio"].ToString();
+                        String var_date_final = reader["date_final"].ToString();
+                        int var_tipoTarefa = Convert.ToInt32(reader["tipoTarefa"]);
+                        String var_aluno = reader["aluno"].ToString();
+                        int var_cadeira = Convert.ToInt32(reader["cadeira"]);
+                        String var_codigo_criador = reader["codigo_criador"].ToString();
+
+
+                        ClasseTarefa inst = new ClasseTarefa(var_id,
+                                                           var_titulo,
+                                                           var_descricao,
+                                                           var_completada_ts,
+                                                           var_data_inicio,
+                                                           var_date_final,
+                                                           var_tipoTarefa,
+                                                           var_aluno,
+                                                           var_cadeira,
+                                                           var_codigo_criador);
+
+                        this.lstTarefas.Add(inst);
+                        ls[x].Items.Add(inst.Titulo);
+                    }
+
+                    reader.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Failed to update contact in database. \n ERROR MESSAGE: \n" + ex.Message);
+
+                }
+
+                cn.Close();
+
+                x++;
+            }
         }
 
         private void btnHome_Click(object sender, EventArgs e)
