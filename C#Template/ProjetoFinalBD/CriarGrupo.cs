@@ -14,7 +14,9 @@ namespace ProjetoFinalBD
     public partial class CriarGrupo : Form
     {
         private SqlConnection cn;
-        private List<ClasseCadeira> lstCadeiras;
+        private Dictionary<String, ClasseProfessor> lstProfessores = new Dictionary<String, ClasseProfessor>();
+        private List<String> lstColegas = new List<String>();
+        private List<ClasseCadeira> lstCadeiras = new List<ClasseCadeira>();
         public static ClasseGrupo grupoAtual;
         public static Boolean createGrupo;
 
@@ -25,7 +27,6 @@ namespace ProjetoFinalBD
 
             if (createGrupo)
             {
-                btnApagarGrupo.Visible = false;
                 label3.Visible = false;
                 label5.Visible = false;
                 listboxColegas.Visible = false;
@@ -38,18 +39,95 @@ namespace ProjetoFinalBD
             }
             else
             {
-                btnApagarGrupo.Visible = true;
-                label3.Visible = true;
-                label5.Visible = true;
-                listboxColegas.Visible = true;
-                listboxOrientadores.Visible = true;
-                addColega.Visible = true;
-                remColega.Visible = true;
-                addOrientador.Visible = true;
-                remOrientador.Visible = true;
                 grupo_nome.Text = grupoAtual.Nome;
                 grupo_cadeira.Text = lstCadeiras[grupoAtual.Cadeira].Nome;
+                ShowProfessores();
+                ShowColegas();
 
+            }
+        }
+
+        public void ShowColegas()
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM PROJETO.Grupo JOIN PROJETO.GrupoAluno ON id = grupo " +
+                "WHERE id = @grupo_id ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@grupo_id", grupoAtual.Id);
+            cmd.Connection = cn;
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                lstColegas.Clear();
+                listboxColegas.Items.Clear();
+
+                while (reader.Read())
+                {
+                    String email = reader[6].ToString();
+
+                    if (email != Login.utilizador)
+                    {
+                        lstColegas.Add(email);
+                        listboxColegas.Items.Add(email);
+                    }
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível visualizar as instituições na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public void ShowProfessores()
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM PROJETO.Grupo JOIN PROJETO.GrupoProfessor ON id = grupo " +
+                "JOIN PROJETO.Professor ON professor = email " +
+                "JOIN PROJETO.GrupoAluno ON PROJETO.GrupoAluno.grupo = id " +
+                "WHERE id = @grupo_id AND PROJETO.Professor.disabled = 0 ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@grupo_id", grupoAtual.Id);
+            cmd.Connection = cn;
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                lstProfessores.Clear();
+                listboxOrientadores.Items.Clear();
+
+                while (reader.Read())
+                {
+                    ClasseProfessor inst = new ClasseProfessor(reader[7].ToString(),
+                                                       reader[8].ToString(),
+                                                       false);
+
+                    lstProfessores.Add(inst.Nome + " | " + inst.Email, inst);
+                    listboxOrientadores.Items.Add(inst.Nome + " | " + inst.Email);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível visualizar as instituições na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
             }
         }
 
@@ -111,13 +189,6 @@ namespace ProjetoFinalBD
                 cn.Open();
 
             return cn.State == ConnectionState.Open;
-        }
-
-        private void btnApagarGrupo_Click(object sender, EventArgs e)
-        {
-            FormState.PreviousPage.Show();
-            this.Hide();
-            FormState.PreviousPage = this;
         }
 
         private void btnGuardarGrupo_Click(object sender, EventArgs e)
@@ -229,15 +300,54 @@ namespace ProjetoFinalBD
 
         private void addColega_Click(object sender, EventArgs e)
         {
+            ModalColega.inst = this;
             ModalColega colega = new ModalColega();
             colega.Show();
         }
 
         private void addOrientador_Click(object sender, EventArgs e)
         {
+            ModalProfessor.inst = this;
             ModalProfessor professor = new ModalProfessor();
             professor.Show();
         }
 
+        private void remColega_Click(object sender, EventArgs e)
+        {
+            if (listboxColegas.SelectedIndex != -1)
+            {
+                cn = getSGBDConnection();
+
+                if (!verifySGBDConnection())
+                    return;
+
+                SqlCommand command = new SqlCommand();
+
+                command.CommandText = "DELETE FROM PROJETO.GrupoAluno WHERE grupo = @grupo AND aluno = @aluno";
+                command.Parameters.Clear();
+                command.Parameters.AddWithValue("@grupo", grupoAtual.Id);
+                command.Parameters.AddWithValue("@aluno", listboxColegas.GetItemText(listboxColegas.SelectedItem));
+                command.Connection = cn;
+
+                try
+                {
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Colega " + listboxColegas.GetItemText(listboxColegas.SelectedItem) + " foi removido.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ShowColegas();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Não foi possível inserir a instituição na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            } else
+            {
+                MessageBox.Show("Selecione um colega para remover", "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

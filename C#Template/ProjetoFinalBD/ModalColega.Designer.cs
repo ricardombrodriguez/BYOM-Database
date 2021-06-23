@@ -43,6 +43,7 @@ namespace ProjetoFinalBD
             this.btnAdicionarColega.TabIndex = 18;
             this.btnAdicionarColega.Text = "Adicionar colega";
             this.btnAdicionarColega.UseVisualStyleBackColor = true;
+            this.btnAdicionarColega.Click += new System.EventHandler(this.btnAdicionarColega_Click);
             // 
             // email
             // 
