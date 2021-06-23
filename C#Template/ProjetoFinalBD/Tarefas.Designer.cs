@@ -48,6 +48,17 @@ namespace ProjetoFinalBD
             this.panel3 = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.search = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.checkTipo = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.checkCadeira = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.checkRealizada = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.orderBy = new System.Windows.Forms.ComboBox();
             this.btnRemTarefa = new System.Windows.Forms.Button();
             this.listboxTarefas = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -57,6 +68,7 @@ namespace ProjetoFinalBD
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -98,7 +110,7 @@ namespace ProjetoFinalBD
             this.lblTarefas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblTarefas.Location = new System.Drawing.Point(65, 480);
             this.lblTarefas.Name = "lblTarefas";
-            this.lblTarefas.Size = new System.Drawing.Size(66, 21);
+            this.lblTarefas.Size = new System.Drawing.Size(127, 39);
             this.lblTarefas.TabIndex = 23;
             this.lblTarefas.Text = "Tarefas";
             this.lblTarefas.Click += new System.EventHandler(this.lblTarefas_Click);
@@ -124,7 +136,7 @@ namespace ProjetoFinalBD
             this.lblInstituicoes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblInstituicoes.Location = new System.Drawing.Point(52, 410);
             this.lblInstituicoes.Name = "lblInstituicoes";
-            this.lblInstituicoes.Size = new System.Drawing.Size(97, 21);
+            this.lblInstituicoes.Size = new System.Drawing.Size(185, 39);
             this.lblInstituicoes.TabIndex = 18;
             this.lblInstituicoes.Text = "Instituições";
             this.lblInstituicoes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -152,7 +164,7 @@ namespace ProjetoFinalBD
             this.label14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label14.Location = new System.Drawing.Point(71, 129);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(56, 21);
+            this.label14.Size = new System.Drawing.Size(111, 39);
             this.label14.TabIndex = 12;
             this.label14.Text = "Home";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -166,7 +178,7 @@ namespace ProjetoFinalBD
             this.lblHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblHome.Location = new System.Drawing.Point(77, 129);
             this.lblHome.Name = "lblHome";
-            this.lblHome.Size = new System.Drawing.Size(56, 21);
+            this.lblHome.Size = new System.Drawing.Size(111, 39);
             this.lblHome.TabIndex = 12;
             this.lblHome.Text = "Home";
             this.lblHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -178,7 +190,7 @@ namespace ProjetoFinalBD
             this.lblGrupos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblGrupos.Location = new System.Drawing.Point(66, 340);
             this.lblGrupos.Name = "lblGrupos";
-            this.lblGrupos.Size = new System.Drawing.Size(66, 21);
+            this.lblGrupos.Size = new System.Drawing.Size(129, 39);
             this.lblGrupos.TabIndex = 14;
             this.lblGrupos.Text = "Grupos";
             this.lblGrupos.Click += new System.EventHandler(this.lblGrupos_Click);
@@ -190,7 +202,7 @@ namespace ProjetoFinalBD
             this.lblPaginas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblPaginas.Location = new System.Drawing.Point(64, 270);
             this.lblPaginas.Name = "lblPaginas";
-            this.lblPaginas.Size = new System.Drawing.Size(71, 21);
+            this.lblPaginas.Size = new System.Drawing.Size(141, 39);
             this.lblPaginas.TabIndex = 12;
             this.lblPaginas.Text = "Páginas";
             this.lblPaginas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -204,7 +216,7 @@ namespace ProjetoFinalBD
             this.lblCadeiras.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblCadeiras.Location = new System.Drawing.Point(59, 200);
             this.lblCadeiras.Name = "lblCadeiras";
-            this.lblCadeiras.Size = new System.Drawing.Size(80, 21);
+            this.lblCadeiras.Size = new System.Drawing.Size(159, 39);
             this.lblCadeiras.TabIndex = 13;
             this.lblCadeiras.Text = "Cadeiras";
             this.lblCadeiras.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -291,6 +303,10 @@ namespace ProjetoFinalBD
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.search);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.orderBy);
             this.panel2.Controls.Add(this.btnRemTarefa);
             this.panel2.Controls.Add(this.listboxTarefas);
             this.panel2.Controls.Add(this.label10);
@@ -301,26 +317,152 @@ namespace ProjetoFinalBD
             this.panel2.Size = new System.Drawing.Size(1702, 1033);
             this.panel2.TabIndex = 1;
             // 
+            // search
+            // 
+            this.search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.search.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.search.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.search.ForeColor = System.Drawing.Color.White;
+            this.search.Location = new System.Drawing.Point(1395, 180);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(249, 40);
+            this.search.TabIndex = 19;
+            this.search.Text = "Pesquisar";
+            this.search.UseVisualStyleBackColor = true;
+            this.search.Click += new System.EventHandler(this.search_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.checkTipo);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.checkCadeira);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.checkRealizada);
+            this.panel4.Location = new System.Drawing.Point(371, 67);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1296, 135);
+            this.panel4.TabIndex = 18;
+            // 
+            // checkTipo
+            // 
+            this.checkTipo.FormattingEnabled = true;
+            this.checkTipo.Location = new System.Drawing.Point(658, 77);
+            this.checkTipo.Name = "checkTipo";
+            this.checkTipo.Size = new System.Drawing.Size(359, 47);
+            this.checkTipo.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(554, 80);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 39);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Tipo: ";
+            // 
+            // checkCadeira
+            // 
+            this.checkCadeira.FormattingEnabled = true;
+            this.checkCadeira.Location = new System.Drawing.Point(178, 77);
+            this.checkCadeira.Name = "checkCadeira";
+            this.checkCadeira.Size = new System.Drawing.Size(359, 47);
+            this.checkCadeira.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(18, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(165, 39);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Cadeira: ";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(178, 12);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(839, 47);
+            this.textBox1.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 39);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Título: ";
+            // 
+            // checkRealizada
+            // 
+            this.checkRealizada.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkRealizada.AutoSize = true;
+            this.checkRealizada.Location = new System.Drawing.Point(1068, 12);
+            this.checkRealizada.Name = "checkRealizada";
+            this.checkRealizada.Size = new System.Drawing.Size(204, 43);
+            this.checkRealizada.TabIndex = 0;
+            this.checkRealizada.Text = "Realizada";
+            this.checkRealizada.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 88);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(221, 39);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Ordenar por:";
+            // 
+            // orderBy
+            // 
+            this.orderBy.FormattingEnabled = true;
+            this.orderBy.Items.AddRange(new object[] {
+            "Data Inicial ASC",
+            "Data Inicial DESC",
+            "Data Final ASC",
+            "Data Final DESC"});
+            this.orderBy.Location = new System.Drawing.Point(21, 145);
+            this.orderBy.Name = "orderBy";
+            this.orderBy.Size = new System.Drawing.Size(317, 47);
+            this.orderBy.TabIndex = 16;
+            this.orderBy.SelectedIndexChanged += new System.EventHandler(this.orderBy_SelectedIndexChanged);
+            // 
             // btnRemTarefa
             // 
+            this.btnRemTarefa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemTarefa.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnRemTarefa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemTarefa.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnRemTarefa.ForeColor = System.Drawing.Color.White;
-            this.btnRemTarefa.Location = new System.Drawing.Point(1150, 62);
+            this.btnRemTarefa.Location = new System.Drawing.Point(1140, 22);
             this.btnRemTarefa.Name = "btnRemTarefa";
-            this.btnRemTarefa.Size = new System.Drawing.Size(249, 31);
+            this.btnRemTarefa.Size = new System.Drawing.Size(249, 40);
             this.btnRemTarefa.TabIndex = 13;
             this.btnRemTarefa.Text = "- Remover tarefa";
             this.btnRemTarefa.UseVisualStyleBackColor = true;
             // 
             // listboxTarefas
             // 
+            this.listboxTarefas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxTarefas.FormattingEnabled = true;
-            this.listboxTarefas.ItemHeight = 21;
-            this.listboxTarefas.Location = new System.Drawing.Point(21, 109);
+            this.listboxTarefas.ItemHeight = 39;
+            this.listboxTarefas.Location = new System.Drawing.Point(21, 226);
             this.listboxTarefas.Name = "listboxTarefas";
-            this.listboxTarefas.Size = new System.Drawing.Size(1646, 886);
+            this.listboxTarefas.Size = new System.Drawing.Size(1646, 745);
             this.listboxTarefas.TabIndex = 12;
             this.listboxTarefas.DoubleClick += new System.EventHandler(this.listboxTarefas_DoubleClick);
             // 
@@ -329,18 +471,19 @@ namespace ProjetoFinalBD
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(273, 450);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(0, 21);
+            this.label10.Size = new System.Drawing.Size(0, 39);
             this.label10.TabIndex = 10;
             // 
             // btnAddTarefa
             // 
+            this.btnAddTarefa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddTarefa.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnAddTarefa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddTarefa.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAddTarefa.ForeColor = System.Drawing.Color.White;
-            this.btnAddTarefa.Location = new System.Drawing.Point(1418, 62);
+            this.btnAddTarefa.Location = new System.Drawing.Point(1418, 21);
             this.btnAddTarefa.Name = "btnAddTarefa";
-            this.btnAddTarefa.Size = new System.Drawing.Size(249, 31);
+            this.btnAddTarefa.Size = new System.Drawing.Size(249, 40);
             this.btnAddTarefa.TabIndex = 1;
             this.btnAddTarefa.Text = "+ Adicionar tarefas";
             this.btnAddTarefa.UseVisualStyleBackColor = true;
@@ -354,7 +497,7 @@ namespace ProjetoFinalBD
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(21, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 26);
+            this.label2.Size = new System.Drawing.Size(169, 53);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tarefas";
             // 
@@ -380,6 +523,8 @@ namespace ProjetoFinalBD
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -409,6 +554,17 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Panel panelLeft;
         private System.Windows.Forms.ListBox listboxTarefas;
         private System.Windows.Forms.Button btnRemTarefa;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox orderBy;
+        private System.Windows.Forms.Button search;
+        private System.Windows.Forms.ComboBox checkTipo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox checkCadeira;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkRealizada;
     }
 }
 

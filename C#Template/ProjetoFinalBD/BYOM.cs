@@ -10,7 +10,7 @@ namespace ProjetoFinalBD
     public partial class BYOM : Form
     {
         private SqlConnection cn;
-        private List<ClasseTarefa> lstTarefas;
+        private Dictionary<string, ClasseTarefa> lstTarefas;
 
         public BYOM()
         {
@@ -37,13 +37,15 @@ namespace ProjetoFinalBD
             return cn.State == ConnectionState.Open;
         }
 
-        private void PopulateLists()
+        private void PopulateLists(String order = "")
         {
             // fazer para os dias todos da semana
             String[] diasSemana = new string[] {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
             ListBox[] ls = new ListBox[] { listboxSegunda, listboxTerca, listboxQuarta, listboxQuinta, listboxSexta, listboxSabado, listboxDomingo };
 
             int x = 0;
+            lstTarefas = new Dictionary<string, ClasseTarefa>();
+
             foreach (String day in diasSemana)
             {
                 cn = getSGBDConnection();
@@ -52,12 +54,12 @@ namespace ProjetoFinalBD
                     return;
 
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "SELECT * FROM PROJETO.getTarefasSemanaByDia(@dia)";
+                cmd.CommandText = "SELECT * FROM PROJETO.getTarefasSemanaByDia(@dia) WHERE completada_ts IS NULL " + order;
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@dia", day);
                 cmd.Connection = cn;
 
-                lstTarefas= new List<ClasseTarefa>();
+                int c = 0;
 
                 try
                 {
@@ -89,8 +91,9 @@ namespace ProjetoFinalBD
                                                            var_cadeira,
                                                            var_codigo_criador);
 
-                        this.lstTarefas.Add(inst);
-                        ls[x].Items.Add(inst.Titulo);
+                        this.lstTarefas.Add(ls[x].Name+"_"+c.ToString(), inst);
+                        ls[x].Items.Add("- " + inst.Titulo);
+                        c++;
                     }
 
                     reader.Close();
@@ -98,7 +101,7 @@ namespace ProjetoFinalBD
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Failed to update contact in database. \n ERROR MESSAGE: \n" + ex.Message);
+                    throw new Exception("Erro ao carregar as tarefas da base de dados. \n ERROR MESSAGE: \n" + ex.Message);
 
                 }
 
@@ -286,5 +289,71 @@ namespace ProjetoFinalBD
             FormState.PreviousPage = this;
         }
 
+        private void orderBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (orderBy.SelectedIndex)
+            {
+                case 0:
+                    this.PopulateLists("ORDER BY data_inicio ASC");
+                    break;
+                case 1:
+                    this.PopulateLists("ORDER BY data_inicio DESC");
+                    break;
+                case 2:
+                    this.PopulateLists("ORDER BY date_final ASC");
+                    break;
+                case 3:
+                    this.PopulateLists("ORDER BY date_final DESC");
+                    break;
+            }
+        }
+
+        private void listboxSegunda_DoubleClick(object sender, EventArgs e)
+        {
+            editTarefa(listboxSegunda);
+        }
+
+        private void listboxTerca_DoubleClick(object sender, EventArgs e)
+        {
+            editTarefa(listboxTerca);
+        }
+
+        private void listboxQuarta_DoubleClick(object sender, EventArgs e)
+        {
+            editTarefa(listboxQuarta);
+        }
+
+        private void listboxQuinta_DoubleClick(object sender, EventArgs e)
+        {
+            editTarefa(listboxQuinta);
+        }
+
+        private void listboxSexta_DoubleClick(object sender, EventArgs e)
+        {
+            editTarefa(listboxSexta);
+        }
+
+        private void listboxSabado_DoubleClick(object sender, EventArgs e)
+        {
+            editTarefa(listboxSabado);
+        }
+
+        private void listboxDomingo_DoubleClick(object sender, EventArgs e)
+        {
+            editTarefa(listboxDomingo);
+        }
+
+        private void editTarefa(ListBox lb)
+        {
+            if (lb.SelectedIndex >= 0)
+            {
+                CriarTarefa.createTarefa = false;
+                CriarTarefa.tarefa = this.lstTarefas[lb.Name+"_"+ lb.SelectedIndex.ToString()];
+                CriarTarefa ct = new CriarTarefa();
+                ct.Show();
+                this.Hide();
+                FormState.PreviousPage = this;
+            }
+        }
     }
 }
