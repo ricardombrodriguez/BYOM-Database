@@ -63,6 +63,8 @@ namespace ProjetoFinalBD
             cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
             cmd.Connection = cn;
 
+            MessageBox.Show(cmd.CommandText);
+
             try
             {
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -420,14 +422,14 @@ namespace ProjetoFinalBD
         private void search_Click(object sender, EventArgs e)
         {
             this.where = "";
-            if (checkCadeira.SelectedIndex > 0)
+            if (checkCadeira.SelectedIndex > -1)
             {
-                this.where += " AND cadeira = " + this.lstCadeiras[checkCadeira.SelectedIndex-1].Id.ToString();
+                this.where += " AND cadeira = " + this.lstCadeiras[checkCadeira.SelectedIndex].Id.ToString();
             }
 
-            if (checkTipo.SelectedIndex > 0)
+            if (checkTipo.SelectedIndex > -1)
             {
-                this.where += " AND tipoTarefa = " + this.lstTiposTarefa[checkTipo.SelectedIndex-1].Id.ToString();
+                this.where += " AND tipoTarefa = " + this.lstTiposTarefa[checkTipo.SelectedIndex].Id.ToString();
             }
 
             if (checkRealizada.Checked)

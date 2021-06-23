@@ -30,7 +30,8 @@ namespace ProjetoFinalBD
             if (createTarefa)
             {
                 btnApagar.Visible = false;
-            } else
+            }
+            else
             {
                 titulo.Text = tarefa.Titulo;
                 descricao.Text = tarefa.Descricao;
@@ -377,7 +378,7 @@ namespace ProjetoFinalBD
             if (checkbox.Checked)
             {
                 // marcar como realizada
-                tarefa.Completada_ts = DateTime.Now.ToString();               
+                tarefa.Completada_ts = DateTime.Now.ToString();
                 command.Parameters.AddWithValue("@ts", DateTime.Now);
                 msg = "Tarefa " + tarefa.Titulo + " marcada como realizada.";
             }
