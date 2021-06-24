@@ -257,7 +257,7 @@ namespace ProjetoFinalBD
 
         private void btnAddPagina_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            CriarPagina.inst = this;
             CriarPagina.createPagina = true;
             CriarPagina pagina = new CriarPagina();
             pagina.Show();
@@ -269,6 +269,7 @@ namespace ProjetoFinalBD
 
             if (listboxPaginas.SelectedItem != null)
             {
+                CriarPagina.inst = this;
                 CriarPagina.createPagina = false;
                 CriarPagina.paginaAtual = lstPaginas[listboxPaginas.SelectedIndex];
                 CriarPagina inst = new CriarPagina();
