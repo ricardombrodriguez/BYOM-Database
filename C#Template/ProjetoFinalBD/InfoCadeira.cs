@@ -16,6 +16,9 @@ namespace ProjetoFinalBD
     {
         private SqlConnection cn;
         private List<ClasseInstituicao> lstInstituicoes;
+        private Dictionary<String, ClasseTarefa> lstTarefas;
+        private Dictionary<String, ClassePagina> lstPaginas;
+        private Dictionary<String, ClasseProfessor> lstProfessores;
         public static bool returnToCriarTarefa = false;
 
  
@@ -33,28 +36,12 @@ namespace ProjetoFinalBD
                 label7.Visible = false;
                 label8.Visible = false;
                 label9.Visible = false;
-                removerPagina.Visible = false;
-                removerTarefa.Visible = false;
-                removerProfessor.Visible = false;
-                adicionarProfessor.Visible = false;
-                adicionarTarefa.Visible = false;
-                adicionarPagina.Visible = false;
-                btnApagarCadeira.Visible = false;
+                btnAdicionarPagina.Visible = false;
+                btnAdicionarTarefa.Visible = false;
+                btnAdicionarProfessor.Visible = false;
+                btnAdicionarPagina.Visible = false;
             } else
             {
-                listaPaginas.Visible = true;
-                listaTarefas.Visible = true;
-                listaProfessores.Visible = true;
-                label7.Visible = true;
-                label8.Visible = true;
-                label9.Visible = true;
-                removerPagina.Visible = true;
-                removerTarefa.Visible = true;
-                removerProfessor.Visible = true;
-                adicionarProfessor.Visible = true;
-                adicionarTarefa.Visible = true;
-                adicionarPagina.Visible = true;
-
                 LoadCadeiraInfo();
                 showTarefas();
                 showPaginas();
@@ -75,16 +62,133 @@ namespace ProjetoFinalBD
 
         private void showTarefas()
         {
+            cn = getSGBDConnection();
 
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM PROJETO.Tarefa JOIN PROJETO.Cadeira ON cadeira = PROJETO.Cadeira.id WHERE cadeira = @cadeira AND PROJETO.Cadeira.aluno = @aluno_criador AND disabled = 0";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@cadeira", Cadeira.cadeiraAtual.Id);
+            cmd.Parameters.AddWithValue("@aluno_criador", Login.utilizador);
+            cmd.Connection = cn;
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                lstTarefas = new Dictionary<string, ClasseTarefa>();
+                listaTarefas.Items.Clear();
+
+                while (reader.Read())
+                {
+                    ClasseTarefa inst = new ClasseTarefa(Convert.ToInt32(reader[0]),
+                                                       reader[1].ToString(),
+                                                       reader[2].ToString(),
+                                                       reader[3].ToString(),
+                                                       reader[4].ToString(),
+                                                       reader[5].ToString(),
+                                                       Convert.ToInt32(reader[6]),
+                                                       reader[7].ToString(),
+                                                       Convert.ToInt32(reader[8]),
+                                                       reader[9].ToString());
+
+                    lstTarefas.Add(inst.Titulo, inst);
+                    listaTarefas.Items.Add(inst.Titulo);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível visualizar as tarefas da cadeira na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
 
         private void showPaginas()
         {
+            cn = getSGBDConnection();
 
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM PROJETO.Pagina JOIN PROJETO.Cadeira ON cadeira = PROJETO.Cadeira.id " +
+                     "WHERE PROJETO.Cadeira.aluno = @aluno_criador AND cadeira = @cadeira AND disabled = 0";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@cadeira", Cadeira.cadeiraAtual.Id);
+            cmd.Parameters.AddWithValue("@aluno_criador", Login.utilizador);
+            cmd.Connection = cn;
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                lstPaginas = new Dictionary<string, ClassePagina>();
+                listaPaginas.Items.Clear();
+
+                while (reader.Read())
+                {
+                    ClassePagina inst = new ClassePagina(Convert.ToInt32(reader[0]),
+                                                       reader[1].ToString(),
+                                                       reader[5].ToString(),
+                                                       reader[2].ToString(),
+                                                       Convert.ToInt32(reader[3]),
+                                                       reader[4].ToString());
+
+                    lstPaginas.Add(inst.Titulo, inst);
+                    listaPaginas.Items.Add(inst.Titulo);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível visualizar as páginas da cadeira na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
         private void showProfessores()
         {
+            cn = getSGBDConnection();
 
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM PROJETO.ProfessorCadeira JOIN PROJETO.Cadeira ON cadeira = PROJETO.Cadeira.id JOIN PROJETO.Professor ON email = professor " +
+                     "WHERE PROJETO.Cadeira.aluno = @aluno_criador AND cadeira = @cadeira AND PROJETO.Cadeira.disabled = 0 AND PROJETO.Professor.disabled = 0";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@cadeira", Cadeira.cadeiraAtual.Id);
+            cmd.Parameters.AddWithValue("@aluno_criador", Login.utilizador);
+            cmd.Connection = cn;
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                lstProfessores = new Dictionary<string, ClasseProfessor>();
+                listaProfessores.Items.Clear();
+
+                while (reader.Read())
+                {
+                    ClasseProfessor inst = new ClasseProfessor(reader[12].ToString(),
+                                                               reader[13].ToString(),
+                                                               false);
+
+                    lstProfessores.Add(inst.Email, inst);
+                    listaProfessores.Items.Add(inst.Email);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível visualizar os professores da cadeira na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
 
         private void changeView()
@@ -97,12 +201,9 @@ namespace ProjetoFinalBD
                 label7.Visible = false;
                 label8.Visible = false;
                 label9.Visible = false;
-                removerPagina.Visible = false;
-                removerTarefa.Visible = false;
-                removerProfessor.Visible = false;
-                adicionarProfessor.Visible = false;
-                adicionarTarefa.Visible = false;
-                adicionarPagina.Visible = false;
+                btnAdicionarPagina.Visible = false;
+                btnAdicionarTarefa.Visible = false;
+                btnAdicionarProfessor.Visible = false;
             }
             else
             {
@@ -112,12 +213,9 @@ namespace ProjetoFinalBD
                 label7.Visible = true;
                 label8.Visible = true;
                 label9.Visible = true;
-                removerPagina.Visible = true;
-                removerTarefa.Visible = true;
-                removerProfessor.Visible = true;
-                adicionarProfessor.Visible = true;
-                adicionarTarefa.Visible = true;
-                adicionarPagina.Visible = true;
+                btnAdicionarPagina.Visible = true;
+                btnAdicionarTarefa.Visible = true;
+                btnAdicionarProfessor.Visible = true;
 
                 showTarefas();
                 showPaginas();

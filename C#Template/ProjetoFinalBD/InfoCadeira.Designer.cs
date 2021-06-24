@@ -43,13 +43,10 @@ namespace ProjetoFinalBD
             this.label9 = new System.Windows.Forms.Label();
             this.btnApagarCadeira = new System.Windows.Forms.Button();
             this.btnGuardarCadeira = new System.Windows.Forms.Button();
-            this.removerPagina = new System.Windows.Forms.Button();
-            this.removerTarefa = new System.Windows.Forms.Button();
+            this.btnAdicionarPagina = new System.Windows.Forms.Button();
+            this.btnAdicionarTarefa = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.removerProfessor = new System.Windows.Forms.Button();
-            this.adicionarProfessor = new System.Windows.Forms.ComboBox();
-            this.adicionarPagina = new System.Windows.Forms.ComboBox();
-            this.adicionarTarefa = new System.Windows.Forms.ComboBox();
+            this.btnAdicionarProfessor = new System.Windows.Forms.Button();
             this.listaPaginas = new System.Windows.Forms.ListBox();
             this.listaTarefas = new System.Windows.Forms.ListBox();
             this.listaProfessores = new System.Windows.Forms.ListBox();
@@ -202,31 +199,31 @@ namespace ProjetoFinalBD
             this.btnGuardarCadeira.UseVisualStyleBackColor = true;
             this.btnGuardarCadeira.Click += new System.EventHandler(this.btnGuardarCadeira_Click);
             // 
-            // removerPagina
+            // btnAdicionarPagina
             // 
-            this.removerPagina.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.removerPagina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.removerPagina.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.removerPagina.ForeColor = System.Drawing.Color.White;
-            this.removerPagina.Location = new System.Drawing.Point(294, 273);
-            this.removerPagina.Name = "removerPagina";
-            this.removerPagina.Size = new System.Drawing.Size(171, 30);
-            this.removerPagina.TabIndex = 23;
-            this.removerPagina.Text = "- Remover página";
-            this.removerPagina.UseVisualStyleBackColor = true;
+            this.btnAdicionarPagina.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAdicionarPagina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdicionarPagina.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdicionarPagina.ForeColor = System.Drawing.Color.White;
+            this.btnAdicionarPagina.Location = new System.Drawing.Point(471, 272);
+            this.btnAdicionarPagina.Name = "btnAdicionarPagina";
+            this.btnAdicionarPagina.Size = new System.Drawing.Size(171, 30);
+            this.btnAdicionarPagina.TabIndex = 23;
+            this.btnAdicionarPagina.Text = "+ Adicionar página";
+            this.btnAdicionarPagina.UseVisualStyleBackColor = true;
             // 
-            // removerTarefa
+            // btnAdicionarTarefa
             // 
-            this.removerTarefa.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.removerTarefa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.removerTarefa.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.removerTarefa.ForeColor = System.Drawing.Color.White;
-            this.removerTarefa.Location = new System.Drawing.Point(898, 271);
-            this.removerTarefa.Name = "removerTarefa";
-            this.removerTarefa.Size = new System.Drawing.Size(171, 31);
-            this.removerTarefa.TabIndex = 24;
-            this.removerTarefa.Text = "- Remover tarefa";
-            this.removerTarefa.UseVisualStyleBackColor = true;
+            this.btnAdicionarTarefa.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAdicionarTarefa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdicionarTarefa.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdicionarTarefa.ForeColor = System.Drawing.Color.White;
+            this.btnAdicionarTarefa.Location = new System.Drawing.Point(1075, 272);
+            this.btnAdicionarTarefa.Name = "btnAdicionarTarefa";
+            this.btnAdicionarTarefa.Size = new System.Drawing.Size(171, 31);
+            this.btnAdicionarTarefa.TabIndex = 24;
+            this.btnAdicionarTarefa.Text = "+ Adicionar tarefa";
+            this.btnAdicionarTarefa.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -240,45 +237,18 @@ namespace ProjetoFinalBD
             this.label1.TabIndex = 1;
             this.label1.Text = "CADEIRA";
             // 
-            // removerProfessor
+            // btnAdicionarProfessor
             // 
-            this.removerProfessor.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.removerProfessor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.removerProfessor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.removerProfessor.ForeColor = System.Drawing.Color.White;
-            this.removerProfessor.Location = new System.Drawing.Point(1506, 270);
-            this.removerProfessor.Name = "removerProfessor";
-            this.removerProfessor.Size = new System.Drawing.Size(171, 28);
-            this.removerProfessor.TabIndex = 26;
-            this.removerProfessor.Text = "- Remover professor";
-            this.removerProfessor.UseVisualStyleBackColor = true;
-            // 
-            // adicionarProfessor
-            // 
-            this.adicionarProfessor.FormattingEnabled = true;
-            this.adicionarProfessor.Location = new System.Drawing.Point(1683, 271);
-            this.adicionarProfessor.Name = "adicionarProfessor";
-            this.adicionarProfessor.Size = new System.Drawing.Size(171, 28);
-            this.adicionarProfessor.TabIndex = 27;
-            this.adicionarProfessor.Text = "+ Adicionar professor";
-            // 
-            // adicionarPagina
-            // 
-            this.adicionarPagina.FormattingEnabled = true;
-            this.adicionarPagina.Location = new System.Drawing.Point(471, 276);
-            this.adicionarPagina.Name = "adicionarPagina";
-            this.adicionarPagina.Size = new System.Drawing.Size(171, 28);
-            this.adicionarPagina.TabIndex = 28;
-            this.adicionarPagina.Text = "+ Adicionar página";
-            // 
-            // adicionarTarefa
-            // 
-            this.adicionarTarefa.FormattingEnabled = true;
-            this.adicionarTarefa.Location = new System.Drawing.Point(1075, 273);
-            this.adicionarTarefa.Name = "adicionarTarefa";
-            this.adicionarTarefa.Size = new System.Drawing.Size(171, 28);
-            this.adicionarTarefa.TabIndex = 29;
-            this.adicionarTarefa.Text = "+ Adicionar tarefa";
+            this.btnAdicionarProfessor.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAdicionarProfessor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdicionarProfessor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdicionarProfessor.ForeColor = System.Drawing.Color.White;
+            this.btnAdicionarProfessor.Location = new System.Drawing.Point(1683, 275);
+            this.btnAdicionarProfessor.Name = "btnAdicionarProfessor";
+            this.btnAdicionarProfessor.Size = new System.Drawing.Size(171, 28);
+            this.btnAdicionarProfessor.TabIndex = 26;
+            this.btnAdicionarProfessor.Text = "- Adicionar professor";
+            this.btnAdicionarProfessor.UseVisualStyleBackColor = true;
             // 
             // listaPaginas
             // 
@@ -362,12 +332,9 @@ namespace ProjetoFinalBD
             this.Controls.Add(this.listaProfessores);
             this.Controls.Add(this.listaTarefas);
             this.Controls.Add(this.listaPaginas);
-            this.Controls.Add(this.adicionarTarefa);
-            this.Controls.Add(this.adicionarPagina);
-            this.Controls.Add(this.adicionarProfessor);
-            this.Controls.Add(this.removerProfessor);
-            this.Controls.Add(this.removerTarefa);
-            this.Controls.Add(this.removerPagina);
+            this.Controls.Add(this.btnAdicionarProfessor);
+            this.Controls.Add(this.btnAdicionarTarefa);
+            this.Controls.Add(this.btnAdicionarPagina);
             this.Controls.Add(this.btnApagarCadeira);
             this.Controls.Add(this.btnGuardarCadeira);
             this.Controls.Add(this.label9);
@@ -410,13 +377,10 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnApagarCadeira;
         private System.Windows.Forms.Button btnGuardarCadeira;
-        private System.Windows.Forms.Button removerPagina;
-        private System.Windows.Forms.Button removerTarefa;
+        private System.Windows.Forms.Button btnAdicionarPagina;
+        private System.Windows.Forms.Button btnAdicionarTarefa;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button removerProfessor;
-        private System.Windows.Forms.ComboBox adicionarProfessor;
-        private System.Windows.Forms.ComboBox adicionarPagina;
-        private System.Windows.Forms.ComboBox adicionarTarefa;
+        private System.Windows.Forms.Button btnAdicionarProfessor;
         private System.Windows.Forms.ListBox listaPaginas;
         private System.Windows.Forms.ListBox listaTarefas;
         private System.Windows.Forms.ListBox listaProfessores;
