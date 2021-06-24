@@ -33,7 +33,8 @@ namespace ProjetoFinalBD
                 return;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "SELECT * FROM PROJETO.Cadeira WHERE aluno = @aluno AND disabled = 0;";
+            command.CommandText = "SELECT * FROM PROJETO.Cadeira WHERE aluno = @aluno AND disabled = 0 AND id IN (" + "SELECT PROJETO.Grupo.cadeira FROM PROJETO.GrupoAluno JOIN PROJETO.Grupo " +
+                "ON grupo = id WHERE aluno = @aluno AND disabled = 0 " + ")";
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@aluno", Login.utilizador);
             command.Connection = cn;

@@ -471,3 +471,11 @@ SELECT * FROM PROJETO.Cadeira
 SELECT * FROM PROJETO.tarefasSemanais() as tarefas
 
 SELECT * FROM PROJETO.getTarefasSemanaByDia('Tuesday') WHERE completada_ts IS NULL ORDER BY data_inicio DESC
+
+-- Índices: Tarefas (não tem disabled), Grupos (não tem disabled), Instituição (tem disabled), Página (não tem disabled), Cadeira (tem disabled) tudo pelo nome/título
+
+CREATE INDEX IxTituloTarefa ON PROJETO.Tarefa(titulo);
+CREATE INDEX IxNomeGrupo ON PROJETO.Grupo(nome);
+CREATE INDEX IxTituloPagina ON PROJETO.Pagina(titulo);
+CREATE INDEX IxNomeInstituicao ON PROJETO.Instituicao(nome) WHERE disabled = 0;
+CREATE INDEX IxNomeCadeira ON PROJETO.Cadeira(nome) WHERE disabled = 0;
