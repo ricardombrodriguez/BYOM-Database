@@ -18,7 +18,9 @@ namespace ProjetoFinalBD
         private SqlConnection cn;
         public static Boolean createPagina;
         public static ClassePagina paginaAtual;
-        private List<ClasseCadeira> lstCadeiras;
+        public static Paginas inst;
+        private Dictionary<String, ClasseCadeira> lstCadeiras = new Dictionary<String, ClasseCadeira>();
+
 
         public CriarPagina()
         {
@@ -32,14 +34,21 @@ namespace ProjetoFinalBD
                 btnApagarPagina.Visible = false;
             } else
             {
-               
-                label2.Visible = true;
-                texto.Visible = true;
-                btnApagarPagina.Visible = true;
-
+              
                 ClassePagina pagina = paginaAtual;
                 titulo.Text = pagina.Titulo;
-                cadeira.Text = lstCadeiras[pagina.Cadeira].Nome;
+                texto.Text = pagina.Texto;
+                for (int i = lstCadeiras.Count - 1; i >= 0; i--)
+                {
+                    var item = lstCadeiras.ElementAt(i);
+                    var itemKey = item.Key;
+                    var itemValue = item.Value;
+                    if (itemValue.Id == pagina.Cadeira)
+                    {
+                        cadeira.Text = itemValue.Nome;
+                        break;
+                    }
+                }
 
             }
         }
@@ -58,7 +67,7 @@ namespace ProjetoFinalBD
             command.Parameters.AddWithValue("@aluno", Login.utilizador);
             command.Connection = cn;
 
-            lstCadeiras = new List<ClasseCadeira>();
+            lstCadeiras = new Dictionary<String, ClasseCadeira>();
 
             try
             {
@@ -70,8 +79,7 @@ namespace ProjetoFinalBD
                     ClasseCadeira inst = new ClasseCadeira(Convert.ToInt32(reader["id"]),
                                                             reader["nome"].ToString());
 
-                    lstCadeiras.Add(inst);
-
+                    lstCadeiras.Add(inst.Nome,inst);
                     cadeira.Items.Add(inst.Nome);
                 }
 
@@ -106,9 +114,36 @@ namespace ProjetoFinalBD
 
         private void btnApagarPagina_Click(object sender, EventArgs e)
         {
-            FormState.PreviousPage.Show();
-            this.Hide();
-            FormState.PreviousPage = this;
+
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            int id = paginaAtual.Id;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "PROJETO.deletePagina";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@pagId", id);
+            cmd.Connection = cn;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível remover a página na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+                inst.ShowPaginas();
+                this.Hide();
+            }
         }
 
         private void btnGuardarPagina_Click(object sender, EventArgs e)
@@ -134,7 +169,7 @@ namespace ProjetoFinalBD
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@titulo", titulo.Text);
-                    cmd.Parameters.AddWithValue("@cadeira", lstCadeiras[cadeira.SelectedIndex].Id);
+                    cmd.Parameters.AddWithValue("@cadeira", lstCadeiras[cadeira.Text].Id);
                     cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
            
                     try
@@ -150,8 +185,8 @@ namespace ProjetoFinalBD
                     finally
                     {
                         cn.Close();
-                        Paginas pg = new Paginas();
-                        pg.Show();
+                        inst.PopulateCadeiras();
+                        inst.ShowPaginas();
                         this.Hide();
                     }
                 }   
@@ -161,32 +196,30 @@ namespace ProjetoFinalBD
                     ClassePagina pagina = paginaAtual;
 
                     SqlCommand command = new SqlCommand();
-                    command.CommandText = "UPDATE PROJETO.Pagina(titulo,texto,aluno,cadeira) " +
-                        "SET titulo = @titulo, texto = @texto, aluno = @aluno, cadeira = @cadeira) " +
+                    command.CommandText = "UPDATE PROJETO.Pagina SET titulo = @titulo, texto = @texto, cadeira = @cadeira " +
                         "WHERE PROJETO.Pagina.id = @id;";
                     command.Parameters.Clear();
                     command.Parameters.AddWithValue("@titulo", titulo.Text);
-                    command.Parameters.AddWithValue("@id", pagina.Id);
-                    command.Parameters.AddWithValue("@aluno", Login.utilizador);
-                    command.Parameters.AddWithValue("@cadeira", lstCadeiras[cadeira.SelectedIndex].Id);
+                    command.Parameters.AddWithValue("@texto", texto.Text);
+                    command.Parameters.AddWithValue("@cadeira", lstCadeiras[cadeira.Text].Id);
+                    command.Parameters.AddWithValue("@id", paginaAtual.Id);
                     command.Connection = cn;
-
 
                     try
                     {
                         command.ExecuteNonQuery();
-                        MessageBox.Show("Página " + titulo.Text + " criada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Página atualizada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("Não foi possível inserir a pagina na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                        throw new Exception("Não foi possível fazer update da pagina na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
                     }
                     finally
                     {
+                        inst.PopulateCadeiras();
+                        inst.ShowPaginas();
                         cn.Close();
-                        Paginas pg = new Paginas();
-                        pg.Show();
                         this.Hide();
                     }
 
@@ -197,9 +230,7 @@ namespace ProjetoFinalBD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormState.PreviousPage.Show();
             this.Hide();
-            FormState.PreviousPage = this;
         }
     }
 }

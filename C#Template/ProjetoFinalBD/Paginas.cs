@@ -15,6 +15,7 @@ namespace ProjetoFinalBD
     {
         private SqlConnection cn;
         private List<ClassePagina> lstPaginas;
+        private Dictionary<String, ClasseCadeira> lstCadeiras;
 
         public Paginas()
         {
@@ -23,6 +24,52 @@ namespace ProjetoFinalBD
             panelLeft.Height = btnPaginas.Height;
             panelLeft.Top = btnPaginas.Top;
             ShowPaginas();
+            PopulateCadeiras();
+        }
+
+        public void PopulateCadeiras()
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT * FROM PROJETO.Pagina JOIN PROJETO.Cadeira ON PROJETO.Pagina.cadeira = PROJETO.Cadeira.id " +
+                "WHERE PROJETO.Pagina.aluno = @aluno AND disabled = 0";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@aluno", Login.utilizador);
+            command.Connection = cn;
+
+            lstCadeiras = new Dictionary<String, ClasseCadeira>();
+
+            try
+            {
+                SqlDataReader reader = command.ExecuteReader();
+                filtroCadeira.Items.Clear();
+
+                while (reader.Read())
+                {
+                    ClasseCadeira inst = new ClasseCadeira(Convert.ToInt32(reader[6]),
+                                                            reader[7].ToString());
+
+                    if (lstCadeiras.ContainsKey(inst.Nome) == false)
+                    {
+                        lstCadeiras.Add(inst.Nome, inst);
+                        filtroCadeira.Items.Add(inst.Nome);
+                    }
+                }
+
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Failed to update contact in database. \n ERROR MESSAGE: \n" + ex.Message);
+
+            }
+
+            cn.Close();
         }
 
         private SqlConnection getSGBDConnection()
@@ -274,6 +321,63 @@ namespace ProjetoFinalBD
                 CriarPagina.paginaAtual = lstPaginas[listboxPaginas.SelectedIndex];
                 CriarPagina inst = new CriarPagina();
                 inst.Show();
+            }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM PROJETO.Pagina WHERE aluno = @aluno ";
+            cmd.Parameters.Clear();
+
+            String strSql = "";
+
+            if (filtroCadeira.SelectedIndex != -1)
+            {
+                int cadeira_id = lstCadeiras[filtroCadeira.Text].Id;
+                strSql += String.Format("AND cadeira = {0} ", cadeira_id);
+            }
+
+            if (filtroNome.TextLength != 0)
+            {
+                strSql += String.Format("AND titulo LIKE '%{0}%' ", filtroNome.Text);
+            }
+            cmd.CommandText += strSql;
+            cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
+            cmd.Connection = cn;
+
+            lstPaginas = new List<ClassePagina>();
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                listboxPaginas.Items.Clear();
+
+                while (reader.Read())
+                {
+                    ClassePagina inst = new ClassePagina(Convert.ToInt32(reader["id"]),
+                                                       reader["titulo"].ToString(),
+                                                       reader["texto"].ToString(),
+                                                       reader["aluno"].ToString(),
+                                                       Convert.ToInt32(reader["cadeira"]),
+                                                       reader["codigo_criador"].ToString());
+
+                    lstPaginas.Add(inst);
+                    listboxPaginas.Items.Add(inst.Titulo);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível visualizar as instituições na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
             }
         }
     }

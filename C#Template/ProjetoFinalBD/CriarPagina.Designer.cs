@@ -46,6 +46,7 @@ namespace ProjetoFinalBD
             this.texto.Location = new System.Drawing.Point(103, 160);
             this.texto.Multiline = true;
             this.texto.Name = "texto";
+            this.texto.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.texto.Size = new System.Drawing.Size(1771, 765);
             this.texto.TabIndex = 18;
             // 
