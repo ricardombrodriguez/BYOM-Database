@@ -39,6 +39,9 @@ namespace ProjetoFinalBD
             this.button1 = new System.Windows.Forms.Button();
             this.btnApagarPagina = new System.Windows.Forms.Button();
             this.btnGuardarPagina = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.listboxFicheiros = new System.Windows.Forms.ListBox();
+            this.btnAdicionarFicheiro = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // texto
@@ -47,14 +50,14 @@ namespace ProjetoFinalBD
             this.texto.Multiline = true;
             this.texto.Name = "texto";
             this.texto.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.texto.Size = new System.Drawing.Size(1771, 765);
+            this.texto.Size = new System.Drawing.Size(1348, 752);
             this.texto.TabIndex = 18;
             // 
             // titulo
             // 
             this.titulo.Location = new System.Drawing.Point(103, 102);
             this.titulo.Name = "titulo";
-            this.titulo.Size = new System.Drawing.Size(754, 27);
+            this.titulo.Size = new System.Drawing.Size(516, 27);
             this.titulo.TabIndex = 17;
             // 
             // label2
@@ -96,7 +99,7 @@ namespace ProjetoFinalBD
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.label1.Location = new System.Drawing.Point(991, 105);
+            this.label1.Location = new System.Drawing.Point(754, 108);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 20);
             this.label1.TabIndex = 21;
@@ -105,9 +108,9 @@ namespace ProjetoFinalBD
             // cadeira
             // 
             this.cadeira.FormattingEnabled = true;
-            this.cadeira.Location = new System.Drawing.Point(1109, 104);
+            this.cadeira.Location = new System.Drawing.Point(855, 105);
             this.cadeira.Name = "cadeira";
-            this.cadeira.Size = new System.Drawing.Size(765, 28);
+            this.cadeira.Size = new System.Drawing.Size(596, 28);
             this.cadeira.TabIndex = 22;
             // 
             // button1
@@ -143,12 +146,48 @@ namespace ProjetoFinalBD
             this.btnGuardarPagina.UseVisualStyleBackColor = true;
             this.btnGuardarPagina.Click += new System.EventHandler(this.btnGuardarPagina_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.label3.Location = new System.Drawing.Point(1605, 71);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(157, 20);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "Ficheiros associados";
+            // 
+            // listboxFicheiros
+            // 
+            this.listboxFicheiros.FormattingEnabled = true;
+            this.listboxFicheiros.ItemHeight = 20;
+            this.listboxFicheiros.Location = new System.Drawing.Point(1504, 108);
+            this.listboxFicheiros.Name = "listboxFicheiros";
+            this.listboxFicheiros.Size = new System.Drawing.Size(370, 764);
+            this.listboxFicheiros.TabIndex = 43;
+            this.listboxFicheiros.DoubleClick += new System.EventHandler(this.listboxFicheiros_DoubleClick);
+            // 
+            // btnAdicionarFicheiro
+            // 
+            this.btnAdicionarFicheiro.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAdicionarFicheiro.Location = new System.Drawing.Point(1504, 883);
+            this.btnAdicionarFicheiro.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnAdicionarFicheiro.Name = "btnAdicionarFicheiro";
+            this.btnAdicionarFicheiro.Size = new System.Drawing.Size(370, 29);
+            this.btnAdicionarFicheiro.TabIndex = 48;
+            this.btnAdicionarFicheiro.Text = "+Adicionar ficheiro";
+            this.btnAdicionarFicheiro.UseVisualStyleBackColor = true;
+            this.btnAdicionarFicheiro.Click += new System.EventHandler(this.btnAdicionarFicheiro_Click);
+            // 
             // CriarPagina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.Controls.Add(this.btnAdicionarFicheiro);
+            this.Controls.Add(this.listboxFicheiros);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cadeira);
             this.Controls.Add(this.label1);
@@ -182,5 +221,8 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnApagarPagina;
         private System.Windows.Forms.Button btnGuardarPagina;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ListBox listboxFicheiros;
+        private System.Windows.Forms.Button btnAdicionarFicheiro;
     }
 }

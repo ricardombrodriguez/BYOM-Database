@@ -48,18 +48,19 @@ namespace ProjetoFinalBD
             this.button1 = new System.Windows.Forms.Button();
             this.addTipoTarefa = new System.Windows.Forms.Button();
             this.addCadeira = new System.Windows.Forms.Button();
+            this.listboxFicheiros = new System.Windows.Forms.ListBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnAdicionarFicheiro = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(276, 20);
+            this.label1.Location = new System.Drawing.Point(428, 28);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(132, 46);
@@ -68,12 +69,10 @@ namespace ProjetoFinalBD
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(36, 98);
+            this.label2.Location = new System.Drawing.Point(47, 160);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 20);
@@ -82,23 +81,19 @@ namespace ProjetoFinalBD
             // 
             // titulo
             // 
-            this.titulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.titulo.Location = new System.Drawing.Point(156, 93);
+            this.titulo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.titulo.Location = new System.Drawing.Point(167, 155);
             this.titulo.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.titulo.Name = "titulo";
-            this.titulo.Size = new System.Drawing.Size(448, 27);
+            this.titulo.Size = new System.Drawing.Size(447, 27);
             this.titulo.TabIndex = 2;
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(36, 144);
+            this.label3.Location = new System.Drawing.Point(46, 209);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 20);
@@ -108,7 +103,7 @@ namespace ProjetoFinalBD
             // descricao
             // 
             this.descricao.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.descricao.Location = new System.Drawing.Point(156, 144);
+            this.descricao.Location = new System.Drawing.Point(165, 209);
             this.descricao.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.descricao.Multiline = true;
             this.descricao.Name = "descricao";
@@ -117,12 +112,10 @@ namespace ProjetoFinalBD
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(36, 386);
+            this.label4.Location = new System.Drawing.Point(46, 451);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 20);
@@ -131,12 +124,10 @@ namespace ProjetoFinalBD
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(36, 432);
+            this.label5.Location = new System.Drawing.Point(46, 497);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 20);
@@ -145,13 +136,11 @@ namespace ProjetoFinalBD
             // 
             // checkbox
             // 
-            this.checkbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkbox.AutoSize = true;
             this.checkbox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.checkbox.ForeColor = System.Drawing.Color.White;
-            this.checkbox.Location = new System.Drawing.Point(480, 581);
+            this.checkbox.Location = new System.Drawing.Point(492, 647);
             this.checkbox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.checkbox.Name = "checkbox";
             this.checkbox.Size = new System.Drawing.Size(122, 32);
@@ -162,12 +151,10 @@ namespace ProjetoFinalBD
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(36, 484);
+            this.label6.Location = new System.Drawing.Point(48, 550);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 20);
@@ -176,12 +163,10 @@ namespace ProjetoFinalBD
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(36, 539);
+            this.label7.Location = new System.Drawing.Point(48, 605);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(103, 20);
@@ -191,7 +176,7 @@ namespace ProjetoFinalBD
             // btnGuardar
             // 
             this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGuardar.Location = new System.Drawing.Point(418, 649);
+            this.btnGuardar.Location = new System.Drawing.Point(759, 724);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(186, 70);
@@ -203,7 +188,7 @@ namespace ProjetoFinalBD
             // btnApagar
             // 
             this.btnApagar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnApagar.Location = new System.Drawing.Point(203, 649);
+            this.btnApagar.Location = new System.Drawing.Point(552, 724);
             this.btnApagar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnApagar.Name = "btnApagar";
             this.btnApagar.Size = new System.Drawing.Size(185, 70);
@@ -214,57 +199,50 @@ namespace ProjetoFinalBD
             // 
             // dataInicio
             // 
-            this.dataInicio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataInicio.Location = new System.Drawing.Point(156, 386);
+            this.dataInicio.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataInicio.Location = new System.Drawing.Point(166, 451);
             this.dataInicio.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataInicio.Name = "dataInicio";
-            this.dataInicio.Size = new System.Drawing.Size(445, 27);
+            this.dataInicio.Size = new System.Drawing.Size(444, 27);
             this.dataInicio.TabIndex = 16;
             // 
             // dataFinal
             // 
-            this.dataFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataFinal.Location = new System.Drawing.Point(156, 432);
+            this.dataFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataFinal.Location = new System.Drawing.Point(166, 497);
             this.dataFinal.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataFinal.Name = "dataFinal";
-            this.dataFinal.Size = new System.Drawing.Size(445, 27);
+            this.dataFinal.Size = new System.Drawing.Size(444, 27);
             this.dataFinal.TabIndex = 17;
             // 
             // cadeira
             // 
-            this.cadeira.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cadeira.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cadeira.FormattingEnabled = true;
-            this.cadeira.Location = new System.Drawing.Point(154, 484);
+            this.cadeira.Location = new System.Drawing.Point(166, 550);
             this.cadeira.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cadeira.Name = "cadeira";
-            this.cadeira.Size = new System.Drawing.Size(373, 28);
+            this.cadeira.Size = new System.Drawing.Size(372, 28);
             this.cadeira.TabIndex = 18;
             // 
             // tipoTarefa
             // 
-            this.tipoTarefa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tipoTarefa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tipoTarefa.FormattingEnabled = true;
-            this.tipoTarefa.Location = new System.Drawing.Point(154, 539);
+            this.tipoTarefa.Location = new System.Drawing.Point(166, 605);
             this.tipoTarefa.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tipoTarefa.Name = "tipoTarefa";
-            this.tipoTarefa.Size = new System.Drawing.Size(373, 28);
+            this.tipoTarefa.Size = new System.Drawing.Size(372, 28);
             this.tipoTarefa.TabIndex = 19;
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.Image = global::ProjetoFinalBD.Properties.Resources._1410611_200;
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Location = new System.Drawing.Point(13, 11);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(55, 47);
@@ -275,7 +253,7 @@ namespace ProjetoFinalBD
             // addTipoTarefa
             // 
             this.addTipoTarefa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.addTipoTarefa.Location = new System.Drawing.Point(548, 539);
+            this.addTipoTarefa.Location = new System.Drawing.Point(559, 605);
             this.addTipoTarefa.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.addTipoTarefa.Name = "addTipoTarefa";
             this.addTipoTarefa.Size = new System.Drawing.Size(55, 28);
@@ -287,7 +265,7 @@ namespace ProjetoFinalBD
             // addCadeira
             // 
             this.addCadeira.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.addCadeira.Location = new System.Drawing.Point(548, 484);
+            this.addCadeira.Location = new System.Drawing.Point(559, 550);
             this.addCadeira.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.addCadeira.Name = "addCadeira";
             this.addCadeira.Size = new System.Drawing.Size(55, 28);
@@ -296,12 +274,49 @@ namespace ProjetoFinalBD
             this.addCadeira.UseVisualStyleBackColor = true;
             this.addCadeira.Click += new System.EventHandler(this.addCadeira_Click);
             // 
+            // listboxFicheiros
+            // 
+            this.listboxFicheiros.FormattingEnabled = true;
+            this.listboxFicheiros.ItemHeight = 20;
+            this.listboxFicheiros.Location = new System.Drawing.Point(648, 155);
+            this.listboxFicheiros.Name = "listboxFicheiros";
+            this.listboxFicheiros.Size = new System.Drawing.Size(281, 444);
+            this.listboxFicheiros.TabIndex = 45;
+            this.listboxFicheiros.DoubleClick += new System.EventHandler(this.listboxFicheiros_DoubleClick);
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(648, 132);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(146, 20);
+            this.label8.TabIndex = 46;
+            this.label8.Text = "Ficheiros associados:";
+            // 
+            // btnAdicionarFicheiro
+            // 
+            this.btnAdicionarFicheiro.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAdicionarFicheiro.Location = new System.Drawing.Point(648, 605);
+            this.btnAdicionarFicheiro.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnAdicionarFicheiro.Name = "btnAdicionarFicheiro";
+            this.btnAdicionarFicheiro.Size = new System.Drawing.Size(281, 28);
+            this.btnAdicionarFicheiro.TabIndex = 47;
+            this.btnAdicionarFicheiro.Text = "+Adicionar ficheiro";
+            this.btnAdicionarFicheiro.UseVisualStyleBackColor = true;
+            this.btnAdicionarFicheiro.Click += new System.EventHandler(this.btnAdicionarFicheiro_Click);
+            // 
             // CriarTarefa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(642, 748);
+            this.ClientSize = new System.Drawing.Size(984, 815);
+            this.Controls.Add(this.btnAdicionarFicheiro);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.listboxFicheiros);
             this.Controls.Add(this.addCadeira);
             this.Controls.Add(this.addTipoTarefa);
             this.Controls.Add(this.button1);
@@ -354,5 +369,8 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button addTipoTarefa;
         private System.Windows.Forms.Button addCadeira;
+        private System.Windows.Forms.ListBox listboxFicheiros;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnAdicionarFicheiro;
     }
 }

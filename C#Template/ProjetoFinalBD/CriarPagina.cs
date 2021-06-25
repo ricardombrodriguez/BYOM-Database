@@ -16,6 +16,7 @@ namespace ProjetoFinalBD
     {
 
         private SqlConnection cn;
+        public static CriarPagina instPagina;
         public static Boolean createPagina = false;
         public static Boolean createPaginaCadeira = false;
         public static Boolean createPaginaGrupo = false;
@@ -24,6 +25,7 @@ namespace ProjetoFinalBD
         public static CriarGrupo instGrupo;
         public static InfoCadeira instCadeira;
         private Dictionary<String, ClasseCadeira> lstCadeiras = new Dictionary<String, ClasseCadeira>();
+        private Dictionary<string, ClasseFicheiro> lstFicheiros = new Dictionary<string, ClasseFicheiro>();
 
 
         public CriarPagina()
@@ -36,6 +38,7 @@ namespace ProjetoFinalBD
                 label2.Visible = false;
                 texto.Visible = false;
                 btnApagarPagina.Visible = false;
+
 
                 if (createPaginaCadeira)
                 {
@@ -68,8 +71,53 @@ namespace ProjetoFinalBD
                         break;
                     }
                 }
+                ShowFicheiros();
 
             }
+        }
+
+        public void ShowFicheiros()
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT * FROM PROJETO.Ficheiro WHERE codigo_criador = @codigo_criador";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@codigo_criador", paginaAtual.Codigo_criador);
+            command.Connection = cn;
+
+            lstFicheiros.Clear();
+
+            try
+            {
+                SqlDataReader reader = command.ExecuteReader();
+                listboxFicheiros.Items.Clear();
+
+                while (reader.Read())
+                {
+                    ClasseFicheiro inst = new ClasseFicheiro(Convert.ToInt32(reader["id"]),
+                                                            reader["nome"].ToString(),
+                                                            reader["localizacao"].ToString(),
+                                                            reader["aluno"].ToString(),
+                                                            reader["codigo_criador"].ToString());
+
+                    lstFicheiros.Add(inst.Nome, inst);
+                    listboxFicheiros.Items.Add(inst.Nome);
+                }
+
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Falha ao carregar as acdeiras da base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+
+            }
+
+            cn.Close();
         }
 
         private void PopulateCadeiras()
@@ -317,6 +365,33 @@ namespace ProjetoFinalBD
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void btnAdicionarFicheiro_Click(object sender, EventArgs e)
+        {
+            
+            instPagina = this;
+            CriarFicheiro.createFicheiro = true;
+            CriarFicheiro.createFicheiroPagina = true;
+            CriarFicheiro.codigo_criador = paginaAtual.Codigo_criador;
+            CriarFicheiro inst = new CriarFicheiro();
+            inst.Show();
+
+        }
+
+        private void listboxFicheiros_DoubleClick(object sender, EventArgs e)
+        {
+            if (listboxFicheiros.SelectedItem != null)
+            {
+                instPagina = this;
+                CriarFicheiro.createFicheiro = false;
+                CriarFicheiro.createFicheiroPagina = true;
+                CriarFicheiro.codigo_criador = paginaAtual.Codigo_criador;
+                CriarFicheiro.ficheiroAtual = lstFicheiros[listboxFicheiros.GetItemText(listboxFicheiros.SelectedItem)];
+
+                CriarFicheiro inst = new CriarFicheiro();
+                inst.Show();
+            }
         }
     }
 }
