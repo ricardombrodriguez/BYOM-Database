@@ -17,6 +17,8 @@ namespace ProjetoFinalBD
         public static Boolean criarCadeira;
         public static ClasseCadeira cadeiraAtual;
         private List<ClasseCadeira> lstCadeiras = new List<ClasseCadeira>();
+        private List<ClasseInstituicao> lstInstituicoes;
+        private string where = "";
 
         public Cadeira()
         {
@@ -24,6 +26,9 @@ namespace ProjetoFinalBD
             panelLeft.Height = btnCadeiras.Height;
             panelLeft.Top = btnCadeiras.Top;
             showCadeiras();
+            populateInstituicoes();
+            PopulateAnos();
+            PopulateSemestres();
         }
 
         private SqlConnection getSGBDConnection()
@@ -52,7 +57,7 @@ namespace ProjetoFinalBD
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "SELECT * FROM PROJETO.Cadeira " +
-                "WHERE aluno = @aluno AND disabled = 0";
+                "WHERE aluno = @aluno AND disabled = 0 " + this.where;
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
             cmd.Connection = cn;
@@ -273,6 +278,19 @@ namespace ProjetoFinalBD
 
         private void listboxCadeiras_DoubleClick(object sender, EventArgs e)
         {
+            
+            if (listboxCadeiras.SelectedItem != null)
+            {
+                
+                InfoCadeira inst = new InfoCadeira();
+                Cadeira.criarCadeira = false;
+                Cadeira.cadeiraAtual = lstCadeiras[listboxCadeiras.SelectedIndex];
+                inst.Show();
+            }
+        }
+
+        private void listboxCadeiras_DoubleClick_1(object sender, EventArgs e)
+        {
             if (listboxCadeiras.SelectedIndex >= 0)
             {
                 Cadeira.criarCadeira = false;
@@ -283,5 +301,146 @@ namespace ProjetoFinalBD
             }
         }
 
+        private void populateInstituicoes()
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT * FROM PROJETO.Instituicao WHERE aluno_criador = @aluno AND disabled = 0 AND id IN (" + "SELECT instituicao FROM PROJETO.Cadeira " +
+                "WHERE aluno = @aluno AND disabled = 0" + ")";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@aluno", Login.utilizador);
+            command.Connection = cn;
+
+            lstInstituicoes = new List<ClasseInstituicao>();
+
+            try
+            {
+                SqlDataReader reader = command.ExecuteReader();
+                comboInstituicao.Items.Clear();
+
+                while (reader.Read())
+                {
+                    ClasseInstituicao inst = new ClasseInstituicao(Convert.ToInt32(reader["id"]),
+                                                            reader["nome"].ToString(),
+                                                            reader["descricao"].ToString(),
+                                                            reader["aluno_criador"].ToString(),
+                                                            false);
+
+                    lstInstituicoes.Add(inst);
+
+                    comboInstituicao.Items.Add(inst.Nome);
+                }
+
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao carregar as instituições da base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+
+            cn.Close();
+        }
+
+        private void PopulateAnos()
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT DISTINCT ano FROM PROJETO.Cadeira " +
+                "WHERE aluno = @aluno AND disabled = 0";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@aluno", Login.utilizador);
+            command.Connection = cn;
+
+            try
+            {
+                SqlDataReader reader = command.ExecuteReader();
+                comboAno.Items.Clear();
+
+                while (reader.Read())
+                {
+                    comboAno.Items.Add(reader["ano"].ToString());
+                }
+
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao carregar os anos da base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+
+            cn.Close();
+        }
+
+        private void PopulateSemestres()
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT DISTINCT semestre FROM PROJETO.Cadeira " +
+                "WHERE aluno = @aluno AND disabled = 0";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@aluno", Login.utilizador);
+            command.Connection = cn;
+
+            try
+            {
+                SqlDataReader reader = command.ExecuteReader();
+                comboSemestre.Items.Clear();
+
+                while (reader.Read())
+                {
+                    comboSemestre.Items.Add(reader["semestre"].ToString());
+                }
+
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao carregar os semestres da base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+
+            cn.Close();
+        }
+
+        private void btnProcurar_Click(object sender, EventArgs e)
+        {
+            this.where = "";
+
+            if (filtroNome.Text != "")
+            {
+                this.where += " AND nome LIKE '%" + filtroNome.Text + "%'";
+            }
+
+            if (comboAno.SelectedIndex > -1)
+            {
+                this.where += " AND ano = " + comboAno.Text;
+            }
+
+            if (comboSemestre.SelectedIndex > -1)
+            {
+                this.where += " AND semestre = " + comboSemestre.Text;
+            }
+
+            if (comboInstituicao.SelectedIndex > -1)
+            {
+                this.where += " AND instituicao = " + lstInstituicoes[comboInstituicao.SelectedIndex].Id;
+            }
+
+            showCadeiras();
+        }
     }
 }
