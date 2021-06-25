@@ -56,7 +56,6 @@ namespace ProjetoFinalBD
             this.label4 = new System.Windows.Forms.Label();
             this.filtroNome = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.checkRealizada = new System.Windows.Forms.CheckBox();
             this.listboxGrupos = new System.Windows.Forms.ListBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -335,7 +334,6 @@ namespace ProjetoFinalBD
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.filtroNome);
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.checkRealizada);
             this.panel4.Location = new System.Drawing.Point(619, 72);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1044, 125);
@@ -395,17 +393,6 @@ namespace ProjetoFinalBD
             this.label3.Size = new System.Drawing.Size(65, 21);
             this.label3.TabIndex = 1;
             this.label3.Text = "Nome: ";
-            // 
-            // checkRealizada
-            // 
-            this.checkRealizada.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkRealizada.AutoSize = true;
-            this.checkRealizada.Location = new System.Drawing.Point(2008, 12);
-            this.checkRealizada.Name = "checkRealizada";
-            this.checkRealizada.Size = new System.Drawing.Size(106, 25);
-            this.checkRealizada.TabIndex = 0;
-            this.checkRealizada.Text = "Realizada";
-            this.checkRealizada.UseVisualStyleBackColor = true;
             // 
             // listboxGrupos
             // 
@@ -522,7 +509,6 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkRealizada;
         private System.Windows.Forms.Button btnProcurar;
         private System.Windows.Forms.Label label2;
     }

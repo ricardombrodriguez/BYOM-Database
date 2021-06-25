@@ -57,7 +57,6 @@ namespace ProjetoFinalBD
             this.filtroDescricao = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.checkRealizada = new System.Windows.Forms.CheckBox();
             this.filtroNome = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -97,7 +96,7 @@ namespace ProjetoFinalBD
             this.lblTarefas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblTarefas.Location = new System.Drawing.Point(66, 479);
             this.lblTarefas.Name = "lblTarefas";
-            this.lblTarefas.Size = new System.Drawing.Size(66, 21);
+            this.lblTarefas.Size = new System.Drawing.Size(79, 23);
             this.lblTarefas.TabIndex = 23;
             this.lblTarefas.Text = "Tarefas";
             this.lblTarefas.Click += new System.EventHandler(this.lblTarefas_Click);
@@ -131,7 +130,7 @@ namespace ProjetoFinalBD
             this.lblInstituicoes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblInstituicoes.Location = new System.Drawing.Point(51, 409);
             this.lblInstituicoes.Name = "lblInstituicoes";
-            this.lblInstituicoes.Size = new System.Drawing.Size(97, 21);
+            this.lblInstituicoes.Size = new System.Drawing.Size(114, 23);
             this.lblInstituicoes.TabIndex = 18;
             this.lblInstituicoes.Text = "Instituições";
             this.lblInstituicoes.Click += new System.EventHandler(this.lblInstituicoes_Click);
@@ -158,7 +157,7 @@ namespace ProjetoFinalBD
             this.label14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label14.Location = new System.Drawing.Point(70, 129);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(56, 21);
+            this.label14.Size = new System.Drawing.Size(69, 23);
             this.label14.TabIndex = 12;
             this.label14.Text = "Home";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -172,7 +171,7 @@ namespace ProjetoFinalBD
             this.lblHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblHome.Location = new System.Drawing.Point(77, 129);
             this.lblHome.Name = "lblHome";
-            this.lblHome.Size = new System.Drawing.Size(56, 21);
+            this.lblHome.Size = new System.Drawing.Size(69, 23);
             this.lblHome.TabIndex = 12;
             this.lblHome.Text = "Home";
             this.lblHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -184,7 +183,7 @@ namespace ProjetoFinalBD
             this.lblGrupos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblGrupos.Location = new System.Drawing.Point(66, 340);
             this.lblGrupos.Name = "lblGrupos";
-            this.lblGrupos.Size = new System.Drawing.Size(66, 21);
+            this.lblGrupos.Size = new System.Drawing.Size(80, 23);
             this.lblGrupos.TabIndex = 14;
             this.lblGrupos.Text = "Grupos";
             this.lblGrupos.Click += new System.EventHandler(this.lblGrupos_Click);
@@ -196,7 +195,7 @@ namespace ProjetoFinalBD
             this.lblPaginas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblPaginas.Location = new System.Drawing.Point(63, 270);
             this.lblPaginas.Name = "lblPaginas";
-            this.lblPaginas.Size = new System.Drawing.Size(71, 21);
+            this.lblPaginas.Size = new System.Drawing.Size(86, 23);
             this.lblPaginas.TabIndex = 12;
             this.lblPaginas.Text = "Páginas";
             this.lblPaginas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -210,7 +209,7 @@ namespace ProjetoFinalBD
             this.lblCadeiras.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblCadeiras.Location = new System.Drawing.Point(58, 200);
             this.lblCadeiras.Name = "lblCadeiras";
-            this.lblCadeiras.Size = new System.Drawing.Size(80, 21);
+            this.lblCadeiras.Size = new System.Drawing.Size(98, 23);
             this.lblCadeiras.TabIndex = 13;
             this.lblCadeiras.Text = "Cadeiras";
             this.lblCadeiras.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -316,7 +315,7 @@ namespace ProjetoFinalBD
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(24, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 26);
+            this.label1.Size = new System.Drawing.Size(160, 35);
             this.label1.TabIndex = 57;
             this.label1.Text = "Instituições";
             // 
@@ -341,10 +340,10 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxInstituicoes.FormattingEnabled = true;
-            this.listboxInstituicoes.ItemHeight = 21;
+            this.listboxInstituicoes.ItemHeight = 23;
             this.listboxInstituicoes.Location = new System.Drawing.Point(24, 268);
             this.listboxInstituicoes.Name = "listboxInstituicoes";
-            this.listboxInstituicoes.Size = new System.Drawing.Size(1644, 718);
+            this.listboxInstituicoes.Size = new System.Drawing.Size(1644, 717);
             this.listboxInstituicoes.TabIndex = 49;
             this.listboxInstituicoes.DoubleClick += new System.EventHandler(this.listboxInstituicoes_DoubleClick);
             // 
@@ -353,7 +352,7 @@ namespace ProjetoFinalBD
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(273, 450);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(0, 21);
+            this.label10.Size = new System.Drawing.Size(0, 23);
             this.label10.TabIndex = 10;
             // 
             // btnAddInstituicao
@@ -378,20 +377,19 @@ namespace ProjetoFinalBD
             this.panel4.Controls.Add(this.filtroDescricao);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.checkRealizada);
             this.panel4.Controls.Add(this.filtroNome);
-            this.panel4.Location = new System.Drawing.Point(624, 92);
+            this.panel4.Location = new System.Drawing.Point(535, 92);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1044, 144);
+            this.panel4.Size = new System.Drawing.Size(1133, 144);
             this.panel4.TabIndex = 56;
             // 
             // filtroDescricao
             // 
-            this.filtroDescricao.Location = new System.Drawing.Point(113, 54);
+            this.filtroDescricao.Location = new System.Drawing.Point(184, 54);
             this.filtroDescricao.Multiline = true;
             this.filtroDescricao.Name = "filtroDescricao";
             this.filtroDescricao.PlaceholderText = "Procurar por descrição";
-            this.filtroDescricao.Size = new System.Drawing.Size(916, 60);
+            this.filtroDescricao.Size = new System.Drawing.Size(845, 60);
             this.filtroDescricao.TabIndex = 48;
             // 
             // label4
@@ -399,38 +397,27 @@ namespace ProjetoFinalBD
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 54);
+            this.label4.Location = new System.Drawing.Point(29, 57);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 21);
+            this.label4.Size = new System.Drawing.Size(119, 23);
             this.label4.TabIndex = 3;
             this.label4.Text = "Descrição: ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 11);
+            this.label3.Location = new System.Drawing.Point(29, 14);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 21);
+            this.label3.Size = new System.Drawing.Size(81, 23);
             this.label3.TabIndex = 1;
             this.label3.Text = "Nome: ";
             // 
-            // checkRealizada
-            // 
-            this.checkRealizada.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkRealizada.AutoSize = true;
-            this.checkRealizada.Location = new System.Drawing.Point(2850, 12);
-            this.checkRealizada.Name = "checkRealizada";
-            this.checkRealizada.Size = new System.Drawing.Size(106, 25);
-            this.checkRealizada.TabIndex = 0;
-            this.checkRealizada.Text = "Realizada";
-            this.checkRealizada.UseVisualStyleBackColor = true;
-            // 
             // filtroNome
             // 
-            this.filtroNome.Location = new System.Drawing.Point(113, 8);
+            this.filtroNome.Location = new System.Drawing.Point(184, 11);
             this.filtroNome.Name = "filtroNome";
             this.filtroNome.PlaceholderText = "Procurar por nome";
-            this.filtroNome.Size = new System.Drawing.Size(319, 27);
+            this.filtroNome.Size = new System.Drawing.Size(355, 32);
             this.filtroNome.TabIndex = 45;
             // 
             // Instituicoes
@@ -489,7 +476,6 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkRealizada;
         private System.Windows.Forms.Button btnProcurar;
         private System.Windows.Forms.Label label1;
     }

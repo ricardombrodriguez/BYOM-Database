@@ -311,7 +311,7 @@ namespace ProjetoFinalBD
 
             if (Cadeira.criarCadeira)
             {
-                
+
                 if (nome.TextLength == 0 || instituicoes.SelectedItem == null)
                 {
                     MessageBox.Show("Insira todos os parâmetros obrigatórios.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -351,7 +351,7 @@ namespace ProjetoFinalBD
                         command.Parameters.AddWithValue("@nota_final", Cnota_final);
                         command.Parameters.AddWithValue("@aluno", Caluno);
                         command.Parameters.AddWithValue("@instituicao", Cinstituicao);
-                        
+
 
                         try
                         {
@@ -380,27 +380,26 @@ namespace ProjetoFinalBD
                             }
                             else
                             {
-                                Cadeira c = new Cadeira();
-                                c.Show();
                                 this.Hide();
-                            }                        
+                            }
                         }
                         catch (Exception ex)
                         {
                             throw new Exception("Não foi possível inserir a cadeira na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
                         }
 
-                    } 
+                    }
                     else
                     {
                         MessageBox.Show("Já existe uma cadeira com esse nome.", "Erro",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
-                   
+
                 }
 
-            } else
+            }
+            else
             {
                 //alterar/ver cadeira (update)
 
@@ -431,14 +430,21 @@ namespace ProjetoFinalBD
                 }
                 finally
                 {
-                    Tarefas tf = new Tarefas();
-                    tf.Show();
-                    this.Hide();
+                    if (returnToCriarTarefa)
+                    {
+                        CriarTarefa.tarefaAtual.Show();
+                        this.Hide();
+                        InfoCadeira.returnToCriarTarefa = false;
+                    }
+                    else
+                    {
+                        this.Hide();
+                    }
                 }
-            
-            cn.Close();
 
-        }
+                cn.Close();
+
+            }
 
             cn.Close();
 
@@ -460,9 +466,7 @@ namespace ProjetoFinalBD
             }
             else
             {
-                FormState.PreviousPage.Show();
                 this.Hide();
-                FormState.PreviousPage = this;
             }
         }
 

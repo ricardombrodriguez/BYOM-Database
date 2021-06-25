@@ -15,6 +15,7 @@ namespace ProjetoFinalBD
     {
         private SqlConnection cn;
         private Dictionary<String, ClasseProfessor> lstProfessores = new Dictionary<String, ClasseProfessor>();
+        private Dictionary<String, ClassePagina> lstPaginas = new Dictionary<String, ClassePagina>();
         private List<String> lstColegas = new List<String>();
         private List<ClasseCadeira> lstCadeiras = new List<ClasseCadeira>();
         public static ClasseGrupo grupoAtual;
@@ -47,7 +48,56 @@ namespace ProjetoFinalBD
                 grupo_cadeira.Enabled = false;
                 ShowProfessores();
                 ShowColegas();
+                ShowPaginas();
 
+            }
+        }
+
+        public void ShowPaginas()
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM PROJETO.Pagina " +
+                "WHERE grupo = @grupo_id ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@grupo_id", grupoAtual.Id);
+            cmd.Connection = cn;
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                lstPaginas.Clear();
+                listboxPaginas.Items.Clear();
+
+                while (reader.Read())
+                {
+                    ClassePagina pagina = new ClassePagina(Convert.ToInt32(reader[0]),
+                                                      reader[1].ToString(),
+                                                      reader[5].ToString(),
+                                                      reader[2].ToString(),
+                                                      Convert.ToInt32(reader[3]),
+                                                      reader[4].ToString(),
+                                                      Convert.ToInt32(reader[6]));
+
+                    if (lstPaginas.ContainsKey(pagina.Titulo) == false)
+                    {
+                        lstPaginas.Add(pagina.Titulo,pagina);
+                        listboxPaginas.Items.Add(pagina.Titulo);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível visualizar as instituições na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
             }
         }
 
@@ -406,6 +456,29 @@ namespace ProjetoFinalBD
                 }
 
                
+            }
+        }
+
+        private void btnAdicionarPágina_Click(object sender, EventArgs e)
+        {
+            CriarPagina.createPagina = true;
+            CriarPagina.createPaginaGrupo = true;
+            CriarPagina.instGrupo = this;
+            CriarPagina pagina = new CriarPagina();
+            pagina.Show();
+        }
+
+        private void listboxPaginas_DoubleClick(object sender, EventArgs e)
+        {
+            if (listboxPaginas.SelectedItem != null)
+            {
+                //mostrar a cadeira
+                CriarPagina.instGrupo = this;
+                CriarPagina.createPagina = false;
+                CriarPagina.createPaginaGrupo = true;
+                CriarPagina.paginaAtual = lstPaginas[listboxPaginas.GetItemText(listboxPaginas.SelectedItem)];
+                CriarPagina inst = new CriarPagina();
+                inst.Show();
             }
         }
     }

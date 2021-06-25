@@ -16,10 +16,12 @@ namespace ProjetoFinalBD
     {
 
         private SqlConnection cn;
-        public static Boolean createPagina;
-        public static Boolean createPaginaCadeira;
+        public static Boolean createPagina = false;
+        public static Boolean createPaginaCadeira = false;
+        public static Boolean createPaginaGrupo = false;
         public static ClassePagina paginaAtual;
         public static Paginas inst;
+        public static CriarGrupo instGrupo;
         public static InfoCadeira instCadeira;
         private Dictionary<String, ClasseCadeira> lstCadeiras = new Dictionary<String, ClasseCadeira>();
 
@@ -38,6 +40,16 @@ namespace ProjetoFinalBD
                 if (createPaginaCadeira)
                 {
                     cadeira.Text = Cadeira.cadeiraAtual.Nome;
+                } 
+                else if (createPaginaGrupo)
+                {
+                    foreach (KeyValuePair<string, ClasseCadeira> entry in lstCadeiras)
+                    {
+                        if (entry.Value.Id == CriarGrupo.grupoAtual.Cadeira)
+                        {
+                            cadeira.Text = entry.Value.Nome;
+                        }
+                    }
                 }
             } else
             {
@@ -153,6 +165,12 @@ namespace ProjetoFinalBD
                     cn.Close();
                     this.Hide();
                 }
+                else if (createPaginaGrupo)
+                {
+                    instGrupo.ShowPaginas();
+                    cn.Close();
+                    this.Hide();
+                }
                 else
                 {
 
@@ -181,40 +199,75 @@ namespace ProjetoFinalBD
                 if (createPagina)
                 {
                     //insert
+                    
 
-                    SqlCommand cmd = new SqlCommand("PROJETO.createPagina", cn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@titulo", titulo.Text);
-                    cmd.Parameters.AddWithValue("@cadeira", lstCadeiras[cadeira.Text].Id);
-                    cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
-           
-                    try
+                    if (createPaginaGrupo)
                     {
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Página " + titulo.Text + " criada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        SqlCommand cmd = new SqlCommand("PROJETO.createPaginaGrupo", cn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@titulo", titulo.Text);
+                        cmd.Parameters.AddWithValue("@cadeira", lstCadeiras[cadeira.Text].Id);
+                        cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
+                        cmd.Parameters.AddWithValue("@grupo", CriarGrupo.grupoAtual.Id);
 
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("Não foi possível inserir a pagina na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
-                    }
-                    finally
-                    {
-                        if (createPaginaCadeira)
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Página de grupo " + titulo.Text + " criada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception("Não foi possível inserir a pagina na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                        }
+                        finally
                         {
                             cn.Close();
                             this.Hide();
-                            instCadeira.showPaginas();
-                        } else
-                        {
-                            cn.Close();
-                            inst.PopulateCadeiras();
-                            inst.ShowPaginas();
-                            this.Hide();
+                            instGrupo.ShowPaginas();
                         }
                     }
-                }   
+                    else
+                    {
+
+                        SqlCommand cmd = new SqlCommand("PROJETO.createPagina", cn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@titulo", titulo.Text);
+                        cmd.Parameters.AddWithValue("@cadeira", lstCadeiras[cadeira.Text].Id);
+                        cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
+
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Página " + titulo.Text + " criada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception("Não foi possível inserir a pagina na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                        }
+                        finally
+                        {
+                            if (createPaginaCadeira)
+                            {
+                                cn.Close();
+                                this.Hide();
+                                instCadeira.showPaginas();
+                            }
+                            else
+                            {
+                                cn.Close();
+                                inst.PopulateCadeiras();
+                                inst.ShowPaginas();
+                                this.Hide();
+                            }
+                        }
+                    }
+
+                }
+                    
                 else {
                     //update 
 

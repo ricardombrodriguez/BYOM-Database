@@ -159,7 +159,7 @@ BEGIN
 
 		INSERT INTO PROJETO.Criador VALUES(@code);
 
-		INSERT INTO PROJETO.Pagina VALUES(@titulo, @aluno, @cadeira, @code, '');
+		INSERT INTO PROJETO.Pagina(titulo,aluno,cadeira,codigo_criador) VALUES(@titulo, @aluno, @cadeira, @code);
 
 		SELECT @id = SCOPE_IDENTITY();
 	COMMIT
@@ -167,7 +167,25 @@ BEGIN
 	SELECT @id AS id, @code AS code
 END
 
-select * from PROJETO.Pagina
+
+CREATE PROCEDURE PROJETO.createPaginaGrupo
+	@titulo VARCHAR(250), @aluno VARCHAR(250), @cadeira INT, @grupo INT
+AS
+BEGIN
+	DECLARE @code VARCHAR(15), @id INT;
+	BEGIN TRANSACTION
+		SELECT @code = PROJETO.getUniqueCode('P');
+
+		INSERT INTO PROJETO.Criador VALUES(@code);
+
+		INSERT INTO PROJETO.Pagina(titulo,aluno,cadeira,codigo_criador,grupo) VALUES(@titulo, @aluno, @cadeira, @code, @grupo);
+
+		SELECT @id = SCOPE_IDENTITY();
+	COMMIT
+
+	SELECT @id AS id, @code AS code
+END
+
 
 -- SP's de DELETE
 CREATE TRIGGER deleteAluno

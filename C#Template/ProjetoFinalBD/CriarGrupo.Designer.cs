@@ -44,6 +44,9 @@ namespace ProjetoFinalBD
             this.button1 = new System.Windows.Forms.Button();
             this.addColega = new System.Windows.Forms.Button();
             this.addOrientador = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnAdicionarPágina = new System.Windows.Forms.Button();
+            this.listboxPaginas = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label4
@@ -111,13 +114,12 @@ namespace ProjetoFinalBD
             // 
             // listboxColegas
             // 
-            this.listboxColegas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.listboxColegas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.listboxColegas.FormattingEnabled = true;
             this.listboxColegas.ItemHeight = 20;
             this.listboxColegas.Location = new System.Drawing.Point(49, 236);
             this.listboxColegas.Name = "listboxColegas";
-            this.listboxColegas.Size = new System.Drawing.Size(504, 244);
+            this.listboxColegas.Size = new System.Drawing.Size(504, 284);
             this.listboxColegas.TabIndex = 29;
             // 
             // label5
@@ -135,20 +137,19 @@ namespace ProjetoFinalBD
             // 
             // listboxOrientadores
             // 
-            this.listboxOrientadores.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listboxOrientadores.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.listboxOrientadores.FormattingEnabled = true;
             this.listboxOrientadores.ItemHeight = 20;
             this.listboxOrientadores.Location = new System.Drawing.Point(586, 236);
             this.listboxOrientadores.Name = "listboxOrientadores";
-            this.listboxOrientadores.Size = new System.Drawing.Size(504, 244);
+            this.listboxOrientadores.Size = new System.Drawing.Size(504, 284);
             this.listboxOrientadores.TabIndex = 31;
             this.listboxOrientadores.DoubleClick += new System.EventHandler(this.listboxOrientadores_DoubleClick);
             // 
             // remColega
             // 
-            this.remColega.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.remColega.Location = new System.Drawing.Point(306, 496);
+            this.remColega.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.remColega.Location = new System.Drawing.Point(306, 536);
             this.remColega.Name = "remColega";
             this.remColega.Size = new System.Drawing.Size(247, 54);
             this.remColega.TabIndex = 33;
@@ -158,8 +159,8 @@ namespace ProjetoFinalBD
             // 
             // remOrientador
             // 
-            this.remOrientador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.remOrientador.Location = new System.Drawing.Point(843, 496);
+            this.remOrientador.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.remOrientador.Location = new System.Drawing.Point(843, 537);
             this.remOrientador.Name = "remOrientador";
             this.remOrientador.Size = new System.Drawing.Size(247, 54);
             this.remOrientador.TabIndex = 34;
@@ -170,7 +171,7 @@ namespace ProjetoFinalBD
             // btnGuardarGrupo
             // 
             this.btnGuardarGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardarGrupo.Location = new System.Drawing.Point(918, 585);
+            this.btnGuardarGrupo.Location = new System.Drawing.Point(918, 959);
             this.btnGuardarGrupo.Name = "btnGuardarGrupo";
             this.btnGuardarGrupo.Size = new System.Drawing.Size(172, 49);
             this.btnGuardarGrupo.TabIndex = 37;
@@ -193,8 +194,8 @@ namespace ProjetoFinalBD
             // 
             // addColega
             // 
-            this.addColega.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addColega.Location = new System.Drawing.Point(49, 496);
+            this.addColega.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.addColega.Location = new System.Drawing.Point(49, 537);
             this.addColega.Name = "addColega";
             this.addColega.Size = new System.Drawing.Size(247, 53);
             this.addColega.TabIndex = 40;
@@ -204,8 +205,8 @@ namespace ProjetoFinalBD
             // 
             // addOrientador
             // 
-            this.addOrientador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addOrientador.Location = new System.Drawing.Point(590, 496);
+            this.addOrientador.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.addOrientador.Location = new System.Drawing.Point(586, 536);
             this.addOrientador.Name = "addOrientador";
             this.addOrientador.Size = new System.Drawing.Size(247, 54);
             this.addOrientador.TabIndex = 41;
@@ -213,12 +214,49 @@ namespace ProjetoFinalBD
             this.addOrientador.UseVisualStyleBackColor = true;
             this.addOrientador.Click += new System.EventHandler(this.addOrientador_Click);
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.label1.Location = new System.Drawing.Point(49, 622);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 20);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "Páginas no grupo:";
+            // 
+            // btnAdicionarPágina
+            // 
+            this.btnAdicionarPágina.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAdicionarPágina.Location = new System.Drawing.Point(49, 914);
+            this.btnAdicionarPágina.Name = "btnAdicionarPágina";
+            this.btnAdicionarPágina.Size = new System.Drawing.Size(247, 53);
+            this.btnAdicionarPágina.TabIndex = 44;
+            this.btnAdicionarPágina.Text = "Adicionar página";
+            this.btnAdicionarPágina.UseVisualStyleBackColor = true;
+            this.btnAdicionarPágina.Click += new System.EventHandler(this.btnAdicionarPágina_Click);
+            // 
+            // listboxPaginas
+            // 
+            this.listboxPaginas.FormattingEnabled = true;
+            this.listboxPaginas.ItemHeight = 20;
+            this.listboxPaginas.Location = new System.Drawing.Point(49, 654);
+            this.listboxPaginas.Name = "listboxPaginas";
+            this.listboxPaginas.Size = new System.Drawing.Size(1041, 244);
+            this.listboxPaginas.TabIndex = 45;
+            this.listboxPaginas.DoubleClick += new System.EventHandler(this.listboxPaginas_DoubleClick);
+            // 
             // CriarGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(1126, 659);
+            this.ClientSize = new System.Drawing.Size(1126, 1033);
+            this.Controls.Add(this.listboxPaginas);
+            this.Controls.Add(this.btnAdicionarPágina);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.addOrientador);
             this.Controls.Add(this.addColega);
             this.Controls.Add(this.button1);
@@ -260,5 +298,8 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button addColega;
         private System.Windows.Forms.Button addOrientador;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAdicionarPágina;
+        private System.Windows.Forms.ListBox listboxPaginas;
     }
 }

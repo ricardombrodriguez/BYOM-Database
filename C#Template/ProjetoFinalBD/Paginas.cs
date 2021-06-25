@@ -50,8 +50,8 @@ namespace ProjetoFinalBD
 
                 while (reader.Read())
                 {
-                    ClasseCadeira inst = new ClasseCadeira(Convert.ToInt32(reader[6]),
-                                                            reader[7].ToString());
+                    ClasseCadeira inst = new ClasseCadeira(Convert.ToInt32(reader[7]),
+                                                            reader["nome"].ToString());
 
                     if (lstCadeiras.ContainsKey(inst.Nome) == false)
                     {

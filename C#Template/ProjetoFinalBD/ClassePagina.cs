@@ -14,6 +14,7 @@ namespace ProjetoFinalBD
         private String aluno;
         private int cadeira;
         private String codigo_criador;
+        private int grupo;
 
         public ClassePagina(int id, string titulo, string texto, string aluno, int cadeira, string codigo_criador)
         {
@@ -23,6 +24,11 @@ namespace ProjetoFinalBD
             this.aluno = aluno;
             this.cadeira = cadeira;
             this.codigo_criador = codigo_criador;
+        }
+
+        public ClassePagina(int id, string titulo, string texto, string aluno, int cadeira, string codigo_criador, int grupo) : this(id, titulo, texto, aluno, cadeira, codigo_criador)
+        {
+            this.grupo = grupo;
         }
 
         public int Id { get => id; set => id = value; }

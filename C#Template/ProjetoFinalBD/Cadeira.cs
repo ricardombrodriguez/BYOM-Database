@@ -281,10 +281,9 @@ namespace ProjetoFinalBD
             
             if (listboxCadeiras.SelectedItem != null)
             {
-                
-                InfoCadeira inst = new InfoCadeira();
                 Cadeira.criarCadeira = false;
                 Cadeira.cadeiraAtual = lstCadeiras[listboxCadeiras.SelectedIndex];
+                InfoCadeira inst = new InfoCadeira();
                 inst.Show();
             }
         }
