@@ -54,9 +54,10 @@ namespace ProjetoFinalBD
                     return;
 
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "SELECT * FROM PROJETO.getTarefasSemanaByDia(@dia) WHERE completada_ts IS NULL " + order;
+                cmd.CommandText = "SELECT * FROM PROJETO.getTarefasSemanaByDia(@dia) WHERE completada_ts IS NULL AND aluno = @aluno " + order;
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@dia", day);
+                cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
                 cmd.Connection = cn;
 
                 int c = 0;
