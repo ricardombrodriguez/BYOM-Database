@@ -48,7 +48,6 @@ namespace ProjetoFinalBD
             this.panel3 = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnEditarCadeira = new System.Windows.Forms.Button();
             this.listboxCadeiras = new System.Windows.Forms.ListBox();
             this.btnCriarCadeira = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -285,7 +284,6 @@ namespace ProjetoFinalBD
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.btnEditarCadeira);
             this.panel2.Controls.Add(this.listboxCadeiras);
             this.panel2.Controls.Add(this.btnCriarCadeira);
             this.panel2.Controls.Add(this.label2);
@@ -293,21 +291,6 @@ namespace ProjetoFinalBD
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1698, 1033);
             this.panel2.TabIndex = 1;
-            // 
-            // btnEditarCadeira
-            // 
-            this.btnEditarCadeira.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditarCadeira.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEditarCadeira.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditarCadeira.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditarCadeira.ForeColor = System.Drawing.Color.White;
-            this.btnEditarCadeira.Location = new System.Drawing.Point(1190, 9);
-            this.btnEditarCadeira.Name = "btnEditarCadeira";
-            this.btnEditarCadeira.Size = new System.Drawing.Size(234, 31);
-            this.btnEditarCadeira.TabIndex = 3;
-            this.btnEditarCadeira.Text = "Editar cadeira";
-            this.btnEditarCadeira.UseVisualStyleBackColor = true;
-            this.btnEditarCadeira.Click += new System.EventHandler(this.btnEditarCadeira_Click);
             // 
             // listboxCadeiras
             // 
@@ -320,6 +303,7 @@ namespace ProjetoFinalBD
             this.listboxCadeiras.Name = "listboxCadeiras";
             this.listboxCadeiras.Size = new System.Drawing.Size(1643, 901);
             this.listboxCadeiras.TabIndex = 2;
+            this.listboxCadeiras.DoubleClick += new System.EventHandler(this.listboxCadeiras_DoubleClick);
             // 
             // btnCriarCadeira
             // 
@@ -328,9 +312,9 @@ namespace ProjetoFinalBD
             this.btnCriarCadeira.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCriarCadeira.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCriarCadeira.ForeColor = System.Drawing.Color.White;
-            this.btnCriarCadeira.Location = new System.Drawing.Point(1440, 9);
+            this.btnCriarCadeira.Location = new System.Drawing.Point(1374, 30);
             this.btnCriarCadeira.Name = "btnCriarCadeira";
-            this.btnCriarCadeira.Size = new System.Drawing.Size(234, 31);
+            this.btnCriarCadeira.Size = new System.Drawing.Size(290, 51);
             this.btnCriarCadeira.TabIndex = 1;
             this.btnCriarCadeira.Text = "+ Criar cadeira";
             this.btnCriarCadeira.UseVisualStyleBackColor = true;
@@ -397,7 +381,6 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Label lblTarefas;
         private System.Windows.Forms.Button btnTarefas;
         private System.Windows.Forms.ListBox listboxCadeiras;
-        private System.Windows.Forms.Button btnEditarCadeira;
     }
 }
 

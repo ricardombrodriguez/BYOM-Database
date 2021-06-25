@@ -273,27 +273,15 @@ namespace ProjetoFinalBD
 
         private void listboxCadeiras_DoubleClick(object sender, EventArgs e)
         {
-            
-            if (listboxCadeiras.SelectedItem != null)
-            {
-                
-                InfoCadeira inst = new InfoCadeira();
-                Cadeira.criarCadeira = false;
-                Cadeira.cadeiraAtual = lstCadeiras[listboxCadeiras.SelectedIndex];
-                inst.Show();
-            }
-        }
-
-        private void btnEditarCadeira_Click(object sender, EventArgs e)
-        {
             if (listboxCadeiras.SelectedIndex >= 0)
             {
                 Cadeira.criarCadeira = false;
                 Cadeira.cadeiraAtual = lstCadeiras[listboxCadeiras.SelectedIndex];
-                InfoCadeira inst = new InfoCadeira();                
+                InfoCadeira inst = new InfoCadeira();
                 inst.Show();
                 FormState.PreviousPage = this;
             }
         }
+
     }
 }
