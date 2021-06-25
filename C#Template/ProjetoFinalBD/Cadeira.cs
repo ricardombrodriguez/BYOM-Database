@@ -289,7 +289,7 @@ namespace ProjetoFinalBD
             }
         }
 
-        private void listboxCadeiras_DoubleClick_1(object sender, EventArgs e)
+        private void btnEditarCadeira_Click(object sender, EventArgs e)
         {
             if (listboxCadeiras.SelectedIndex >= 0)
             {
@@ -442,5 +442,6 @@ namespace ProjetoFinalBD
 
             showCadeiras();
         }
+
     }
 }
