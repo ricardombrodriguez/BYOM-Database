@@ -15,10 +15,12 @@ namespace ProjetoFinalBD
     public partial class InfoCadeira: Form
     {
         private SqlConnection cn;
+        public static InfoCadeira instCadeira;
         private Dictionary<String,ClasseInstituicao> lstInstituicoes;
         private Dictionary<String, ClasseTarefa> lstTarefas;
         private Dictionary<String, ClassePagina> lstPaginas;
         private Dictionary<String, ClasseProfessor> lstProfessores;
+        private Dictionary<string, ClasseFicheiro> lstFicheiros = new Dictionary<string, ClasseFicheiro>();
         public static bool returnToCriarTarefa = false;
 
  
@@ -37,17 +39,66 @@ namespace ProjetoFinalBD
                 label7.Visible = false;
                 label8.Visible = false;
                 label9.Visible = false;
+                label5.Visible = false;
                 btnAdicionarPagina.Visible = false;
                 btnAdicionarTarefa.Visible = false;
                 btnAdicionarProfessor.Visible = false;
                 btnAdicionarPagina.Visible = false;
+                btnAdicionarFicheiro.Visible = false;
+                listboxFicheiros.Visible = false;
+
             } else
             {
                 LoadCadeiraInfo();
                 showTarefas();
                 showPaginas();
                 showProfessores();
+                ShowFicheiros();
             }
+        }
+
+        public void ShowFicheiros()
+        {
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT * FROM PROJETO.Ficheiro WHERE codigo_criador = @codigo_criador";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@codigo_criador", Cadeira.cadeiraAtual.Codigo_criador);
+            command.Connection = cn;
+
+            lstFicheiros.Clear();
+
+            try
+            {
+                SqlDataReader reader = command.ExecuteReader();
+                listboxFicheiros.Items.Clear();
+
+                while (reader.Read())
+                {
+                    ClasseFicheiro inst = new ClasseFicheiro(Convert.ToInt32(reader["id"]),
+                                                            reader["nome"].ToString(),
+                                                            reader["localizacao"].ToString(),
+                                                            reader["aluno"].ToString(),
+                                                            reader["codigo_criador"].ToString());
+
+                    lstFicheiros.Add(inst.Nome, inst);
+                    listboxFicheiros.Items.Add(inst.Nome);
+                }
+
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Falha ao carregar as acdeiras da base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+
+            }
+
+            cn.Close();
         }
 
         private void LoadCadeiraInfo()
@@ -452,9 +503,7 @@ namespace ProjetoFinalBD
 
         private void btnApagarCadeira_Click(object sender, EventArgs e)
         {
-            FormState.PreviousPage.Show();
             this.Hide();
-            FormState.PreviousPage = this;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -534,6 +583,31 @@ namespace ProjetoFinalBD
                 CriarProfessor.createProfessor = false;
                 CriarProfessor.professorAtual = lstProfessores[listaProfessores.GetItemText(listaProfessores.SelectedItem)];
                 CriarProfessor inst = new CriarProfessor();
+                inst.Show();
+            }
+        }
+
+        private void btnAdicionarFicheiro_Click(object sender, EventArgs e)
+        {
+
+            instCadeira = this;
+            CriarFicheiro.createFicheiro = true;
+            CriarFicheiro.createFicheiroCadeira = true;
+            CriarFicheiro.codigo_criador = Cadeira.cadeiraAtual.Codigo_criador;
+
+            CriarFicheiro inst = new CriarFicheiro();
+            inst.Show();
+        }
+
+        private void listboxFicheiros_DoubleClick(object sender, EventArgs e)
+        {
+            if (listboxFicheiros.SelectedItem != null)
+            {
+                instCadeira = this;
+                CriarFicheiro.createFicheiro = false;
+                CriarFicheiro.createFicheiroCadeira = true;
+                CriarFicheiro.ficheiroAtual = lstFicheiros[listboxFicheiros.GetItemText(listboxFicheiros.SelectedItem)];
+                CriarFicheiro inst = new CriarFicheiro();
                 inst.Show();
             }
         }

@@ -54,6 +54,9 @@ namespace ProjetoFinalBD
             this.instituicoes = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
+            this.listboxFicheiros = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnAdicionarFicheiro = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nome
@@ -160,7 +163,7 @@ namespace ProjetoFinalBD
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.label8.Location = new System.Drawing.Point(666, 277);
+            this.label8.Location = new System.Drawing.Point(518, 276);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(110, 27);
             this.label8.TabIndex = 17;
@@ -171,7 +174,7 @@ namespace ProjetoFinalBD
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.label9.Location = new System.Drawing.Point(1274, 273);
+            this.label9.Location = new System.Drawing.Point(970, 270);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(166, 27);
             this.label9.TabIndex = 18;
@@ -180,7 +183,7 @@ namespace ProjetoFinalBD
             // btnApagarCadeira
             // 
             this.btnApagarCadeira.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApagarCadeira.Location = new System.Drawing.Point(1462, 950);
+            this.btnApagarCadeira.Location = new System.Drawing.Point(1441, 950);
             this.btnApagarCadeira.Name = "btnApagarCadeira";
             this.btnApagarCadeira.Size = new System.Drawing.Size(192, 57);
             this.btnApagarCadeira.TabIndex = 22;
@@ -191,7 +194,7 @@ namespace ProjetoFinalBD
             // btnGuardarCadeira
             // 
             this.btnGuardarCadeira.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardarCadeira.Location = new System.Drawing.Point(1671, 950);
+            this.btnGuardarCadeira.Location = new System.Drawing.Point(1655, 950);
             this.btnGuardarCadeira.Name = "btnGuardarCadeira";
             this.btnGuardarCadeira.Size = new System.Drawing.Size(181, 57);
             this.btnGuardarCadeira.TabIndex = 21;
@@ -205,7 +208,7 @@ namespace ProjetoFinalBD
             this.btnAdicionarPagina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionarPagina.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAdicionarPagina.ForeColor = System.Drawing.Color.White;
-            this.btnAdicionarPagina.Location = new System.Drawing.Point(471, 272);
+            this.btnAdicionarPagina.Location = new System.Drawing.Point(311, 270);
             this.btnAdicionarPagina.Name = "btnAdicionarPagina";
             this.btnAdicionarPagina.Size = new System.Drawing.Size(171, 30);
             this.btnAdicionarPagina.TabIndex = 23;
@@ -219,7 +222,7 @@ namespace ProjetoFinalBD
             this.btnAdicionarTarefa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionarTarefa.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAdicionarTarefa.ForeColor = System.Drawing.Color.White;
-            this.btnAdicionarTarefa.Location = new System.Drawing.Point(1075, 272);
+            this.btnAdicionarTarefa.Location = new System.Drawing.Point(767, 270);
             this.btnAdicionarTarefa.Name = "btnAdicionarTarefa";
             this.btnAdicionarTarefa.Size = new System.Drawing.Size(171, 31);
             this.btnAdicionarTarefa.TabIndex = 24;
@@ -245,11 +248,11 @@ namespace ProjetoFinalBD
             this.btnAdicionarProfessor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionarProfessor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAdicionarProfessor.ForeColor = System.Drawing.Color.White;
-            this.btnAdicionarProfessor.Location = new System.Drawing.Point(1683, 275);
+            this.btnAdicionarProfessor.Location = new System.Drawing.Point(1203, 271);
             this.btnAdicionarProfessor.Name = "btnAdicionarProfessor";
-            this.btnAdicionarProfessor.Size = new System.Drawing.Size(171, 28);
+            this.btnAdicionarProfessor.Size = new System.Drawing.Size(187, 28);
             this.btnAdicionarProfessor.TabIndex = 26;
-            this.btnAdicionarProfessor.Text = "- Adicionar professor";
+            this.btnAdicionarProfessor.Text = "+ Adicionar professor";
             this.btnAdicionarProfessor.UseVisualStyleBackColor = true;
             this.btnAdicionarProfessor.Click += new System.EventHandler(this.btnAdicionarProfessor_Click);
             // 
@@ -259,7 +262,7 @@ namespace ProjetoFinalBD
             this.listaPaginas.ItemHeight = 20;
             this.listaPaginas.Location = new System.Drawing.Point(62, 312);
             this.listaPaginas.Name = "listaPaginas";
-            this.listaPaginas.Size = new System.Drawing.Size(580, 544);
+            this.listaPaginas.Size = new System.Drawing.Size(420, 544);
             this.listaPaginas.TabIndex = 30;
             this.listaPaginas.DoubleClick += new System.EventHandler(this.listaPaginas_DoubleClick);
             // 
@@ -267,9 +270,9 @@ namespace ProjetoFinalBD
             // 
             this.listaTarefas.FormattingEnabled = true;
             this.listaTarefas.ItemHeight = 20;
-            this.listaTarefas.Location = new System.Drawing.Point(666, 312);
+            this.listaTarefas.Location = new System.Drawing.Point(518, 312);
             this.listaTarefas.Name = "listaTarefas";
-            this.listaTarefas.Size = new System.Drawing.Size(580, 544);
+            this.listaTarefas.Size = new System.Drawing.Size(420, 544);
             this.listaTarefas.TabIndex = 31;
             this.listaTarefas.DoubleClick += new System.EventHandler(this.listaTarefas_DoubleClick);
             // 
@@ -277,9 +280,9 @@ namespace ProjetoFinalBD
             // 
             this.listaProfessores.FormattingEnabled = true;
             this.listaProfessores.ItemHeight = 20;
-            this.listaProfessores.Location = new System.Drawing.Point(1274, 311);
+            this.listaProfessores.Location = new System.Drawing.Point(970, 312);
             this.listaProfessores.Name = "listaProfessores";
-            this.listaProfessores.Size = new System.Drawing.Size(580, 544);
+            this.listaProfessores.Size = new System.Drawing.Size(420, 544);
             this.listaProfessores.TabIndex = 32;
             this.listaProfessores.DoubleClick += new System.EventHandler(this.listaProfessores_DoubleClick);
             // 
@@ -326,12 +329,50 @@ namespace ProjetoFinalBD
             this.label10.TabIndex = 9;
             this.label10.Text = "Semestre";
             // 
+            // listboxFicheiros
+            // 
+            this.listboxFicheiros.FormattingEnabled = true;
+            this.listboxFicheiros.ItemHeight = 20;
+            this.listboxFicheiros.Location = new System.Drawing.Point(1416, 312);
+            this.listboxFicheiros.Name = "listboxFicheiros";
+            this.listboxFicheiros.Size = new System.Drawing.Size(420, 544);
+            this.listboxFicheiros.TabIndex = 44;
+            this.listboxFicheiros.DoubleClick += new System.EventHandler(this.listboxFicheiros_DoubleClick);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.label5.Location = new System.Drawing.Point(1416, 270);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(131, 27);
+            this.label5.TabIndex = 45;
+            this.label5.Text = "FICHEIROS:";
+            // 
+            // btnAdicionarFicheiro
+            // 
+            this.btnAdicionarFicheiro.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAdicionarFicheiro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdicionarFicheiro.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdicionarFicheiro.ForeColor = System.Drawing.Color.White;
+            this.btnAdicionarFicheiro.Location = new System.Drawing.Point(1649, 271);
+            this.btnAdicionarFicheiro.Name = "btnAdicionarFicheiro";
+            this.btnAdicionarFicheiro.Size = new System.Drawing.Size(187, 28);
+            this.btnAdicionarFicheiro.TabIndex = 46;
+            this.btnAdicionarFicheiro.Text = "+ Adicionar ficheiro";
+            this.btnAdicionarFicheiro.UseVisualStyleBackColor = true;
+            this.btnAdicionarFicheiro.Click += new System.EventHandler(this.btnAdicionarFicheiro_Click);
+            // 
             // InfoCadeira
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.Controls.Add(this.btnAdicionarFicheiro);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.listboxFicheiros);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.instituicoes);
             this.Controls.Add(this.label11);
@@ -394,5 +435,8 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.ComboBox instituicoes;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ListBox listboxFicheiros;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnAdicionarFicheiro;
     }
 }

@@ -95,9 +95,9 @@ namespace ProjetoFinalBD
                     cn.Close();
 
                     if (createFicheiroTarefa) CriarTarefa.instTarefa.ShowFicheiros();
-                    //if (createFicheiroGrupo) CriarGrupo.instGrupo.ShowFicheiros();
+                    if (createFicheiroGrupo) CriarGrupo.instGrupo.ShowFicheiros();
                     if (createFicheiroPagina) CriarPagina.instPagina.ShowFicheiros();
-                    //if (createFicheiroCadeira) InfoCadeira.instCadeira.ShowFicheiros();
+                    if (createFicheiroCadeira) InfoCadeira.instCadeira.ShowFicheiros();
 
                     this.Hide();
 
@@ -134,9 +134,9 @@ namespace ProjetoFinalBD
                 cn.Close();
 
                 if (createFicheiroTarefa) CriarTarefa.instTarefa.ShowFicheiros();
-                //if (createFicheiroGrupo) CriarGrupo.instGrupo.ShowFicheiros();
+                if (createFicheiroGrupo) CriarGrupo.instGrupo.ShowFicheiros();
                 if (createFicheiroPagina) CriarPagina.instPagina.ShowFicheiros();
-                //if (createFicheiroCadeira) InfoCadeira.instCadeira.ShowFicheiros();
+                if (createFicheiroCadeira) InfoCadeira.instCadeira.ShowFicheiros();
 
                 this.Hide();
             }

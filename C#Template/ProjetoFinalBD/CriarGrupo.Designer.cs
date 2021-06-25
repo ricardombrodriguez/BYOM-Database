@@ -47,6 +47,9 @@ namespace ProjetoFinalBD
             this.label1 = new System.Windows.Forms.Label();
             this.btnAdicionarPágina = new System.Windows.Forms.Button();
             this.listboxPaginas = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.listboxFicheiros = new System.Windows.Forms.ListBox();
+            this.btnAdicionarFicheiro = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label4
@@ -244,9 +247,43 @@ namespace ProjetoFinalBD
             this.listboxPaginas.ItemHeight = 20;
             this.listboxPaginas.Location = new System.Drawing.Point(49, 654);
             this.listboxPaginas.Name = "listboxPaginas";
-            this.listboxPaginas.Size = new System.Drawing.Size(1041, 244);
+            this.listboxPaginas.Size = new System.Drawing.Size(504, 244);
             this.listboxPaginas.TabIndex = 45;
             this.listboxPaginas.DoubleClick += new System.EventHandler(this.listboxPaginas_DoubleClick);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.label2.Location = new System.Drawing.Point(586, 622);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(157, 20);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "Ficheiros associados";
+            // 
+            // listboxFicheiros
+            // 
+            this.listboxFicheiros.FormattingEnabled = true;
+            this.listboxFicheiros.ItemHeight = 20;
+            this.listboxFicheiros.Location = new System.Drawing.Point(586, 654);
+            this.listboxFicheiros.Name = "listboxFicheiros";
+            this.listboxFicheiros.Size = new System.Drawing.Size(504, 244);
+            this.listboxFicheiros.TabIndex = 47;
+            this.listboxFicheiros.DoubleClick += new System.EventHandler(this.listboxFicheiros_DoubleClick);
+            // 
+            // btnAdicionarFicheiro
+            // 
+            this.btnAdicionarFicheiro.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAdicionarFicheiro.Location = new System.Drawing.Point(586, 914);
+            this.btnAdicionarFicheiro.Name = "btnAdicionarFicheiro";
+            this.btnAdicionarFicheiro.Size = new System.Drawing.Size(247, 53);
+            this.btnAdicionarFicheiro.TabIndex = 48;
+            this.btnAdicionarFicheiro.Text = "Adicionar ficheiro";
+            this.btnAdicionarFicheiro.UseVisualStyleBackColor = true;
+            this.btnAdicionarFicheiro.Click += new System.EventHandler(this.btnAdicionarFicheiro_Click);
             // 
             // CriarGrupo
             // 
@@ -254,6 +291,9 @@ namespace ProjetoFinalBD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(1126, 1033);
+            this.Controls.Add(this.btnAdicionarFicheiro);
+            this.Controls.Add(this.listboxFicheiros);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.listboxPaginas);
             this.Controls.Add(this.btnAdicionarPágina);
             this.Controls.Add(this.label1);
@@ -301,5 +341,8 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAdicionarPágina;
         private System.Windows.Forms.ListBox listboxPaginas;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListBox listboxFicheiros;
+        private System.Windows.Forms.Button btnAdicionarFicheiro;
     }
 }
