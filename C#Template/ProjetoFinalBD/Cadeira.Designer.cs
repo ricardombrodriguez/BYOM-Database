@@ -48,7 +48,17 @@ namespace ProjetoFinalBD
             this.panel3 = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnEditarCadeira = new System.Windows.Forms.Button();
+            this.btnProcurar = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.comboSemestre = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboInstituicao = new System.Windows.Forms.ComboBox();
+            this.comboAno = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.filtroNome = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.checkRealizada = new System.Windows.Forms.CheckBox();
             this.listboxCadeiras = new System.Windows.Forms.ListBox();
             this.btnCriarCadeira = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,6 +66,7 @@ namespace ProjetoFinalBD
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -88,7 +99,7 @@ namespace ProjetoFinalBD
             this.lblTarefas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblTarefas.Location = new System.Drawing.Point(65, 479);
             this.lblTarefas.Name = "lblTarefas";
-            this.lblTarefas.Size = new System.Drawing.Size(79, 23);
+            this.lblTarefas.Size = new System.Drawing.Size(127, 39);
             this.lblTarefas.TabIndex = 23;
             this.lblTarefas.Text = "Tarefas";
             this.lblTarefas.Click += new System.EventHandler(this.lblTarefas_Click);
@@ -113,7 +124,7 @@ namespace ProjetoFinalBD
             this.lblInstituicoes.AutoSize = true;
             this.lblInstituicoes.Location = new System.Drawing.Point(51, 409);
             this.lblInstituicoes.Name = "lblInstituicoes";
-            this.lblInstituicoes.Size = new System.Drawing.Size(114, 23);
+            this.lblInstituicoes.Size = new System.Drawing.Size(185, 39);
             this.lblInstituicoes.TabIndex = 18;
             this.lblInstituicoes.Text = "Instituições";
             this.lblInstituicoes.Click += new System.EventHandler(this.lblInstituicoes_Click);
@@ -140,7 +151,7 @@ namespace ProjetoFinalBD
             this.label14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label14.Location = new System.Drawing.Point(77, 129);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(69, 23);
+            this.label14.Size = new System.Drawing.Size(111, 39);
             this.label14.TabIndex = 12;
             this.label14.Text = "Home";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -154,7 +165,7 @@ namespace ProjetoFinalBD
             this.lblHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblHome.Location = new System.Drawing.Point(77, 129);
             this.lblHome.Name = "lblHome";
-            this.lblHome.Size = new System.Drawing.Size(69, 23);
+            this.lblHome.Size = new System.Drawing.Size(111, 39);
             this.lblHome.TabIndex = 12;
             this.lblHome.Text = "Home";
             this.lblHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -165,7 +176,7 @@ namespace ProjetoFinalBD
             this.lblGrupos.AutoSize = true;
             this.lblGrupos.Location = new System.Drawing.Point(66, 340);
             this.lblGrupos.Name = "lblGrupos";
-            this.lblGrupos.Size = new System.Drawing.Size(80, 23);
+            this.lblGrupos.Size = new System.Drawing.Size(129, 39);
             this.lblGrupos.TabIndex = 14;
             this.lblGrupos.Text = "Grupos";
             this.lblGrupos.Click += new System.EventHandler(this.lblGrupos_Click);
@@ -176,7 +187,7 @@ namespace ProjetoFinalBD
             this.lblPaginas.AutoSize = true;
             this.lblPaginas.Location = new System.Drawing.Point(67, 270);
             this.lblPaginas.Name = "lblPaginas";
-            this.lblPaginas.Size = new System.Drawing.Size(86, 23);
+            this.lblPaginas.Size = new System.Drawing.Size(141, 39);
             this.lblPaginas.TabIndex = 12;
             this.lblPaginas.Text = "Páginas";
             this.lblPaginas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -190,7 +201,7 @@ namespace ProjetoFinalBD
             this.lblCadeiras.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblCadeiras.Location = new System.Drawing.Point(60, 200);
             this.lblCadeiras.Name = "lblCadeiras";
-            this.lblCadeiras.Size = new System.Drawing.Size(98, 23);
+            this.lblCadeiras.Size = new System.Drawing.Size(159, 39);
             this.lblCadeiras.TabIndex = 13;
             this.lblCadeiras.Text = "Cadeiras";
             this.lblCadeiras.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -285,7 +296,8 @@ namespace ProjetoFinalBD
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.btnEditarCadeira);
+            this.panel2.Controls.Add(this.btnProcurar);
+            this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.listboxCadeiras);
             this.panel2.Controls.Add(this.btnCriarCadeira);
             this.panel2.Controls.Add(this.label2);
@@ -294,20 +306,125 @@ namespace ProjetoFinalBD
             this.panel2.Size = new System.Drawing.Size(1698, 1033);
             this.panel2.TabIndex = 1;
             // 
-            // btnEditarCadeira
+            // btnProcurar
             // 
-            this.btnEditarCadeira.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditarCadeira.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEditarCadeira.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditarCadeira.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditarCadeira.ForeColor = System.Drawing.Color.White;
-            this.btnEditarCadeira.Location = new System.Drawing.Point(1190, 9);
-            this.btnEditarCadeira.Name = "btnEditarCadeira";
-            this.btnEditarCadeira.Size = new System.Drawing.Size(234, 31);
-            this.btnEditarCadeira.TabIndex = 3;
-            this.btnEditarCadeira.Text = "Editar cadeira";
-            this.btnEditarCadeira.UseVisualStyleBackColor = true;
-            this.btnEditarCadeira.Click += new System.EventHandler(this.btnEditarCadeira_Click);
+            this.btnProcurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProcurar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnProcurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProcurar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnProcurar.ForeColor = System.Drawing.Color.White;
+            this.btnProcurar.Location = new System.Drawing.Point(1373, 166);
+            this.btnProcurar.Name = "btnProcurar";
+            this.btnProcurar.Size = new System.Drawing.Size(249, 40);
+            this.btnProcurar.TabIndex = 57;
+            this.btnProcurar.Text = "Pesquisar";
+            this.btnProcurar.UseVisualStyleBackColor = true;
+            this.btnProcurar.Click += new System.EventHandler(this.btnProcurar_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.comboSemestre);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.comboInstituicao);
+            this.panel4.Controls.Add(this.comboAno);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.filtroNome);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.checkRealizada);
+            this.panel4.Location = new System.Drawing.Point(620, 62);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1044, 125);
+            this.panel4.TabIndex = 56;
+            // 
+            // comboSemestre
+            // 
+            this.comboSemestre.FormattingEnabled = true;
+            this.comboSemestre.Location = new System.Drawing.Point(506, 77);
+            this.comboSemestre.Name = "comboSemestre";
+            this.comboSemestre.Size = new System.Drawing.Size(121, 47);
+            this.comboSemestre.TabIndex = 55;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(324, 77);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(176, 39);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "Semestre: ";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(556, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(192, 39);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Instituição: ";
+            // 
+            // comboInstituicao
+            // 
+            this.comboInstituicao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboInstituicao.FormattingEnabled = true;
+            this.comboInstituicao.Location = new System.Drawing.Point(671, 9);
+            this.comboInstituicao.Name = "comboInstituicao";
+            this.comboInstituicao.Size = new System.Drawing.Size(359, 47);
+            this.comboInstituicao.TabIndex = 53;
+            // 
+            // comboAno
+            // 
+            this.comboAno.FormattingEnabled = true;
+            this.comboAno.Location = new System.Drawing.Point(178, 77);
+            this.comboAno.Name = "comboAno";
+            this.comboAno.Size = new System.Drawing.Size(121, 47);
+            this.comboAno.TabIndex = 52;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(18, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 39);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Ano: ";
+            // 
+            // filtroNome
+            // 
+            this.filtroNome.Location = new System.Drawing.Point(178, 11);
+            this.filtroNome.Name = "filtroNome";
+            this.filtroNome.PlaceholderText = "Procurar por nome";
+            this.filtroNome.Size = new System.Drawing.Size(359, 47);
+            this.filtroNome.TabIndex = 49;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(131, 39);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Nome: ";
+            // 
+            // checkRealizada
+            // 
+            this.checkRealizada.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkRealizada.AutoSize = true;
+            this.checkRealizada.Location = new System.Drawing.Point(2752, 12);
+            this.checkRealizada.Name = "checkRealizada";
+            this.checkRealizada.Size = new System.Drawing.Size(204, 43);
+            this.checkRealizada.TabIndex = 0;
+            this.checkRealizada.Text = "Realizada";
+            this.checkRealizada.UseVisualStyleBackColor = true;
             // 
             // listboxCadeiras
             // 
@@ -315,11 +432,12 @@ namespace ProjetoFinalBD
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listboxCadeiras.FormattingEnabled = true;
-            this.listboxCadeiras.ItemHeight = 23;
-            this.listboxCadeiras.Location = new System.Drawing.Point(21, 99);
+            this.listboxCadeiras.ItemHeight = 39;
+            this.listboxCadeiras.Location = new System.Drawing.Point(21, 216);
             this.listboxCadeiras.Name = "listboxCadeiras";
-            this.listboxCadeiras.Size = new System.Drawing.Size(1643, 901);
+            this.listboxCadeiras.Size = new System.Drawing.Size(1643, 784);
             this.listboxCadeiras.TabIndex = 2;
+            this.listboxCadeiras.DoubleClick += new System.EventHandler(this.listboxCadeiras_DoubleClick_1);
             // 
             // btnCriarCadeira
             // 
@@ -328,9 +446,9 @@ namespace ProjetoFinalBD
             this.btnCriarCadeira.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCriarCadeira.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCriarCadeira.ForeColor = System.Drawing.Color.White;
-            this.btnCriarCadeira.Location = new System.Drawing.Point(1440, 9);
+            this.btnCriarCadeira.Location = new System.Drawing.Point(1430, 9);
             this.btnCriarCadeira.Name = "btnCriarCadeira";
-            this.btnCriarCadeira.Size = new System.Drawing.Size(234, 31);
+            this.btnCriarCadeira.Size = new System.Drawing.Size(234, 47);
             this.btnCriarCadeira.TabIndex = 1;
             this.btnCriarCadeira.Text = "+ Criar cadeira";
             this.btnCriarCadeira.UseVisualStyleBackColor = true;
@@ -344,7 +462,7 @@ namespace ProjetoFinalBD
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(21, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 35);
+            this.label2.Size = new System.Drawing.Size(210, 53);
             this.label2.TabIndex = 0;
             this.label2.Text = "Cadeiras";
             // 
@@ -370,6 +488,8 @@ namespace ProjetoFinalBD
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -397,7 +517,17 @@ namespace ProjetoFinalBD
         private System.Windows.Forms.Label lblTarefas;
         private System.Windows.Forms.Button btnTarefas;
         private System.Windows.Forms.ListBox listboxCadeiras;
-        private System.Windows.Forms.Button btnEditarCadeira;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboAno;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox filtroNome;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkRealizada;
+        private System.Windows.Forms.ComboBox comboSemestre;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboInstituicao;
+        private System.Windows.Forms.Button btnProcurar;
     }
 }
 
