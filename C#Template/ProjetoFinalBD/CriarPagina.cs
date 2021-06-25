@@ -17,8 +17,10 @@ namespace ProjetoFinalBD
 
         private SqlConnection cn;
         public static Boolean createPagina;
+        public static Boolean createPaginaCadeira;
         public static ClassePagina paginaAtual;
         public static Paginas inst;
+        public static InfoCadeira instCadeira;
         private Dictionary<String, ClasseCadeira> lstCadeiras = new Dictionary<String, ClasseCadeira>();
 
 
@@ -32,6 +34,11 @@ namespace ProjetoFinalBD
                 label2.Visible = false;
                 texto.Visible = false;
                 btnApagarPagina.Visible = false;
+
+                if (createPaginaCadeira)
+                {
+                    cadeira.Text = Cadeira.cadeiraAtual.Nome;
+                }
             } else
             {
               
@@ -140,9 +147,19 @@ namespace ProjetoFinalBD
             }
             finally
             {
-                cn.Close();
-                inst.ShowPaginas();
-                this.Hide();
+                if (createPaginaCadeira)
+                {
+                    instCadeira.showPaginas();
+                    cn.Close();
+                    this.Hide();
+                }
+                else
+                {
+
+                    cn.Close();
+                    inst.ShowPaginas();
+                    this.Hide();
+                }
             }
         }
 
@@ -184,10 +201,18 @@ namespace ProjetoFinalBD
                     }
                     finally
                     {
-                        cn.Close();
-                        inst.PopulateCadeiras();
-                        inst.ShowPaginas();
-                        this.Hide();
+                        if (createPaginaCadeira)
+                        {
+                            cn.Close();
+                            this.Hide();
+                            instCadeira.showPaginas();
+                        } else
+                        {
+                            cn.Close();
+                            inst.PopulateCadeiras();
+                            inst.ShowPaginas();
+                            this.Hide();
+                        }
                     }
                 }   
                 else {
@@ -217,10 +242,18 @@ namespace ProjetoFinalBD
                     }
                     finally
                     {
-                        inst.PopulateCadeiras();
-                        inst.ShowPaginas();
-                        cn.Close();
-                        this.Hide();
+                        if (createPaginaCadeira)
+                        {
+                            instCadeira.showPaginas();
+                            cn.Close();
+                            this.Hide();
+                        } else
+                        {
+                            inst.PopulateCadeiras();
+                            inst.ShowPaginas();
+                            cn.Close();
+                            this.Hide();
+                        }
                     }
 
                 }

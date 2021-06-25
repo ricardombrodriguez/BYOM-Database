@@ -16,6 +16,8 @@ namespace ProjetoFinalBD
 
         private SqlConnection cn;
         public static Boolean createTarefa;
+        public static Boolean createTarefaCadeira;
+        public static InfoCadeira instCadeira;
         public static CriarTarefa tarefaAtual;
         public static ClasseTarefa tarefa;
         private List<ClasseCadeira> lstCadeiras;
@@ -30,6 +32,10 @@ namespace ProjetoFinalBD
             if (createTarefa)
             {
                 btnApagar.Visible = false;
+                if (createTarefaCadeira)
+                {
+                    cadeira.Text = Cadeira.cadeiraAtual.Nome;
+                }
             }
             else
             {
@@ -206,10 +212,17 @@ namespace ProjetoFinalBD
             }
             finally
             {
-                cn.Close();
-                Tarefas tf = new Tarefas();
-                tf.Show();
-                this.Hide();
+                if (createTarefaCadeira)
+                {
+                    cn.Close();
+                    this.Hide();
+                    CriarProfessor.instCadeira.showTarefas();
+                }
+                else
+                {
+                    cn.Close();
+                    this.Hide();
+                }
             }
         }
 
@@ -289,10 +302,19 @@ namespace ProjetoFinalBD
                         }
                         finally
                         {
-                            cn.Close();
-                            Tarefas tf = new Tarefas();
-                            tf.Show();
-                            this.Hide();
+                            if (createTarefaCadeira)
+                            {
+                                cn.Close();
+                                instCadeira.showTarefas();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                cn.Close();
+                                Tarefas tf = new Tarefas();
+                                tf.Show();
+                                this.Hide();
+                            }
                         }
                     }
                     else

@@ -14,6 +14,8 @@ namespace ProjetoFinalBD
     public partial class CriarProfessor : Form
     {
         private SqlConnection cn;
+        public static Boolean createProfessorCadeira;
+        public static InfoCadeira instCadeira;
         public static Boolean createProfessor = true;
         public static CriarGrupo inst;
         public static ClasseProfessor professorAtual;
@@ -101,11 +103,45 @@ namespace ProjetoFinalBD
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("Não foi possível inserir a instituição na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                        throw new Exception("Não foi possível inserir o professor na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
                     }
                     finally
                     {
                         cn.Close();
+                    }
+
+                    if (createProfessorCadeira)
+                    {
+                        cn = getSGBDConnection();
+
+                        if (!verifySGBDConnection())
+                            return;
+
+                        SqlCommand comando = new SqlCommand();
+
+                        comando.CommandText = "INSERT INTO PROJETO.ProfessorCadeira(professor,cadeira) VALUES (@professor,@cadeira);";
+                        comando.Parameters.Clear();
+                        comando.Parameters.AddWithValue("@professor", email.Text);
+                        comando.Parameters.AddWithValue("@cadeira", Cadeira.cadeiraAtual.Id);
+                        comando.Connection = cn;
+
+
+                        try
+                        {
+                            comando.ExecuteNonQuery();
+                            MessageBox.Show("Professor(a) " + nome.Text + " adicionado à cadeira.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Hide();
+                        }
+
+                        catch (Exception ex)
+                        {
+                            throw new Exception("Não foi possível inserir o professor na cadeira na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                        }
+                        finally
+                        {
+                            instCadeira.showProfessores();
+                            cn.Close();
+                        }
                     }
 
 
@@ -147,8 +183,33 @@ namespace ProjetoFinalBD
             }
             finally
             {
+                
+                if (InfoCadeira.returnToCriarTarefa)
+                {
+                    SqlCommand comando = new SqlCommand();
+                    comando.CommandText = "DELETE FROM PROJETO.ProfessorCadeira WHERE professor = @professor AND cadeira = @cadeira";
+                    comando.Parameters.Clear();
+                    comando.Parameters.AddWithValue("@professor", email.Text);
+                    comando.Parameters.AddWithValue("@cadeira", Cadeira.cadeiraAtual.Id);
+                    comando.Connection = cn;
+
+                    try
+                    {
+                        comando.ExecuteNonQuery();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Não foi possível remover o professor da professorCadeira na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                    }
+
+                    instCadeira.showProfessores();
+                }
+                else
+                {
+                    inst.ShowProfessores();
+                }
                 cn.Close();
-                inst.ShowProfessores();
                 this.Hide();
             }
         }

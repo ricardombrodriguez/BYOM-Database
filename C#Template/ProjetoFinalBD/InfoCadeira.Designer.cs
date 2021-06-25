@@ -211,6 +211,7 @@ namespace ProjetoFinalBD
             this.btnAdicionarPagina.TabIndex = 23;
             this.btnAdicionarPagina.Text = "+ Adicionar página";
             this.btnAdicionarPagina.UseVisualStyleBackColor = true;
+            this.btnAdicionarPagina.Click += new System.EventHandler(this.btnAdicionarPagina_Click);
             // 
             // btnAdicionarTarefa
             // 
@@ -224,6 +225,7 @@ namespace ProjetoFinalBD
             this.btnAdicionarTarefa.TabIndex = 24;
             this.btnAdicionarTarefa.Text = "+ Adicionar tarefa";
             this.btnAdicionarTarefa.UseVisualStyleBackColor = true;
+            this.btnAdicionarTarefa.Click += new System.EventHandler(this.btnAdicionarTarefa_Click);
             // 
             // label1
             // 
@@ -249,6 +251,7 @@ namespace ProjetoFinalBD
             this.btnAdicionarProfessor.TabIndex = 26;
             this.btnAdicionarProfessor.Text = "- Adicionar professor";
             this.btnAdicionarProfessor.UseVisualStyleBackColor = true;
+            this.btnAdicionarProfessor.Click += new System.EventHandler(this.btnAdicionarProfessor_Click);
             // 
             // listaPaginas
             // 
@@ -258,6 +261,7 @@ namespace ProjetoFinalBD
             this.listaPaginas.Name = "listaPaginas";
             this.listaPaginas.Size = new System.Drawing.Size(580, 544);
             this.listaPaginas.TabIndex = 30;
+            this.listaPaginas.DoubleClick += new System.EventHandler(this.listaPaginas_DoubleClick);
             // 
             // listaTarefas
             // 
@@ -267,6 +271,7 @@ namespace ProjetoFinalBD
             this.listaTarefas.Name = "listaTarefas";
             this.listaTarefas.Size = new System.Drawing.Size(580, 544);
             this.listaTarefas.TabIndex = 31;
+            this.listaTarefas.DoubleClick += new System.EventHandler(this.listaTarefas_DoubleClick);
             // 
             // listaProfessores
             // 
@@ -276,6 +281,7 @@ namespace ProjetoFinalBD
             this.listaProfessores.Name = "listaProfessores";
             this.listaProfessores.Size = new System.Drawing.Size(580, 544);
             this.listaProfessores.TabIndex = 32;
+            this.listaProfessores.DoubleClick += new System.EventHandler(this.listaProfessores_DoubleClick);
             // 
             // label11
             // 

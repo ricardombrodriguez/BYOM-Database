@@ -15,7 +15,7 @@ namespace ProjetoFinalBD
     public partial class InfoCadeira: Form
     {
         private SqlConnection cn;
-        private List<ClasseInstituicao> lstInstituicoes;
+        private Dictionary<String,ClasseInstituicao> lstInstituicoes;
         private Dictionary<String, ClasseTarefa> lstTarefas;
         private Dictionary<String, ClassePagina> lstPaginas;
         private Dictionary<String, ClasseProfessor> lstProfessores;
@@ -26,7 +26,8 @@ namespace ProjetoFinalBD
         {
             InitializeComponent();
             PopulateCadeiras();
-            
+            CriarPagina.instCadeira = this;
+
 
             if (Cadeira.criarCadeira)
             {
@@ -46,7 +47,6 @@ namespace ProjetoFinalBD
                 showTarefas();
                 showPaginas();
                 showProfessores();
-
             }
         }
 
@@ -57,10 +57,16 @@ namespace ProjetoFinalBD
             ano.Text = Cadeira.cadeiraAtual.Ano.ToString();
             semestre.Text = Cadeira.cadeiraAtual.Semestre.ToString();
             nota.Text = Cadeira.cadeiraAtual.Nota_final.ToString();
-            instituicoes.SelectedIndex = Cadeira.cadeiraAtual.Instituicao;
+            foreach (KeyValuePair<string, ClasseInstituicao> entry in lstInstituicoes)
+            {
+                if (Cadeira.cadeiraAtual.Instituicao == entry.Value.Id)
+                {
+                    instituicoes.Text = entry.Value.Nome;
+                }
+            }
         }
 
-        private void showTarefas()
+        public void showTarefas()
         {
             cn = getSGBDConnection();
 
@@ -107,7 +113,7 @@ namespace ProjetoFinalBD
             }
         }
 
-        private void showPaginas()
+        public void showPaginas()
         {
             cn = getSGBDConnection();
 
@@ -150,7 +156,8 @@ namespace ProjetoFinalBD
                 cn.Close();
             }
         }
-        private void showProfessores()
+
+        public void showProfessores()
         {
             cn = getSGBDConnection();
 
@@ -250,7 +257,7 @@ namespace ProjetoFinalBD
             if (!verifySGBDConnection())
                 return;
 
-            lstInstituicoes = new List<ClasseInstituicao>();
+            lstInstituicoes = new Dictionary<string, ClasseInstituicao>();
 
             SqlCommand command = new SqlCommand();
             command.CommandText = "SELECT * FROM PROJETO.Instituicao WHERE aluno_criador = @aluno_criador AND disabled = 0;";
@@ -271,7 +278,7 @@ namespace ProjetoFinalBD
                                                        reader["aluno_criador"].ToString(),
                                                        Convert.ToBoolean(reader["disabled"]));
 
-                    lstInstituicoes.Add(inst);
+                    lstInstituicoes.Add(inst.Nome,inst);
                     instituicoes.Items.Add(inst.Nome);
                 }
 
@@ -331,7 +338,7 @@ namespace ProjetoFinalBD
                         Int32 Csemestre = (semestre.Text != String.Empty) ? Convert.ToInt32(semestre.Text) : 0;
                         Double Cnota_final = (nota.Text != String.Empty) ? Convert.ToDouble(nota.Text, CultureInfo.InvariantCulture) : 0.0;
                         String Caluno = Login.utilizador;
-                        Int32 Cinstituicao = lstInstituicoes[instituicoes.SelectedIndex].Id;
+                        Int32 Cinstituicao = lstInstituicoes[instituicoes.Text].Id;
 
 
                         SqlCommand command = new SqlCommand("PROJETO.createCadeira", cn);
@@ -396,7 +403,42 @@ namespace ProjetoFinalBD
             } else
             {
                 //alterar/ver cadeira (update)
-            }
+
+                SqlCommand command = new SqlCommand();
+
+                command.CommandText = "UPDATE PROJETO.Cadeira SET nome = @nome, link = @link, ano = @ano, semestre = @semestre, " +
+                    "nota_final = @nota_final, instituicao = @instituicao WHERE id = @id;";
+                command.Parameters.Clear();
+                command.Parameters.AddWithValue("@id", Cadeira.cadeiraAtual.Id);
+                command.Parameters.AddWithValue("@nome", nome.Text);
+                command.Parameters.AddWithValue("@link", link.Text);
+                command.Parameters.AddWithValue("@ano", ano.Text);
+                command.Parameters.AddWithValue("@semestre", semestre.Text);
+                command.Parameters.AddWithValue("@nota_final", nota.Text);
+                command.Parameters.AddWithValue("@instituicao", lstInstituicoes[instituicoes.Text].Id);
+                command.Connection = cn;
+
+
+                try
+                {
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Tarefa atualizada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Não foi possível inserir a instituição na base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    Tarefas tf = new Tarefas();
+                    tf.Show();
+                    this.Hide();
+                }
+            
+            cn.Close();
+
+        }
 
             cn.Close();
 
@@ -413,7 +455,7 @@ namespace ProjetoFinalBD
         {
             if (returnToCriarTarefa)
             {
-                CriarTarefa.tarefaAtual.Show();
+                if (CriarTarefa.tarefaAtual != null) CriarTarefa.tarefaAtual.Show();
                 this.Hide();
             }
             else
@@ -421,6 +463,74 @@ namespace ProjetoFinalBD
                 FormState.PreviousPage.Show();
                 this.Hide();
                 FormState.PreviousPage = this;
+            }
+        }
+
+        private void btnAdicionarPagina_Click(object sender, EventArgs e)
+        {
+            CriarPagina.createPagina = true;
+            CriarPagina.createPaginaCadeira = true;
+            CriarPagina.instCadeira = this;
+            CriarPagina inst = new CriarPagina();
+            inst.Show();
+        }
+
+        private void btnAdicionarTarefa_Click(object sender, EventArgs e)
+        {
+            CriarTarefa.createTarefa = true;
+            CriarTarefa.createTarefaCadeira = true;
+            CriarTarefa.instCadeira = this;
+            CriarTarefa inst = new CriarTarefa();
+            inst.Show();
+        }
+
+        private void btnAdicionarProfessor_Click(object sender, EventArgs e)
+        {
+            CriarProfessor.instCadeira = this;
+            CriarProfessor.createProfessor = true;
+            CriarProfessor.createProfessorCadeira = true;
+            CriarProfessor.instCadeira = this;
+            ModalProfessor inst = new ModalProfessor();
+            inst.Show();
+        }
+
+        private void listaPaginas_DoubleClick(object sender, EventArgs e)
+        {
+            if (listaPaginas.SelectedItem != null)
+            {
+                CriarPagina.createPaginaCadeira = true;
+                CriarProfessor.instCadeira = this;
+                returnToCriarTarefa = true;
+                CriarPagina.createPagina = false;
+                CriarPagina.paginaAtual = lstPaginas[listaPaginas.GetItemText(listaPaginas.SelectedItem)];
+                CriarPagina inst = new CriarPagina();
+                inst.Show();
+            }
+        }
+
+        private void listaTarefas_DoubleClick(object sender, EventArgs e)
+        {
+            if (listaTarefas.SelectedItem != null)
+            {
+                CriarTarefa.createTarefaCadeira = true;
+                CriarProfessor.instCadeira = this;
+                returnToCriarTarefa = true;
+                CriarTarefa.createTarefa = false;
+                CriarTarefa.tarefa = lstTarefas[listaTarefas.GetItemText(listaTarefas.SelectedItem)];
+                CriarTarefa inst = new CriarTarefa();
+                inst.Show();
+            }
+        }
+
+        private void listaProfessores_DoubleClick(object sender, EventArgs e)
+        {
+            if (listaProfessores.SelectedItem != null)
+            {
+                returnToCriarTarefa = true;
+                CriarProfessor.createProfessor = false;
+                CriarProfessor.professorAtual = lstProfessores[listaProfessores.GetItemText(listaProfessores.SelectedItem)];
+                CriarProfessor inst = new CriarProfessor();
+                inst.Show();
             }
         }
     }
