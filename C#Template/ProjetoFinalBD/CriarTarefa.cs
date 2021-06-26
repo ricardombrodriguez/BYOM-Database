@@ -315,7 +315,7 @@ namespace ProjetoFinalBD
                     DateTime var_dataFinal = dataFinal.Value.Date;
                     int var_tipoTarefa = lstTipoTarefa[tipoTarefa.SelectedIndex].Id;
                     String var_aluno = Login.utilizador;
-                    var var_cadeira = lstCadeiras[cadeira.SelectedIndex].Id;
+                    var var_cadeira = DBNull.Value;
 
                     if (DateTime.Compare(var_dataFinal, var_dataInicio) < 0)
                     {
@@ -327,7 +327,9 @@ namespace ProjetoFinalBD
 
                     if (createTarefa)
                     {
-                        //é para fazer insert                       
+                        //é para fazer insert
+                        //
+
 
                         command.CommandText = "INSERT INTO PROJETO.Tarefa(titulo,descricao,data_inicio,date_final,tipoTarefa,aluno,cadeira) VALUES (@titulo,@descricao,@data_inicio,@date_final,@tipoTarefa,@aluno,@cadeira);";
                         command.Parameters.Clear();
@@ -335,7 +337,14 @@ namespace ProjetoFinalBD
                         command.Parameters.AddWithValue("@data_inicio", var_dataInicio);
                         command.Parameters.AddWithValue("@date_final", var_dataFinal);
                         command.Parameters.AddWithValue("@tipoTarefa", var_tipoTarefa);
-                        command.Parameters.AddWithValue("@cadeira", var_cadeira);
+                        if (cadeira.SelectedIndex > -1)
+                        {
+                            command.Parameters.AddWithValue("@cadeira", lstCadeiras[cadeira.SelectedIndex].Id);
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@cadeira", DBNull.Value);
+                        }
                         command.Parameters.AddWithValue("@descricao", var_descricao);
                         command.Parameters.AddWithValue("@aluno", Login.utilizador);
                         command.Connection = cn;
