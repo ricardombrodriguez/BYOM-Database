@@ -34,6 +34,8 @@ namespace ProjetoFinalBD
             {
                 nome.Text = ficheiroAtual.Nome;
                 localizacao.Text = ficheiroAtual.Localizacao;
+                nome.Enabled = false;
+                localizacao.Enabled = false;
                 btnApagarFicheiro.Enabled = true;
                 btnGuardarFicheiro.Enabled = false;
             }

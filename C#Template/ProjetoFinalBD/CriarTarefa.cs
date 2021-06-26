@@ -315,7 +315,7 @@ namespace ProjetoFinalBD
                     DateTime var_dataFinal = dataFinal.Value.Date;
                     int var_tipoTarefa = lstTipoTarefa[tipoTarefa.SelectedIndex].Id;
                     String var_aluno = Login.utilizador;
-                    int var_cadeira = lstCadeiras[cadeira.SelectedIndex].Id;
+                    var var_cadeira = lstCadeiras[cadeira.SelectedIndex].Id;
 
                     if (DateTime.Compare(var_dataFinal, var_dataInicio) < 0)
                     {
@@ -468,7 +468,6 @@ namespace ProjetoFinalBD
             try
             {
                 command.ExecuteNonQuery();
-                MessageBox.Show(msg, "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception ex)

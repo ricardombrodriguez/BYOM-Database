@@ -38,6 +38,10 @@ namespace ProjetoFinalBD
                 label2.Visible = false;
                 texto.Visible = false;
                 btnApagarPagina.Visible = false;
+                label3.Visible = false;
+                btnAdicionarFicheiro.Visible = false;
+                listboxFicheiros.Visible = false;
+               
 
 
                 if (createPaginaCadeira)

@@ -181,6 +181,7 @@ namespace ProjetoFinalBD
                                         comando.ExecuteNonQuery();
                                         MessageBox.Show("Professor(a) " + email.Text + " foi adicionado(a) à cadeira do grupo.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         this.Hide();
+                                        
                                     }
                                     catch (Exception ex)
                                     {
@@ -192,6 +193,7 @@ namespace ProjetoFinalBD
                                     MessageBox.Show("O professor já pertence à cadeira", "Erro",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
+                                inst.ShowProfessores();
 
 
                             }

@@ -14,6 +14,7 @@ namespace ProjetoFinalBD
     public partial class Cadeira : Form
     {
         private SqlConnection cn;
+        public static Cadeira inst;
         public static Boolean criarCadeira;
         public static ClasseCadeira cadeiraAtual;
         private List<ClasseCadeira> lstCadeiras = new List<ClasseCadeira>();
@@ -22,6 +23,7 @@ namespace ProjetoFinalBD
 
         public Cadeira()
         {
+            inst = this;
             InitializeComponent();
             panelLeft.Height = btnCadeiras.Height;
             panelLeft.Top = btnCadeiras.Top;
@@ -268,7 +270,6 @@ namespace ProjetoFinalBD
 
         private void btnCriarCadeira_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Cadeira.criarCadeira = true;
             Cadeira.cadeiraAtual = null;
             InfoCadeira novaCadeira = new InfoCadeira();

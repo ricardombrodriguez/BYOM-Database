@@ -503,7 +503,33 @@ namespace ProjetoFinalBD
 
         private void btnApagarCadeira_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            cn = getSGBDConnection();
+
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand("PROJETO.deleteCadeira", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", Cadeira.cadeiraAtual.Id);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Cadeira apagada.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível apagar a instituição da base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+              
+                cn.Close();
+                this.Hide();
+                Cadeira.inst.showCadeiras();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

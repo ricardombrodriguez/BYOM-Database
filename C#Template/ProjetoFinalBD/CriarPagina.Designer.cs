@@ -163,17 +163,17 @@ namespace ProjetoFinalBD
             this.listboxFicheiros.ItemHeight = 20;
             this.listboxFicheiros.Location = new System.Drawing.Point(1504, 108);
             this.listboxFicheiros.Name = "listboxFicheiros";
-            this.listboxFicheiros.Size = new System.Drawing.Size(370, 764);
+            this.listboxFicheiros.Size = new System.Drawing.Size(370, 744);
             this.listboxFicheiros.TabIndex = 43;
             this.listboxFicheiros.DoubleClick += new System.EventHandler(this.listboxFicheiros_DoubleClick);
             // 
             // btnAdicionarFicheiro
             // 
             this.btnAdicionarFicheiro.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAdicionarFicheiro.Location = new System.Drawing.Point(1504, 883);
+            this.btnAdicionarFicheiro.Location = new System.Drawing.Point(1504, 857);
             this.btnAdicionarFicheiro.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnAdicionarFicheiro.Name = "btnAdicionarFicheiro";
-            this.btnAdicionarFicheiro.Size = new System.Drawing.Size(370, 29);
+            this.btnAdicionarFicheiro.Size = new System.Drawing.Size(370, 55);
             this.btnAdicionarFicheiro.TabIndex = 48;
             this.btnAdicionarFicheiro.Text = "+Adicionar ficheiro";
             this.btnAdicionarFicheiro.UseVisualStyleBackColor = true;

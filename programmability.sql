@@ -309,8 +309,9 @@ BEGIN
 					END
 
 				DELETE FROM PROJETO.Ficheiro WHERE codigo_criador = @code;
-				DELETE FROM PROJETO.Criador WHERE codigo = @code;
 				DELETE FROM PROJETO.Cadeira WHERE id = @id;
+				DELETE FROM PROJETO.Criador WHERE codigo = @code;
+				
 			END
 
 		COMMIT
