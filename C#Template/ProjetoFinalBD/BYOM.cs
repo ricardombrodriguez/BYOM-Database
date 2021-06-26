@@ -77,7 +77,14 @@ namespace ProjetoFinalBD
                         String var_date_final = reader["date_final"].ToString();
                         int var_tipoTarefa = Convert.ToInt32(reader["tipoTarefa"]);
                         String var_aluno = reader["aluno"].ToString();
-                        int var_cadeira = Convert.ToInt32(reader["cadeira"]);
+                        int var_cadeira;
+                        if (reader["cadeira"].GetType().ToString() == "System.DBNull")
+                        {
+                            var_cadeira = -1;
+                        }else
+                        {
+                            var_cadeira = Convert.ToInt32(reader["cadeira"]);
+                        }
                         String var_codigo_criador = reader["codigo_criador"].ToString();
 
 
@@ -284,10 +291,10 @@ namespace ProjetoFinalBD
         private void btnAddTarefa_Click(object sender, EventArgs e)
         {
             this.Hide();
-            CriarTarefa tarefa = new CriarTarefa();
-            tarefa.Show();
             CriarTarefa.createTarefa = true;
             FormState.PreviousPage = this;
+            CriarTarefa tarefa = new CriarTarefa();
+            tarefa.Show();
         }
 
         private void orderBy_SelectedIndexChanged(object sender, EventArgs e)
