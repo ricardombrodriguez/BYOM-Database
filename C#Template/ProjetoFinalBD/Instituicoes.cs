@@ -305,7 +305,6 @@ namespace ProjetoFinalBD
             cmd.Parameters.AddWithValue("@aluno_criador", Login.utilizador);
             cmd.Connection = cn;
 
-            MessageBox.Show(cmd.CommandText);
 
             try
             {
