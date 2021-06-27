@@ -17,6 +17,7 @@ namespace ProjetoFinalBD
 
         private SqlConnection cn;
         public static String utilizador;
+        public static bdConnection bdConnection = new bdConnection();
 
         public Login()
         {
@@ -25,7 +26,7 @@ namespace ProjetoFinalBD
 
         private SqlConnection getSGBDConnection()
         {
-            return new SqlConnection("Data Source=tcp:mednat.ieeta.pt\\SQLSERVER,8101;User ID=p9g5;Password=-737279605@BD");
+            return bdConnection.getSGBDConnection();
         }
 
         private bool verifySGBDConnection()
