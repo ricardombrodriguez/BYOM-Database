@@ -12,21 +12,18 @@ namespace ProjetoFinalBD
         private String nome;
         private int cadeira;
         private String codigo_criador;
-        private Boolean disabled;
 
-        public ClasseGrupo(int id, string nome, int cadeira, string codigo_criador, bool disabled)
+        public ClasseGrupo(int id, string nome, int cadeira, string codigo_criador)
         {
             this.id = id;
             this.nome = nome;
             this.cadeira = cadeira;
             this.codigo_criador = codigo_criador;
-            this.disabled = disabled;
         }
 
         public int Id { get => id; set => id = value; }
         public string Nome { get => nome; set => nome = value; }
         public int Cadeira { get => cadeira; set => cadeira = value; }
         public string Codigo_criador { get => codigo_criador; set => codigo_criador = value; }
-        public bool Disabled { get => disabled; set => disabled = value; }
     }
 }

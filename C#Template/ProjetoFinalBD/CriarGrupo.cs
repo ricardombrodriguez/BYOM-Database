@@ -175,7 +175,7 @@ namespace ProjetoFinalBD
 
                 while (reader.Read())
                 {
-                    String email = reader[6].ToString();
+                    String email = reader[5].ToString();
 
                     if (email != Login.utilizador)
                     {
@@ -219,8 +219,8 @@ namespace ProjetoFinalBD
 
                 while (reader.Read())
                 {
-                    ClasseProfessor prof = new ClasseProfessor(reader[7].ToString(),
-                                                       reader[8].ToString(),
+                    ClasseProfessor prof = new ClasseProfessor(reader[6].ToString(),
+                                                       reader[7].ToString(),
                                                        false);
 
                     if (lstProfessores.ContainsKey(prof.Nome + " | " + prof.Email) == false)
@@ -319,7 +319,7 @@ namespace ProjetoFinalBD
 
                 SqlCommand comando = new SqlCommand();
                 comando.CommandText = "SELECT COUNT(*) FROM PROJETO.Grupo JOIN PROJETO.GrupoAluno ON id = grupo " +
-                    "WHERE nome = @nome AND aluno = @aluno AND PROJETO.Grupo.disabled = 0";
+                    "WHERE nome = @nome AND aluno = @aluno";
                 comando.Parameters.Clear();
                 comando.Parameters.AddWithValue("@nome", grupo_nome.Text);
                 comando.Parameters.AddWithValue("@aluno", Login.utilizador);

@@ -283,11 +283,13 @@ namespace ProjetoFinalBD
                     else
                     {
 
+                      
                         SqlCommand cmd = new SqlCommand("PROJETO.createPagina", cn);
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.Clear();
                         cmd.Parameters.AddWithValue("@titulo", titulo.Text);
-                        cmd.Parameters.AddWithValue("@cadeira", lstCadeiras[cadeira.Text].Id);
+                        cmd.Parameters.AddWithValue("@cadeira",
+                            lstCadeiras.ContainsKey(cadeira.Text) == false ? (object)DBNull.Value : lstCadeiras[cadeira.Text].Id);
                         cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
 
                         try

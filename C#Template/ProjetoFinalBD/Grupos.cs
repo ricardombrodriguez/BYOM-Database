@@ -96,7 +96,7 @@ namespace ProjetoFinalBD
             //mostrar o nome dos grupos ao qual o aluno pertence
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "SELECT * FROM PROJETO.GrupoAluno JOIN PROJETO.Grupo " +
-                "ON grupo = id WHERE aluno = @aluno AND disabled = 0;";
+                "ON grupo = id WHERE aluno = @aluno";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@aluno", Login.utilizador);
             cmd.Connection = cn;
@@ -112,8 +112,7 @@ namespace ProjetoFinalBD
                     ClasseGrupo inst = new ClasseGrupo(Convert.ToInt32(reader["id"]),
                                                        reader["nome"].ToString(),
                                                        Convert.ToInt32(reader["cadeira"]),
-                                                       reader["codigo_criador"].ToString(),
-                                                       Convert.ToBoolean(reader["disabled"]));
+                                                       reader["codigo_criador"].ToString());
 
                     lstGrupos.Add(inst.Nome,inst);
                     listboxGrupos.Items.Add(inst.Nome);
@@ -399,8 +398,7 @@ namespace ProjetoFinalBD
                     ClasseGrupo inst = new ClasseGrupo(Convert.ToInt32(reader[2]),
                                                        reader[3].ToString(),
                                                        Convert.ToInt32(reader[4]),
-                                                       reader[5].ToString(),
-                                                       false);
+                                                       reader[5].ToString());
 
                     if (lstGrupos.ContainsKey(inst.Nome) == false)
                     {

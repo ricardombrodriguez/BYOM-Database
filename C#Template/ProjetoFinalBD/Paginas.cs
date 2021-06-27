@@ -114,6 +114,7 @@ namespace ProjetoFinalBD
                                                        reader["titulo"].ToString(),
                                                        reader["texto"].ToString(),
                                                        reader["aluno"].ToString(),
+                                                       reader["cadeira"] == DBNull.Value ? -1 :
                                                        Convert.ToInt32(reader["cadeira"]),
                                                        reader["codigo_criador"].ToString());
 
