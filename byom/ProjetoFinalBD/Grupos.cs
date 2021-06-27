@@ -334,7 +334,7 @@ namespace ProjetoFinalBD
 
                     while (reader.Read())
                     {
-                        nome = reader[6].ToString();
+                        nome = reader[5].ToString();
                     }
 
                 }
@@ -384,8 +384,6 @@ namespace ProjetoFinalBD
 
             cmd.CommandText += strSql;
             cmd.Connection = cn;
-
-            MessageBox.Show(cmd.CommandText);
 
             try
             {
